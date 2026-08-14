@@ -4,12 +4,13 @@ import Link from "next/link";
 import { servicePageStyles } from "@/lib/servicePageStyles";
 import ServiceContactForm from "@/components/ServiceContactForm";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://oneninelabs.com";
 
 export const metadata = {
   title: "Growth Marketing Services — SEO, PPC & CRO | OneNineLabs",
   description: "Technical SEO, Core Web Vitals, PPC and CRO that compounds — +340% organic, 4.8x ROAS. We scale B2B SaaS & Web3 funnels from click to revenue.",
   keywords: ["SEO services", "technical SEO", "PPC management", "Google Ads agency", "LinkedIn Ads", "growth marketing agency", "CRO conversion rate optimization", "programmatic SEO", "B2B SaaS marketing"],
-  alternates: { canonical: "/services/marketing", languages: { "en-US": "/services/marketing", en: "/services/marketing", "x-default": "/services/marketing" } },
+  alternates: { canonical: "/services/marketing", languages: { "en-US": "/services/marketing", en: "/services/marketing", "hi-IN": "/services/marketing", "x-default": "/services/marketing" } },
   openGraph: { title: "Growth Marketing, SEO & PPC — 4.8x ROAS | OneNineLabs", description: "Technical SEO + PPC + CRO + full-funnel analytics — engineered for compounding growth.", url: "https://oneninelabs.com/services/marketing", type: "website", images: [{ url: "/services/services_hero_marketing.png", width: 1200, height: 630, alt: "Growth Marketing — SEO & PPC by OneNineLabs" }] },
   twitter: { card: "summary_large_image", title: "Growth Marketing, SEO & PPC — 4.8x ROAS | OneNineLabs", description: "Technical SEO + PPC + CRO that compounds.", images: ["/services/services_hero_marketing.png"] },
   robots: { index: true, follow: true },
@@ -149,9 +150,43 @@ const faqs = [
 ];
 
 export default function MarketingServicePage() {
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+      { "@type": "ListItem", position: 2, name: "Services", item: `${siteUrl}/services` },
+      { "@type": "ListItem", position: 3, name: "Growth Marketing, SEO & PPC", item: `${siteUrl}/services/marketing` },
+    ],
+  };
+  const serviceLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${siteUrl}/services/marketing#service`,
+    name: "Growth Marketing, SEO & PPC",
+    serviceType: "Growth Marketing and SEO",
+    url: `${siteUrl}/services/marketing`,
+    description: "Technical SEO, Core Web Vitals, PPC and CRO that compounds — +340% organic, 4.8x ROAS. We scale B2B SaaS & Web3 funnels from click to revenue.",
+    provider: { "@type": "Organization", name: "OneNineLabs", url: siteUrl },
+    areaServed: { "@type": "Country", name: "Worldwide" },
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD", availability: "https://schema.org/InStock" },
+  };
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <>
       <Header variant="light" />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <style>{servicePageStyles(PRIMARY, GRAD_FROM, GRAD_TO, GLOW)}</style>
 
       <div className="vd-wrap">

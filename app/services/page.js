@@ -23,6 +23,7 @@ export const metadata = {
     languages: {
       "en-US": "/services",
       "en": "/services",
+      "hi-IN": "/services",
       "x-default": "/services",
     },
   },
@@ -334,10 +335,38 @@ export default function ServicesPage() {
       { "@type": "ListItem", position: 2, name: "Services", item: `${siteUrl}/services` },
     ],
   };
+  const servicesItemListLd = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "OneNineLabs Services",
+    description: "Core software engineering services offered by OneNineLabs — web, mobile, AI, SaaS, blockchain, marketing and DevOps.",
+    itemListElement: servicesList.map((s, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      item: {
+        "@type": "Service",
+        name: s.title,
+        category: s.category,
+        url: `${siteUrl}${s.href}`,
+        provider: { "@type": "Organization", name: "OneNineLabs", url: siteUrl },
+      },
+    })),
+  };
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(servicesItemListLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <ServicePageShell cfg={cfg} />
     </>
   );

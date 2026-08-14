@@ -3,11 +3,13 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { servicePageStyles } from "@/lib/servicePageStyles";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://oneninelabs.com";
+
 export const metadata = {
   title: "Cybersecurity & SOC 2 Compliance — Threat Defense & Penetration Testing | OneNineLabs",
   description: "Enterprise cybersecurity audits, penetration testing, SOC 2 Type II readiness, zero-trust cloud architecture, and real-time vulnerability scanning.",
   keywords: ["cybersecurity audit company", "penetration testing services", "SOC 2 Type II compliance", "zero trust architecture", "vulnerability scanner", "cloud security audit"],
-  alternates: { canonical: "/services/security", languages: { "en-US": "/services/security", en: "/services/security", "x-default": "/services/security" } },
+  alternates: { canonical: "/services/security", languages: { "en-US": "/services/security", en: "/services/security", "hi-IN": "/services/security", "x-default": "/services/security" } },
   openGraph: { title: "Cybersecurity & SOC 2 Readiness | OneNineLabs", description: "Zero-trust cloud architecture, penetration testing & real-time threat defense.", url: "https://oneninelabs.com/services/security", type: "website" },
   robots: { index: true, follow: true },
 };
@@ -44,10 +46,53 @@ const securityCapabilities = [
   }
 ];
 
+const faqs = [
+  { q: "What does a penetration test cover?", a: "We run black-box and white-box tests covering the OWASP Top 10, API security flaws, and business-logic exploits, with a full remediation report and retest." },
+  { q: "How do you prepare us for SOC 2?", a: "We build your audit-readiness roadmap, draft security policies, automate evidence collection, and sync with Vanta or Drata so your audit is faster and smoother." },
+  { q: "What is zero-trust architecture?", a: "A security model where no user or device is trusted by default — access is continuously verified with identity-first controls (ZTNA), least-privilege IAM and encrypted storage." },
+  { q: "Do you offer 24/7 monitoring?", a: "Yes — our SIEM and vulnerability scanning run around the clock with automated intrusion detection, dependency patching and DDoS protection." },
+  { q: "Do you work with any cloud provider?", a: "We secure AWS, GCP, Azure and Cloudflare environments, plus on-prem Kubernetes clusters, tailoring controls to your stack." },
+  { q: "How do you prove compliance?", a: "We generate audit-ready logs, access reviews and evidence artifacts so your auditors can verify controls without chasing your engineers." },
+];
+
 export default function SecurityServicePage() {
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+      { "@type": "ListItem", position: 2, name: "Services", item: `${siteUrl}/services` },
+      { "@type": "ListItem", position: 3, name: "Cybersecurity & DevOps", item: `${siteUrl}/services/security` },
+    ],
+  };
+  const serviceLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${siteUrl}/services/security#service`,
+    name: "Cybersecurity & DevOps Infrastructure",
+    serviceType: "Cybersecurity and DevOps",
+    url: `${siteUrl}/services/security`,
+    description: "Enterprise cybersecurity audits, penetration testing, SOC 2 Type II readiness, zero-trust cloud architecture, and real-time vulnerability scanning.",
+    provider: { "@type": "Organization", name: "OneNineLabs", url: siteUrl },
+    areaServed: { "@type": "Country", name: "Worldwide" },
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD", availability: "https://schema.org/InStock" },
+  };
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <>
       <Header variant="light" />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <style>{servicePageStyles(PRIMARY, GRAD_FROM, GRAD_TO, GLOW)}</style>
 
       <div className="vd-wrap">
@@ -232,6 +277,23 @@ export default function SecurityServicePage() {
                   <h3 style={{ fontSize: "18px", fontWeight: "800", color: "#0f172a", marginBottom: "10px" }}>{c.title}</h3>
                   <p style={{ fontSize: "14px", color: "#64748b", lineHeight: "1.6" }}>{c.desc}</p>
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 2.5. SECURITY FAQS ─── */}
+        <section style={{ background: "#ffffff", padding: "80px 24px", borderTop: "1px solid #e2e8f0" }}>
+          <div style={{ maxWidth: "860px", margin: "0 auto" }}>
+            <h2 style={{ fontSize: "32px", fontWeight: "800", color: "#0f172a", textAlign: "center", marginBottom: "40px" }}>
+              Cybersecurity & DevOps FAQs
+            </h2>
+            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+              {faqs.map((f, i) => (
+                <details key={i} style={{ background: "#ffffff", border: "1.5px solid #e2e8f0", borderRadius: "16px", padding: "18px 24px", cursor: "pointer" }}>
+                  <summary style={{ fontWeight: "700", color: "#0f172a", fontSize: "16px" }}>{f.q}</summary>
+                  <p style={{ color: "#64748b", marginTop: "12px", lineHeight: "1.65", fontSize: "14.5px" }}>{f.a}</p>
+                </details>
               ))}
             </div>
           </div>

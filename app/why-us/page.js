@@ -14,6 +14,7 @@ export const metadata = {
     languages: {
       "en-US": "/why-us",
       en: "/why-us",
+      "hi-IN": "/why-us",
       "x-default": "/why-us",
     },
   },

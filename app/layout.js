@@ -60,6 +60,7 @@ export const metadata = {
       "en-US": "/",
       "en-GB": "/",
       "en": "/",
+      "hi-IN": "/",
       "x-default": "/",
     },
   },
@@ -216,12 +217,6 @@ function JsonLd() {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${plusJakartaSans.variable} ${inter.variable}`}>
-      <head>
-        <link rel="canonical" href={siteUrl} />
-        <link rel="alternate" hrefLang="en" href={siteUrl} />
-        <link rel="alternate" hrefLang="en-US" href={siteUrl} />
-        <link rel="alternate" hrefLang="x-default" href={siteUrl} />
-      </head>
       <body>
         <JsonLd />
         {children}

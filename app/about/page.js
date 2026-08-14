@@ -20,6 +20,7 @@ export const metadata = {
     languages: {
       "en-US": "/about",
       en: "/about",
+      "hi-IN": "/about",
       "x-default": "/about",
     },
   },

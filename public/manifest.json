@@ -1,0 +1,25 @@
+{
+  "name": "OneNineLabs — Custom Software, AI & Web3 Company",
+  "short_name": "OneNineLabs",
+  "description": "OneNineLabs builds web, mobile, SaaS, AI and Web3 — Next.js, RAG, Stripe & SOC 2, 80+ shipped worldwide.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0b0c10",
+  "theme_color": "#0b0c10",
+  "lang": "en",
+  "categories": ["business", "productivity", "technology"],
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "any",
+      "type": "image/x-icon",
+      "purpose": "any"
+    },
+    {
+      "src": "/tech_banner.png",
+      "sizes": "1200x630",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

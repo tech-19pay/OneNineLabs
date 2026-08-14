@@ -3,11 +3,13 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { servicePageStyles } from "@/lib/servicePageStyles";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://oneninelabs.com";
+
 export const metadata = {
   title: "Blockchain & Web3 Development — Smart Contracts & dApps | OneNineLabs",
   description: "Solidity smart contract development, EVM & Solana dApp engineering, gas optimization, ERC-20/721 tokens, and zero-knowledge proof cryptography.",
   keywords: ["blockchain development company", "Solidity smart contract developer", "Web3 dApp agency", "Solana developer", "gas optimization", "zero knowledge proofs"],
-  alternates: { canonical: "/services/blockchain", languages: { "en-US": "/services/blockchain", en: "/services/blockchain", "x-default": "/services/blockchain" } },
+  alternates: { canonical: "/services/blockchain", languages: { "en-US": "/services/blockchain", en: "/services/blockchain", "hi-IN": "/services/blockchain", "x-default": "/services/blockchain" } },
   openGraph: { title: "Blockchain & Web3 Development | OneNineLabs", description: "Audit-ready smart contracts, decentralized dApps & tokenomics engineering.", url: "https://oneninelabs.com/services/blockchain", type: "website" },
   robots: { index: true, follow: true },
 };
@@ -44,10 +46,53 @@ const web3Capabilities = [
   }
 ];
 
+const faqs = [
+  { q: "Which blockchain networks do you support?", a: "We build on Ethereum (EVM) and Solana, with Layer-2 scaling on Arbitrum, Optimism, Base and Polygon to cut gas fees by over 90%." },
+  { q: "Are your smart contracts audited?", a: "Yes — every contract ships with a Foundry fuzz-testing suite and Slither static analysis, and we support integration with external auditing firms for production security reviews." },
+  { q: "What token standards do you build?", a: "We engineer ERC-20, ERC-721, ERC-1155 and custom tokenomics, including automated yield-staking pools and vesting schedules." },
+  { q: "Can you integrate crypto wallets and payments?", a: "We integrate MetaMask, Coinbase Wallet and Phantom via ethers.js and wagmi, plus on-ramp and crypto payment flows into your dApp." },
+  { q: "Do you handle tokenomics design?", a: "Yes — we model supply, emissions, staking yields and unlock schedules to align incentives and avoid common token launch failures." },
+  { q: "What is account abstraction?", a: "ERC-4337 account abstraction enables gasless transactions and social-login wallets, removing the biggest onboarding friction for Web3 users." },
+];
+
 export default function BlockchainServicePage() {
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+      { "@type": "ListItem", position: 2, name: "Services", item: `${siteUrl}/services` },
+      { "@type": "ListItem", position: 3, name: "Blockchain & Web3 Development", item: `${siteUrl}/services/blockchain` },
+    ],
+  };
+  const serviceLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${siteUrl}/services/blockchain#service`,
+    name: "Blockchain & Web3 Development",
+    serviceType: "Blockchain and Web3 Development",
+    url: `${siteUrl}/services/blockchain`,
+    description: "Solidity smart contract development, EVM & Solana dApp engineering, gas optimization, ERC-20/721 tokens, and zero-knowledge proof cryptography.",
+    provider: { "@type": "Organization", name: "OneNineLabs", url: siteUrl },
+    areaServed: { "@type": "Country", name: "Worldwide" },
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD", availability: "https://schema.org/InStock" },
+  };
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <>
       <Header variant="light" />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <style>{servicePageStyles(PRIMARY, GRAD_FROM, GRAD_TO, GLOW)}</style>
 
       <div className="vd-wrap">
@@ -232,6 +277,23 @@ export default function BlockchainServicePage() {
                   <h3 style={{ fontSize: "18px", fontWeight: "800", color: "#0f172a", marginBottom: "10px" }}>{c.title}</h3>
                   <p style={{ fontSize: "14px", color: "#64748b", lineHeight: "1.6" }}>{c.desc}</p>
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 2.5. BLOCKCHAIN FAQS ─── */}
+        <section style={{ background: "#ffffff", padding: "80px 24px", borderTop: "1px solid #e2e8f0" }}>
+          <div style={{ maxWidth: "860px", margin: "0 auto" }}>
+            <h2 style={{ fontSize: "32px", fontWeight: "800", color: "#0f172a", textAlign: "center", marginBottom: "40px" }}>
+              Blockchain & Web3 Development FAQs
+            </h2>
+            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+              {faqs.map((f, i) => (
+                <details key={i} style={{ background: "#ffffff", border: "1.5px solid #e2e8f0", borderRadius: "16px", padding: "18px 24px", cursor: "pointer" }}>
+                  <summary style={{ fontWeight: "700", color: "#0f172a", fontSize: "16px" }}>{f.q}</summary>
+                  <p style={{ color: "#64748b", marginTop: "12px", lineHeight: "1.65", fontSize: "14.5px" }}>{f.a}</p>
+                </details>
               ))}
             </div>
           </div>

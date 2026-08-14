@@ -3,11 +3,13 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { servicePageStyles } from "@/lib/servicePageStyles";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://oneninelabs.com";
+
 export const metadata = {
   title: "Mobile App Development — iOS Swift & React Native | OneNineLabs",
   description: "Native iOS (Swift / SwiftUI), Android (Kotlin), and React Native cross-platform mobile app engineering with sub-second API sync and App Store launch support.",
   keywords: ["mobile app development company", "iOS Swift developer", "React Native agency", "Android Kotlin development", "App Store optimization", "mobile app UI design"],
-  alternates: { canonical: "/services/mobile-apps", languages: { "en-US": "/services/mobile-apps", en: "/services/mobile-apps", "x-default": "/services/mobile-apps" } },
+  alternates: { canonical: "/services/mobile-apps", languages: { "en-US": "/services/mobile-apps", en: "/services/mobile-apps", "hi-IN": "/services/mobile-apps", "x-default": "/services/mobile-apps" } },
   openGraph: { title: "Mobile App Development — iOS & React Native | OneNineLabs", description: "Native & cross-platform mobile apps engineered for speed, offline sync & 5-star App Store ratings.", url: "https://oneninelabs.com/services/mobile-apps", type: "website" },
   robots: { index: true, follow: true },
 };
@@ -44,10 +46,53 @@ const mobileCapabilities = [
   }
 ];
 
+const faqs = [
+  { q: "Native, hybrid or cross-platform — which is best for me?", a: "For a single iOS+Android product we typically recommend React Native or Flutter (95% code reuse, 60FPS). For graphics-heavy or OS-deep apps we build native Swift or Kotlin." },
+  { q: "Can my app work offline?", a: "Yes — we use SQLite/WatermelonDB with background queue sync, so users keep working offline and changes sync automatically when connectivity returns." },
+  { q: "Will you help with App Store and Play Store launch?", a: "Yes — we handle store submission, App Store Optimization (ASO), privacy labels, and compliance so your app gets approved and ranks." },
+  { q: "How do you push updates without store reviews?", a: "We configure Expo EAS / CodePush over-the-air updates so you can ship bug fixes instantly, reserving store releases for major versions." },
+  { q: "Do you support biometric login?", a: "Yes — FaceID, TouchID and Android BiometricPrompt are implemented securely with the platform keystore." },
+  { q: "Can you connect my app to our backend?", a: "Yes — we build REST/GraphQL backends and realtime WebSockets on Node.js/Python, integrated with your existing systems and APIs." },
+];
+
 export default function MobileAppsServicePage() {
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+      { "@type": "ListItem", position: 2, name: "Services", item: `${siteUrl}/services` },
+      { "@type": "ListItem", position: 3, name: "Mobile App Development", item: `${siteUrl}/services/mobile-apps` },
+    ],
+  };
+  const serviceLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${siteUrl}/services/mobile-apps#service`,
+    name: "Mobile App Development",
+    serviceType: "Mobile App Development",
+    url: `${siteUrl}/services/mobile-apps`,
+    description: "Native iOS (Swift / SwiftUI), Android (Kotlin), and React Native cross-platform mobile app engineering with sub-second API sync and App Store launch support.",
+    provider: { "@type": "Organization", name: "OneNineLabs", url: siteUrl },
+    areaServed: { "@type": "Country", name: "Worldwide" },
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD", availability: "https://schema.org/InStock" },
+  };
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <>
       <Header variant="light" />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <style>{servicePageStyles(PRIMARY, GRAD_FROM, GRAD_TO, GLOW)}</style>
 
       <div className="vd-wrap">
@@ -245,6 +290,23 @@ export default function MobileAppsServicePage() {
                   <h3 style={{ fontSize: "18px", fontWeight: "800", color: "#0f172a", marginBottom: "10px" }}>{c.title}</h3>
                   <p style={{ fontSize: "14px", color: "#64748b", lineHeight: "1.6" }}>{c.desc}</p>
                 </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── 2.5. MOBILE APP FAQS ─── */}
+        <section style={{ background: "#ffffff", padding: "80px 24px", borderTop: "1px solid #e2e8f0" }}>
+          <div style={{ maxWidth: "860px", margin: "0 auto" }}>
+            <h2 style={{ fontSize: "32px", fontWeight: "800", color: "#0f172a", textAlign: "center", marginBottom: "40px" }}>
+              Mobile App Development FAQs
+            </h2>
+            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+              {faqs.map((f, i) => (
+                <details key={i} style={{ background: "#ffffff", border: "1.5px solid #e2e8f0", borderRadius: "16px", padding: "18px 24px", cursor: "pointer" }}>
+                  <summary style={{ fontWeight: "700", color: "#0f172a", fontSize: "16px" }}>{f.q}</summary>
+                  <p style={{ color: "#64748b", marginTop: "12px", lineHeight: "1.65", fontSize: "14.5px" }}>{f.a}</p>
+                </details>
               ))}
             </div>
           </div>

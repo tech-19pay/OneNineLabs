@@ -4,11 +4,13 @@ import Footer from "@/components/Footer";
 import { servicePageStyles } from "@/lib/servicePageStyles";
 import ServiceContactForm from "@/components/ServiceContactForm";
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://oneninelabs.com";
+
 export const metadata = {
   title: "Custom Web Development — Next.js 15 & React 19 | OneNineLabs",
   description: "Enterprise web applications built on Next.js 15, React 19, Node.js & Python. Blazing-fast edge delivery, headless CMS, and sub-second LCP page loads.",
   keywords: ["web development company", "custom web applications", "Next.js developer", "React development agency", "Node.js APIs", "headless CMS integration", "Lighthouse speed optimization"],
-  alternates: { canonical: "/services/web-development", languages: { "en-US": "/services/web-development", en: "/services/web-development", "x-default": "/services/web-development" } },
+  alternates: { canonical: "/services/web-development", languages: { "en-US": "/services/web-development", en: "/services/web-development", "hi-IN": "/services/web-development", "x-default": "/services/web-development" } },
   openGraph: { title: "Custom Web Development & Next.js Apps | OneNineLabs", description: "Blazing-fast custom web applications engineered for speed, security & scale.", url: "https://oneninelabs.com/services/web-development", type: "website", images: [{ url: "/services/web_dev_preview.png", width: 1200, height: 630, alt: "Custom Web Development by OneNineLabs" }] },
   twitter: { card: "summary_large_image", title: "Custom Web Development & Next.js Apps | OneNineLabs", description: "Blazing-fast custom web applications engineered for speed, security & scale.", images: ["/services/web_dev_preview.png"] },
   robots: { index: true, follow: true },
@@ -56,9 +58,43 @@ const faqs = [
 ];
 
 export default function WebDevelopmentServicePage() {
+  const breadcrumbLd = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
+      { "@type": "ListItem", position: 2, name: "Services", item: `${siteUrl}/services` },
+      { "@type": "ListItem", position: 3, name: "Custom Web Development", item: `${siteUrl}/services/web-development` },
+    ],
+  };
+  const serviceLd = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${siteUrl}/services/web-development#service`,
+    name: "Custom Web Development",
+    serviceType: "Web Development and Applications",
+    url: `${siteUrl}/services/web-development`,
+    description: "Enterprise web applications built on Next.js 15, React 19, Node.js & Python. Blazing-fast edge delivery, headless CMS, and sub-second LCP page loads.",
+    provider: { "@type": "Organization", name: "OneNineLabs", url: siteUrl },
+    areaServed: { "@type": "Country", name: "Worldwide" },
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD", availability: "https://schema.org/InStock" },
+  };
+  const faqLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <>
       <Header variant="light" />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <style>{servicePageStyles(PRIMARY, GRAD_FROM, GRAD_TO, GLOW)}</style>
 
       <div className="vd-wrap">

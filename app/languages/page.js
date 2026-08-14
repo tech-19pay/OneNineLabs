@@ -29,6 +29,7 @@ export const metadata = {
     languages: {
       "en-US": "/languages",
       en: "/languages",
+      "hi-IN": "/languages",
       "x-default": "/languages",
     },
   },

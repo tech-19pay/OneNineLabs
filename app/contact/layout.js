@@ -14,6 +14,7 @@ export const metadata = {
     languages: {
       "en-US": "/contact",
       en: "/contact",
+      "hi-IN": "/contact",
       "x-default": "/contact",
     },
   },
