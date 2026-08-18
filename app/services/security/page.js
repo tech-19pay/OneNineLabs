@@ -159,7 +159,7 @@ export default function SecurityServicePage() {
 
               <div style={{ marginBottom: "28px" }}>
                 <Link
-                  href="/#contact"
+                  href="/contact"
                   style={{
                     background: "#0f172a",
                     color: "#ffffff",
@@ -308,7 +308,7 @@ export default function SecurityServicePage() {
             <p style={{ color: "#64748b", fontSize: "16px", marginBottom: "32px" }}>
               Get a free penetration testing proposal &amp; SOC 2 compliance readiness assessment in 48 hours.
             </p>
-            <Link href="/#contact" style={{ background: "#0f172a", color: "#ffffff", padding: "15px 32px", borderRadius: "99px", fontWeight: "700", textDecoration: "none", display: "inline-block" }}>
+            <Link href="/contact" style={{ background: "#0f172a", color: "#ffffff", padding: "15px 32px", borderRadius: "99px", fontWeight: "700", textDecoration: "none", display: "inline-block" }}>
               Book Free Security Audit →
             </Link>
           </div>

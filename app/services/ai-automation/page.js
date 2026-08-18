@@ -97,199 +97,138 @@ export default function AiAutomationServicePage() {
 
       <div className="vd-wrap">
 
-        {/* ─── 1. HERO: NEURAL AGENT NETWORK CANVAS ─── */}
-        <section className="vd-hero-section" style={{
-          background: "linear-gradient(135deg, #f5f3ff 0%, #ffffff 50%, #faf5ff 100%)",
-          padding: "135px 24px 90px 24px",
-          borderBottom: "1px solid #e2e8f0",
+
+        {/* --- GRAY SWAN STYLE HERO --- */}
+        <section className="gs-hero-section" style={{
+          background: "linear-gradient(180deg, #18181b 0%, #09090b 100%)",
+          padding: "120px 24px 80px 24px",
+          borderBottom: "1px solid #27272a",
           fontFamily: "'Inter', sans-serif",
           position: "relative",
           overflow: "hidden"
         }}>
           <div style={{
-            maxWidth: "1280px",
+            maxWidth: "1100px",
             margin: "0 auto",
             display: "grid",
-            gridTemplateColumns: "1fr 640px",
+            gridTemplateColumns: "1fr auto",
             gap: "40px",
-            alignItems: "flex-start"
+            alignItems: "center"
           }}>
-            {/* Left Content Column */}
-            <div className="vd-hero-left" style={{ textAlign: "left", zIndex: 2, marginTop: "10px" }}>
-              <div style={{
-                fontSize: "13.5px",
-                fontWeight: "800",
-                color: "#7c3aed",
-                marginBottom: "16px",
-                letterSpacing: "0.4px",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                background: "#f3e8ff",
-                padding: "6px 14px",
-                borderRadius: "99px",
-                border: "1px solid #e9d5ff"
-              }}>
-                <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#7c3aed" }} /> Enterprise AI Agents &amp; RAG Systems
-              </div>
+            <div style={{ maxWidth: "540px", zIndex: 2 }}>
+
 
               <h1 style={{
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontSize: "clamp(34px, 4.2vw, 54px)",
-                fontWeight: "800",
-                color: "#0f172a",
-                lineHeight: "1.12",
+                fontSize: "clamp(36px, 4.5vw, 56px)",
+                fontWeight: "700",
+                color: "#ffffff",
+                lineHeight: "1.1",
                 letterSpacing: "-1.5px",
-                marginBottom: "20px",
-                maxWidth: "540px"
+                margin: 0
               }}>
-                Autonomous AI Workflows &amp; <span style={{ color: "#7c3aed" }}>LLM Pipelines</span>
+                Autonomous AI Workflows &amp; LLM Pipelines
               </h1>
-
-              <p style={{
-                fontSize: "15.5px",
-                color: "#64748b",
-                lineHeight: "1.65",
-                marginBottom: "32px",
-                maxWidth: "490px",
-                fontWeight: "400"
-              }}>
-                We build intelligent AI agents, RAG vector search pipelines, and automated LLM workflows with OpenAI, Claude, and open-source models — lowering operational costs by 60%.
-              </p>
-
-              <div style={{ marginBottom: "28px" }}>
-                <Link
-                  href="/#contact"
-                  style={{
-                    background: "#7c3aed",
-                    color: "#ffffff",
-                    fontWeight: "700",
-                    borderRadius: "99px",
-                    padding: "15px 32px",
-                    fontSize: "15px",
-                    textDecoration: "none",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "12px",
-                    boxShadow: "0 10px 25px rgba(124, 58, 237, 0.3)",
-                    transition: "transform 0.2s ease"
-                  }}
-                >
-                  Build Custom AI Agent
-                  <span style={{
-                    width: "28px",
-                    height: "28px",
-                    borderRadius: "50%",
-                    border: "1.5px solid rgba(255, 255, 255, 0.6)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "14px"
-                  }}>
-                    →
-                  </span>
-                </Link>
-              </div>
-
-              {/* AI Key Stats */}
-              <div style={{
-                display: "flex",
-                gap: "28px",
-                marginTop: "32px",
-                paddingTop: "24px",
-                borderTop: "1px solid #e2e8f0"
-              }}>
-                <div>
-                  <div style={{ fontSize: "24px", fontWeight: "900", color: "#0f172a", lineHeight: "1.1" }}>99.4%</div>
-                  <div style={{ fontSize: "12px", fontWeight: "600", color: "#64748b", marginTop: "2px" }}>RAG Accuracy</div>
-                </div>
-                <div style={{ width: "1px", background: "#e2e8f0" }} />
-                <div>
-                  <div style={{ fontSize: "24px", fontWeight: "900", color: "#7c3aed", lineHeight: "1.1" }}>-60%</div>
-                  <div style={{ fontSize: "12px", fontWeight: "600", color: "#64748b", marginTop: "2px" }}>LLM API Costs</div>
-                </div>
-                <div style={{ width: "1px", background: "#e2e8f0" }} />
-                <div>
-                  <div style={{ fontSize: "24px", fontWeight: "900", color: "#10b981", lineHeight: "1.1" }}>120ms</div>
-                  <div style={{ fontSize: "12px", fontWeight: "600", color: "#64748b", marginTop: "2px" }}>Embedding Speed</div>
-                </div>
-              </div>
             </div>
 
-            {/* Right Neural Network Node HUD */}
-            <div className="vd-hero-right" style={{ position: "relative", minHeight: "450px" }}>
-              <div style={{
-                background: "#0f172a",
-                borderRadius: "24px",
-                padding: "24px",
-                color: "#fff",
-                boxShadow: "0 25px 60px rgba(124, 58, 237, 0.15)",
-                border: "1.5px solid #1e293b",
-                textAlign: "left"
-              }}>
-                <div style={{ fontSize: "12px", fontWeight: "700", color: "#a78bfa", marginBottom: "16px", display: "flex", justifyContent: "space-between" }}>
-                  <span>AI AGENT ROUTER v2.4</span>
-                  <span>STATUS: ACTIVE ⚡</span>
-                </div>
-
-                <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-                  <div style={{ background: "#1e293b", padding: "12px 16px", borderRadius: "12px", border: "1px solid #334155" }}>
-                    <div style={{ fontSize: "11px", color: "#94a3b8" }}>Input Prompt</div>
-                    <div style={{ fontSize: "13px", fontWeight: "600", color: "#f8fafc", marginTop: "2px" }}>"Query vector database for B2B contract terms..."</div>
-                  </div>
-
-                  <div style={{ display: "flex", justifyContent: "center" }}>
-                    <span style={{ fontSize: "14px", color: "#a78bfa" }}>↓ Vector Embedding Route</span>
-                  </div>
-
-                  <div style={{ background: "#2e1065", padding: "14px 16px", borderRadius: "12px", border: "1px solid #6b21a8", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <div>
-                      <div style={{ fontSize: "13px", fontWeight: "800", color: "#c084fc" }}>🧠 Pinecone RAG Vector DB</div>
-                      <div style={{ fontSize: "11px", color: "#d8b4fe" }}>Cosine similarity 0.96 matched</div>
-                    </div>
-                    <span style={{ background: "#7c3aed", padding: "4px 10px", borderRadius: "99px", fontSize: "11px", fontWeight: "700" }}>RAG Hit</span>
-                  </div>
-
-                  <div style={{ display: "flex", justifyContent: "center" }}>
-                    <span style={{ fontSize: "14px", color: "#a78bfa" }}>↓ Streaming Completion</span>
-                  </div>
-
-                  <div style={{ background: "#064e3b", padding: "12px 16px", borderRadius: "12px", border: "1px solid #047857" }}>
-                    <div style={{ fontSize: "11px", color: "#a7f3d0" }}>Agent Response</div>
-                    <div style={{ fontSize: "12px", fontWeight: "600", color: "#ecfdf5", marginTop: "2px" }}>"Contract terms verified against SOC 2 compliance policy."</div>
-                  </div>
-                </div>
-              </div>
+            <div style={{ position: "relative", width: "400px", height: "300px", zIndex: 1, display: "flex", justifyContent: "flex-end", alignItems: "center" }}>
+              <img
+                src="/glassmorphic_3d_shape.jpg"
+                alt="3D Shape"
+                style={{
+                  width: "300px",
+                  height: "300px",
+                  objectFit: "cover",
+                  borderRadius: "20px",
+                  mixBlendMode: "screen",
+                  animation: "float 6s ease-in-out infinite",
+                  WebkitMaskImage: "radial-gradient(circle, black 40%, transparent 70%)",
+                  maskImage: "radial-gradient(circle, black 40%, transparent 70%)"
+                }}
+              />
             </div>
-
           </div>
         </section>
 
-        {/* ─── 2. AI CAPABILITIES GRID ─── */}
-        <section style={{ background: "#ffffff", padding: "80px 24px" }}>
-          <div style={{ maxWidth: "1280px", margin: "0 auto", textAlign: "center" }}>
-            <div style={{ fontSize: "12.5px", fontWeight: "800", letterSpacing: "1.5px", textTransform: "uppercase", color: "#7c3aed", marginBottom: "12px" }}>
-              Enterprise AI Capabilities
-            </div>
-            <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: "800", color: "#0f172a", marginBottom: "48px" }}>
-              Autonomous Agents &amp; Intelligent Workflows
-            </h2>
+        {/* --- GRAY SWAN STYLE CAPABILITIES GRID --- */}
+        <section style={{
+          background: "#ffffff",
+          padding: "80px 24px",
+          fontFamily: "'Inter', sans-serif"
+        }}>
+          <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
 
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "24px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", borderBottom: "1px solid #f4f4f5", paddingBottom: "32px", marginBottom: "48px", flexWrap: "wrap", gap: "32px" }}>
+              <h2 style={{ fontSize: "22px", fontWeight: "600", color: "#18181b", margin: 0, letterSpacing: "-0.5px" }}>
+                AI Capabilities
+              </h2>
+              <div style={{ maxWidth: "560px" }}>
+                <p style={{ fontSize: "13px", color: "#52525b", margin: "0 0 20px 0", lineHeight: "1.6" }}>
+                  We build intelligent AI agents, RAG vector search pipelines, and automated LLM workflows with OpenAI, Claude, and open-source models {"\u2014"} lowering operational costs by 60%.
+                </p>
+                <Link
+                  href="/contact"
+                  style={{
+                    background: "#18181b",
+                    color: "#ffffff",
+                    fontWeight: "600",
+                    borderRadius: "6px",
+                    padding: "10px 20px",
+                    fontSize: "13px",
+                    textDecoration: "none",
+                    display: "inline-flex",
+                    alignItems: "center"
+                  }}
+                >
+                  Get Started
+                </Link>
+              </div>
+            </div>
+
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
               {aiCapabilities.map((c, i) => (
-                <div key={i} style={{ background: "#f8fafc", border: "1.5px solid #e2e8f0", borderRadius: "20px", padding: "32px 24px", textAlign: "left" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-                    <span style={{ fontSize: "32px" }}>{c.icon}</span>
-                    <span style={{ background: "#f3e8ff", color: "#7c3aed", border: "1px solid #e9d5ff", padding: "4px 10px", borderRadius: "99px", fontSize: "11px", fontWeight: "700" }}>{c.badge}</span>
+                <div key={i} style={{
+                  background: "linear-gradient(180deg, #ffffff 0%, #fafafa 100%)",
+                  border: "1px solid #f4f4f5",
+                  borderRadius: "16px",
+                  padding: "28px",
+                  display: "flex",
+                  flexDirection: "column",
+                  boxShadow: "0 4px 6px -1px rgba(0,0,0,0.02)"
+                }}>
+                  <div style={{ fontSize: "22px", marginBottom: "20px", color: "#18181b" }}>{c.icon}</div>
+
+                  <h4 style={{ fontSize: "15px", fontWeight: "700", color: "#18181b", margin: "0 0 24px 0" }}>{c.title}</h4>
+
+                  <div style={{ height: "1px", background: "#f4f4f5", width: "100%", marginBottom: "20px" }} />
+
+                  <div style={{ fontSize: "9px", fontWeight: "700", color: "#71717a", textTransform: "uppercase", letterSpacing: "0.8px", marginBottom: "12px" }}>
+                    BUSINESS IMPACT
                   </div>
-                  <h3 style={{ fontSize: "18px", fontWeight: "800", color: "#0f172a", marginBottom: "10px" }}>{c.title}</h3>
-                  <p style={{ fontSize: "14px", color: "#64748b", lineHeight: "1.6" }}>{c.desc}</p>
+
+                  <p style={{ fontSize: "13px", color: "#a1a1aa", lineHeight: "1.6", margin: 0 }}>{c.desc}</p>
                 </div>
               ))}
             </div>
+
+            {/* Bottom text from Gray Swan image */}
+            <div style={{ marginTop: "64px", paddingTop: "32px", borderTop: "1px solid #f4f4f5" }}>
+              <p style={{ fontSize: "12px", color: "#71717a", lineHeight: "1.6", margin: "0 0 16px 0" }}>
+                These agents interact with business-critical systems (CRM, code repos, customer data) and make autonomous decisions that directly impact revenue, customer experience, or operational speed.
+              </p>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#71717a" strokeWidth="2"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg>
+                  <span style={{ fontSize: "10px", fontWeight: "700", color: "#71717a" }}>ONENINELABS</span>
+                </div>
+                <span style={{ fontSize: "10px", color: "#a1a1aa" }}>oneninelabs.com</span>
+              </div>
+            </div>
+
           </div>
         </section>
 
+<<<<<<< HEAD
         {/* ─── 2.5. AI ENGINEERING FAQS ─── */}
         <section style={{ background: "#ffffff", padding: "80px 24px", borderTop: "1px solid #e2e8f0" }}>
           <div style={{ maxWidth: "860px", margin: "0 auto" }}>
@@ -315,13 +254,349 @@ export default function AiAutomationServicePage() {
             </h2>
             <p style={{ color: "#64748b", fontSize: "16px", marginBottom: "32px" }}>
               Get a custom AI workflow evaluation &amp; vector search proof-of-concept from our AI team in 48 hours.
+=======
+
+        {/* --- GRAY SWAN STYLE: RISK PROFILES (TECH STACK) --- */}
+        <section style={{ background: "#ffffff", padding: "80px 24px", fontFamily: "'Inter', sans-serif" }}>
+          <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+
+            <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+              <div style={{ width: "24px", height: "6px", background: "#ea580c", borderRadius: "3px" }} />
+              <h2 style={{ fontSize: "28px", fontWeight: "700", color: "#18181b", margin: 0, letterSpacing: "-0.5px" }}>
+                Core Enterprise AI Stack
+              </h2>
+            </div>
+
+            <p style={{ fontSize: "14px", color: "#52525b", marginBottom: "48px", maxWidth: "800px" }}>
+              Our AI automation pipelines are built on three foundational dimensions that compound when combined:
+>>>>>>> 53d9122 (feat(blockchain): enhance blockchain service page with interactive multi-chain HUD, responsive bento grids and exchange architecture)
             </p>
-            <Link href="/#contact" style={{ background: "#334155", color: "#ffffff", padding: "15px 32px", borderRadius: "99px", fontWeight: "700", textDecoration: "none", display: "inline-block" }}>
-              Book AI Architecture Session →
-            </Link>
+
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px" }}>
+              {/* Card 1 */}
+              <div style={{ background: "#18181b", borderRadius: "16px", padding: "32px", color: "#ffffff" }}>
+                <div style={{ fontSize: "10px", color: "#71717a", letterSpacing: "1px", textTransform: "uppercase", marginBottom: "12px", fontWeight: "700" }}>
+                  DIMENSION 01
+                </div>
+                <h3 style={{ fontSize: "20px", fontWeight: "600", margin: "0 0 24px 0", color: "#ffffff" }}>
+                  Language Models
+                </h3>
+                <div style={{ height: "1px", background: "#3f3f46", width: "100%", marginBottom: "24px" }} />
+
+                <div style={{ fontSize: "12px", color: "#a1a1aa", fontWeight: "600", marginBottom: "8px" }}>What It Means</div>
+                <p style={{ fontSize: "13px", color: "#d4d4d8", margin: "0 0 24px 0", lineHeight: "1.6" }}>
+                  OpenAI GPT-4o, Anthropic Claude 3.5 Sonnet, and private Llama 3 deployments.
+                </p>
+
+                <div style={{ fontSize: "12px", color: "#a1a1aa", fontWeight: "600", marginBottom: "8px" }}>Why It Matters</div>
+                <p style={{ fontSize: "13px", color: "#d4d4d8", margin: 0, lineHeight: "1.6" }}>
+                  Provides the core reasoning, text generation, and intent recognition engine that powers all downstream autonomous tasks.
+                </p>
+              </div>
+
+              {/* Card 2 */}
+              <div style={{ background: "#18181b", borderRadius: "16px", padding: "32px", color: "#ffffff" }}>
+                <div style={{ fontSize: "10px", color: "#71717a", letterSpacing: "1px", textTransform: "uppercase", marginBottom: "12px", fontWeight: "700" }}>
+                  DIMENSION 02
+                </div>
+                <h3 style={{ fontSize: "20px", fontWeight: "600", margin: "0 0 24px 0", color: "#ffffff" }}>
+                  Agent Orchestration
+                </h3>
+                <div style={{ height: "1px", background: "#3f3f46", width: "100%", marginBottom: "24px" }} />
+
+                <div style={{ fontSize: "12px", color: "#a1a1aa", fontWeight: "600", marginBottom: "8px" }}>What It Means</div>
+                <p style={{ fontSize: "13px", color: "#d4d4d8", margin: "0 0 24px 0", lineHeight: "1.6" }}>
+                  Frameworks like LangChain, LlamaIndex, AutoGen, and CrewAI.
+                </p>
+
+                <div style={{ fontSize: "12px", color: "#a1a1aa", fontWeight: "600", marginBottom: "8px" }}>Why It Matters</div>
+                <p style={{ fontSize: "13px", color: "#d4d4d8", margin: 0, lineHeight: "1.6" }}>
+                  Connects base models to enterprise APIs, manages conversational memory, and routes complex multi-agent workflows.
+                </p>
+              </div>
+
+              {/* Card 3 */}
+              <div style={{ background: "#18181b", borderRadius: "16px", padding: "32px", color: "#ffffff" }}>
+                <div style={{ fontSize: "10px", color: "#71717a", letterSpacing: "1px", textTransform: "uppercase", marginBottom: "12px", fontWeight: "700" }}>
+                  DIMENSION 03
+                </div>
+                <h3 style={{ fontSize: "20px", fontWeight: "600", margin: "0 0 24px 0", color: "#ffffff" }}>
+                  Vector Databases
+                </h3>
+                <div style={{ height: "1px", background: "#3f3f46", width: "100%", marginBottom: "24px" }} />
+
+                <div style={{ fontSize: "12px", color: "#a1a1aa", fontWeight: "600", marginBottom: "8px" }}>What It Means</div>
+                <p style={{ fontSize: "13px", color: "#d4d4d8", margin: "0 0 24px 0", lineHeight: "1.6" }}>
+                  Pinecone, Qdrant, Milvus, and PostgreSQL pgvector data stores.
+                </p>
+
+                <div style={{ fontSize: "12px", color: "#a1a1aa", fontWeight: "600", marginBottom: "8px" }}>Why It Matters</div>
+                <p style={{ fontSize: "13px", color: "#d4d4d8", margin: 0, lineHeight: "1.6" }}>
+                  Enables lightning-fast semantic search over massive proprietary datasets, feeding context directly into RAG pipelines.
+                </p>
+              </div>
+            </div>
+
           </div>
         </section>
 
+
+        {/* --- GRAY SWAN STYLE: FAILURE MODES (SECURITY & FAQ) --- */}
+        <section style={{ background: "#ffffff", padding: "40px 24px 120px 24px", fontFamily: "'Inter', sans-serif" }}>
+          <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+
+            <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+              <div style={{ width: "24px", height: "6px", background: "#ea580c", borderRadius: "3px" }} />
+              <h2 style={{ fontSize: "28px", fontWeight: "700", color: "#18181b", margin: 0, letterSpacing: "-0.5px" }}>
+                Enterprise AI Adoption: Security &amp; FAQ
+              </h2>
+            </div>
+
+            <div style={{ maxWidth: "900px", marginBottom: "48px" }}>
+              <p style={{ fontSize: "14px", color: "#52525b", margin: "0 0 16px 0", lineHeight: "1.6" }}>
+                While traditional engineering focuses on standard application deployment, AI integration requires securing against a new type of architectural challenge: non-deterministic outputs, API latency, and data privacy.
+              </p>
+              <p style={{ fontSize: "14px", color: "#52525b", margin: 0, lineHeight: "1.6" }}>
+                Let{"\'"}s take a look at three common enterprise concerns regarding AI adoption, and evaluate real-world solutions to mitigate these risks.
+              </p>
+            </div>
+
+            {/* List Header Line */}
+            <div style={{ height: "1px", background: "#e2e8f0", width: "100%", marginBottom: "16px" }} />
+
+            {/* Row 1 */}
+            <div style={{ display: "grid", gridTemplateColumns: "280px 1fr 1fr", gap: "40px", padding: "24px 0", borderBottom: "1px solid #f4f4f5", alignItems: "start" }}>
+              <div style={{ background: "linear-gradient(180deg, #ffffff 0%, #fafafa 100%)", border: "1px solid #e2e8f0", borderRadius: "12px", padding: "16px 20px", display: "flex", alignItems: "center", gap: "16px", boxShadow: "0 4px 6px -1px rgba(0,0,0,0.02)" }}>
+                <div style={{ fontSize: "20px" }}>{"\uD83D\uDD12"}</div>
+                <div style={{ fontSize: "14px", fontWeight: "700", color: "#18181b", lineHeight: "1.3" }}>Data Privacy<br />&amp; Compliance</div>
+              </div>
+
+              <div>
+                <div style={{ fontSize: "10px", fontWeight: "700", color: "#a1a1aa", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "12px" }}>THE QUESTION</div>
+                <p style={{ fontSize: "13px", color: "#3f3f46", lineHeight: "1.6", margin: 0 }}>
+                  Is our corporate data safe when using large language models like GPT-4 or Claude?
+                </p>
+              </div>
+
+              <div>
+                <div style={{ fontSize: "10px", fontWeight: "700", color: "#a1a1aa", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "12px" }}>OUR SOLUTION</div>
+                <p style={{ fontSize: "13px", color: "#3f3f46", lineHeight: "1.6", margin: 0 }}>
+                  Absolutely. We implement strict zero-retention API policies (via OpenAI Enterprise/Azure) where your data is never used to train base models. For highly sensitive data, we deploy private, open-source models (like Llama 3) on dedicated VPC infrastructure.
+                </p>
+              </div>
+            </div>
+
+            {/* Row 2 */}
+            <div style={{ display: "grid", gridTemplateColumns: "280px 1fr 1fr", gap: "40px", padding: "24px 0", borderBottom: "1px solid #f4f4f5", alignItems: "start" }}>
+              <div style={{ background: "linear-gradient(180deg, #ffffff 0%, #fafafa 100%)", border: "1px solid #e2e8f0", borderRadius: "12px", padding: "16px 20px", display: "flex", alignItems: "center", gap: "16px", boxShadow: "0 4px 6px -1px rgba(0,0,0,0.02)" }}>
+                <div style={{ fontSize: "20px" }}>{"\uD83D\uDCC8"}</div>
+                <div style={{ fontSize: "14px", fontWeight: "700", color: "#18181b", lineHeight: "1.3" }}>API Cost<br />Control</div>
+              </div>
+
+              <div>
+                <div style={{ fontSize: "10px", fontWeight: "700", color: "#a1a1aa", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "12px" }}>THE QUESTION</div>
+                <p style={{ fontSize: "13px", color: "#3f3f46", lineHeight: "1.6", margin: 0 }}>
+                  How do you control runaway API costs during high-volume processing?
+                </p>
+              </div>
+
+              <div>
+                <div style={{ fontSize: "10px", fontWeight: "700", color: "#a1a1aa", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "12px" }}>OUR SOLUTION</div>
+                <p style={{ fontSize: "13px", color: "#3f3f46", lineHeight: "1.6", margin: 0 }}>
+                  We implement Semantic Caching to serve repeated queries for free, and Intelligent Routing which directs simple prompts to cheaper models (like Claude Haiku) while reserving expensive models (like GPT-4o) only for complex reasoning.
+                </p>
+              </div>
+            </div>
+
+            {/* Row 3 */}
+            <div style={{ display: "grid", gridTemplateColumns: "280px 1fr 1fr", gap: "40px", padding: "24px 0", borderBottom: "1px solid #f4f4f5", alignItems: "start" }}>
+              <div style={{ background: "linear-gradient(180deg, #ffffff 0%, #fafafa 100%)", border: "1px solid #e2e8f0", borderRadius: "12px", padding: "16px 20px", display: "flex", alignItems: "center", gap: "16px", boxShadow: "0 4px 6px -1px rgba(0,0,0,0.02)" }}>
+                <div style={{ fontSize: "20px" }}>{"\u2699\uFE0F"}</div>
+                <div style={{ fontSize: "14px", fontWeight: "700", color: "#18181b", lineHeight: "1.3" }}>Architecture<br />Strategy</div>
+              </div>
+
+              <div>
+                <div style={{ fontSize: "10px", fontWeight: "700", color: "#a1a1aa", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "12px" }}>THE QUESTION</div>
+                <p style={{ fontSize: "13px", color: "#3f3f46", lineHeight: "1.6", margin: 0 }}>
+                  Should our organization use model Fine-Tuning or RAG?
+                </p>
+              </div>
+
+              <div>
+                <div style={{ fontSize: "10px", fontWeight: "700", color: "#a1a1aa", textTransform: "uppercase", letterSpacing: "0.5px", marginBottom: "12px" }}>OUR SOLUTION</div>
+                <p style={{ fontSize: "13px", color: "#3f3f46", lineHeight: "1.6", margin: 0 }}>
+                  In 90% of enterprise use-cases, RAG (Retrieval-Augmented Generation) is the right choice for answering questions based on your documents. Fine-tuning is reserved for when you need the model to adopt a specific tone or highly specialized domain language.
+                </p>
+              </div>
+            </div>
+
+
+            {/* --- GRAY SWAN STYLE: THE PROBLEM --- */}
+            <section style={{ background: "#ffffff", padding: "0 24px 80px 24px", fontFamily: "'Inter', sans-serif" }}>
+              <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+
+                <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+                  <div style={{ width: "24px", height: "6px", background: "#ea580c", borderRadius: "3px" }} />
+                  <h2 style={{ fontSize: "28px", fontWeight: "700", color: "#18181b", margin: 0, letterSpacing: "-0.5px" }}>
+                    The Problem
+                  </h2>
+                </div>
+
+                <p style={{ fontSize: "14px", color: "#3f3f46", margin: "0 0 24px 0", lineHeight: "1.6" }}>
+                  Traditional generative AI deployments attempt to solve security and hallucinations with overly restrictive rules that degrade user experience:
+                </p>
+
+                <div style={{ height: "1px", background: "#e2e8f0", width: "100%", marginBottom: "24px" }} />
+
+                <ul style={{ margin: "0 0 24px 0", paddingLeft: "24px", color: "#52525b", fontSize: "14px", lineHeight: "1.8" }}>
+                  <li>Block legitimate requests (high false positives)</li>
+                  <li>Add significant latency per request</li>
+                  <li>Require constant manual tuning as the agent evolves</li>
+                  <li>Focus on &quot;bad words&quot; instead of understanding intent or business logic</li>
+                </ul>
+
+                <p style={{ fontSize: "14px", color: "#3f3f46", margin: 0, lineHeight: "1.6" }}>
+                  As a result, companies face a choice between accepting unacceptable risk or deploying a slow, frustrating user experience that delivers marginal ROI. Many pause deployments entirely.
+                </p>
+              </div>
+            </section>
+
+            {/* --- GRAY SWAN STYLE: THE SOLUTION (HOW WE PROTECT ROI) --- */}
+            <section style={{ background: "#ffffff", padding: "0 24px 80px 24px", fontFamily: "'Inter', sans-serif" }}>
+              <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+
+                <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
+                  <div style={{ width: "24px", height: "6px", background: "#3b82f6", borderRadius: "3px" }} />
+                  <h2 style={{ fontSize: "28px", fontWeight: "700", color: "#18181b", margin: 0, letterSpacing: "-0.5px" }}>
+                    How OneNineLabs Protects ROI Without Degrading UX
+                  </h2>
+                </div>
+
+                <p style={{ fontSize: "14px", color: "#3f3f46", margin: "0 0 24px 0", lineHeight: "1.6" }}>
+                  Our AI architecture is built on the principle that security and user experience are not trade-offs. We prevent policy violations and hallucinations without adding friction to legitimate use cases.
+                </p>
+
+                <div style={{ height: "1px", background: "#e2e8f0", width: "100%", marginBottom: "24px" }} />
+
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", gap: "24px" }}>
+                  {/* Solution Card 1 */}
+                  <div style={{ background: "#18181b", borderRadius: "16px", padding: "32px", color: "#ffffff" }}>
+                    <div style={{ fontSize: "10px", color: "#71717a", letterSpacing: "1px", textTransform: "uppercase", marginBottom: "12px", fontWeight: "700" }}>
+                      COMPONENT 01
+                    </div>
+                    <h3 style={{ fontSize: "22px", fontWeight: "600", margin: "0 0 24px 0", color: "#ffffff" }}>
+                      Offensive
+                    </h3>
+                    <div style={{ height: "1px", background: "#3f3f46", width: "100%", marginBottom: "24px" }} />
+                    <p style={{ fontSize: "13px", color: "#d4d4d8", margin: 0, lineHeight: "1.6" }}>
+                      Continuously red-teams your agent to discover adversarial inputs, policy drift, and exfiltration vectors before deployment.
+                    </p>
+                  </div>
+
+                  {/* Solution Card 2 */}
+                  <div style={{ background: "#18181b", borderRadius: "16px", padding: "32px", color: "#ffffff" }}>
+                    <div style={{ fontSize: "10px", color: "#71717a", letterSpacing: "1px", textTransform: "uppercase", marginBottom: "12px", fontWeight: "700" }}>
+                      COMPONENT 02
+                    </div>
+                    <h3 style={{ fontSize: "22px", fontWeight: "600", margin: "0 0 24px 0", color: "#ffffff" }}>
+                      Defensive
+                    </h3>
+                    <div style={{ height: "1px", background: "#3f3f46", width: "100%", marginBottom: "24px" }} />
+                    <p style={{ fontSize: "13px", color: "#d4d4d8", margin: 0, lineHeight: "1.6" }}>
+                      Policy-aware runtime that understands enterprise business logic and data permissions, not just basic keyword filters.
+                    </p>
+                  </div>
+                </div>
+
+              </div>
+            </section>
+
+            {/* --- GRAY SWAN STYLE: DEPLOYMENT OPTIONS --- */}
+            <section style={{ background: "#ffffff", padding: "0 24px 80px 24px", fontFamily: "'Inter', sans-serif" }}>
+              <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
+
+                <h2 style={{ fontSize: "28px", fontWeight: "700", color: "#18181b", margin: "0 0 40px 0", letterSpacing: "-0.5px" }}>
+                  Deployment Options
+                </h2>
+
+                <div style={{ fontSize: "10px", color: "#a1a1aa", letterSpacing: "1px", textTransform: "uppercase", marginBottom: "12px", fontWeight: "700" }}>
+                  WHERE ONENINELABS RUNS
+                </div>
+                <div style={{ height: "1px", background: "#e2e8f0", width: "100%", marginBottom: "32px" }} />
+
+                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "64px", marginBottom: "64px" }}>
+                  <div>
+                    <div style={{ fontSize: "24px", marginBottom: "16px", color: "#18181b" }}>{"\u2601\uFE0F"}</div>
+                    <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#18181b", margin: "0 0 16px 0" }}>Cloud SaaS</h3>
+                    <div style={{ height: "1px", background: "#e2e8f0", width: "100%", marginBottom: "16px" }} />
+                    <div style={{ fontSize: "12px", color: "#71717a", fontWeight: "600", marginBottom: "8px" }}>What It Means</div>
+                    <p style={{ fontSize: "13px", color: "#71717a", margin: 0, lineHeight: "1.6" }}>
+                      We host and manage everything; you just call our API.
+                    </p>
+                  </div>
+
+                  <div>
+                    <div style={{ fontSize: "24px", marginBottom: "16px", color: "#18181b" }}>{"\uD83C\uDFE2"}</div>
+                    <h3 style={{ fontSize: "20px", fontWeight: "700", color: "#18181b", margin: "0 0 16px 0" }}>On-Prem/VPC</h3>
+                    <div style={{ height: "1px", background: "#e2e8f0", width: "100%", marginBottom: "16px" }} />
+                    <div style={{ fontSize: "12px", color: "#71717a", fontWeight: "600", marginBottom: "8px" }}>What It Means</div>
+                    <p style={{ fontSize: "13px", color: "#71717a", margin: 0, lineHeight: "1.6" }}>
+                      Runs securely in your Kubernetes cluster (Docker/Helm deployment) with zero data egress.
+                    </p>
+                  </div>
+                </div>
+
+                <div style={{ fontSize: "10px", color: "#a1a1aa", letterSpacing: "1px", textTransform: "uppercase", marginBottom: "12px", fontWeight: "700" }}>
+                  WHERE THE PIPELINE CAN BE CONFIGURED
+                </div>
+                <div style={{ height: "1px", background: "#e2e8f0", width: "100%", marginBottom: "32px" }} />
+
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "40px", marginBottom: "48px" }}>
+                  <div>
+                    <h4 style={{ fontSize: "15px", fontWeight: "700", color: "#18181b", margin: "0 0 16px 0" }}>API Layer</h4>
+                    <div style={{ height: "1px", background: "#e2e8f0", width: "100%", marginBottom: "16px" }} />
+                    <div style={{ fontSize: "12px", color: "#71717a", fontWeight: "600", marginBottom: "8px" }}>What Gets Protected</div>
+                    <p style={{ fontSize: "13px", color: "#71717a", margin: 0, lineHeight: "1.6" }}>
+                      Wrap individual LLM API calls (OpenAI, Anthropic, Gemini).
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 style={{ fontSize: "15px", fontWeight: "700", color: "#18181b", margin: "0 0 16px 0" }}>Gateway/Orchestration Layer</h4>
+                    <div style={{ height: "1px", background: "#e2e8f0", width: "100%", marginBottom: "16px" }} />
+                    <div style={{ fontSize: "12px", color: "#71717a", fontWeight: "600", marginBottom: "8px" }}>What Gets Protected</div>
+                    <p style={{ fontSize: "13px", color: "#71717a", margin: 0, lineHeight: "1.6" }}>
+                      Protect all agents at a centralized point (LiteLLM, LangChain, custom orchestration).
+                    </p>
+                  </div>
+
+                  <div>
+                    <h4 style={{ fontSize: "15px", fontWeight: "700", color: "#18181b", margin: "0 0 16px 0" }}>Application Layer</h4>
+                    <div style={{ height: "1px", background: "#e2e8f0", width: "100%", marginBottom: "16px" }} />
+                    <div style={{ fontSize: "12px", color: "#71717a", fontWeight: "600", marginBottom: "8px" }}>What Gets Protected</div>
+                    <p style={{ fontSize: "13px", color: "#71717a", margin: 0, lineHeight: "1.6" }}>
+                      Integrate directly into your enterprise agent application code.
+                    </p>
+                  </div>
+                </div>
+
+                <p style={{ fontSize: "14px", color: "#3f3f46", margin: 0, lineHeight: "1.6", fontWeight: "500" }}>
+                  With OneNineLabs, companies can achieve the ROI they projected from their AI investments because they can deploy agents that are both capable and secure, without the usual trade-off between the two.
+                </p>
+
+              </div>
+            </section>
+            {/* Gray Swan Style Footer Link */}
+            <div style={{ marginTop: "64px", paddingTop: "32px", borderTop: "1px solid #f4f4f5", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#71717a" strokeWidth="2.5"><path d="M12 2L2 7l10 5 10-5-10-5z" /><path d="M2 17l10 5 10-5" /><path d="M2 12l10 5 10-5" /></svg>
+                <span style={{ fontSize: "11px", fontWeight: "800", color: "#52525b", letterSpacing: "0.5px" }}>ONENINELABS</span>
+              </div>
+              <span style={{ fontSize: "11px", color: "#a1a1aa", fontWeight: "500" }}>oneninelabs.com</span>
+            </div>
+
+          </div>
+        </section>
       </div>
 
       <Footer />

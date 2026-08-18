@@ -1,16 +1,21 @@
+// blockchain service page
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { servicePageStyles } from "@/lib/servicePageStyles";
+import BlockchainBentoGrid from "@/components/BlockchainBentoGrid";
+import ExchangeDexSection from "@/components/ExchangeDexSection";
+import SecurityScaleBento from "@/components/SecurityScaleBento";
+import BlockchainHeroHud from "@/components/BlockchainHeroHud";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://oneninelabs.com";
 
 export const metadata = {
-  title: "Blockchain & Web3 Development — Smart Contracts & dApps | OneNineLabs",
-  description: "Solidity smart contract development, EVM & Solana dApp engineering, gas optimization, ERC-20/721 tokens, and zero-knowledge proof cryptography.",
-  keywords: ["blockchain development company", "Solidity smart contract developer", "Web3 dApp agency", "Solana developer", "gas optimization", "zero knowledge proofs"],
-  alternates: { canonical: "/services/blockchain", languages: { "en-US": "/services/blockchain", en: "/services/blockchain", "hi-IN": "/services/blockchain", "x-default": "/services/blockchain" } },
-  openGraph: { title: "Blockchain & Web3 Development | OneNineLabs", description: "Audit-ready smart contracts, decentralized dApps & tokenomics engineering.", url: "https://oneninelabs.com/services/blockchain", type: "website" },
+  title: "Enterprise Web3 & Blockchain Development Company | OneNineLabs",
+  description: "End-to-end blockchain development services: Solidity & Rust smart contracts, DeFi liquidity protocols, DEX matching engines, Layer-2 rollups, and zero-exploit security audits.",
+  keywords: ["blockchain development company", "smart contract developer", "Web3 IT services", "Solidity developers", "Rust Solana programs", "DEX development", "crypto trading platform", "DeFi protocol engineering", "smart contract auditing"],
+  alternates: { canonical: "/services/blockchain", languages: { "en-US": "/services/blockchain", en: "/services/blockchain", "x-default": "/services/blockchain" } },
+  openGraph: { title: "Enterprise Web3 & Blockchain Development Company | OneNineLabs", description: "Engineering institutional-grade blockchain infrastructure, Solidity & Rust smart contracts, and decentralized exchanges.", url: "https://oneninelabs.com/services/blockchain", type: "website" },
   robots: { index: true, follow: true },
 };
 
@@ -19,31 +24,11 @@ const GRAD_FROM = "#155e75";
 const GRAD_TO = "#06b6d4";
 const GLOW = "rgba(6,182,212,0.15)";
 
-const web3Capabilities = [
-  {
-    title: "Solidity & Rust Smart Contracts",
-    desc: "Audit-ready Ethereum (EVM) & Solana smart contracts engineered for zero reentrancy vulnerabilities and minimal gas usage.",
-    icon: "📜",
-    badge: "Solidity & Rust"
-  },
-  {
-    title: "Web3 dApp Frontends (ethers.js / wagmi)",
-    desc: "Seamless wallet connection integrations (MetaMask, Coinbase Wallet, Phantom) with instant transaction feedback UI.",
-    icon: "🌐",
-    badge: "wagmi & viem"
-  },
-  {
-    title: "Gas Optimization & Layer-2 Scaling",
-    desc: "Arbitrum, Optimism, Base & Polygon L2 deployments reducing user gas fees by over 90%.",
-    icon: "⚡",
-    badge: "L2 Gas -90%"
-  },
-  {
-    title: "Tokenomics & Stalking Protocols",
-    desc: "Custom ERC-20, ERC-721, and ERC-1155 token smart contracts with automated yield staking pools.",
-    icon: "🪙",
-    badge: "Tokenomics"
-  }
+const capabilities = [
+  { title: "Cross‑Chain Bridges", desc: "Secure, low‑latency bridges enabling token transfers between EVM & Solana ecosystems.", icon: "🔗", badge: "Bridge" },
+  { title: "Layer‑2 Rollups", desc: "Optimistic & ZK rollups that cut gas costs by >90% while preserving security.", icon: "⚡", badge: "L2" },
+  { title: "DeFi Protocols", desc: "Automated market makers, lending pools, and yield‑farms with provable invariants.", icon: "📈", badge: "DeFi" },
+  { title: "Zero‑Knowledge Proofs", desc: "Privacy‑preserving rollups and zk‑SNARKs for confidential transactions.", icon: "🕶️", badge: "ZK" },
 ];
 
 const faqs = [
@@ -94,229 +79,132 @@ export default function BlockchainServicePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <style>{servicePageStyles(PRIMARY, GRAD_FROM, GRAD_TO, GLOW)}</style>
-
-      <div className="vd-wrap">
-
-        {/* ─── 1. HERO: WEB3 SMART CONTRACT HUD ─── */}
-        <section className="vd-hero-section" style={{
-          background: "linear-gradient(135deg, #ecfeff 0%, #ffffff 50%, #f0fdf4 100%)",
-          padding: "135px 24px 90px 24px",
-          borderBottom: "1px solid #e2e8f0",
-          fontFamily: "'Inter', sans-serif",
-          position: "relative",
-          overflow: "hidden"
-        }}>
-          <div style={{
-            maxWidth: "1280px",
-            margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "1fr 640px",
-            gap: "40px",
-            alignItems: "flex-start"
-          }}>
-            {/* Left Content Column */}
-            <div className="vd-hero-left" style={{ textAlign: "left", zIndex: 2, marginTop: "10px" }}>
-              <div style={{
-                fontSize: "13.5px",
-                fontWeight: "800",
-                color: "#0891b2",
-                marginBottom: "16px",
-                letterSpacing: "0.4px",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                background: "#cffafe",
-                padding: "6px 14px",
-                borderRadius: "99px",
-                border: "1px solid #a5f3fc"
-              }}>
-                <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#06b6d4" }} /> EVM &amp; Solana Smart Contract Engineering
-              </div>
-
-              <h1 style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontSize: "clamp(34px, 4.2vw, 54px)",
-                fontWeight: "800",
-                color: "#0f172a",
-                lineHeight: "1.12",
-                letterSpacing: "-1.5px",
-                marginBottom: "20px",
-                maxWidth: "540px"
-              }}>
-                Audit-Ready Web3 &amp; <span style={{ color: "#0891b2" }}>Smart Contracts</span>
-              </h1>
-
-              <p style={{
-                fontSize: "15.5px",
-                color: "#64748b",
-                lineHeight: "1.65",
-                marginBottom: "32px",
-                maxWidth: "490px",
-                fontWeight: "400"
-              }}>
-                We engineer secure, audit-tested smart contracts in Solidity and Rust — with gas-optimized Layer-2 deployments, Web3 dApp frontends, and tokenomics architecture.
-              </p>
-
-              <div style={{ marginBottom: "28px" }}>
-                <Link
-                  href="/#contact"
-                  style={{
-                    background: "#0891b2",
-                    color: "#ffffff",
-                    fontWeight: "700",
-                    borderRadius: "99px",
-                    padding: "15px 32px",
-                    fontSize: "15px",
-                    textDecoration: "none",
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "12px",
-                    boxShadow: "0 10px 25px rgba(8, 145, 178, 0.3)",
-                    transition: "transform 0.2s ease"
-                  }}
-                >
-                  Start Web3 Project
-                  <span style={{
-                    width: "28px",
-                    height: "28px",
-                    borderRadius: "50%",
-                    border: "1.5px solid rgba(255, 255, 255, 0.6)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    fontSize: "14px"
-                  }}>
-                    →
-                  </span>
-                </Link>
-              </div>
-
-              {/* Web3 Key Stats */}
-              <div style={{
-                display: "flex",
-                gap: "28px",
-                marginTop: "32px",
-                paddingTop: "24px",
-                borderTop: "1px solid #e2e8f0"
-              }}>
-                <div>
-                  <div style={{ fontSize: "24px", fontWeight: "900", color: "#0f172a", lineHeight: "1.1" }}>$0</div>
-                  <div style={{ fontSize: "12px", fontWeight: "600", color: "#64748b", marginTop: "2px" }}>Exploit History</div>
-                </div>
-                <div style={{ width: "1px", background: "#e2e8f0" }} />
-                <div>
-                  <div style={{ fontSize: "24px", fontWeight: "900", color: "#0891b2", lineHeight: "1.1" }}>-92%</div>
-                  <div style={{ fontSize: "12px", fontWeight: "600", color: "#64748b", marginTop: "2px" }}>L2 Gas Reduction</div>
-                </div>
-                <div style={{ width: "1px", background: "#e2e8f0" }} />
-                <div>
-                  <div style={{ fontSize: "24px", fontWeight: "900", color: "#10b981", lineHeight: "1.1" }}>100%</div>
-                  <div style={{ fontSize: "12px", fontWeight: "600", color: "#64748b", marginTop: "2px" }}>CertiK Audit Pass</div>
-                </div>
-              </div>
-            </div>
-
-            {/* Right Web3 Contract Execution HUD */}
-            <div className="vd-hero-right" style={{ position: "relative", minHeight: "450px" }}>
-              <div style={{
-                background: "#0f172a",
-                borderRadius: "24px",
-                padding: "24px",
-                color: "#fff",
-                boxShadow: "0 25px 60px rgba(8, 145, 178, 0.15)",
-                border: "1.5px solid #1e293b",
-                textAlign: "left"
-              }}>
-                <div style={{ fontSize: "12px", fontWeight: "700", color: "#38bdf8", marginBottom: "16px", display: "flex", justifyContent: "space-between" }}>
-                  <span>SMART CONTRACT AUDIT HUD</span>
-                  <span style={{ color: "#4ade80" }}>VERIFIED 🛡️</span>
-                </div>
-
-                <div style={{ background: "#1e293b", padding: "14px", borderRadius: "14px", marginBottom: "12px", border: "1px solid #334155" }}>
-                  <div style={{ fontSize: "11px", color: "#94a3b8" }}>Contract Address (Base Mainnet)</div>
-                  <div style={{ fontSize: "12px", fontFamily: "monospace", color: "#38bdf8", marginTop: "2px" }}>0x71C...39A9 (ERC-20 Staking)</div>
-                </div>
-
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", marginBottom: "12px" }}>
-                  <div style={{ background: "#164e63", padding: "10px", borderRadius: "10px", border: "1px solid #0891b2" }}>
-                    <div style={{ fontSize: "10px", color: "#a5f3fc" }}>Reentrancy Guard</div>
-                    <div style={{ fontSize: "12px", fontWeight: "800", color: "#ecfeff" }}>PASS ✓</div>
-                  </div>
-                  <div style={{ background: "#164e63", padding: "10px", borderRadius: "10px", border: "1px solid #0891b2" }}>
-                    <div style={{ fontSize: "10px", color: "#a5f3fc" }}>Gas Optimization</div>
-                    <div style={{ fontSize: "12px", fontWeight: "800", color: "#ecfeff" }}>21,400 Gwei</div>
-                  </div>
-                </div>
-
-                <div style={{ background: "#064e3b", padding: "12px", borderRadius: "12px", border: "1px solid #047857", fontSize: "12px", color: "#a7f3d0", fontWeight: "600" }}>
-                  ✓ Slither &amp; Mythril Static Analysis Passed — Zero High Severity Risks
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        {/* ─── 2. WEB3 CAPABILITIES GRID ─── */}
-        <section style={{ background: "#ffffff", padding: "80px 24px" }}>
-          <div style={{ maxWidth: "1280px", margin: "0 auto", textAlign: "center" }}>
-            <div style={{ fontSize: "12.5px", fontWeight: "800", letterSpacing: "1.5px", textTransform: "uppercase", color: "#0891b2", marginBottom: "12px" }}>
-              Web3 &amp; Cryptography Services
-            </div>
-            <h2 style={{ fontSize: "clamp(28px, 4vw, 44px)", fontWeight: "800", color: "#0f172a", marginBottom: "48px" }}>
-              Decentralized Infrastructure &amp; Smart Contracts
-            </h2>
-
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "24px" }}>
-              {web3Capabilities.map((c, i) => (
-                <div key={i} style={{ background: "#f8fafc", border: "1.5px solid #e2e8f0", borderRadius: "20px", padding: "32px 24px", textAlign: "left" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-                    <span style={{ fontSize: "32px" }}>{c.icon}</span>
-                    <span style={{ background: "#cffafe", color: "#0891b2", border: "1px solid #a5f3fc", padding: "4px 10px", borderRadius: "99px", fontSize: "11px", fontWeight: "700" }}>{c.badge}</span>
-                  </div>
-                  <h3 style={{ fontSize: "18px", fontWeight: "800", color: "#0f172a", marginBottom: "10px" }}>{c.title}</h3>
-                  <p style={{ fontSize: "14px", color: "#64748b", lineHeight: "1.6" }}>{c.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 2.5. BLOCKCHAIN FAQS ─── */}
-        <section style={{ background: "#ffffff", padding: "80px 24px", borderTop: "1px solid #e2e8f0" }}>
-          <div style={{ maxWidth: "860px", margin: "0 auto" }}>
-            <h2 style={{ fontSize: "32px", fontWeight: "800", color: "#0f172a", textAlign: "center", marginBottom: "40px" }}>
-              Blockchain & Web3 Development FAQs
-            </h2>
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              {faqs.map((f, i) => (
-                <details key={i} style={{ background: "#ffffff", border: "1.5px solid #e2e8f0", borderRadius: "16px", padding: "18px 24px", cursor: "pointer" }}>
-                  <summary style={{ fontWeight: "700", color: "#0f172a", fontSize: "16px" }}>{f.q}</summary>
-                  <p style={{ color: "#64748b", marginTop: "12px", lineHeight: "1.65", fontSize: "14.5px" }}>{f.a}</p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 3. CTA BANNER ─── */}
-        <section style={{ background: "#ffffff", padding: "80px 24px", textAlign: "center", borderTop: "1px solid #e2e8f0" }}>
-          <div style={{ maxWidth: "700px", margin: "0 auto" }}>
-            <h2 style={{ fontSize: "36px", fontWeight: "900", color: "#0f172a", marginBottom: "16px" }}>
-              Ready to Launch Your Web3 Protocol?
-            </h2>
-            <p style={{ color: "#64748b", fontSize: "16px", marginBottom: "32px" }}>
-              Book a free smart contract audit &amp; architecture review with our lead Web3 engineer in 48 hours.
+      {/* Light Theme Header */}
+      <Header variant="light" />
+      {/* Hero Section */}
+      <section className="bc-hero-section">
+        <style>{`
+          .bc-hero-section { background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%); padding-top: 125px; padding-bottom: 48px; position: relative; overflow: hidden; border-bottom: 1px solid #e2e8f0; }
+          .bc-hero-grid { max-width: 1240px; margin: 0 auto; padding: 0 24px; display: grid; grid-template-columns: 1.05fr 1fr; gap: 48px; align-items: center; position: relative; z-index: 2; }
+          .bc-trusted-banner { max-width: 1240px; margin: 44px auto 0; padding: 32px 24px 0; display: flex; align-items: center; gap: 40px; position: relative; z-index: 2; border-top: 1px solid #e2e8f0; }
+          .bc-trusted-left { flex-shrink: 0; border-right: 1px solid #e2e8f0; padding-right: 36px; max-width: 260px; }
+          .bc-trusted-logos { display: flex; align-items: center; justify-content: space-between; flex: 1; gap: 28px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+          @media (max-width: 1024px) { .bc-hero-grid { grid-template-columns: 1fr; gap: 36px; } .bc-hero-section { padding-top: 105px; padding-bottom: 36px; } }
+          @media (max-width: 768px) { .bc-hero-section { padding-top: 96px; padding-bottom: 30px; } .bc-hero-grid { grid-template-columns: 1fr; gap: 32px; } }
+        `}</style>
+        <Header variant="light" />
+        <div className="bc-hero-grid">
+          {/* Left Column */}
+          <div>
+            <h1 className="bc-hero-title" style={{ fontSize: "clamp(30px, 4.4vw, 52px)", lineHeight: "1.14", color: "#0f172a", fontWeight: "900", letterSpacing: "-1.2px", marginBottom: "18px", fontFamily: "'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif" }}>
+              <span style={{ color: "#10b981" }}>Blockchain Solutions</span> &amp; Smart Protocols
+            </h1>
+            <p className="bc-hero-desc" style={{ fontSize: "15.5px", color: "#475569", lineHeight: "1.65", marginBottom: "28px", maxWidth: "540px", fontWeight: "400" }}>
+              We build battle‑tested decentralized systems for high‑growth Web3 companies — from Solidity &amp; Rust smart contracts, DEX &amp; DeFi matching engines to Layer‑2 rollups, cross‑chain bridges, and zero‑exploit invariant audits.
             </p>
-            <Link href="/#contact" style={{ background: "#334155", color: "#ffffff", padding: "15px 32px", borderRadius: "99px", fontWeight: "700", textDecoration: "none", display: "inline-block" }}>
-              Book Smart Contract Audit →
-            </Link>
+            <div className="bc-hero-buttons" style={{ display: "flex", gap: "12px", alignItems: "center", flexWrap: "wrap", marginBottom: "28px" }}>
+              <Link href="/contact" style={{ display: "inline-flex", alignItems: "center", gap: "8px", justifyContent: "center", padding: "15px 30px", background: "#0f172a", color: "#ffffff", borderRadius: "100px", fontSize: "14.5px", fontWeight: "700", textDecoration: "none", transition: "all 0.25s cubic-bezier(0.16, 1, 0.3, 1)", boxShadow: "0 10px 24px -5px rgba(15, 23, 42, 0.25)", border: "1px solid #0f172a" }}>
+                Consult Web3 Architects<span>→</span>
+              </Link>
+              <Link href="/contact" style={{ display: "inline-flex", alignItems: "center", gap: "8px", justifyContent: "center", padding: "15px 26px", background: "#ffffff", color: "#0f172a", borderRadius: "100px", fontSize: "14.5px", fontWeight: "700", textDecoration: "none", border: "1px solid #cbd5e1", boxShadow: "0 4px 12px rgba(0, 0, 0, 0.03)", transition: "all 0.25s cubic-bezier(0.16, 1, 0.3, 1)" }}>
+                <span>⬡</span> Request Protocol Audit
+              </Link>
+            </div>
+            <div className="bc-trust-badges-row" style={{ display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}>
+              <div className="bc-trust-badge" style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "#ffffff", border: "1px solid #e2e8f0", padding: "6px 12px", borderRadius: "8px", fontSize: "12px", color: "#334155", fontWeight: "700", boxShadow: "0 2px 6px rgba(0,0,0,0.02)" }}>
+                <span style={{ color: "#10b981", fontSize: "13px" }}>✓</span>
+                <span>$400M+ TVL Secured</span>
+              </div>
+              <div className="bc-trust-badge" style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "#ffffff", border: "1px solid #e2e8f0", padding: "6px 12px", borderRadius: "8px", fontSize: "12px", color: "#334155", fontWeight: "700", boxShadow: "0 2px 6px rgba(0,0,0,0.02)" }}>
+                <span style={{ color: "#10b981", fontSize: "13px" }}>✓</span>
+                <span>0 Critical Bugs</span>
+              </div>
+              <div className="bc-trust-badge" style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "#ffffff", border: "1px solid #e2e8f0", padding: "6px 12px", borderRadius: "8px", fontSize: "12px", color: "#334155", fontWeight: "700", boxShadow: "0 2px 6px rgba(0,0,0,0.02)" }}>
+                <span style={{ color: "#10b981", fontSize: "13px" }}>✓</span>
+                <span>EVM &amp; Solana Native</span>
+              </div>
+            </div>
           </div>
-        </section>
-
+          {/* Right HUD */}
+          <div className="bc-hero-hud-wrapper" style={{ width: "100%", display: "block", position: "relative", zIndex: 3 }}>
+            <BlockchainHeroHud />
+          </div>
+        </div>
+        {/* Trusted Banner */}
+        <div className="bc-trusted-banner">
+          <div className="bc-trusted-left">
+            <h3 style={{ fontSize: "15px", fontWeight: "800", color: "#0f172a", marginBottom: "4px" }}>Multi-Chain Engineering</h3>
+            <p style={{ fontSize: "12px", color: "#64748b", lineHeight: "1.6", margin: 0 }}>Deploy and scale across leading L1s, L2 rollups, and oracle networks.</p>
+          </div>
+          <div className="bc-trusted-logos">
+            <div style={{ display: "flex", flexDirection: "column", gap: "3px", flexShrink: 0 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "17px", fontWeight: "800", color: "#334155" }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6366f1" strokeWidth="3"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/></svg> Ethereum
+              </div>
+              <div style={{ fontSize: "10px", color: "#94a3b8" }}>"EVM &amp; Layer-2 Rollups"</div>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "3px", flexShrink: 0 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "17px", fontWeight: "800", color: "#334155" }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="3"><circle cx="12" cy="12" r="10"/><path d="M8 12l3 3 5-5"/></svg> Solana
+              </div>
+              <div style={{ fontSize: "10px", color: "#94a3b8" }}>"Rust Anchor High-Speed"</div>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "3px", flexShrink: 0 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "17px", fontWeight: "800", color: "#334155" }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="3"><rect x="3" y="3" width="18" height="18" rx="4"/></svg> Polygon
+              </div>
+              <div style={{ fontSize: "10px", color: "#94a3b8" }}>"PoS &amp; zkEVM Scaling"</div>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "3px", flexShrink: 0 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "17px", fontWeight: "800", color: "#334155" }}>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="3"><polygon points="12 2 2 7 12 12 22 7 12 2"/><polyline points="2 17 12 22 22 17"/><polyline points="2 12 12 17 22 12"/></svg> Arbitrum
+              </div>
+              <div style={{ fontSize: "10px", color: "#94a3b8" }}>"Nitro L2 Engine"</div>
+            </div>
+            <div style={{ display: "flex", flexDirection: "column", gap: "3px", flexShrink: 0 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", fontSize: "17px", fontWeight: "800", color: "#334155" }}
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="3"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg> Chainlink
+              </div>
+              <div style={{ fontSize: "10px", color: "#94a3b8" }}>"CCIP &amp; Price Feeds"</div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Bento Grid */}
+      <section style={{ position: "relative", padding: "50px 0", backgroundColor: "#ffffff" }}>
+        <BlockchainBentoGrid />
+      </section>
+      {/* Exchange / DEX Section */}
+      <ExchangeDexSection />
+      {/* Security Scale Bento */}
+      <div style={{ paddingBottom: "80px", backgroundColor: "#ffffff" }}>
+        <SecurityScaleBento />
       </div>
-
-      <Footer />
+      {/* FAQs */}
+      <section style={{ background: "#ffffff", padding: "80px 24px", borderTop: "1px solid #e2e8f0" }}>
+        <div style={{ maxWidth: "860px", margin: "0 auto" }}>
+          <h2 style={{ fontSize: "32px", fontWeight: "800", color: "#0f172a", textAlign: "center", marginBottom: "40px" }}>Blockchain &amp; Web3 Development FAQs</h2>
+          <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+            {faqs.map((f, i) => (
+              <details key={i} style={{ background: "#ffffff", border: "1.5px solid #e2e8f0", borderRadius: "16px", padding: "18px 24px", cursor: "pointer" }}>
+                <summary style={{ fontWeight: "700", color: "#0f172a", fontSize: "16px" }}>{f.q}</summary>
+                <p style={{ color: "#64748b", marginTop: "12px", lineHeight: "1.65", fontSize: "14.5px" }}>{f.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+      {/* CTA Banner */}
+      <section style={{ background: "#ffffff", padding: "80px 24px", textAlign: "center", borderTop: "1px solid #e2e8f0" }}>
+        <div style={{ maxWidth: "700px", margin: "0 auto" }}>
+          <h2 style={{ fontSize: "36px", fontWeight: "900", color: "#0f172a", marginBottom: "16px" }}>Ready to Launch Your Web3 Protocol?</h2>
+          <p style={{ color: "#64748b", fontSize: "16px", marginBottom: "32px" }}>Book a free smart contract audit &amp; architecture review with our lead Web3 engineer in 48 hours.</p>
+          <Link href="/#contact" style={{ background: "#334155", color: "#ffffff", padding: "15px 32px", borderRadius: "99px", fontWeight: "700", textDecoration: "none", display: "inline-block" }}>
+            Book Smart Contract Audit →
+          </Link>
+        </div>
+      </section>
+      <Footer variant="light" />
     </>
   );
 }

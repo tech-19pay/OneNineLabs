@@ -237,7 +237,7 @@ export default function MarketingServicePage() {
 
               <div>
                 <Link
-                  href="/#contact"
+                  href="/contact"
                   style={{
                     background: "#334155",
                     color: "#ffffff",
@@ -445,7 +445,7 @@ export default function MarketingServicePage() {
                     <div style={{ fontSize: "15px", fontWeight: "900", color: "#0f172a" }}>Ben Timona</div>
                     <div style={{ fontSize: "11px", color: "#64748b" }}>Hey there! I want to ask...</div>
                   </div>
-                  <Link href="/#contact" style={{ background: "#334155", color: "#fff", padding: "8px 18px", borderRadius: "99px", fontSize: "12.5px", fontWeight: "700", textDecoration: "none" }}>
+                  <Link href="/contact" style={{ background: "#334155", color: "#fff", padding: "8px 18px", borderRadius: "99px", fontSize: "12.5px", fontWeight: "700", textDecoration: "none" }}>
                     Answer
                   </Link>
                 </div>
@@ -557,7 +557,7 @@ export default function MarketingServicePage() {
         {/* ─── 3. REDESIGNED CAPABILITIES SECTION ─── */}
         <section className="vd-services-section" style={{
           background: "#f8fafc",
-          padding: "48px 24px 80px 24px",
+          padding: "48px 24px 30px 24px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -647,7 +647,7 @@ export default function MarketingServicePage() {
               {/* Action Buttons */}
               <div className="card-buttons">
                 <Link href="/services/web-development" className="btn-details">View details</Link>
-                <Link href="/#contact" className="btn-preview">Preview report</Link>
+                <Link href="/contact" className="btn-preview">Preview report</Link>
               </div>
             </div>
 
@@ -687,7 +687,7 @@ export default function MarketingServicePage() {
                     <div style={{ fontSize: "5px", fontWeight: "700", color: "#64748b" }}>Weekly Ad Conversions</div>
                     <div style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", height: "35px", marginTop: "2px" }}>
                       {[30, 45, 60, 40, 75, 55, 90].map((h, i) => (
-                        <div key={i} style={{ width: "8px", height: `${h}%`, background: "linear-gradient(to top, #3b82f6, #ec4899)", borderRadius: "1px" }}></div>
+                        <div key={i} className="bar-item" style={{ width: "8px", height: `${h}%`, background: "linear-gradient(to top, #3b82f6, #ec4899)", borderRadius: "1px" }}></div>
                       ))}
                     </div>
                   </div>
@@ -707,7 +707,7 @@ export default function MarketingServicePage() {
               {/* Action Buttons */}
               <div className="card-buttons">
                 <Link href="/services/marketing" className="btn-details">View details</Link>
-                <Link href="/#contact" className="btn-preview">Preview report</Link>
+                <Link href="/contact" className="btn-preview">Preview report</Link>
               </div>
             </div>
 
@@ -735,7 +735,7 @@ export default function MarketingServicePage() {
                       <div key={i} style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                         <span style={{ width: "52px", fontSize: "4.5px", color: "#64748b", fontWeight: "700" }}>{step.stage}</span>
                         <div style={{ flex: 1, height: "8px", background: "#f1f5f9", borderRadius: "2px", overflow: "hidden" }}>
-                          <div style={{ width: step.w, height: "100%", background: step.bg, borderRadius: "2px" }}></div>
+                          <div className="progress-item" style={{ width: step.w, height: "100%", background: step.bg, borderRadius: "2px" }}></div>
                         </div>
                         <span style={{ fontSize: "4.5px", color: "#0f172a", fontWeight: "800", width: "18px" }}>{step.val}</span>
                       </div>
@@ -761,7 +761,7 @@ export default function MarketingServicePage() {
               {/* Action Buttons */}
               <div className="card-buttons">
                 <Link href="/services/saas" className="btn-details">View details</Link>
-                <Link href="/#contact" className="btn-preview">Preview report</Link>
+                <Link href="/contact" className="btn-preview">Preview report</Link>
               </div>
             </div>
 
@@ -795,9 +795,16 @@ export default function MarketingServicePage() {
                   <div style={{ flex: 1, marginTop: "6px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                     <div style={{ fontSize: "5px", fontWeight: "700", color: "#64748b" }}>Search Impressions</div>
                     <div style={{ flex: 1, position: "relative", marginTop: "2px" }}>
-                      <svg width="100%" height="100%" viewBox="0 0 160 40" preserveAspectRatio="none">
-                        <path d="M0 35 Q15 15 30 25 T60 10 T90 28 T120 12 T160 20 L160 40 L0 40 Z" fill="#eedcff" />
-                        <path d="M0 35 Q15 15 30 25 T60 10 T90 28 T120 12 T160 20" fill="none" stroke="#8b5cf6" strokeWidth="1" />
+                      <svg width="100%" height="100%" viewBox="0 0 160 40">
+                        {/* Grid lines */}
+                        <line x1="0" y1="20" x2="160" y2="20" stroke="#f1f5f9" strokeWidth="0.5" />
+                        {/* Scatter points */}
+                        {[
+                          { x: 15, y: 30 }, { x: 35, y: 15 }, { x: 55, y: 25 }, { x: 75, y: 10 },
+                          { x: 95, y: 28 }, { x: 115, y: 12 }, { x: 135, y: 22 }, { x: 155, y: 8 }
+                        ].map((pt, index) => (
+                          <circle key={index} cx={pt.x} cy={pt.y} r="3" fill="#8b5cf6" className="scatter-dot" />
+                        ))}
                       </svg>
                     </div>
                   </div>
@@ -816,7 +823,7 @@ export default function MarketingServicePage() {
               {/* Action Buttons */}
               <div className="card-buttons">
                 <Link href="/services/ai-automation" className="btn-details">View details</Link>
-                <Link href="/#contact" className="btn-preview">Preview report</Link>
+                <Link href="/contact" className="btn-preview">Preview report</Link>
               </div>
             </div>
 
@@ -870,7 +877,7 @@ export default function MarketingServicePage() {
               {/* Action Buttons */}
               <div className="card-buttons">
                 <Link href="/services/security" className="btn-details">View details</Link>
-                <Link href="/#contact" className="btn-preview">Preview report</Link>
+                <Link href="/contact" className="btn-preview">Preview report</Link>
               </div>
             </div>
 
@@ -905,8 +912,8 @@ export default function MarketingServicePage() {
                     <div style={{ fontSize: "5px", fontWeight: "700", color: "#64748b" }}>Token Utility / Price Path</div>
                     <div style={{ flex: 1, position: "relative", marginTop: "2px" }}>
                       <svg width="100%" height="100%" viewBox="0 0 160 40" preserveAspectRatio="none">
-                        <path d="M0 35 L30 30 L60 20 L90 28 L120 15 L160 8 L160 40 L0 40 Z" fill="#e0e7ff" />
-                        <path d="M0 35 L30 30 L60 20 L90 28 L120 15 L160 8" fill="none" stroke="#6366f1" strokeWidth="1" />
+                        <path d="M0 35 L30 35 L30 25 L60 25 L60 18 L90 18 L90 22 L120 22 L120 10 L160 10 L160 40 L0 40 Z" fill="#e0e7ff" />
+                        <path d="M0 35 L30 35 L30 25 L60 25 L60 18 L90 18 L90 22 L120 22 L120 10 L160 10" fill="none" stroke="#6366f1" strokeWidth="1.2" />
                       </svg>
                     </div>
                   </div>
@@ -925,7 +932,7 @@ export default function MarketingServicePage() {
               {/* Action Buttons */}
               <div className="card-buttons">
                 <Link href="/services/blockchain" className="btn-details">View details</Link>
-                <Link href="/#contact" className="btn-preview">Preview report</Link>
+                <Link href="/contact" className="btn-preview">Preview report</Link>
               </div>
             </div>
           </div>
@@ -939,156 +946,45 @@ export default function MarketingServicePage() {
         </section>
 
         {/* ─── 4. RESULTS / PROOF BAND ─── */}
-        <section className="vd-results-section" style={{ background: "#ffffff", padding: "80px 24px", textAlign: "center" }}>
-          <div className="vd-badge-tag" style={{ background: "#eff6ff", borderColor: "#bfdbfe", color: "#2563eb", margin: "0 auto 14px", display: "inline-flex" }}>Proven Impact</div>
-          <h2 className="vd-section-h2" style={{ textAlign: "center" }}>Outcomes Our Growth Pod Delivers</h2>
-          <p className="vd-section-p" style={{ textAlign: "center", marginBottom: "48px" }}>Compounding acquisition results across the channels we manage end-to-end.</p>
+        <section className="vd-results-section" style={{ paddingTop: "30px" }}>
+          <div className="vd-badge-tag">Proven Impact</div>
+          <h2 className="vd-section-h2">Outcomes Our Growth Pod Delivers</h2>
+          <p className="vd-section-p">Compounding acquisition results across the channels we manage end-to-end.</p>
 
-          <div className="metric-pipeline-container">
-            {/* Column 1: Organic Growth */}
-            <div className="metric-col">
-              <div className="metric-header">
-                <span className="metric-val val-blue">+340%</span>
-                <span className="metric-tag tag-blue">SEO</span>
-              </div>
-              <h3 className="metric-title">Organic Growth</h3>
-              <p className="metric-desc">Technical SEO, programmatic content and Core Web Vitals fixes that compound month over month.</p>
-              <div className="metric-check-item">
-                <span className="metric-check-dot">✓</span>
-                <span>Sub-second LCP & Schema</span>
+          <div className="vd-results-grid">
+            <div className="vd-result-card">
+              <div className="vd-result-num">+340%</div>
+              <div className="vd-result-label">SEO — Organic Growth</div>
+              <div className="vd-result-desc">
+                Technical SEO, programmatic content and Core Web Vitals fixes that compound month over month.
+                <div style={{ display: "flex", alignItems: "center", gap: "6px", marginTop: "12px", color: "#10b981", fontWeight: "700", fontSize: "12.5px" }}>
+                  <span>✓</span> <span>Sub-second LCP & Schema</span>
+                </div>
               </div>
             </div>
 
-            <div className="metric-divider" />
-
-            {/* Column 2: Blended ROAS */}
-            <div className="metric-col">
-              <div className="metric-header">
-                <span className="metric-val val-cyan">4.8x</span>
-                <span className="metric-tag tag-cyan">ROAS</span>
-              </div>
-              <h3 className="metric-title">Blended ROAS</h3>
-              <p className="metric-desc">Google, LinkedIn and Meta campaigns tied to CRM revenue with server-side attribution.</p>
-              <div className="metric-check-item">
-                <span className="metric-check-dot">✓</span>
-                <span>Closed-Loop CRM Tracking</span>
+            <div className="vd-result-card">
+              <div className="vd-result-num">4.8x</div>
+              <div className="vd-result-label">ROAS — Blended Campaigns</div>
+              <div className="vd-result-desc">
+                Google, LinkedIn and Meta campaigns tied to CRM revenue with server-side attribution.
+                <div style={{ display: "flex", alignItems: "center", gap: "6px", marginTop: "12px", color: "#10b981", fontWeight: "700", fontSize: "12.5px" }}>
+                  <span>✓</span> <span>Closed-Loop CRM Tracking</span>
+                </div>
               </div>
             </div>
 
-            <div className="metric-divider" />
-
-            {/* Column 3: Lower CAC Rate */}
-            <div className="metric-col">
-              <div className="metric-header">
-                <span className="metric-val val-green">-22%</span>
-                <span className="metric-tag tag-green">CAC</span>
-              </div>
-              <h3 className="metric-title">Lower CAC Rate</h3>
-              <p className="metric-desc">Landing page A/B testing and full-funnel drop-off fixes that reduce acquisition cost.</p>
-              <div className="metric-check-item">
-                <span className="metric-check-dot">✓</span>
-                <span>Weekly A/B Experiments</span>
+            <div className="vd-result-card">
+              <div className="vd-result-num">-22%</div>
+              <div className="vd-result-label">CAC — Lower Cost</div>
+              <div className="vd-result-desc">
+                Landing page A/B testing and full-funnel drop-off fixes that reduce acquisition cost.
+                <div style={{ display: "flex", alignItems: "center", gap: "6px", marginTop: "12px", color: "#10b981", fontWeight: "700", fontSize: "12.5px" }}>
+                  <span>✓</span> <span>Weekly A/B Experiments</span>
+                </div>
               </div>
             </div>
           </div>
-
-          <style>{`
-            .metric-pipeline-container {
-              max-width: 1140px;
-              margin: 0 auto;
-              background: transparent;
-              padding: 16px 0;
-              display: grid;
-              grid-template-columns: 1fr auto 1fr auto 1fr;
-              gap: 36px;
-              align-items: flex-start;
-              text-align: left;
-              position: relative;
-            }
-            .metric-col {
-              display: flex;
-              flex-direction: column;
-            }
-            .metric-header {
-              display: flex;
-              align-items: center;
-              justify-content: space-between;
-              margin-bottom: 16px;
-            }
-            .metric-val {
-              font-size: 46px;
-              font-weight: 900;
-              line-height: 1;
-              letter-spacing: -1.5px;
-            }
-            .val-blue { color: #2563eb; }
-            .val-cyan { color: #0284c7; }
-            .val-green { color: #059669; }
-
-            .metric-tag {
-              font-size: 11px;
-              font-weight: 800;
-              letter-spacing: 1px;
-              padding: 4px 10px;
-              border-radius: 99px;
-              text-transform: uppercase;
-            }
-            .tag-blue { background: #eff6ff; color: #2563eb; border: 1px solid #bfdbfe; }
-            .tag-cyan { background: #f0f9ff; color: #0284c7; border: 1px solid #bae6fd; }
-            .tag-green { background: #ecfdf5; color: #059669; border: 1px solid #a7f3d0; }
-
-            .metric-title {
-              font-size: 20px;
-              font-weight: 800;
-              color: #0f172a;
-              margin-bottom: 10px;
-            }
-            .metric-desc {
-              font-size: 13.5px;
-              color: #64748b;
-              line-height: 1.6;
-              margin-bottom: 20px;
-            }
-            .metric-check-item {
-              display: flex;
-              align-items: center;
-              gap: 8px;
-              font-size: 12.5px;
-              font-weight: 700;
-              color: #334155;
-            }
-            .metric-check-dot {
-              width: 16px;
-              height: 16px;
-              border-radius: 50%;
-              background: #0f172a;
-              color: #ffffff;
-              display: inline-flex;
-              align-items: center;
-              justify-content: center;
-              font-size: 9px;
-              font-weight: 900;
-            }
-            .metric-divider {
-              width: 1.5px;
-              height: 100%;
-              min-height: 160px;
-              background: #e2e8f0;
-            }
-            @media (max-width: 900px) {
-              .metric-pipeline-container {
-                grid-template-columns: 1fr;
-                padding: 16px 0;
-                gap: 28px;
-              }
-              .metric-divider {
-                width: 100%;
-                height: 1px;
-                min-height: 1px;
-                background: #e2e8f0;
-              }
-            }
-          `}</style>
         </section>
 
         {/* ─── 5. STAFF / POD SPOTLIGHT BANNER WITH BOWTIE FUNNEL MODEL ─── */}
@@ -1102,7 +998,7 @@ export default function MarketingServicePage() {
                 attribution, we tie every rupee of ad spend to real pipeline — giving you clear ROAS, lower CAC,
                 and compounding organic growth month over month.
               </p>
-              <Link href="/#contact" className="vd-btn-primary" style={{ background: "#334155" }}>Talk to a Growth Specialist →</Link>
+              <Link href="/contact" className="vd-btn-primary" style={{ background: "#334155" }}>Talk to a Growth Specialist →</Link>
             </div>
             <div className="vd-pod-right">
               <img src="/services/bowtie_funnel_model.png" alt="GET-KEEP-GROW Customer Acquisition Bowtie Funnel Model" style={{ boxShadow: "none", border: "none", filter: "drop-shadow(0 16px 36px rgba(15, 23, 42, 0.08))" }} />
@@ -1488,18 +1384,28 @@ export default function MarketingServicePage() {
                       <svg width="100%" height="100%" viewBox="0 0 160 80" preserveAspectRatio="none">
                         <defs>
                           <linearGradient id="green-gradient" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#10b981" stopOpacity="0.25" />
+                            <stop offset="0%" stopColor="#10b981" stopOpacity="0.15" />
                             <stop offset="100%" stopColor="#10b981" stopOpacity="0.0" />
+                          </linearGradient>
+                          <linearGradient id="blue-gradient-sub" x1="0" y1="0" x2="0" y2="1">
+                            <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.15" />
+                            <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.0" />
                           </linearGradient>
                         </defs>
                         {/* Grid lines */}
                         <line x1="0" y1="20" x2="160" y2="20" stroke="#f1f5f9" strokeWidth="0.5" />
                         <line x1="0" y1="40" x2="160" y2="40" stroke="#f1f5f9" strokeWidth="0.5" />
                         <line x1="0" y1="60" x2="160" y2="60" stroke="#f1f5f9" strokeWidth="0.5" />
-                        {/* Area */}
-                        <path d="M0 60 Q20 30 40 45 T80 30 T120 50 T160 35 L160 80 L0 80 Z" fill="url(#green-gradient)" />
-                        {/* Line */}
-                        <path d="M0 60 Q20 30 40 45 T80 30 T120 50 T160 35" fill="none" stroke="#10b981" strokeWidth="1.5" strokeLinecap="round" />
+                        
+                        {/* Area 1 (Conversions) */}
+                        <path d="M0 60 Q25 35 50 50 T100 25 T150 40 L160 40 L160 80 L0 80 Z" fill="url(#blue-gradient-sub)" />
+                        {/* Line 1 */}
+                        <path d="M0 60 Q25 35 50 50 T100 25 T150 40 L160 40" fill="none" stroke="#3b82f6" strokeWidth="1.5" strokeLinecap="round" />
+                        
+                        {/* Area 2 (Cost) */}
+                        <path d="M0 45 Q20 20 40 35 T80 15 T120 40 T160 10 L160 80 L0 80 Z" fill="url(#green-gradient)" />
+                        {/* Line 2 */}
+                        <path d="M0 45 Q20 20 40 35 T80 15 T120 40 T160 10" fill="none" stroke="#10b981" strokeWidth="1.5" strokeLinecap="round" />
                       </svg>
                     </div>
                     {/* Tiny X axis */}
@@ -1525,8 +1431,8 @@ export default function MarketingServicePage() {
 
               {/* Action Buttons */}
               <div className="card-buttons">
-                <Link href="/#contact" className="btn-details">View details</Link>
-                <Link href="/#contact" className="btn-preview">Preview report</Link>
+                <Link href="/contact" className="btn-details">View details</Link>
+                <Link href="/contact" className="btn-preview">Preview report</Link>
               </div>
             </div>
 
@@ -1575,19 +1481,19 @@ export default function MarketingServicePage() {
                     <div style={{ display: "flex", flexDirection: "column", gap: "3px", marginTop: "4px" }}>
                       <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                         <span style={{ width: "32px", fontSize: "5px", color: "#64748b", textAlign: "right" }}>Direct</span>
-                        <div style={{ flex: 1, height: "4px", background: "#3b82f6", borderRadius: "1px", width: "80%" }}></div>
+                        <div className="progress-item" style={{ flex: 1, height: "4px", background: "#3b82f6", borderRadius: "1px", width: "80%" }}></div>
                       </div>
                       <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                         <span style={{ width: "32px", fontSize: "5px", color: "#64748b", textAlign: "right" }}>Organic</span>
-                        <div style={{ flex: 1, height: "4px", background: "#3b82f6", borderRadius: "1px", width: "65%" }}></div>
+                        <div className="progress-item" style={{ flex: 1, height: "4px", background: "#3b82f6", borderRadius: "1px", width: "65%" }}></div>
                       </div>
                       <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                         <span style={{ width: "32px", fontSize: "5px", color: "#64748b", textAlign: "right" }}>Paid Search</span>
-                        <div style={{ flex: 1, height: "4px", background: "#3b82f6", borderRadius: "1px", width: "40%" }}></div>
+                        <div className="progress-item" style={{ flex: 1, height: "4px", background: "#3b82f6", borderRadius: "1px", width: "40%" }}></div>
                       </div>
                       <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
                         <span style={{ width: "32px", fontSize: "5px", color: "#64748b", textAlign: "right" }}>Social</span>
-                        <div style={{ flex: 1, height: "4px", background: "#3b82f6", borderRadius: "1px", width: "20%" }}></div>
+                        <div className="progress-item" style={{ flex: 1, height: "4px", background: "#3b82f6", borderRadius: "1px", width: "20%" }}></div>
                       </div>
                     </div>
                   </div>
@@ -1607,8 +1513,8 @@ export default function MarketingServicePage() {
 
               {/* Action Buttons */}
               <div className="card-buttons">
-                <Link href="/#contact" className="btn-details">View details</Link>
-                <Link href="/#contact" className="btn-preview">Preview report</Link>
+                <Link href="/contact" className="btn-details">View details</Link>
+                <Link href="/contact" className="btn-preview">Preview report</Link>
               </div>
             </div>
 
@@ -1672,15 +1578,25 @@ export default function MarketingServicePage() {
                   <div style={{ flex: 1, marginTop: "6px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                     <div style={{ fontSize: "5px", fontWeight: "700", color: "#64748b" }}>Amount spent and CPC by Day</div>
                     <div style={{ flex: 1, position: "relative", marginTop: "2px" }}>
-                      <svg width="100%" height="100%" viewBox="0 0 160 40" preserveAspectRatio="none">
-                        <defs>
-                          <linearGradient id="blue-gradient" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.25" />
-                            <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.0" />
-                          </linearGradient>
-                        </defs>
-                        <path d="M0 30 Q15 15 30 25 T60 10 T90 28 T120 12 T160 20 L160 40 L0 40 Z" fill="url(#blue-gradient)" />
-                        <path d="M0 30 Q15 15 30 25 T60 10 T90 28 T120 12 T160 20" fill="none" stroke="#3b82f6" strokeWidth="1" strokeLinecap="round" />
+                      <svg width="100%" height="100%" viewBox="0 0 160 40">
+                        {/* Donut chart segments */}
+                        <circle cx="25" cy="20" r="14" fill="none" stroke="#e2e8f0" strokeWidth="5" />
+                        {/* Segment 1: Instagram (50%) */}
+                        <circle cx="25" cy="20" r="14" fill="none" stroke="#3b82f6" strokeWidth="5" strokeDasharray="88" strokeDashoffset="44" strokeLinecap="round" className="donut-segment-1" />
+                        {/* Segment 2: Facebook (30%) */}
+                        <circle cx="25" cy="20" r="14" fill="none" stroke="#ec4899" strokeWidth="5" strokeDasharray="88" strokeDashoffset="70" strokeLinecap="round" className="donut-segment-2" />
+                        
+                        {/* Legend */}
+                        <g transform="translate(60, 8)" style={{ fontSize: "5px", fontWeight: "700" }}>
+                          <rect x="0" y="0" width="4" height="4" fill="#3b82f6" rx="1" />
+                          <text x="8" y="4" fill="#64748b">Instagram - 50%</text>
+                          
+                          <rect x="0" y="8" width="4" height="4" fill="#ec4899" rx="1" />
+                          <text x="8" y="12" fill="#64748b">Facebook - 30%</text>
+                          
+                          <rect x="0" y="16" width="4" height="4" fill="#e2e8f0" rx="1" />
+                          <text x="8" y="20" fill="#64748b">Other - 20%</text>
+                        </g>
                       </svg>
                     </div>
                   </div>
@@ -1700,15 +1616,15 @@ export default function MarketingServicePage() {
 
               {/* Action Buttons */}
               <div className="card-buttons">
-                <Link href="/#contact" className="btn-details">View details</Link>
-                <Link href="/#contact" className="btn-preview">Preview report</Link>
+                <Link href="/contact" className="btn-details">View details</Link>
+                <Link href="/contact" className="btn-preview">Preview report</Link>
               </div>
             </div>
           </div>
 
           {/* Bottom link */}
           <div style={{ marginTop: "40px", textAlign: "center" }}>
-            <Link href="/#contact" className="reports-footer-link">
+            <Link href="/contact" className="reports-footer-link">
               View all our report templates
             </Link>
           </div>
@@ -1742,6 +1658,130 @@ export default function MarketingServicePage() {
               padding: 12px;
               margin-bottom: 24px;
               box-shadow: inset 0 2px 4px 0 rgba(0, 0, 0, 0.02);
+              transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.3s ease;
+            }
+            .report-card:hover .dashboard-mockup {
+              transform: translateY(-4px);
+              box-shadow: 0 16px 36px rgba(0, 0, 0, 0.05), inset 0 2px 4px 0 rgba(0, 0, 0, 0.01);
+              border-color: #cbd5e1;
+            }
+            
+            /* ─── CONTINUOUS FLOW & BREATHING ANIMATIONS ─── */
+            @keyframes flowLine {
+              from { stroke-dashoffset: 32; }
+              to { stroke-dashoffset: 0; }
+            }
+            @keyframes breatheFill {
+              0%, 100% { opacity: 0.15; }
+              50% { opacity: 0.35; }
+            }
+            @keyframes equalize {
+              0%, 100% { transform: scaleY(1); }
+              50% { transform: scaleY(1.22); }
+            }
+            @keyframes shimmerProgress {
+              0%, 100% { opacity: 0.85; filter: brightness(1); }
+              50% { opacity: 1; filter: brightness(1.2) drop-shadow(0 0 3px rgba(59, 130, 246, 0.3)); }
+            }
+            @keyframes floatDot {
+              0%, 100% { transform: translateY(0) scale(1); }
+              50% { transform: translateY(-3.5px) scale(1.25); }
+            }
+            @keyframes breatheDonut {
+              0%, 100% { stroke-width: 5; }
+              50% { stroke-width: 6.8; }
+            }
+
+            /* SVG Line charts flow */
+            .report-card svg path[stroke] {
+              stroke-dasharray: 8 6;
+              animation: flowLine 1.8s linear infinite;
+              transition: stroke-width 0.3s ease, filter 0.3s ease;
+            }
+            .report-card:hover svg path[stroke] {
+              stroke-width: 1.8;
+              filter: drop-shadow(0 2px 4px rgba(99, 102, 241, 0.45));
+              animation-duration: 0.9s; /* speed up flow on hover */
+            }
+            .report-card svg path[fill] {
+              animation: breatheFill 4s ease-in-out infinite;
+              transition: opacity 0.3s ease;
+            }
+            .report-card:hover svg path[fill] {
+              opacity: 0.6;
+            }
+
+            /* Vertical Bar equalizer waves */
+            .bar-item {
+              transform-origin: bottom;
+              animation: equalize 1.6s ease-in-out infinite;
+              transition: filter 0.3s ease;
+            }
+            .bar-item:nth-child(1) { animation-delay: 0.1s; animation-duration: 1.5s; }
+            .bar-item:nth-child(2) { animation-delay: 0.3s; animation-duration: 1.3s; }
+            .bar-item:nth-child(3) { animation-delay: 0.5s; animation-duration: 1.7s; }
+            .bar-item:nth-child(4) { animation-delay: 0.2s; animation-duration: 1.4s; }
+            .bar-item:nth-child(5) { animation-delay: 0.4s; animation-duration: 1.6s; }
+            .bar-item:nth-child(6) { animation-delay: 0.6s; animation-duration: 1.3s; }
+            .bar-item:nth-child(7) { animation-delay: 0.3s; animation-duration: 1.5s; }
+            
+            .report-card:hover .bar-item {
+              filter: brightness(1.15) drop-shadow(0 2px 4px rgba(59, 130, 246, 0.4));
+            }
+
+            /* Horizontal Progress Bar breathing shimmer */
+            .progress-item {
+              transform-origin: left;
+              animation: shimmerProgress 3s ease-in-out infinite;
+              transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            }
+            .report-card:hover .progress-item {
+              transform: scaleX(1.08);
+            }
+            /* Staggered animation delays for progress items */
+            .progress-item:nth-child(1) { animation-delay: 0.1s; }
+            .progress-item:nth-child(2) { animation-delay: 0.3s; }
+            .progress-item:nth-child(3) { animation-delay: 0.5s; }
+            .progress-item:nth-child(4) { animation-delay: 0.7s; }
+
+            /* Scatter Plot floating dots */
+            .scatter-dot {
+              transform-origin: center;
+              animation: floatDot 3s ease-in-out infinite;
+              transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), filter 0.3s ease;
+            }
+            .scatter-dot:nth-child(1) { animation-delay: 0.1s; }
+            .scatter-dot:nth-child(2) { animation-delay: 0.3s; }
+            .scatter-dot:nth-child(3) { animation-delay: 0.5s; }
+            .scatter-dot:nth-child(4) { animation-delay: 0.2s; }
+            .scatter-dot:nth-child(5) { animation-delay: 0.4s; }
+            .scatter-dot:nth-child(6) { animation-delay: 0.6s; }
+            .scatter-dot:nth-child(7) { animation-delay: 0.3s; }
+            .scatter-dot:nth-child(8) { animation-delay: 0.5s; }
+
+            .report-card:hover .scatter-dot {
+              transform: scale(1.4);
+              filter: drop-shadow(0 0 3px rgba(139, 92, 246, 0.65));
+            }
+
+            /* Donut segments breathing circles */
+            .donut-segment-1 {
+              animation: breatheDonut 4s ease-in-out infinite;
+              transition: stroke-width 0.3s ease, filter 0.3s ease;
+            }
+            .donut-segment-2 {
+              animation: breatheDonut 4s ease-in-out infinite 2s;
+              transition: stroke-width 0.3s ease, filter 0.3s ease;
+            }
+            .report-card:hover .donut-segment-1 {
+              stroke-width: 7;
+              filter: drop-shadow(0 0 4px rgba(59, 130, 246, 0.55));
+              animation-play-state: paused;
+            }
+            .report-card:hover .donut-segment-2 {
+              stroke-width: 7;
+              filter: drop-shadow(0 0 4px rgba(236, 72, 153, 0.55));
+              animation-play-state: paused;
             }
             .mockup-header {
               display: flex;
@@ -1901,7 +1941,7 @@ export default function MarketingServicePage() {
               Get a free growth audit covering your SEO technicals, paid account structure, and conversion funnel — with a 90-day roadmap.
             </p>
             <div className="vd-cta-btns" style={{ display: "flex", justifyContent: "center", gap: "16px", flexWrap: "wrap" }}>
-              <Link href="/#contact" className="vd-btn-primary" style={{ background: "#334155", color: "#ffffff", padding: "14px 28px", borderRadius: "99px", fontWeight: "700", textDecoration: "none", fontSize: "15px" }}>
+              <Link href="/contact" className="vd-btn-primary" style={{ background: "#334155", color: "#ffffff", padding: "14px 28px", borderRadius: "99px", fontWeight: "700", textDecoration: "none", fontSize: "15px" }}>
                 Book a Free Growth Audit →
               </Link>
               <Link href="/services" className="vd-btn-ghost" style={{ background: "#ffffff", color: "#0f172a", border: "1.5px solid #cbd5e1", padding: "14px 28px", borderRadius: "99px", fontWeight: "600", textDecoration: "none", fontSize: "15px" }}>
@@ -2010,7 +2050,7 @@ export default function MarketingServicePage() {
               <div className="faq-left-panel">
                 <h3>Still have questions?</h3>
                 <p>Our growth strategists are ready to walk you through how we can help scale your business.</p>
-                <a href="/#contact" className="faq-contact-btn">Talk to an Expert →</a>
+                <a href="/contact" className="faq-contact-btn">Talk to an Expert →</a>
                 <div className="faq-stat">
                   <div className="faq-stat-num">4.8×</div>
                   <div className="faq-stat-label">Avg. ROAS across campaigns</div>

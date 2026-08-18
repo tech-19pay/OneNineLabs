@@ -2555,7 +2555,7 @@ export default function Home() {
       <section className="faq-section" id="faq">
         <h2 className="faq-title">Frequently asked questions</h2>
         <p style={{ textAlign: "center", maxWidth: "720px", margin: "-28px auto 36px", color: "#64748b", fontSize: "14px", lineHeight: 1.6, padding: "0 24px" }}>
-          Everything you need to know about working with <strong style={{ color: "#0f172a" }}>OneNineLabs</strong> — our 6 core services, tech stack, timelines, security and growth support. Can&apos;t find an answer? <Link href="/#contact" style={{ color: "#0f172a", fontWeight: 800, textDecoration: "underline", textUnderlineOffset: "3px" }}>Talk to an architect</Link>.
+          Everything you need to know about working with <strong style={{ color: "#0f172a" }}>OneNineLabs</strong> — our 6 core services, tech stack, timelines, security and growth support. Can&apos;t find an answer? <Link href="/contact" style={{ color: "#0f172a", fontWeight: 800, textDecoration: "underline", textUnderlineOffset: "3px" }}>Talk to an architect</Link>.
         </p>
 
         {/* FAQ JSON-LD for SEO (Organization: OneNineLabs) */}
@@ -2780,7 +2780,7 @@ export default function Home() {
               Yes — <strong>flexible dedicated pods</strong> that embed in your workflow. Choose <strong>Discovery Sprint (2 wks)</strong> for audit &amp;
               roadmap, <strong>Build &amp; Launch (6–12 wks)</strong> for MVPs, or <strong>Scale &amp; Operate retainer</strong> (24/7 monitoring, feature
               velocity, CRO). Weekly demos, velocity tracking, and no lock-in.{" "}
-              <Link href="/#contact" style={{ fontWeight: 800, color: "#0f172a", textDecoration: "underline", textUnderlineOffset: "3px" }}>
+              <Link href="/contact" style={{ fontWeight: 800, color: "#0f172a", textDecoration: "underline", textUnderlineOffset: "3px" }}>
                 Schedule a call
               </Link>{" "}
               and we&apos;ll propose the right pod in 24h.

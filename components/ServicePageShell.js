@@ -16,7 +16,124 @@ import { servicePageStyles } from "@/lib/servicePageStyles";
  * See app/services/web-development/page.js for a full example.
  */
 export default function ServicePageShell({ cfg }) {
-  const { theme, hero, stats, marquee, welcome, services, usecases, process, results, pricing, testimonial, faqs, cta, contact } = cfg;
+  const { theme, hero, stats, marquee, welcome, services, usecases, process, results, pricing, testimonial, faqs, cta } = cfg;
+
+  const renderStepCard = (idx) => {
+    switch (idx) {
+      case 0:
+        return (
+          <div className="vt-mock-card">
+            <div className="vt-card-header">
+              <span>📋 Project Backlog & Roadmap</span>
+              <span className="vt-status-dot green"></span>
+            </div>
+            <div className="vt-card-body">
+              <div className="vt-backlog-item">
+                <span className="vt-task-title">Next.js 15 Edge SSR Setup</span>
+                <span className="vt-badge high">High Priority</span>
+              </div>
+              <div className="vt-backlog-item">
+                <span className="vt-task-title">PostgreSQL Schema Isolation</span>
+                <span className="vt-badge progress">In Progress</span>
+              </div>
+              <div className="vt-backlog-item">
+                <span className="vt-task-title">Stripe Metered Billing Webhook</span>
+                <span className="vt-badge todo">To Do</span>
+              </div>
+              <div className="vt-progress-row">
+                <div className="vt-progress-label">Sprint 1 Target</div>
+                <div className="vt-progress-bar-wrap">
+                  <div className="vt-progress-bar" style={{ width: "65%" }}></div>
+                </div>
+                <div className="vt-progress-percent">65%</div>
+              </div>
+            </div>
+          </div>
+        );
+      case 1:
+        return (
+          <div className="vt-mock-card dark">
+            <div className="vt-card-header">
+              <span>⚙️ Pipeline: build-and-test</span>
+              <span className="vt-status-tag green">passing</span>
+            </div>
+            <div className="vt-card-body console">
+              <div className="console-line text-green">$ npm run test:ci</div>
+              <div className="console-line">✓ Auth flows (FaceID/TouchID) passed (0.12s)</div>
+              <div className="console-line">✓ Row-level security checks passed (0.08s)</div>
+              <div className="console-line text-green">$ npm run build:production</div>
+              <div className="console-line">✓ Page SSR pre-rendering completed</div>
+              <div className="console-line text-cyan">Deploying to Edge Runtime... Success!</div>
+            </div>
+          </div>
+        );
+      case 2:
+        return (
+          <div className="vt-mock-card">
+            <div className="vt-card-header">
+              <span>🛡️ Security & Compliance Audit</span>
+              <span className="vt-badge secure">Audited</span>
+            </div>
+            <div className="vt-card-body grid-2x2">
+              <div className="vt-grid-item">
+                <div className="vt-grid-lbl">SOC 2 Readiness</div>
+                <div className="vt-grid-val text-green">100% Ready</div>
+              </div>
+              <div className="vt-grid-item">
+                <div className="vt-grid-lbl">OWASP Vulnerability</div>
+                <div className="vt-grid-val text-green">0 Found</div>
+              </div>
+              <div className="vt-grid-item">
+                <div className="vt-grid-lbl">SSL/TLS Grade</div>
+                <div className="vt-grid-val text-blue">A+ Secure</div>
+              </div>
+              <div className="vt-grid-item">
+                <div className="vt-grid-lbl">Penetration Test</div>
+                <div className="vt-grid-val text-green">Passed</div>
+              </div>
+            </div>
+          </div>
+        );
+      case 3:
+        return (
+          <div className="vt-mock-card live">
+            <div className="vt-card-header">
+              <span>🚀 Production Deployments</span>
+              <span className="vt-live-ping"><span className="ping-dot"></span>Live</span>
+            </div>
+            <div className="vt-card-body">
+              <div className="vt-metric-row">
+                <div className="vt-metric-item">
+                  <span className="lbl">Active Traffic</span>
+                  <span className="val">14,250 req/m</span>
+                </div>
+                <div className="vt-metric-item">
+                  <span className="lbl">CPU Load</span>
+                  <span className="val">18.4%</span>
+                </div>
+              </div>
+              <div className="vt-log-row">
+                <div className="vt-log-title">Edge Delivery Health</div>
+                <div className="vt-endpoints-list">
+                  <div className="endpoint-item">
+                    <span className="dot green"></span>
+                    <span>api.oneninelabs.com/v1</span>
+                    <span className="ms">14ms</span>
+                  </div>
+                  <div className="endpoint-item">
+                    <span className="dot green"></span>
+                    <span>dashboard.oneninelabs.com</span>
+                    <span className="ms">28ms</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
 
   return (
     <>
@@ -25,7 +142,7 @@ export default function ServicePageShell({ cfg }) {
 
       <div className="vd-wrap">
         {/* ─── 1. HERO SECTION (MODERN AI & ENGINEERING HERO UI) ─── */}
-        <ServicesHero cfg={cfg} />
+        {cfg.customHeroContent ? cfg.customHeroContent : <ServicesHero cfg={cfg} />}
 
         {/* ─── 1b. GLASS STATS BAR ─── */}
         {stats && stats.length > 0 && (
@@ -94,14 +211,30 @@ export default function ServicePageShell({ cfg }) {
           <h2 className="vd-section-h2">{process.title}</h2>
           <p className="vd-section-p">{process.desc}</p>
 
-          <div className="vd-process-timeline">
-            {process.steps.map((step) => (
-              <div className="vd-step-node" key={step.num}>
-                <div className="vd-step-circle">{step.num}</div>
-                <div className="vd-step-title">{step.title}</div>
-                <div className="vd-step-desc">{step.desc}</div>
-              </div>
-            ))}
+          <div className="vd-process-timeline-v2">
+            <div className="vt-line"></div>
+
+            {process.steps.map((step, idx) => {
+              const isEven = idx % 2 === 1;
+
+              return (
+                <div className={`vt-item ${isEven ? 'vt-right' : 'vt-left'}`} key={step.num}>
+                  <div className="vt-dot"></div>
+
+                  <div className="vt-content">
+                    <span className="vt-step-badge">Step {step.num}</span>
+                    <h3 className="vt-title">{step.title}</h3>
+                    <p className="vt-desc">{step.desc}</p>
+                  </div>
+
+                  <div className="vt-visual">
+                    <div className="vt-image-container">
+                      {renderStepCard(idx)}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </section>
 
@@ -130,48 +263,36 @@ export default function ServicePageShell({ cfg }) {
           <h2 className="vd-section-h2">{pricing.title}</h2>
           <p className="vd-section-p">{pricing.desc}</p>
 
-          <div className="vd-pricing-grid">
+          <div className="vd-pricing-rows-container">
             {pricing.plans.map((plan, i) => (
-              <div className={`vd-pricing-card${plan.featured ? " vd-pricing-card-featured" : ""}`} key={i}>
-                {plan.featured && <div className="vd-plan-tag">Most Popular</div>}
-                <div className="vd-plan-banner-blue">
-                  <div className="p-name">{plan.name}</div>
-                  <div className="vd-plan-tagline">{plan.tagline}</div>
+              <div className={`vd-pricing-row${plan.featured ? " vd-pricing-row-featured" : ""}`} key={i}>
+                <div className="vd-prow-meta">
+                  {plan.featured && <span className="vd-prow-badge">Most Popular</span>}
+                  <h3 className="vd-prow-name">{plan.name}</h3>
+                  <p className="vd-prow-tagline">{plan.tagline}</p>
+                  <div className="vd-prow-price">
+                    {plan.price} <span className="vd-prow-price-note">{plan.priceNote}</span>
+                  </div>
                 </div>
-                <div className="vd-plan-price-row">
-                  <div className="vd-plan-price">{plan.price}<span>{plan.priceNote}</span></div>
-                </div>
-                <ul className="vd-pricing-features">
-                  {plan.features.map((f, fi) => <li key={fi}>{f}</li>)}
+
+                <ul className="vd-prow-features">
+                  {plan.features.map((f, fi) => (
+                    <li key={fi}>
+                      <span className="vd-prow-check">✓</span>
+                      <span className="vd-prow-feat-text">{f}</span>
+                    </li>
+                  ))}
                 </ul>
-                <div className="vd-pricing-card-footer">
-                  <Link href={plan.cta.href} className="vd-btn-primary" style={{ width: "100%", justifyContent: "center" }}>{plan.cta.label}</Link>
+
+                <div className="vd-prow-action">
+                  <Link href={plan.cta.href} className="vd-prow-btn">{plan.cta.label}</Link>
                 </div>
               </div>
             ))}
           </div>
         </section>
 
-        {/* ─── 7. TESTIMONIAL ─── */}
-        <section className="vd-testimonial-section">
-          <div className="vd-testimonial-grid">
-            <div>
-              <div className="vd-badge-tag">{testimonial.badge}</div>
-              <h2 className="vd-section-h2" style={{ marginBottom: "18px" }}>{testimonial.title}</h2>
-              <p style={{ color: "#4b5563", lineHeight: 1.7, fontSize: "15.5px" }}>{testimonial.desc}</p>
-            </div>
 
-            <div className="vd-testimonial-card">
-              <div className="vd-avatar-top-floating">
-                {testimonial.avatarImg ? <img src={testimonial.avatarImg} alt="Client Avatar" /> : testimonial.avatar}
-              </div>
-              <div className="vd-stars">{testimonial.stars || "★★★★★"}</div>
-              <div className="vd-testimonial-quote">“{testimonial.quote}”</div>
-              <div className="vd-testimonial-author">{testimonial.author}</div>
-              <div className="vd-testimonial-role">{testimonial.role}</div>
-            </div>
-          </div>
-        </section>
 
         {/* ─── 8. FAQ ─── */}
         <section className="vd-faq-section">
@@ -202,42 +323,11 @@ export default function ServicePageShell({ cfg }) {
           </div>
         </section>
 
-        {/* ─── 10. CONTACT ─── */}
-        <section className="vd-contact-section">
-          <div className="vd-badge-tag">{contact.badge}</div>
-          <h2 className="vd-section-h2">{contact.title}</h2>
-          {contact.desc && <p className="vd-section-p">{contact.desc}</p>}
 
-          <div className="vd-contact-grid">
-            <div className="vd-2x2-info-chips">
-              <div className="vd-info-chip">
-                <div className="ic-icon">📍</div>
-                <div className="ic-title">Office Location</div>
-                <div className="ic-sub">{contact.location}</div>
-              </div>
-              <div className="vd-info-chip blue">
-                <div className="ic-icon">✉️</div>
-                <div className="ic-title">Email Us</div>
-                <div className="ic-sub">{contact.email}</div>
-              </div>
-              <div className="vd-info-chip blue">
-                <div className="ic-icon">📞</div>
-                <div className="ic-title">Direct Line</div>
-                <div className="ic-sub">{contact.phone}</div>
-              </div>
-              <div className="vd-info-chip">
-                <div className="ic-icon">🕒</div>
-                <div className="ic-title">Working Hours</div>
-                <div className="ic-sub">{contact.hours}</div>
-              </div>
-            </div>
-
-            <ServiceContactForm placeholder={contact.formPlaceholder} sourcePage={contact.sourcePage} />
-          </div>
-        </section>
       </div>
 
       <Footer />
     </>
   );
 }
+

@@ -11,9 +11,6 @@ export default function WelcomeSection({ welcome, theme }) {
   const mainTitlePart = titleWords.slice(0, Math.max(1, titleWords.length - 3)).join(" ");
   const italicTitlePart = titleWords.slice(Math.max(1, titleWords.length - 3)).join(" ");
 
-  const imgTop = welcome.imageTop || welcome.image || "/services/welcome_architecture_3d.jpg";
-  const imgBottom = welcome.imageBottom || "/services/welcome_team_3d.jpg";
-
   return (
     <section className="ws-section">
       <div className="ws-container">
@@ -27,19 +24,10 @@ export default function WelcomeSection({ welcome, theme }) {
           <p className="ws-desc">{welcome.desc}</p>
         </div>
 
-        {/* Right Column: 4 Geometric Asymmetric Pill Cards Grid */}
+        {/* Right Column: 2 Geometric Asymmetric Pill Cards Grid */}
         <div className="ws-right">
           <div className="ws-grid">
-            {/* Shape 1: Top Left Rounded 3D Architecture Squircle */}
-            <div className="ws-card ws-card-squircle-top">
-              <img
-                src={imgTop}
-                alt="3D Software Architecture"
-                className="ws-card-img"
-              />
-            </div>
-
-            {/* Shape 2: Top Right Beige Vertical Stadium Pill */}
+            {/* Shape 1: Beige Vertical Stadium Pill */}
             <div className="ws-card ws-card-pill-beige">
               <div className="ws-check-circle">✓</div>
               <div className="ws-pill-title">
@@ -50,7 +38,7 @@ export default function WelcomeSection({ welcome, theme }) {
               </div>
             </div>
 
-            {/* Shape 3: Bottom Left Dark Forest Green Vertical Stadium Pill */}
+            {/* Shape 2: Dark Forest Green Vertical Stadium Pill */}
             <div className="ws-card ws-card-pill-dark">
               <div className="ws-icon-circle">⚡</div>
               <div className="ws-stat-val">{welcome.badgeStat?.num || "10+"}</div>
@@ -58,15 +46,6 @@ export default function WelcomeSection({ welcome, theme }) {
               <div className="ws-pill-avatar">
                 <span>👨‍💻</span>
               </div>
-            </div>
-
-            {/* Shape 4: Bottom Right Rounded 3D Engineering Team Squircle */}
-            <div className="ws-card ws-card-squircle-bottom">
-              <img
-                src={imgBottom}
-                alt="Engineering Team Hub"
-                className="ws-card-img"
-              />
             </div>
           </div>
         </div>

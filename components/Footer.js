@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 
-export default function Footer() {
+export default function Footer({ accentColor = "#10b981" }) {
   const [footerEmail, setFooterEmail] = useState("");
   const [footerCompany, setFooterCompany] = useState("");
   const [footerSubmitted, setFooterSubmitted] = useState(false);
@@ -56,7 +56,7 @@ export default function Footer() {
           </p>
 
           {footerSubmitted ? (
-            <div style={{ background: "rgba(16, 185, 129, 0.1)", border: "1px solid #10b981", color: "#10b981", padding: "20px", borderRadius: "12px", fontSize: "16px", fontWeight: "700" }}>
+            <div style={{ background: `${accentColor}1a`, border: `1px solid ${accentColor}`, color: accentColor, padding: "20px", borderRadius: "12px", fontSize: "16px", fontWeight: "700" }}>
               ✓ Request received! An enterprise solutions engineer will reach out to you within 12 hours.
             </div>
           ) : (
@@ -87,7 +87,7 @@ export default function Footer() {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                style={{ background: "#10b981", color: "#fff", border: "none", borderRadius: "8px", padding: "14px 28px", fontSize: "14px", fontWeight: "700", cursor: isSubmitting ? "not-allowed" : "pointer", opacity: isSubmitting ? 0.7 : 1, transition: "opacity 0.2s ease" }}
+                style={{ background: accentColor, color: "#fff", border: "none", borderRadius: "8px", padding: "14px 28px", fontSize: "14px", fontWeight: "700", cursor: isSubmitting ? "not-allowed" : "pointer", opacity: isSubmitting ? 0.7 : 1, transition: "opacity 0.2s ease" }}
               >
                 {isSubmitting ? "Submitting..." : "Request Expert Consultation →"}
               </button>
@@ -103,7 +103,7 @@ export default function Footer() {
             {/* Branding Column */}
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
               <div style={{ fontSize: "22px", fontWeight: "900", color: "#fff", letterSpacing: "-0.5px" }}>
-                onenine<span style={{ color: "#10b981" }}>labs</span>
+                onenine<span style={{ color: accentColor }}>labs</span>
               </div>
               <p style={{ fontSize: "13px", color: "#94a3b8", lineHeight: "1.6", margin: "0" }}>
                 Premium custom software engineering and systems design consulting. We transform enterprise architecture and scale digital products.
@@ -158,7 +158,7 @@ export default function Footer() {
                 <li><a href="mailto:19@oneninelabs.com" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "13px" }}>19@oneninelabs.com</a></li>
                 <li><a href="tel:+918588807039" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "13px" }}>+91 85888 07039</a></li>
                 <li><span style={{ color: "#64748b", fontSize: "13px" }}>Response within 12h • Lucknow, UP, India</span></li>
-                <li><Link href="/contact" style={{ color: "#10b981", textDecoration: "none", fontSize: "13px", fontWeight: "700" }}>Contact us &rarr;</Link></li>
+                <li><Link href="/contact" style={{ color: accentColor, textDecoration: "none", fontSize: "13px", fontWeight: "700" }}>Contact us &rarr;</Link></li>
               </ul>
             </div>
           </div>

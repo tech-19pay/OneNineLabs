@@ -7,12 +7,12 @@ import ServiceContactForm from "@/components/ServiceContactForm";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://oneninelabs.com";
 
 export const metadata = {
-  title: "Custom Web Development — Next.js 15 & React 19 | OneNineLabs",
-  description: "Enterprise web applications built on Next.js 15, React 19, Node.js & Python. Blazing-fast edge delivery, headless CMS, and sub-second LCP page loads.",
-  keywords: ["web development company", "custom web applications", "Next.js developer", "React development agency", "Node.js APIs", "headless CMS integration", "Lighthouse speed optimization"],
-  alternates: { canonical: "/services/web-development", languages: { "en-US": "/services/web-development", en: "/services/web-development", "hi-IN": "/services/web-development", "x-default": "/services/web-development" } },
-  openGraph: { title: "Custom Web Development & Next.js Apps | OneNineLabs", description: "Blazing-fast custom web applications engineered for speed, security & scale.", url: "https://oneninelabs.com/services/web-development", type: "website", images: [{ url: "/services/web_dev_preview.png", width: 1200, height: 630, alt: "Custom Web Development by OneNineLabs" }] },
-  twitter: { card: "summary_large_image", title: "Custom Web Development & Next.js Apps | OneNineLabs", description: "Blazing-fast custom web applications engineered for speed, security & scale.", images: ["/services/web_dev_preview.png"] },
+  title: "Custom Web Development & High-Performance UIs | OneNineLabs",
+  description: "Enterprise web applications built on modern UI stacks, React, Vue, Vite & Edge APIs. Blazing-fast edge delivery, headless CMS, and sub-second LCP page loads.",
+  keywords: ["web development company", "custom web applications", "UI design system", "React Vue agency", "Node.js APIs", "headless CMS integration", "Lighthouse speed optimization"],
+  alternates: { canonical: "/services/web-development", languages: { "en-US": "/services/web-development", en: "/services/web-development", "x-default": "/services/web-development" } },
+  openGraph: { title: "Custom Web Development & Modern UI Apps | OneNineLabs", description: "Blazing-fast custom web applications engineered for speed, security & scale.", url: "https://oneninelabs.com/services/web-development", type: "website", images: [{ url: "/services/web_dev_preview.png", width: 1200, height: 630, alt: "Custom Web Development by OneNineLabs" }] },
+  twitter: { card: "summary_large_image", title: "Custom Web Development & Modern UI Apps | OneNineLabs", description: "Blazing-fast custom web applications engineered for speed, security & scale.", images: ["/services/web_dev_preview.png"] },
   robots: { index: true, follow: true },
 };
 
@@ -23,8 +23,8 @@ const GLOW = "rgba(37,99,235,0.15)";
 
 const webCapabilities = [
   {
-    title: "Next.js 15 & React 19 App Router",
-    desc: "Server Components (RSC), Edge SSR, Streaming, and ISR patterns engineered for sub-second LCP and Lighthouse 95+ Core Web Vitals.",
+    title: "Modern Component UIs & Engines",
+    desc: "React 19, Vue 3, Svelte, and Next.js interfaces combined with Vite / Turbopack build engines for sub-second LCP page loads.",
     icon: "⚡",
     badge: "LCP < 0.8s"
   },
@@ -49,7 +49,7 @@ const webCapabilities = [
 ];
 
 const faqs = [
-  { q: "Why do you specialize in Next.js?", a: "Next.js provides the best server-side rendering (SSR), static generation (SSG), and incremental builds (ISR) out of the box, leading to sub-second page loads, better SEO, and lower server costs." },
+  { q: "What frontend technologies do you build UIs with?", a: "We engineer custom interfaces using React, Vue, Svelte, and Next.js, combined with Vite/Turbopack and Tailwind CSS. We select the right UI framework and rendering patterns (SSR, SSG) depending on your product's SEO, speed, and scaling goals." },
   { q: "Can you integrate headless CMS platforms?", a: "Yes — we integrate headless CMS platforms like Sanity, Contentful, and Strapi. This lets your marketing team edit content visual-editor style, while keeping your website ultra-fast and secure." },
   { q: "How do you optimize page performance?", a: "We audit and fix image layouts, run dynamic code splits, eliminate heavy bundle dependencies, optimize server queries, and configure edge CDN caches to achieve 95+ Lighthouse scores." },
   { q: "What is your backend database preference?", a: "We typically use PostgreSQL (configured with Supabase or AWS RDS) with Prisma ORM for type safety, alongside Redis for caching and session management." },
@@ -99,233 +99,436 @@ export default function WebDevelopmentServicePage() {
 
       <div className="vd-wrap">
 
-        {/* ─── 1. HERO: SHIFTED UPWARDS WITHOUT CARD CONTAINER ─── */}
         <section className="vd-hero-section" style={{
-          background: "#ffffff",
-          padding: "105px 24px 60px 24px",
+          background: "linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f3f4f6 100%)",
+          padding: "115px 24px 80px 24px",
           borderBottom: "1px solid #f1f5f9",
-          fontFamily: "'Inter', sans-serif"
+          fontFamily: "'Inter', sans-serif",
+          position: "relative",
+          overflow: "hidden"
         }}>
-          <div style={{
+          <div className="webdev-hero-grid" style={{
             maxWidth: "1280px",
             margin: "0 auto",
             display: "grid",
-            gridTemplateColumns: "380px 340px 1fr",
-            gap: "40px",
+            gridTemplateColumns: "1.1fr 1fr",
+            gap: "56px",
             alignItems: "center"
           }}>
 
-            {/* LEFT COLUMN */}
-            <div style={{ textAlign: "left" }}>
+            {/* LEFT CONTENT COLUMN */}
+            <div className="webdev-hero-left" style={{ textAlign: "left", zIndex: 2 }}>
+              
               <h1 style={{
                 fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontSize: "clamp(30px, 3.6vw, 44px)",
-                fontWeight: "700",
-                color: "#3b232e",
-                lineHeight: "1.15",
-                letterSpacing: "-1.2px",
-                marginBottom: "36px"
-              }}>
-                Kickstart your web app effortlessly with Next.js 15.
-              </h1>
-
-              {/* Active Spotlight Card */}
-              <div style={{
-                background: "#ffffff",
-                borderRadius: "20px",
-                padding: "24px",
-                boxShadow: "0 10px 30px rgba(59, 35, 46, 0.06)",
+                fontSize: "clamp(32px, 4.2vw, 48px)",
+                fontWeight: "800",
+                color: "#1e1b4b",
+                lineHeight: "1.12",
+                letterSpacing: "-1.5px",
                 marginBottom: "20px"
               }}>
-                <div style={{ fontSize: "17px", fontWeight: "700", color: "#3b232e", marginBottom: "8px" }}>
-                  Next.js 15 &amp; React 19 UI
-                </div>
-                <div style={{ fontSize: "13.5px", color: "#7a5c68", lineHeight: "1.6" }}>
-                  Sub-second LCP, Server Components (RSC), Edge SSR, and Lighthouse 95+ Core Web Vitals SLA.
-                </div>
-              </div>
-
-              {/* Accordion Feature Items */}
-              <div style={{ display: "flex", flexDirection: "column" }}>
-                <div style={{ padding: "16px 0", borderBottom: "1px solid #eee1d6", color: "#4a343d", fontWeight: "700", fontSize: "16px" }}>
-                  Headless CMS &amp; Visual Editor
-                </div>
-                <div style={{ padding: "16px 0", borderBottom: "1px solid #eee1d6", color: "#4a343d", fontWeight: "700", fontSize: "16px" }}>
-                  Node.js &amp; Python Microservices
-                </div>
-                <div style={{ padding: "16px 0", color: "#4a343d", fontWeight: "700", fontSize: "16px" }}>
-                  Core Web Vitals &amp; Edge Caching
-                </div>
-              </div>
-            </div>
-
-            {/* CENTER COLUMN: PHONE DEVICE SHOWCASE CANVAS */}
-            <div style={{
-              background: "#ffffff",
-              borderRadius: "36px",
-              padding: "16px",
-              boxShadow: "0 25px 60px rgba(59, 35, 46, 0.08)"
-            }}>
-              {/* Phone Device Screen */}
-              <div style={{
-                background: "linear-gradient(180deg, #6c4b5e 0%, #4a3241 100%)",
-                borderRadius: "28px",
-                padding: "20px 16px",
-                color: "#ffffff",
-                textAlign: "center",
-                position: "relative"
-              }}>
-                {/* Header Navbar */}
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px", fontSize: "14px" }}>
-                  <span>‹</span>
-                  <span>❤️</span>
-                  <span>⋮</span>
-                </div>
-
-                {/* Main Hero Card Info */}
-                <div style={{ marginBottom: "20px" }}>
-                  <div style={{ fontSize: "18px", fontWeight: "700", fontFamily: "'Plus Jakarta Sans', serif" }}>Next.js Turbo Web Stack</div>
-                  <div style={{ fontSize: "11px", color: "#d8c4cd", marginTop: "2px" }}>By OneNine Engineering Pod</div>
-                </div>
-
-                {/* Center 3D Lotus / App Icon Graphic */}
-                <div style={{
-                  width: "120px",
-                  height: "120px",
-                  margin: "0 auto 20px auto",
-                  borderRadius: "50%",
-                  background: "radial-gradient(circle, rgba(244, 212, 225, 0.25) 0%, transparent 70%)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  fontSize: "56px"
-                }}>
-                  ⚡
-                </div>
-
-                {/* Circular Play / Execute Button */}
-                <div style={{
-                  width: "48px",
-                  height: "48px",
-                  borderRadius: "50%",
-                  background: "rgba(255, 255, 255, 0.9)",
-                  color: "#4a3241",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  margin: "0 auto 20px auto",
-                  boxShadow: "0 10px 25px rgba(0,0,0,0.15)",
-                  fontSize: "18px"
-                }}>
-                  ▶
-                </div>
-
-                {/* Lower White Card Sheet */}
-                <div style={{
-                  background: "#ffffff",
-                  borderRadius: "20px",
-                  padding: "16px 14px",
-                  color: "#3b232e",
-                  textAlign: "left"
-                }}>
-                  <div style={{ fontSize: "13px", fontWeight: "700", textAlign: "center", marginBottom: "14px", fontFamily: "'Plus Jakarta Sans', serif" }}>
-                    List of web app modules
-                  </div>
-
-                  <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                        <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: "#f5e6eb", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "14px" }}>🚀</div>
-                        <div>
-                          <div style={{ fontSize: "12px", fontWeight: "700" }}>Next.js App Router (RSC)</div>
-                          <div style={{ fontSize: "10px", color: "#8a6d79" }}>⏱ 0.4s LCP</div>
-                        </div>
-                      </div>
-                      <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: "#f0e2d7", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "10px" }}>▶</div>
-                    </div>
-
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                        <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: "#e8f0f5", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "14px" }}>📝</div>
-                        <div>
-                          <div style={{ fontSize: "12px", fontWeight: "700" }}>Headless CMS (Sanity)</div>
-                          <div style={{ fontSize: "10px", color: "#8a6d79" }}>⏱ Instant Sync</div>
-                        </div>
-                      </div>
-                      <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: "#f0e2d7", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "10px" }}>▶</div>
-                    </div>
-
-                    <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                      <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                        <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: "#f0e8f5", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "14px" }}>⚙️</div>
-                        <div>
-                          <div style={{ fontSize: "12px", fontWeight: "700" }}>Prisma ORM &amp; Postgres</div>
-                          <div style={{ fontSize: "10px", color: "#8a6d79" }}>⏱ Type-Safe API</div>
-                        </div>
-                      </div>
-                      <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: "#f0e2d7", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "10px" }}>▶</div>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-            </div>
-
-            {/* RIGHT COLUMN */}
-            <div style={{ textAlign: "left" }}>
-              <h2 style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontSize: "clamp(26px, 3.2vw, 36px)",
-                fontWeight: "700",
-                color: "#3b232e",
-                lineHeight: "1.2",
-                marginBottom: "16px"
-              }}>
-                Exceptional features that stand out.
-              </h2>
+                Kickstart your custom web app <span className="highlight-text">effortlessly</span>
+              </h1>
 
               <p style={{
-                fontSize: "14.5px",
-                color: "#7a5c68",
-                lineHeight: "1.65",
-                marginBottom: "32px"
+                fontSize: "16px",
+                color: "#475569",
+                lineHeight: "1.7",
+                marginBottom: "36px",
+                maxWidth: "560px",
+                fontWeight: "500"
               }}>
-                Enjoy our built-in performance engines, headless CMS visual editing, edge caching, and scalable APIs designed to elevate your web platform with ease and speed.
+                Enjoy our built-in performance engines, headless CMS visual editing, edge caching, and scalable databases designed to elevate your web platform with ease and speed.
               </p>
 
-              <Link
-                href="/#contact"
-                style={{
-                  border: "1.5px solid #c49ba9",
-                  color: "#6c4b5e",
-                  fontWeight: "700",
-                  borderRadius: "99px",
-                  padding: "12px 28px",
-                  fontSize: "14.5px",
-                  textDecoration: "none",
-                  display: "inline-block"
-                }}
-              >
-                Start Web Project →
-              </Link>
+              {/* Action Buttons */}
+              <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", marginBottom: "48px" }}>
+                <Link
+                  href="/contact"
+                  className="vd-btn-primary"
+                  style={{
+                    background: "#0f172a",
+                    color: "#ffffff",
+                    fontWeight: "700",
+                    borderRadius: "12px",
+                    padding: "14px 28px",
+                    fontSize: "15px",
+                    textDecoration: "none",
+                    boxShadow: "0 10px 25px rgba(15, 23, 42, 0.15)",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    border: "1.5px solid #0f172a",
+                    transition: "all 0.25s ease"
+                  }}
+                >
+                  Start Web Project →
+                </Link>
+                <a
+                  href="#capabilities"
+                  style={{
+                    background: "#ffffff",
+                    color: "#0f172a",
+                    fontWeight: "700",
+                    borderRadius: "12px",
+                    padding: "14px 28px",
+                    fontSize: "15px",
+                    textDecoration: "none",
+                    border: "1.5px solid #e2e8f0",
+                    boxShadow: "0 4px 12px rgba(0,0,0,0.03)",
+                    display: "inline-flex",
+                    alignItems: "center",
+                    transition: "all 0.25s ease"
+                  }}
+                  className="vd-btn-ghost-secondary"
+                >
+                  Explore Capabilities
+                </a>
+              </div>
+
+              {/* Accordion / Info Cards 2x2 Grid */}
+              <div className="webdev-accordion-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", maxWidth: "600px" }}>
+                {[
+                  { title: "Visual CMS Editor", desc: "Real-time content sync & visual editor layouts." },
+                  { title: "Hybrid Edge Rendering", desc: "Optimized server rendering and edge delivery." },
+                  { title: "Scalable Core APIs", desc: "Type-safe backend services with caching layers." },
+                  { title: "Core Web Vitals SLA", desc: "Sub-second load speeds and Lighthouse 95+ scores." }
+                ].map((item, i) => (
+                  <div key={i} className="webdev-accordion-card">
+                    <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "6px" }}>
+                      <span style={{ color: "#10b981", fontWeight: "900", fontSize: "14px" }}>✓</span>
+                      <h4 style={{ fontSize: "14px", fontWeight: "800", color: "#1e1b4b", margin: 0 }}>{item.title}</h4>
+                    </div>
+                    <p style={{ fontSize: "12px", color: "#64748b", margin: 0, lineHeight: "1.5" }}>{item.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* RIGHT COLUMN: PHONE DEVICE SHOWCASE CANVAS (CENTERED) */}
+            <div className="webdev-hero-right" style={{ display: "flex", justifyContent: "center", position: "relative", zIndex: 2 }}>
+              <div className="webdev-phone-wrapper" style={{
+                background: "#ffffff",
+                borderRadius: "36px",
+                padding: "16px",
+                boxShadow: "0 25px 60px rgba(15, 23, 42, 0.08)",
+                maxWidth: "340px",
+                width: "100%"
+              }}>
+                {/* Phone Device Screen */}
+                <div style={{
+                  background: "#0f172a",
+                  borderRadius: "28px",
+                  padding: "12px",
+                  color: "#ffffff",
+                  position: "relative",
+                  overflow: "hidden",
+                  height: "440px",
+                  display: "flex",
+                  flexDirection: "column",
+                  border: "1px solid #1e293b",
+                  textAlign: "left"
+                }}>
+                  {/* Backdrop light glow behind screen */}
+                  <div className="phone-screen-glow" />
+
+                  {/* Browser Mock Navigation Bar at the top */}
+                  <div className="mock-browser-bar" style={{
+                    background: "#1e293b",
+                    borderRadius: "10px",
+                    padding: "6px 12px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    marginBottom: "8px",
+                    fontSize: "10px",
+                    color: "#94a3b8",
+                    position: "relative",
+                    zIndex: 4
+                  }}>
+                    <span style={{ color: "#10b981", fontSize: "10px" }}>🔒</span>
+                    <span style={{ fontFamily: "monospace", flex: 1, textAlign: "left" }}>onenine.dev/demo</span>
+                    <span style={{ display: "flex", gap: "3px" }}>
+                      <span style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#ef4444" }}></span>
+                      <span style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#f59e0b" }}></span>
+                      <span style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#10b981" }}></span>
+                    </span>
+                  </div>
+
+                  {/* Website Scrolling Viewport Area */}
+                  <div className="mock-website-viewport" style={{
+                    flex: 1,
+                    overflow: "hidden",
+                    borderRadius: "16px",
+                    background: "#ffffff",
+                    position: "relative",
+                    zIndex: 3,
+                    border: "1px solid #e2e8f0"
+                  }}>
+                    {/* The Website Mock Page (Animated vertical scroll through 6 pages) */}
+                    <div className="mock-website-page" style={{
+                      position: "absolute",
+                      width: "100%",
+                      top: 0,
+                      left: 0
+                    }}>
+                      
+                      {/* PAGE 1: Landing Page Hero Screen */}
+                      <div className="webdev-page-screen" style={{ height: "260px", padding: "16px 12px", background: "#ffffff", borderBottom: "1px solid #e2e8f0" }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
+                          <span style={{ fontSize: "10px", fontWeight: "900", color: "#1e1b4b" }}>OneNine Labs</span>
+                          <span style={{ fontSize: "8px", background: "#f1f5f9", padding: "3px 8px", borderRadius: "4px", color: "#64748b" }}>Menu ☰</span>
+                        </div>
+                        <h4 style={{ fontSize: "15px", fontWeight: "900", color: "#1e1b4b", margin: "0 0 8px 0", lineHeight: "1.2" }}>
+                          Build To Scale.
+                        </h4>
+                        <p style={{ fontSize: "9.5px", color: "#64748b", margin: "0 0 16px 0", lineHeight: "1.4" }}>
+                          High performance software engineering that powers fast-growing web applications.
+                        </p>
+                        <div style={{ display: "flex", gap: "8px" }}>
+                          <div style={{ fontSize: "8px", background: "#0f172a", color: "#ffffff", padding: "6px 10px", borderRadius: "6px", fontWeight: "700" }}>Get Started</div>
+                          <div style={{ fontSize: "8px", border: "1px solid #cbd5e1", padding: "6px 10px", borderRadius: "6px", fontWeight: "700", color: "#0f172a" }}>Learn More</div>
+                        </div>
+                      </div>
+
+                      {/* PAGE 2: Features Grid Screen */}
+                      <div className="webdev-page-screen" style={{ height: "260px", padding: "16px 12px", background: "#f8fafc", borderBottom: "1px solid #e2e8f0" }}>
+                        <div style={{ textAlign: "center", marginBottom: "14px" }}>
+                          <span style={{ fontSize: "8px", fontWeight: "800", color: "#4f46e5", textTransform: "uppercase" }}>Core Architecture</span>
+                          <h4 style={{ fontSize: "12px", fontWeight: "900", color: "#1e1b4b", margin: "2px 0 0 0" }}>Designed for Speed</h4>
+                        </div>
+                        <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                          <div style={{ background: "#ffffff", borderRadius: "8px", padding: "8px", border: "1px solid #e2e8f0", display: "flex", alignItems: "center", gap: "8px" }}>
+                            <span style={{ fontSize: "12px" }}>⚡</span>
+                            <div>
+                              <div style={{ fontSize: "9px", fontWeight: "800", color: "#0f172a" }}>Sub-second LCP</div>
+                              <div style={{ fontSize: "7.5px", color: "#64748b" }}>Optimized page loading.</div>
+                            </div>
+                          </div>
+                          <div style={{ background: "#ffffff", borderRadius: "8px", padding: "8px", border: "1px solid #e2e8f0", display: "flex", alignItems: "center", gap: "8px" }}>
+                            <span style={{ fontSize: "12px" }}>🛡️</span>
+                            <div>
+                              <div style={{ fontSize: "9px", fontWeight: "800", color: "#0f172a" }}>Enterprise Security</div>
+                              <div style={{ fontSize: "7.5px", color: "#64748b" }}>End-to-end data encryption.</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* PAGE 3: Live Analytics Dashboard Screen */}
+                      <div className="webdev-page-screen" style={{ height: "260px", padding: "16px 12px", background: "#0f172a", borderBottom: "1px solid #1e293b", color: "#ffffff" }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "10px" }}>
+                          <span style={{ fontSize: "9px", fontWeight: "800", color: "#38bdf8" }}>LATENCY MONITOR</span>
+                          <span style={{ fontSize: "8px", color: "#34d399", fontWeight: "700" }}>● ONLINE</span>
+                        </div>
+                        <div style={{ background: "rgba(255,255,255,0.03)", borderRadius: "10px", padding: "8px", border: "1px solid rgba(255,255,255,0.08)", marginBottom: "10px" }}>
+                          <div style={{ display: "flex", justifyContent: "space-between", fontSize: "8px", color: "#94a3b8", marginBottom: "4px" }}>
+                            <span>Edge Cache hit rate</span>
+                            <span style={{ color: "#34d399", fontWeight: "900" }}>99.4%</span>
+                          </div>
+                          
+                          {/* Latency line chart inside browser mockup */}
+                          <svg viewBox="0 0 100 30" style={{ width: "100%", height: "36px", overflow: "visible" }}>
+                            <path d="M0,30 Q15,5 30,18 T60,3 T90,24 L100,24" fill="none" stroke="#38bdf8" strokeWidth="1.5" className="phone-svg-line" />
+                          </svg>
+                        </div>
+                        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px" }}>
+                          <div style={{ background: "rgba(255,255,255,0.02)", padding: "6px", borderRadius: "6px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                            <div style={{ fontSize: "7px", color: "#94a3b8" }}>DB READS</div>
+                            <div style={{ fontSize: "10px", fontWeight: "900", color: "#38bdf8" }}>0.8ms</div>
+                          </div>
+                          <div style={{ background: "rgba(255,255,255,0.02)", padding: "6px", borderRadius: "6px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                            <div style={{ fontSize: "7px", color: "#94a3b8" }}>UPTIME</div>
+                            <div style={{ fontSize: "10px", fontWeight: "900", color: "#34d399" }}>99.99%</div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* PAGE 4: Pricing Rows Screen */}
+                      <div className="webdev-page-screen" style={{ height: "260px", padding: "16px 12px", background: "#ffffff", borderBottom: "1px solid #e2e8f0" }}>
+                        <div style={{ textAlign: "center", marginBottom: "10px" }}>
+                          <h4 style={{ fontSize: "12px", fontWeight: "900", color: "#0f172a", margin: 0 }}>Work With Us</h4>
+                          <span style={{ fontSize: "8px", color: "#64748b" }}>Cream-palette horizontal tiers</span>
+                        </div>
+                        <div style={{ background: "#faf6eb", borderRadius: "10px", padding: "8px", border: "1px solid #f3ebd4", marginBottom: "8px" }}>
+                          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                            <span style={{ fontSize: "8px", fontWeight: "800", color: "#1e1b4b" }}>Product Pod</span>
+                            <span style={{ fontSize: "8px", fontWeight: "900", color: "#b45309" }}>₹49,000 /mo</span>
+                          </div>
+                          <p style={{ fontSize: "7px", color: "#854d0e", margin: "2px 0 0 0" }}>Full-width rows with dedicated crew.</p>
+                        </div>
+                        <div style={{ background: "#ffffff", borderRadius: "10px", padding: "8px", border: "1px solid #cbd5e1" }}>
+                          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                            <span style={{ fontSize: "8px", fontWeight: "800", color: "#475569" }}>Scale Pod</span>
+                            <span style={{ fontSize: "8px", fontWeight: "900", color: "#475569" }}>₹99,000 /mo</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* PAGE 5: Growth Delivery Pod / Team Screen */}
+                      <div className="webdev-page-screen" style={{ height: "260px", padding: "16px 12px", background: "#f8fafc", borderBottom: "1px solid #e2e8f0" }}>
+                        <div style={{ textAlign: "center", marginBottom: "12px" }}>
+                          <span style={{ fontSize: "8px", fontWeight: "800", color: "#ca8a04", textTransform: "uppercase" }}>Dedicated Crew</span>
+                          <h4 style={{ fontSize: "12px", fontWeight: "900", color: "#1e1b4b", margin: "2px 0 0 0" }}>Your Delivery Pod</h4>
+                        </div>
+                        <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                          <div style={{ background: "#ffffff", borderRadius: "8px", padding: "8px", border: "1px solid #e2e8f0", display: "flex", justify: "space-between", alignItems: "center" }}>
+                            <div>
+                              <div style={{ fontSize: "9px", fontWeight: "800", color: "#0f172a" }}>Lead API Architect</div>
+                              <div style={{ fontSize: "7.5px", color: "#64748b" }}>GraphQL & Backend Orchestration</div>
+                            </div>
+                            <span style={{ fontSize: "8px", background: "#fef08a", color: "#854d0e", padding: "2px 6px", borderRadius: "4px", fontWeight: "700" }}>Core</span>
+                          </div>
+                          <div style={{ background: "#ffffff", borderRadius: "8px", padding: "8px", border: "1px solid #e2e8f0", display: "flex", justify: "space-between", alignItems: "center" }}>
+                            <div>
+                              <div style={{ fontSize: "9px", fontWeight: "800", color: "#0f172a" }}>UI/UX Systems Engineer</div>
+                              <div style={{ fontSize: "7.5px", color: "#64748b" }}>Design system & Frontend components</div>
+                            </div>
+                            <span style={{ fontSize: "8px", background: "#dbeafe", color: "#1e40af", padding: "2px 6px", borderRadius: "4px", fontWeight: "700" }}>Client</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* PAGE 6: Frequently Asked Questions Screen */}
+                      <div className="webdev-page-screen" style={{ height: "260px", padding: "16px 12px", background: "#ffffff" }}>
+                        <div style={{ textAlign: "center", marginBottom: "12px" }}>
+                          <h4 style={{ fontSize: "12px", fontWeight: "900", color: "#0f172a", margin: 0 }}>FAQ / Support</h4>
+                          <span style={{ fontSize: "8px", color: "#64748b" }}>Direct system SLA answers</span>
+                        </div>
+                        <div style={{ display: "flex", flexDirection: "column", gap: "6px" }}>
+                          <div style={{ background: "#f8fafc", borderRadius: "8px", padding: "8px", border: "1px solid #cbd5e1" }}>
+                            <div style={{ fontSize: "9px", fontWeight: "800", color: "#1e1b4b" }}>Q: How fast is setup?</div>
+                            <div style={{ fontSize: "8px", color: "#475569", marginTop: "2px" }}>A: Operations start in 48 hours.</div>
+                          </div>
+                          <div style={{ background: "#f8fafc", borderRadius: "8px", padding: "8px", border: "1px solid #cbd5e1" }}>
+                            <div style={{ fontSize: "9px", fontWeight: "800", color: "#1e1b4b" }}>Q: Uptime guarantees?</div>
+                            <div style={{ fontSize: "8px", color: "#475569", marginTop: "2px" }}>A: 99.9% production tier SLA.</div>
+                          </div>
+                        </div>
+                        <div style={{ marginTop: "16px", borderTop: "1px dashed #cbd5e1", paddingTop: "10px", textAlign: "center" }}>
+                          <span style={{ fontSize: "8px", color: "#94a3b8" }}>OneNine Labs Engine Pod</span>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+
+                </div>
+              </div>
             </div>
 
           </div>
 
           <style>{`
+            .highlight-text {
+              background: linear-gradient(135deg, #b45309, #ca8a04);
+              -webkit-background-clip: text;
+              background-clip: text;
+              color: transparent;
+            }
+            
+            /* Responsive primary button hovers */
+            .vd-btn-primary:hover {
+              background: #ffffff !important;
+              color: #0f172a !important;
+              border-color: #0f172a !important;
+              transform: translateY(-2px);
+              box-shadow: 0 6px 20px rgba(15, 23, 42, 0.1) !important;
+            }
+            .vd-btn-ghost-secondary:hover {
+              background: #faf6eb !important;
+              border-color: #0f172a !important;
+              transform: translateY(-2px);
+              box-shadow: 0 6px 16px rgba(0,0,0,0.06) !important;
+            }
+            
+            /* Accordion items */
+            .webdev-accordion-card {
+              background: #ffffff;
+              border: 1px solid #e2e8f0;
+              border-radius: 16px;
+              padding: 16px;
+              transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+              box-shadow: 0 4px 12px rgba(15,23,42,0.01);
+            }
+            .webdev-accordion-card:hover {
+              transform: translateY(-4px);
+              border-color: #cbd5e1;
+              box-shadow: 0 10px 24px rgba(15,23,42,0.04);
+            }
+
+            /* Continuous Floating/Pulsing Animations */
+            @keyframes floatPhone {
+              0%, 100% { transform: translateY(0); }
+              50% { transform: translateY(-10px); }
+            }
+            @keyframes spinCircle {
+              0% { transform: rotate(0deg); }
+              100% { transform: rotate(360deg); }
+            }
+            @keyframes pulseHeart {
+              0%, 100% { transform: scale(1); }
+              50% { transform: scale(1.3); }
+            }
+
+            .webdev-phone-wrapper {
+              animation: floatPhone 6s ease-in-out infinite;
+            }
+            .heart-icon-pulse {
+              display: inline-block;
+              animation: pulseHeart 1.2s ease-in-out infinite;
+              color: #ef4444;
+            }
+            .phone-screen-glow {
+              position: absolute;
+              inset: -50%;
+              background: radial-gradient(circle at center, rgba(99, 102, 241, 0.1) 0%, transparent 60%);
+              animation: spinCircle 12s linear infinite;
+              pointer-events: none;
+              z-index: 1;
+            }
+            
+            /* Mock scrolling website pages (video presentation format with 6 pages) */
+            @keyframes scrollVideoPages {
+              0%, 12% { transform: translateY(0); }
+              16%, 28% { transform: translateY(-260px); }
+              32%, 44% { transform: translateY(-520px); }
+              48%, 60% { transform: translateY(-780px); }
+              64%, 76% { transform: translateY(-1040px); }
+              80%, 92% { transform: translateY(-1300px); }
+              100% { transform: translateY(0); }
+            }
+            .mock-website-page {
+              animation: scrollVideoPages 18s cubic-bezier(0.65, 0, 0.35, 1) infinite;
+            }
+
+
+
+            @keyframes flowPhoneSvg {
+              from { stroke-dashoffset: 20; }
+              to { stroke-dashoffset: 0; }
+            }
+            .phone-svg-line {
+              stroke-dasharray: 6 3;
+              animation: flowPhoneSvg 1.2s linear infinite;
+            }
+
             @media (max-width: 1024px) {
-              .vd-hero-section > div {
+              .webdev-hero-grid {
                 grid-template-columns: 1fr !important;
-                gap: 40px !important;
+                gap: 50px !important;
+              }
+              .webdev-hero-right {
+                justify-content: center;
               }
             }
           `}</style>
         </section>
 
-        {/* ─── 2. REDESIGNED CAPABILITIES SECTION (EXACT MATCH TO MARKETING & HOME PAGE CARDS) ─── */}
         <section className="vd-services-section" style={{
           background: "#f8fafc",
-          padding: "64px 24px 80px 24px",
+          padding: "64px 24px 24px 24px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -354,7 +557,7 @@ export default function WebDevelopmentServicePage() {
               Our Web Development Stack
             </h2>
             <p style={{ color: "#475569", fontSize: "16px", fontWeight: "600", margin: 0 }}>
-              Full-stack Next.js, React 19, and Node.js solutions engineered for enterprise scale.
+              Custom React, Vue, Svelte, and Next.js interfaces engineered for high-performance UIs.
             </p>
           </div>
 
@@ -367,7 +570,7 @@ export default function WebDevelopmentServicePage() {
                     <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#ef4444" }} />
                     <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#f59e0b" }} />
                     <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#10b981" }} />
-                    <span className="mockup-title" style={{ color: "#38bdf8", fontFamily: "monospace", fontSize: "7px" }}>page.tsx — Next.js Turbopack</span>
+                    <span className="mockup-title" style={{ color: "#38bdf8", fontFamily: "monospace", fontSize: "7px" }}>App.tsx — React Vue Design System</span>
                   </div>
                 </div>
                 <div className="mockup-body" style={{ height: "130px", display: "flex", flexDirection: "column", justifyContent: "space-between", fontFamily: "monospace", color: "#cbd5e1" }}>
@@ -383,7 +586,7 @@ export default function WebDevelopmentServicePage() {
                 </div>
               </div>
 
-              <h3 className="card-title">Next.js 15 &amp; React 19 UI</h3>
+              <h3 className="card-title">Modern Frontend &amp; UI Engines</h3>
               <div className="card-logo-container">
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#2563eb" strokeWidth="2.5">
                   <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
@@ -392,7 +595,7 @@ export default function WebDevelopmentServicePage() {
 
               <div className="card-buttons">
                 <Link href="/services/web-development" className="btn-details">View details</Link>
-                <Link href="/#contact" className="btn-preview">Preview stack</Link>
+                <Link href="/contact" className="btn-preview">Preview stack</Link>
               </div>
             </div>
 
@@ -430,7 +633,7 @@ export default function WebDevelopmentServicePage() {
 
               <div className="card-buttons">
                 <Link href="/services/saas" className="btn-details">View details</Link>
-                <Link href="/#contact" className="btn-preview">Preview stack</Link>
+                <Link href="/contact" className="btn-preview">Preview stack</Link>
               </div>
             </div>
 
@@ -467,7 +670,7 @@ export default function WebDevelopmentServicePage() {
 
               <div className="card-buttons">
                 <Link href="/services/security" className="btn-details">View details</Link>
-                <Link href="/#contact" className="btn-preview">Preview stack</Link>
+                <Link href="/contact" className="btn-preview">Preview stack</Link>
               </div>
             </div>
           </div>
@@ -602,133 +805,188 @@ export default function WebDevelopmentServicePage() {
           `}</style>
         </section>
 
-        {/* ─── 2b. FULL-STACK ARCHITECTURE EXPLORER SECTION (OPTIMIZED CARD THEME) ─── */}
-        <section style={{ background: "#f8fafc", padding: "96px 24px", borderTop: "1px solid #f1f5f9" }}>
-          <div style={{ maxWidth: "1240px", margin: "0 auto" }}>
-            <div style={{ textAlign: "center", marginBottom: "56px" }}>
-              <span style={{ fontSize: "12.5px", fontWeight: "900", letterSpacing: "2.5px", textTransform: "uppercase", color: "#2563eb", display: "block", marginBottom: "10px" }}>
-                FULL-STACK ARCHITECTURE
-              </span>
-              <h2 style={{ fontSize: "clamp(30px, 4.2vw, 48px)", fontWeight: "900", color: "#0f172a", lineHeight: "1.1", letterSpacing: "-1px", margin: "0 0 14px 0" }}>
-                How We Layer Your Next.js Web Stack
+        {/* ─── 2b. FULL-STACK ARCHITECTURE EXPLORER SECTION (MATCHES RESULTS/OUTCOMES CARD THEME) ─── */}
+        <section className="vd-results-section" style={{ borderTop: "none", paddingTop: "24px", paddingBottom: "24px" }}>
+          <h2 className="vd-section-h2">How We Layer Your Frontend Web Stack</h2>
+          <p className="vd-section-p">
+            A modular, high-performance architecture engineered for sub-second page loads and enterprise reliability.
+          </p>
+
+          <div className="vd-results-grid">
+            
+            {/* CARD 1: FRONTEND LAYER */}
+            <div className="vd-result-card">
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
+                <div className="vd-result-num" style={{ marginBottom: 0 }}>01</div>
+                <div style={{ fontSize: "22px" }}>🎨</div>
+              </div>
+              <div className="vd-result-label">Frontend Layer</div>
+              <div className="vd-result-desc">
+                Modular Design Systems, custom React/Vue/Svelte code, responsive styling &amp; micro-interactions.
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "16px", paddingTop: "16px", borderTop: "1px dashed #e2e8f0" }}>
+                  {["React / Vue", "UI Engine", "Tailwind", "CSS Grid"].map((pill, i) => (
+                    <span key={i} style={{ background: "#f8fafc", color: "#475569", border: "1px solid #e2e8f0", padding: "3px 9px", borderRadius: "99px", fontSize: "11px", fontWeight: "700" }}>{pill}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* CARD 2: BACKEND API LAYER */}
+            <div className="vd-result-card">
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
+                <div className="vd-result-num" style={{ marginBottom: 0 }}>02</div>
+                <div style={{ fontSize: "22px" }}>⚙️</div>
+              </div>
+              <div className="vd-result-label">Backend API Layer</div>
+              <div className="vd-result-desc">
+                NestJS, Express &amp; FastAPI microservices with GraphQL DataLoaders and REST endpoint routing.
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "16px", paddingTop: "16px", borderTop: "1px dashed #e2e8f0" }}>
+                  {["NestJS", "FastAPI", "GraphQL", "REST"].map((pill, i) => (
+                    <span key={i} style={{ background: "#f8fafc", color: "#475569", border: "1px solid #e2e8f0", padding: "3px 9px", borderRadius: "99px", fontSize: "11px", fontWeight: "700" }}>{pill}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* CARD 3: DATABASE & CACHE */}
+            <div className="vd-result-card">
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
+                <div className="vd-result-num" style={{ marginBottom: 0 }}>03</div>
+                <div style={{ fontSize: "22px" }}>🗄️</div>
+              </div>
+              <div className="vd-result-label">Database &amp; Cache</div>
+              <div className="vd-result-desc">
+                PostgreSQL with Prisma ORM, Supabase, and Redis edge caching for sub-millisecond lookups.
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "16px", paddingTop: "16px", borderTop: "1px dashed #e2e8f0" }}>
+                  {["Postgres", "Prisma", "Supabase", "Redis"].map((pill, i) => (
+                    <span key={i} style={{ background: "#f8fafc", color: "#475569", border: "1px solid #e2e8f0", padding: "3px 9px", borderRadius: "99px", fontSize: "11px", fontWeight: "700" }}>{pill}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* CARD 4: EDGE CDN DELIVERY */}
+            <div className="vd-result-card">
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
+                <div className="vd-result-num" style={{ marginBottom: 0 }}>04</div>
+                <div style={{ fontSize: "22px" }}>☁️</div>
+              </div>
+              <div className="vd-result-label">Edge CDN Delivery</div>
+              <div className="vd-result-desc">
+                Global Vercel Edge Network &amp; Cloudflare CDN asset delivery with automated CI/CD pipelines.
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "16px", paddingTop: "16px", borderTop: "1px dashed #e2e8f0" }}>
+                  {["Vercel Edge", "Cloudflare", "Docker", "CI/CD"].map((pill, i) => (
+                    <span key={i} style={{ background: "#f8fafc", color: "#475569", border: "1px solid #e2e8f0", padding: "3px 9px", borderRadius: "99px", fontSize: "11px", fontWeight: "700" }}>{pill}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* CARD 5: TESTING & QA SUITE */}
+            <div className="vd-result-card">
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
+                <div className="vd-result-num" style={{ marginBottom: 0 }}>05</div>
+                <div style={{ fontSize: "22px" }}>🧪</div>
+              </div>
+              <div className="vd-result-label">Testing &amp; QA Suite</div>
+              <div className="vd-result-desc">
+                Automated end-to-end testing, visual regression tools, and unit test suites for bulletproof reliability.
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "16px", paddingTop: "16px", borderTop: "1px dashed #e2e8f0" }}>
+                  {["Playwright", "Vitest", "CI Tests", "Linting"].map((pill, i) => (
+                    <span key={i} style={{ background: "#f8fafc", color: "#475569", border: "1px solid #e2e8f0", padding: "3px 9px", borderRadius: "99px", fontSize: "11px", fontWeight: "700" }}>{pill}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* CARD 6: OBSERVABILITY & MONITORING */}
+            <div className="vd-result-card">
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
+                <div className="vd-result-num" style={{ marginBottom: 0 }}>06</div>
+                <div style={{ fontSize: "22px" }}>📈</div>
+              </div>
+              <div className="vd-result-label">Observability &amp; Metrics</div>
+              <div className="vd-result-desc">
+                Real-time error tracking, serverless logs instrumentation, and automated Core Web Vitals reports.
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "16px", paddingTop: "16px", borderTop: "1px dashed #e2e8f0" }}>
+                  {["Sentry", "Vercel Logs", "Analytics", "Core Vitals"].map((pill, i) => (
+                    <span key={i} style={{ background: "#f8fafc", color: "#475569", border: "1px solid #e2e8f0", padding: "3px 9px", borderRadius: "99px", fontSize: "11px", fontWeight: "700" }}>{pill}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        {/* ─── 2c. CORE WEB VITALS & LIGHTHOUSE PERFORMANCE SHOWCASE ─── */}
+        <section style={{ background: "#f8fafc", padding: "48px 24px 80px 24px", borderTop: "none" }}>
+          <div className="perf-section-grid" style={{ 
+            display: "grid", 
+            gridTemplateColumns: "1.1fr 1.2fr", 
+            gap: "48px", 
+            alignItems: "center",
+            maxWidth: "1150px", 
+            margin: "0 auto" 
+          }}>
+            {/* Left Column: Heading & Text */}
+            <div style={{ textAlign: "left" }}>
+              <h2 style={{ fontSize: "clamp(28px, 3.5vw, 40px)", fontWeight: "900", color: "#0f172a", lineHeight: "1.15", letterSpacing: "-1.2px", margin: "0 0 16px 0" }}>
+                Lighthouse 95+ Core Web Vitals Benchmark
               </h2>
-              <p style={{ color: "#475569", fontSize: "16px", fontWeight: "600", maxWidth: "600px", margin: "0 auto" }}>
-                A modular, high-performance architecture engineered for sub-second page loads and enterprise reliability.
+              <p style={{ color: "#475569", fontSize: "15px", fontWeight: "600", margin: 0, lineHeight: "1.65" }}>
+                We engineer custom frontends optimized for lightning-fast delivery, search engine ranking, and responsive user experiences. Our architecture guarantees a 95+ score across all Core Web Vitals metrics by eliminating render-blocking scripts, optimizing image assets, and caching payloads at the global edge to maximize user conversion.
               </p>
             </div>
 
-            <div className="arch-cards-grid" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "28px" }}>
+            {/* Right Column: Grid of 4 Cards */}
+            <div className="perf-cards-grid" style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "16px" }}>
               
-              {/* CARD 1: FRONTEND LAYER */}
-              <div className="arch-card" style={{ background: "#ffffff", border: "1.5px solid #e2e8f0", borderRadius: "20px", padding: "32px 28px", boxShadow: "0 10px 30px rgba(15,23,42,0.04)", display: "flex", flexDirection: "column", transition: "all 0.3s ease" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
-                  <div style={{ width: "48px", height: "48px", borderRadius: "14px", background: "#eff6ff", border: "1px solid #bfdbfe", color: "#2563eb", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "22px" }}>🎨</div>
-                  <span style={{ background: "#eff6ff", color: "#2563eb", border: "1px solid #bfdbfe", padding: "4px 10px", borderRadius: "99px", fontSize: "11px", fontWeight: "800" }}>LAYER 01</span>
-                </div>
-                <h3 style={{ fontSize: "20px", fontWeight: "800", color: "#0f172a", marginBottom: "10px" }}>Frontend Layer</h3>
-                <p style={{ fontSize: "14px", color: "#64748b", lineHeight: "1.65", marginBottom: "20px", flex: 1 }}>Next.js 15 App Router, React 19 Server Components (RSC), Tailwind CSS &amp; Framer Motion micro-interactions.</p>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", paddingTop: "16px", borderTop: "1px solid #f1f5f9" }}>
-                  {["Next.js 15", "React 19", "Tailwind", "Framer"].map((pill, i) => (
-                    <span key={i} style={{ background: "#f8fafc", color: "#334155", border: "1px solid #e2e8f0", padding: "3px 9px", borderRadius: "99px", fontSize: "11px", fontWeight: "700" }}>{pill}</span>
-                  ))}
-                </div>
+              <div className="perf-card" style={{ background: "#ffffff", border: "1.5px solid #e2e8f0", borderRadius: "18px", padding: "22px 18px", textAlign: "center", transition: "all 0.3s ease", boxShadow: "0 10px 25px rgba(15,23,42,0.02)" }}>
+                <div style={{ fontSize: "32px", fontWeight: "900", background: "linear-gradient(135deg, #b45309, #ca8a04)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", lineHeight: "1.1", marginBottom: "6px", display: "inline-block" }}>98/100</div>
+                <div style={{ fontSize: "12.5px", fontWeight: "800", color: "#0f172a", marginBottom: "2px" }}>Lighthouse Performance</div>
+                <div style={{ fontSize: "11px", color: "#64748b" }}>Google Audit SLA Target</div>
               </div>
 
-              {/* CARD 2: BACKEND API LAYER */}
-              <div className="arch-card" style={{ background: "#ffffff", border: "1.5px solid #e2e8f0", borderRadius: "20px", padding: "32px 28px", boxShadow: "0 10px 30px rgba(15,23,42,0.04)", display: "flex", flexDirection: "column", transition: "all 0.3s ease" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
-                  <div style={{ width: "48px", height: "48px", borderRadius: "14px", background: "#fff7ed", border: "1px solid #fed7aa", color: "#ea580c", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "22px" }}>⚙️</div>
-                  <span style={{ background: "#fff7ed", color: "#ea580c", border: "1px solid #fed7aa", padding: "4px 10px", borderRadius: "99px", fontSize: "11px", fontWeight: "800" }}>LAYER 02</span>
-                </div>
-                <h3 style={{ fontSize: "20px", fontWeight: "800", color: "#0f172a", marginBottom: "10px" }}>Backend API Layer</h3>
-                <p style={{ fontSize: "14px", color: "#64748b", lineHeight: "1.65", marginBottom: "20px", flex: 1 }}>NestJS, Express &amp; FastAPI microservices with GraphQL DataLoaders and REST endpoint routing.</p>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", paddingTop: "16px", borderTop: "1px solid #f1f5f9" }}>
-                  {["NestJS", "FastAPI", "GraphQL", "REST"].map((pill, i) => (
-                    <span key={i} style={{ background: "#f8fafc", color: "#334155", border: "1px solid #e2e8f0", padding: "3px 9px", borderRadius: "99px", fontSize: "11px", fontWeight: "700" }}>{pill}</span>
-                  ))}
-                </div>
+              <div className="perf-card" style={{ background: "#ffffff", border: "1.5px solid #e2e8f0", borderRadius: "18px", padding: "22px 18px", textAlign: "center", transition: "all 0.3s ease", boxShadow: "0 10px 25px rgba(15,23,42,0.02)" }}>
+                <div style={{ fontSize: "32px", fontWeight: "900", background: "linear-gradient(135deg, #0f172a, #334155)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", lineHeight: "1.1", marginBottom: "6px", display: "inline-block" }}>0.4s</div>
+                <div style={{ fontSize: "12.5px", fontWeight: "800", color: "#0f172a", marginBottom: "2px" }}>Largest Contentful Paint</div>
+                <div style={{ fontSize: "11px", color: "#64748b" }}>LCP Target &lt; 1.2s</div>
               </div>
 
-              {/* CARD 3: DATABASE & CACHE */}
-              <div className="arch-card" style={{ background: "#ffffff", border: "1.5px solid #e2e8f0", borderRadius: "20px", padding: "32px 28px", boxShadow: "0 10px 30px rgba(15,23,42,0.04)", display: "flex", flexDirection: "column", transition: "all 0.3s ease" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
-                  <div style={{ width: "48px", height: "48px", borderRadius: "14px", background: "#f0fdf4", border: "1px solid #bbf7d0", color: "#16a34a", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "22px" }}>🗄️</div>
-                  <span style={{ background: "#f0fdf4", color: "#16a34a", border: "1px solid #bbf7d0", padding: "4px 10px", borderRadius: "99px", fontSize: "11px", fontWeight: "800" }}>LAYER 03</span>
-                </div>
-                <h3 style={{ fontSize: "20px", fontWeight: "800", color: "#0f172a", marginBottom: "10px" }}>Database &amp; Cache</h3>
-                <p style={{ fontSize: "14px", color: "#64748b", lineHeight: "1.65", marginBottom: "20px", flex: 1 }}>PostgreSQL with Prisma ORM, Supabase, and Redis edge caching for sub-millisecond lookups.</p>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", paddingTop: "16px", borderTop: "1px solid #f1f5f9" }}>
-                  {["Postgres", "Prisma", "Supabase", "Redis"].map((pill, i) => (
-                    <span key={i} style={{ background: "#f8fafc", color: "#334155", border: "1px solid #e2e8f0", padding: "3px 9px", borderRadius: "99px", fontSize: "11px", fontWeight: "700" }}>{pill}</span>
-                  ))}
-                </div>
+              <div className="perf-card" style={{ background: "#ffffff", border: "1.5px solid #e2e8f0", borderRadius: "18px", padding: "22px 18px", textAlign: "center", transition: "all 0.3s ease", boxShadow: "0 10px 25px rgba(15,23,42,0.02)" }}>
+                <div style={{ fontSize: "32px", fontWeight: "900", background: "linear-gradient(135deg, #0f172a, #334155)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", lineHeight: "1.1", marginBottom: "6px", display: "inline-block" }}>12ms</div>
+                <div style={{ fontSize: "12.5px", fontWeight: "800", color: "#0f172a", marginBottom: "2px" }}>First Input Delay</div>
+                <div style={{ fontSize: "11px", color: "#64748b" }}>Instant Touch Response</div>
               </div>
 
-              {/* CARD 4: EDGE CDN DELIVERY */}
-              <div className="arch-card" style={{ background: "#ffffff", border: "1.5px solid #e2e8f0", borderRadius: "20px", padding: "32px 28px", boxShadow: "0 10px 30px rgba(15,23,42,0.04)", display: "flex", flexDirection: "column", transition: "all 0.3s ease" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
-                  <div style={{ width: "48px", height: "48px", borderRadius: "14px", background: "#f3e8ff", border: "1px solid #e9d5ff", color: "#9333ea", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "22px" }}>☁️</div>
-                  <span style={{ background: "#f3e8ff", color: "#9333ea", border: "1px solid #e9d5ff", padding: "4px 10px", borderRadius: "99px", fontSize: "11px", fontWeight: "800" }}>LAYER 04</span>
-                </div>
-                <h3 style={{ fontSize: "20px", fontWeight: "800", color: "#0f172a", marginBottom: "10px" }}>Edge CDN Delivery</h3>
-                <p style={{ fontSize: "14px", color: "#64748b", lineHeight: "1.65", marginBottom: "20px", flex: 1 }}>Global Vercel Edge Network &amp; Cloudflare CDN asset delivery with automated CI/CD pipelines.</p>
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", paddingTop: "16px", borderTop: "1px solid #f1f5f9" }}>
-                  {["Vercel Edge", "Cloudflare", "Docker", "CI/CD"].map((pill, i) => (
-                    <span key={i} style={{ background: "#f8fafc", color: "#334155", border: "1px solid #e2e8f0", padding: "3px 9px", borderRadius: "99px", fontSize: "11px", fontWeight: "700" }}>{pill}</span>
-                  ))}
-                </div>
+              <div className="perf-card" style={{ background: "#ffffff", border: "1.5px solid #e2e8f0", borderRadius: "18px", padding: "22px 18px", textAlign: "center", transition: "all 0.3s ease", boxShadow: "0 10px 25px rgba(15,23,42,0.02)" }}>
+                <div style={{ fontSize: "32px", fontWeight: "900", background: "linear-gradient(135deg, #b45309, #ca8a04)", WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent", lineHeight: "1.1", marginBottom: "6px", display: "inline-block" }}>-35%</div>
+                <div style={{ fontSize: "12.5px", fontWeight: "800", color: "#0f172a", marginBottom: "2px" }}>Server Spend Reduction</div>
+                <div style={{ fontSize: "11px", color: "#64748b" }}>Lower Edge Hosting Cost</div>
               </div>
 
             </div>
           </div>
 
           <style>{`
-            .arch-card:hover {
-              transform: translateY(-8px);
+            .perf-card:hover {
+              transform: translateY(-6px);
               border-color: #cbd5e1 !important;
               box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08) !important;
             }
+            @media (max-width: 1024px) {
+              .perf-section-grid {
+                grid-template-columns: 1fr !important;
+                gap: 40px !important;
+              }
+            }
+            @media (max-width: 640px) {
+              .perf-cards-grid {
+                grid-template-columns: 1fr !important;
+              }
+            }
           `}</style>
-        </section>
-
-        {/* ─── 2c. CORE WEB VITALS & LIGHTHOUSE PERFORMANCE SHOWCASE ─── */}
-        <section style={{ background: "#f8fafc", padding: "80px 24px", borderTop: "1px solid #f1f5f9" }}>
-          <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-            <div style={{ textAlign: "center", marginBottom: "48px" }}>
-              <span style={{ fontSize: "12.5px", fontWeight: "800", letterSpacing: "2px", textTransform: "uppercase", color: "#16a34a", display: "block", marginBottom: "8px" }}>
-                PERFORMANCE GUARANTEE
-              </span>
-              <h2 style={{ fontSize: "clamp(28px, 4vw, 42px)", fontWeight: "900", color: "#0f172a", margin: 0 }}>
-                Lighthouse 95+ Core Web Vitals Benchmark
-              </h2>
-            </div>
-
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "20px" }}>
-              <div style={{ background: "#ffffff", border: "1.5px solid #e2e8f0", borderRadius: "16px", padding: "24px", textAlign: "center" }}>
-                <div style={{ fontSize: "36px", fontWeight: "900", color: "#16a34a" }}>98/100</div>
-                <div style={{ fontSize: "13px", fontWeight: "700", color: "#0f172a", marginTop: "4px" }}>Lighthouse Performance</div>
-                <div style={{ fontSize: "11px", color: "#64748b", marginTop: "2px" }}>Google Audit SLA</div>
-              </div>
-
-              <div style={{ background: "#ffffff", border: "1.5px solid #e2e8f0", borderRadius: "16px", padding: "24px", textAlign: "center" }}>
-                <div style={{ fontSize: "36px", fontWeight: "900", color: "#2563eb" }}>0.4s</div>
-                <div style={{ fontSize: "13px", fontWeight: "700", color: "#0f172a", marginTop: "4px" }}>Largest Contentful Paint</div>
-                <div style={{ fontSize: "11px", color: "#64748b", marginTop: "2px" }}>LCP Target &lt; 1.2s</div>
-              </div>
-
-              <div style={{ background: "#ffffff", border: "1.5px solid #e2e8f0", borderRadius: "16px", padding: "24px", textAlign: "center" }}>
-                <div style={{ fontSize: "36px", fontWeight: "900", color: "#9333ea" }}>12ms</div>
-                <div style={{ fontSize: "13px", fontWeight: "700", color: "#0f172a", marginTop: "4px" }}>First Input Delay</div>
-                <div style={{ fontSize: "11px", color: "#64748b", marginTop: "2px" }}>Instant Touch Response</div>
-              </div>
-
-              <div style={{ background: "#ffffff", border: "1.5px solid #e2e8f0", borderRadius: "16px", padding: "24px", textAlign: "center" }}>
-                <div style={{ fontSize: "36px", fontWeight: "900", color: "#059669" }}>-35%</div>
-                <div style={{ fontSize: "13px", fontWeight: "700", color: "#0f172a", marginTop: "4px" }}>Server Spend Reduction</div>
-                <div style={{ fontSize: "11px", color: "#64748b", marginTop: "2px" }}>Lower Edge Hosting Cost</div>
-              </div>
-            </div>
-          </div>
         </section>
 
         {/* ─── 3. FAQ SECTION ─── */}
@@ -757,7 +1015,7 @@ export default function WebDevelopmentServicePage() {
             <p style={{ color: "#64748b", fontSize: "16px", marginBottom: "32px" }}>
               Talk with our principal web architect and receive a technical architecture proposal within 48 hours.
             </p>
-            <Link href="/#contact" style={{ background: "#334155", color: "#ffffff", padding: "15px 32px", borderRadius: "99px", fontWeight: "700", textDecoration: "none", display: "inline-block" }}>
+            <Link href="/contact" style={{ background: "#334155", color: "#ffffff", padding: "15px 32px", borderRadius: "99px", fontWeight: "700", textDecoration: "none", display: "inline-block" }}>
               Book Free Architecture Call →
             </Link>
           </div>

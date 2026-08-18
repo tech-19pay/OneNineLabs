@@ -180,10 +180,10 @@ export default function Header({ variant }) {
           <Link href="/about" className="nav-link" id="nav-about" onClick={() => setIsMobileMenuOpen(false)}>About Us</Link>
           <Link href="/contact" className="nav-link" id="nav-contact" onClick={() => setIsMobileMenuOpen(false)}>Contact Us</Link>
           <Link href="/why-us" className="nav-link" id="nav-why-us" onClick={() => setIsMobileMenuOpen(false)}>Why Us</Link>
-          <Link href="/#contact" className="nav-link mobile-only-link" id="nav-contact-mobile" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
+          <Link href="/contact" className="nav-link mobile-only-link" id="nav-contact-mobile" onClick={() => setIsMobileMenuOpen(false)}>Contact</Link>
         </nav>
 
-        <Link href="/#contact" className="cta-button" id="nav-cta-get-started" onClick={() => setIsMobileMenuOpen(false)}>Get started</Link>
+        <Link href="/contact" className="cta-button" id="nav-cta-get-started" onClick={() => setIsMobileMenuOpen(false)}>Get started</Link>
 
         <button 
           className="mobile-menu-btn" 

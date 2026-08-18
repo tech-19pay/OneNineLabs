@@ -4,59 +4,95 @@ import React, { useState } from "react";
 import Link from "next/link";
 
 export default function ServicesHero({ cfg }) {
-  // Form State
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
+  const [selectedService, setSelectedService] = useState(null);
 
-  // Phone Chat State
-  const [messages, setMessages] = useState([
-    { sender: "ai", text: "Hi, Welcome to OneNine AI. How can I help?" },
-    { sender: "user", text: "Hi, I need help with custom software engineering for our product." },
-    { sender: "ai", text: "Sure! I'd be happy to assist. Could you tell me a bit more about your requirements?" },
-  ]);
-  const [chatInput, setChatInput] = useState("");
-
-  // AI Suggestion Box State
-  const suggestions = [
-    "It's a new cloud architecture optimized for 10x throughput. Built with Next.js 15 & Rust.",
-    "PostgreSQL RLS setup with automated tenant data isolation and SOC 2 logs.",
-    "Autonomous AI agent pipelines built with LangChain & Pinecone vector search.",
-    "Sub-second API latency with Redis caching & edge CDN delivery."
+  // Fallback services in case cfg.services.items is empty
+  const servicesList = cfg?.services?.items || [
+    {
+      id: "web-development",
+      title: "Web Development",
+      role: "Next.js, React & Node.js",
+      icon: "🌐",
+      bullets: [
+        "Next.js 15 & React 19 — SSR, SSG, RSC, edge delivery",
+        "Node.js / Python APIs with PostgreSQL & Prisma ORM",
+        "Headless CMS integration (Sanity, Contentful, Strapi)",
+        "Lighthouse 95+ performance optimization & CWV",
+      ],
+      widget: "⚡ Lighthouse 98/100 • Sub-second LCP",
+      href: "/services/web-development",
+    },
+    {
+      id: "mobile-apps",
+      title: "Mobile App Development",
+      role: "React Native, Flutter & Native iOS/Android",
+      icon: "📱",
+      bullets: [
+        "React Native & Flutter cross-platform with native modules",
+        "Offline-first WatermelonDB sync & push notifications",
+        "Biometric auth (FaceID/TouchID) & OTA EAS updates",
+        "Full App Store & Play Store submission with ASO",
+      ],
+      widget: "📱 120fps Native Feel • EAS OTA",
+      href: "/services/mobile-apps",
+    },
+    {
+      id: "ai-automation",
+      title: "AI & Intelligent Automation",
+      role: "LangChain Agents & RAG Pipelines",
+      icon: "🤖",
+      bullets: [
+        "Autonomous LLM agents — LangChain/LlamaIndex multi-step",
+        "RAG vector search with Pinecone, pgvector & Qdrant",
+        "Custom Llama 3 / Mistral LoRA/QLoRA fine-tuning",
+        "Event-driven queues: Slack, Salesforce & CRM bots",
+      ],
+      widget: "🤖 LangChain Agents • 98% Accuracy",
+      href: "/services/ai-automation",
+    },
+    {
+      id: "saas",
+      title: "Multi-Tenant SaaS Platforms",
+      role: "Multi-tenant SaaS Platforms",
+      icon: "⚡",
+      bullets: [
+        "PostgreSQL Row-Level Security (RLS) tenant isolation",
+        "Stripe metered billing, seats, invoices & dunning webhooks",
+        "SAML SSO via WorkOS, Clerk (Okta, Google, Azure AD)",
+        "Granular RBAC permissions & SOC 2 audit-ready logs",
+      ],
+      widget: "⚡ Stripe Billing • Row-Level Security",
+      href: "/services/saas",
+    },
+    {
+      id: "blockchain",
+      title: "Blockchain & Web3 Solutions",
+      role: "Solidity, L2 & Account Abstraction",
+      icon: "⛓️",
+      bullets: [
+        "Gas-optimized Solidity smart contracts on EVM chains",
+        "ERC-4337 Account Abstraction — gasless, social login wallets",
+        "Layer-2 scaling: Arbitrum, Optimism, Base & ZK rollups",
+        "Foundry fuzz testing suite & Slither static analysis audits",
+      ],
+      widget: "⛓️ Foundry Audited • Zero Exploits",
+      href: "/services/blockchain",
+    },
+    {
+      id: "marketing",
+      title: "Growth Marketing, SEO & PPC",
+      role: "SEO, PPC & Growth Marketing",
+      icon: "📈",
+      bullets: [
+        "Technical SEO audit, Core Web Vitals & crawl architecture",
+        "Google / LinkedIn / Meta PPC with bid automation & PMax",
+        "Conversion Rate Optimization (CRO) — A/B tests & heatmaps",
+        "Full-funnel attribution: GA4 + server-side tagging → CRM",
+      ],
+      widget: "📈 +340% Organic • 4.8x Campaign ROAS",
+      href: "/services/marketing",
+    },
   ];
-  const [suggIdx, setSuggIdx] = useState(0);
-
-  const handleEmailSubmit = (e) => {
-    e.preventDefault();
-    if (email.trim()) {
-      setSubmitted(true);
-      setTimeout(() => {
-        setSubmitted(false);
-        setEmail("");
-      }, 3500);
-    }
-  };
-
-  const handleSendChat = (e) => {
-    e.preventDefault();
-    if (!chatInput.trim()) return;
-    const userText = chatInput.trim();
-    setMessages((prev) => [...prev, { sender: "user", text: userText }]);
-    setChatInput("");
-
-    setTimeout(() => {
-      setMessages((prev) => [
-        ...prev,
-        {
-          sender: "ai",
-          text: "Got it! Our principal engineer will prepare a tailored architecture proposal. Let's schedule a review!",
-        },
-      ]);
-    }, 900);
-  };
-
-  const handleNextSuggestion = () => {
-    setSuggIdx((prev) => (prev + 1) % suggestions.length);
-  };
 
   // Custom text fallback or from cfg
   const titleBefore = cfg?.hero?.titleBefore || "We Are Providing";
@@ -76,22 +112,23 @@ export default function ServicesHero({ cfg }) {
             <h1 className="sh-title">
               {titleBefore} <br />
               {titleHighlight}{" "}
-              <span className="sh-ai-badge" title="AI & Software Powered">
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" fill="currentColor" />
-                </svg>
-              </span>
+
               <span className="sh-title-powered">Powered</span>
             </h1>
 
             <p className="sh-desc">{desc}</p>
 
             <div className="sh-action-btns">
-              <Link href="/#contact" className="sh-btn-contact">
+              <Link href="/contact" className="sh-btn-contact">
                 Contact Us →
               </Link>
+              <div className="sh-hero-chips">
+                <span className="sh-hero-chip">🟢 99.9% Uptime SLA</span>
+                <span className="sh-hero-chip">👥 Senior Pods</span>
+                <span className="sh-hero-chip">🔒 SOC 2 Ready</span>
+                <span className="sh-hero-chip">📜 Full Ownership</span>
+              </div>
             </div>
-
           </div>
 
           {/* Right Column: Phone Mockup & Floating Overlay Cards */}
@@ -116,42 +153,71 @@ export default function ServicesHero({ cfg }) {
                 <div className="sh-phone-screen">
                   <div className="sh-phone-header">
                     <div className="sh-header-avatar">
-                      <span role="img" aria-label="bot">🤖</span>
+                      <span role="img" aria-label="OneNine logo">🚀</span>
                     </div>
                     <div>
-                      <div className="sh-header-name">Comer AI</div>
-                      <div className="sh-header-date">Sep 18, 2026</div>
+                      <div className="sh-header-name">OneNine Hub</div>
+                      <div className="sh-header-date">Services Explorer</div>
                     </div>
                   </div>
 
-                  {/* Phone Screen Chat List */}
-                  <div className="sh-phone-chat">
-                    {messages.map((m, idx) => (
-                      <div key={idx} className={`sh-chat-msg ${m.sender}`}>
-                        {m.text}
+                  {!selectedService ? (
+                    <div className="sh-phone-services">
+                      <div className="sh-phone-subtitle">Core Capabilities</div>
+                      <div className="sh-phone-services-list">
+                        {servicesList.map((service) => (
+                          <button
+                            key={service.id}
+                            type="button"
+                            className="sh-phone-service-item"
+                            onClick={() => setSelectedService(service)}
+                          >
+                            <span className="sh-phone-service-icon">{service.icon}</span>
+                            <div className="sh-phone-service-info">
+                              <div className="sh-phone-service-title">{service.title}</div>
+                              <div className="sh-phone-service-role">{service.role}</div>
+                            </div>
+                            <span className="sh-phone-service-chevron">➔</span>
+                          </button>
+                        ))}
                       </div>
-                    ))}
-                  </div>
-
-                  {/* Chat Reactions / Tools Bar */}
-                  <div className="sh-chat-tools">
-                    <button type="button" title="Like">👍</button>
-                    <button type="button" title="Dislike">👎</button>
-                    <button type="button" title="Share">🔗</button>
-                  </div>
-
-                  {/* Interactive Phone Input */}
-                  <form onSubmit={handleSendChat} className="sh-phone-input-bar">
-                    <input
-                      type="text"
-                      placeholder="Ask Comer AI..."
-                      value={chatInput}
-                      onChange={(e) => setChatInput(e.target.value)}
-                    />
-                    <button type="submit" aria-label="Send">
-                      ➔
-                    </button>
-                  </form>
+                    </div>
+                  ) : (
+                    <div className="sh-phone-service-detail">
+                      <button
+                        type="button"
+                        className="sh-phone-back-btn"
+                        onClick={() => setSelectedService(null)}
+                      >
+                        ← Back to List
+                      </button>
+                      <div className="sh-phone-detail-header">
+                        <span className="sh-phone-detail-icon">{selectedService.icon}</span>
+                        <div>
+                          <div className="sh-phone-detail-title">{selectedService.title}</div>
+                          <div className="sh-phone-detail-role">{selectedService.role}</div>
+                        </div>
+                      </div>
+                      <div className="sh-phone-detail-scroll">
+                        <ul className="sh-phone-bullets">
+                          {selectedService.bullets.map((bullet, idx) => (
+                            <li key={idx} className="sh-phone-bullet-item">
+                              <span className="sh-phone-bullet-dot">✦</span>
+                              <span>{bullet}</span>
+                            </li>
+                          ))}
+                        </ul>
+                        {selectedService.widget && (
+                          <div className="sh-phone-detail-widget">
+                            {selectedService.widget}
+                          </div>
+                        )}
+                      </div>
+                      <Link href={selectedService.href || "/contact"} className="sh-phone-cta-button">
+                        Explore Capability →
+                      </Link>
+                    </div>
+                  )}
                 </div>
               </div>
 
@@ -161,7 +227,7 @@ export default function ServicesHero({ cfg }) {
               <div className="sh-float-card sh-float-card-2">
                 <div className="sh-dark-card-header">
                   <span className="sh-stopwatch-icon">⏱️</span>
-                  <span>Time Increase</span>
+                  <span>Average Turnaround</span>
                 </div>
                 <div className="sh-chart-wrap">
                   <svg viewBox="0 0 100 40" className="sh-chart-svg">
@@ -176,8 +242,8 @@ export default function ServicesHero({ cfg }) {
                   </svg>
                 </div>
                 <div className="sh-dark-card-val">
-                  <span className="sh-val-num">5</span>
-                  <span className="sh-val-unit">second</span>
+                  <span className="sh-val-num">6-8</span>
+                  <span className="sh-val-unit">weeks MVP</span>
                 </div>
               </div>
 
@@ -185,67 +251,7 @@ export default function ServicesHero({ cfg }) {
           </div>
         </div>
 
-        {/* ── BOTTOM GRID ROW (3 CARDS) ── */}
-        <div className="sh-grid-row">
-          {/* Card 1: Dark Navy Stat Card */}
-          <div className="sh-card-dark">
-            <div className="sh-stat-num-row">
-              <span className="sh-big-num">24K+</span>
-            </div>
-            <div className="sh-dark-footer">
-              <span className="sh-stat-pill">+4%</span>
-              <span className="sh-dark-prompt">Start a chat with Comer AI</span>
-            </div>
-          </div>
 
-          {/* Card 2: Vibrant Blue Radial Tag Cloud Card */}
-          <div className="sh-card-blue">
-            <div className="sh-blue-bg-glow" />
-            <div className="sh-tag-cloud">
-              <span className="sh-cloud-pill">🪶 Campaign</span>
-              <span className="sh-cloud-pill icon-only">🤖</span>
-              <span className="sh-cloud-pill">✔️ Checklist task</span>
-              <span className="sh-cloud-pill">🚀 Strategy</span>
-              <span className="sh-cloud-pill">💡 Generate ideas</span>
-              <span className="sh-cloud-pill">✍️ Write a blog post</span>
-            </div>
-          </div>
-
-          {/* Card 3: Light Blue Container with Split Components */}
-          <div className="sh-card-light">
-            {/* Left Inner Block: White AI Suggestion Card */}
-            <div className="sh-sugg-box">
-              <div className="sh-sugg-header">
-                <span className="sh-sugg-icon">🤖</span>
-                <span>Comer AI Suggestion</span>
-              </div>
-              <p className="sh-sugg-text">{suggestions[suggIdx]}</p>
-              <button type="button" onClick={handleNextSuggestion} className="sh-update-btn">
-                + Update
-              </button>
-            </div>
-
-            {/* Right Inner Block: 2x2 Feature Pills */}
-            <div className="sh-feat-grid">
-              <div className="sh-feat-pill">
-                <span className="sh-feat-icon">💲</span>
-                <span>Cost savings</span>
-              </div>
-              <div className="sh-feat-pill">
-                <span className="sh-feat-icon">✦</span>
-                <span>User experience</span>
-              </div>
-              <div className="sh-feat-pill">
-                <span className="sh-feat-icon">📞</span>
-                <span>24/7 support</span>
-              </div>
-              <div className="sh-feat-pill">
-                <span className="sh-feat-icon">🛡️</span>
-                <span>Safety guaranteed</span>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );

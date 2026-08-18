@@ -107,7 +107,7 @@ export default function VideoTutorials() {
 
           {/* Try for free link */}
           <div style={{ marginTop: "32px" }}>
-            <Link href="/#contact" className="try-free-link">
+            <Link href="/contact" className="try-free-link">
               Try for free &rarr;
             </Link>
           </div>
@@ -250,7 +250,7 @@ export default function VideoTutorials() {
 
       {/* Bottom video catalog link */}
       <div style={{ marginTop: "40px", textAlign: "center" }}>
-        <Link href="/#contact" className="video-footer-link">
+        <Link href="/contact" className="video-footer-link">
           View all our video tutorials
         </Link>
       </div>

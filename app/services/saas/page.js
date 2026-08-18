@@ -159,7 +159,7 @@ export default function SaasServicePage() {
 
               <div style={{ marginBottom: "28px" }}>
                 <Link
-                  href="/#contact"
+                  href="/contact"
                   style={{
                     background: "#4f46e5",
                     color: "#ffffff",
@@ -310,7 +310,7 @@ export default function SaasServicePage() {
             <p style={{ color: "#64748b", fontSize: "16px", marginBottom: "32px" }}>
               Book a free architecture session with our SaaS pod and get a 6-week MVP delivery roadmap.
             </p>
-            <Link href="/#contact" style={{ background: "#334155", color: "#ffffff", padding: "15px 32px", borderRadius: "99px", fontWeight: "700", textDecoration: "none", display: "inline-block" }}>
+            <Link href="/contact" style={{ background: "#334155", color: "#ffffff", padding: "15px 32px", borderRadius: "99px", fontWeight: "700", textDecoration: "none", display: "inline-block" }}>
               Book Free SaaS Roadmap →
             </Link>
           </div>
