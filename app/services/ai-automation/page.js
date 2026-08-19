@@ -228,34 +228,6 @@ export default function AiAutomationServicePage() {
           </div>
         </section>
 
-<<<<<<< HEAD
-        {/* ─── 2.5. AI ENGINEERING FAQS ─── */}
-        <section style={{ background: "#ffffff", padding: "80px 24px", borderTop: "1px solid #e2e8f0" }}>
-          <div style={{ maxWidth: "860px", margin: "0 auto" }}>
-            <h2 style={{ fontSize: "32px", fontWeight: "800", color: "#0f172a", textAlign: "center", marginBottom: "40px" }}>
-              AI & Automation Engineering FAQs
-            </h2>
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              {faqs.map((f, i) => (
-                <details key={i} style={{ background: "#ffffff", border: "1.5px solid #e2e8f0", borderRadius: "16px", padding: "18px 24px", cursor: "pointer" }}>
-                  <summary style={{ fontWeight: "700", color: "#0f172a", fontSize: "16px" }}>{f.q}</summary>
-                  <p style={{ color: "#64748b", marginTop: "12px", lineHeight: "1.65", fontSize: "14.5px" }}>{f.a}</p>
-                </details>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ─── 3. CTA BANNER ─── */}
-        <section style={{ background: "#ffffff", padding: "80px 24px", textAlign: "center", borderTop: "1px solid #e2e8f0" }}>
-          <div style={{ maxWidth: "700px", margin: "0 auto" }}>
-            <h2 style={{ fontSize: "36px", fontWeight: "900", color: "#0f172a", marginBottom: "16px" }}>
-              Ready to Automate Your Business With AI?
-            </h2>
-            <p style={{ color: "#64748b", fontSize: "16px", marginBottom: "32px" }}>
-              Get a custom AI workflow evaluation &amp; vector search proof-of-concept from our AI team in 48 hours.
-=======
-
         {/* --- GRAY SWAN STYLE: RISK PROFILES (TECH STACK) --- */}
         <section style={{ background: "#ffffff", padding: "80px 24px", fontFamily: "'Inter', sans-serif" }}>
           <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
@@ -269,7 +241,6 @@ export default function AiAutomationServicePage() {
 
             <p style={{ fontSize: "14px", color: "#52525b", marginBottom: "48px", maxWidth: "800px" }}>
               Our AI automation pipelines are built on three foundational dimensions that compound when combined:
->>>>>>> 53d9122 (feat(blockchain): enhance blockchain service page with interactive multi-chain HUD, responsive bento grids and exchange architecture)
             </p>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px" }}>
