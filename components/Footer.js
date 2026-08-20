@@ -125,7 +125,7 @@ export default function Footer({ accentColor = "#10b981" }) {
                 <li><Link href="/services/saas" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "13px" }}>SaaS Platforms</Link></li>
                 <li><Link href="/services/blockchain" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "13px" }}>Blockchain &amp; Web3</Link></li>
                 <li><Link href="/services/marketing" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "13px" }}>Growth &amp; Marketing</Link></li>
-                <li><Link href="/services/security" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "13px" }}>Security &amp; DevOps</Link></li>
+                <li><Link href="/services/security" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "13px" }}>Cloud &amp; Cyber Security</Link></li>
               </ul>
             </div>
 

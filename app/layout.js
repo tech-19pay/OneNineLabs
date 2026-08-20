@@ -178,7 +178,7 @@ function JsonLd() {
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Multi-Tenant SaaS Platforms", url: `${siteUrl}/services/saas` } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Blockchain and Web3 Solutions", url: `${siteUrl}/services/blockchain` } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Growth Marketing, SEO and PPC", url: `${siteUrl}/services/marketing` } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Cybersecurity and DevOps Infrastructure", url: `${siteUrl}/services/security` } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Cloud & Cyber Security", url: `${siteUrl}/services/security` } },
       ],
     },
     areaServed: {

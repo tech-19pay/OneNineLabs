@@ -2669,7 +2669,7 @@ export default function Home() {
               </Link>{" "}
               (technical SEO • PPC • CRO) and{" "}
               <Link href="/services/security" style={{ fontWeight: 800, color: "#0f172a", textDecoration: "underline", textUnderlineOffset: "3px" }}>
-                Cybersecurity &amp; DevOps
+                Cloud &amp; Cyber Security
               </Link>{" "}
               (Zero-Trust, Kubernetes, SOC 2). Every build is typed, tested, and audit-ready.
             </div>
@@ -2712,7 +2712,7 @@ export default function Home() {
               </Link>{" "}
               &amp;{" "}
               <Link href="/services/security" style={{ fontWeight: 700, color: "#0f172a", textDecoration: "underline", textUnderlineOffset: "3px" }}>
-                Security
+                Cloud &amp; Cyber Security
               </Link>{" "}
               services.
             </div>
@@ -2753,7 +2753,7 @@ export default function Home() {
               delivery with instant rollback. Continuous <strong>SOC 2 evidence</strong> (60+ controls), access reviews, and 24/7 observability
               (Grafana/Datadog/PagerDuty, &lt;15 min MTTR, 99.9% SLA). Details on{" "}
               <Link href="/services/security" style={{ fontWeight: 700, color: "#0f172a", textDecoration: "underline", textUnderlineOffset: "3px" }}>
-                Cybersecurity &amp; DevOps
+                Cloud &amp; Cyber Security
               </Link>
               .
             </div>

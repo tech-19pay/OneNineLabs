@@ -73,7 +73,7 @@ export default function Header({ variant }) {
     { title: "Multi-Tenant SaaS", desc: "B2B SaaS Architectures & Billing", href: "/services/saas", icon: "⚡" },
     { title: "Blockchain & Web3", desc: "Smart Contracts & Decentralized Systems", href: "/services/blockchain", icon: "⛓️" },
     { title: "Growth & Marketing", desc: "SEO, PPC Ads & Funnel Optimization", href: "/services/marketing", icon: "🚀" },
-    { title: "Cybersecurity & DevOps", desc: "Zero-Trust Audits & Kubernetes CI/CD", href: "/services/security", icon: "🛡️" },
+    { title: "Cloud & Cyber Security", desc: "Zero-Trust Audits & Threat Prevention", href: "/services/security", icon: "🛡️" },
   ];
 
   return (

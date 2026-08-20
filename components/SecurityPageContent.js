@@ -418,107 +418,66 @@ export function validateIncomingPayload(payload: unknown) {
 
   return (
     <div className="sec-page-root">
-      {/* ── 1. HERO SECTION: ZERO-TRUST THREAT DEFENSE HUD ── */}
-      <section className="sec-hero-section">
-        <div className="sec-hero-glow-1" />
-        <div className="sec-hero-glow-2" />
+      {/* ── 1. HERO SECTION: GET SECURE AND PRIVATE SURFING ── */}
+      <section className="vpn-hero-section">
+        {/* Subtle Cyber Network Grid Watermark */}
+        <div className="vpn-hero-grid-bg" />
 
-        <div className="sec-hero-container">
-          {/* Left Column: Heading & CTAs */}
-          <div className="sec-hero-left">
-            <div className="sec-badge-pill">
-              <span className="sec-badge-dot" />
-              SOC 2 TYPE II READY &amp; ZERO-TRUST CYBER DEFENSE
-            </div>
+        <div className="vpn-hero-container">
+          {/* Left Column: Headline, Subtitle, & CTA */}
+          <div className="vpn-hero-left">
 
-            <h1 className="sec-hero-title">
-              Enterprise Cyber Security &amp; <span className="sec-highlight-text">Zero-Trust Cloud</span>
+            <h1 className="vpn-hero-title">
+              <span className="vpn-title-orange">Cloud &amp; Cyber </span>
+              <span className="vpn-title-dark">Security Scale</span>
             </h1>
 
-            <p className="sec-hero-subtitle">
-              We protect high-growth digital platforms with penetration testing, automated SOC 2 compliance readiness, zero-trust cloud architecture, and 24/7 SIEM threat defense.
+            <p className="vpn-hero-subtitle">
+              Harden your cloud infrastructure, automate compliance audits, and shield multi-cloud perimeters with real-time zero-trust enforcement.
             </p>
 
-            <div className="sec-hero-actions">
-              <Link href="/contact" className="sec-btn-primary">
-                <span>Book Security Audit</span>
-                <span className="sec-btn-arrow">→</span>
+            <div className="vpn-hero-actions">
+              <Link href="/contact" className="vpn-hero-btn">
+                Schedule Audit Call →
               </Link>
-              <a href="#modules" className="sec-btn-ghost">
-                Explore Defense Modules
-              </a>
+              <div className="vpn-live-status-badge">
+                <span className="vpn-pulse-dot" />
+                Active Protection
+              </div>
             </div>
 
-            {/* Quick Hero Key Stats */}
-            <div className="sec-hero-stats">
-              <div className="sec-hstat-item">
-                <span className="sec-hstat-num">0</span>
-                <span className="sec-hstat-lbl">Data Breaches</span>
-              </div>
-              <div className="sec-hstat-div" />
-              <div className="sec-hstat-item">
-                <span className="sec-hstat-num" style={{ color: "#38bdf8" }}>100%</span>
-                <span className="sec-hstat-lbl">SOC 2 Pass Rate</span>
-              </div>
-              <div className="sec-hstat-div" />
-              <div className="sec-hstat-item">
-                <span className="sec-hstat-num" style={{ color: "#4ade80" }}>24/7</span>
-                <span className="sec-hstat-lbl">Active SIEM Shield</span>
-              </div>
-              <div className="sec-hstat-div" />
-              <div className="sec-hstat-item">
-                <span className="sec-hstat-num" style={{ color: "#facc15" }}>&lt; 15min</span>
-                <span className="sec-hstat-lbl">Incident SLA</span>
-              </div>
-            </div>
           </div>
 
-          {/* Right Column: Active Threat Matrix HUD */}
-          <div className="sec-hero-right">
-            <div className="sec-hud-card">
-              <div className="sec-hud-header">
-                <div className="sec-hud-title-wrap">
-                  <span className="sec-hud-radar-dot" />
-                  <span className="sec-hud-title">SOC THREAT DEFENSE MATRIX</span>
-                </div>
-                <span className="sec-hud-status-badge">ZERO TRUST ACTIVE 🛡️</span>
+          {/* Right Column: Premium Card Displaying generated security_hero.jpg */}
+          <div className="vpn-hero-right">
+            <div className="vpn-hero-visual-frame">
+              <div className="vpn-hero-image-wrap">
+                <img
+                  src="/services/security_hero.jpg"
+                  alt="OneNineLabs Cloud & Cyber Security Infrastructure Map"
+                  className="vpn-hero-main-img"
+                />
+                <div className="vpn-hero-image-overlay" />
+
+                {/* Scan line effect */}
+                <div className="vpn-hero-scan-line" />
               </div>
 
-              {/* HUD 2x2 Metric Grid */}
-              <div className="sec-hud-grid">
-                <div className="sec-hud-stat-box">
-                  <span className="sec-hud-k">OWASP Vulnerabilities</span>
-                  <span className="sec-hud-v" style={{ color: "#4ade80" }}>0 Found (Clean)</span>
-                  <div className="sec-hud-bar"><div style={{ width: "100%", background: "#4ade80" }} /></div>
-                </div>
-
-                <div className="sec-hud-stat-box">
-                  <span className="sec-hud-k">DDoS L7 Shield</span>
-                  <span className="sec-hud-v" style={{ color: "#38bdf8" }}>Active (Cloudflare WAF)</span>
-                  <div className="sec-hud-bar"><div style={{ width: "95%", background: "#38bdf8" }} /></div>
-                </div>
-
-                <div className="sec-hud-stat-box">
-                  <span className="sec-hud-k">Data Encryption</span>
-                  <span className="sec-hud-v" style={{ color: "#facc15" }}>AES-256-GCM / KMS</span>
-                  <div className="sec-hud-bar"><div style={{ width: "100%", background: "#facc15" }} /></div>
-                </div>
-
-                <div className="sec-hud-stat-box">
-                  <span className="sec-hud-k">SIEM Log Ingestion</span>
-                  <span className="sec-hud-v" style={{ color: "#a855f7" }}>14,200 events/sec</span>
-                  <div className="sec-hud-bar"><div style={{ width: "88%", background: "#a855f7" }} /></div>
+              {/* Floating Stat Card 1 */}
+              <div className="vpn-float-card fc-top">
+                <span className="fc-icon">🛡️</span>
+                <div className="fc-text">
+                  <strong>Zero Trust</strong>
+                  <span>Active Workloads</span>
                 </div>
               </div>
 
-              {/* Compliance Badges Row */}
-              <div className="sec-hud-compliance-box">
-                <span className="sec-hud-comp-label">Audited Compliance Status:</span>
-                <div className="sec-hud-comp-tags">
-                  <span className="sec-comp-tag blue">SOC 2 Type II ✓</span>
-                  <span className="sec-comp-tag green">ISO 27001 ✓</span>
-                  <span className="sec-comp-tag purple">HIPAA Ready ✓</span>
-                  <span className="sec-comp-tag orange">GDPR ✓</span>
+              {/* Floating Stat Card 2 */}
+              <div className="vpn-float-card fc-bottom">
+                <span className="fc-icon">⚡</span>
+                <div className="fc-text">
+                  <strong>480B+</strong>
+                  <span>Threats Blocked Daily</span>
                 </div>
               </div>
             </div>
@@ -526,382 +485,587 @@ export function validateIncomingPayload(payload: unknown) {
         </div>
       </section>
 
-      {/* ── 2. DEFENSE MODULES & PENETRATION TESTING SHOWCASE ── */}
-      <section className="sec-modules-section" id="modules">
-        <div className="sec-modules-container">
-          <div className="sec-sec-header">
-            <div className="sec-badge-pill" style={{ background: "#f0fdf4", color: "#16a34a", borderColor: "#bbf7d0" }}>
-              <span className="sec-badge-dot" style={{ background: "#16a34a" }} />
-              DEFENSE MODULES
-            </div>
-            <h2 className="sec-sec-title">Enterprise Cybersecurity Disciplines</h2>
-            <p className="sec-sec-desc">
-              From offensive penetration tests and exploit simulations to turnkey SOC 2 readiness and 24/7 SIEM response pods.
+      {/* ── 2. BYPASS THREATS & CLOUD IMMUNITY SECTION ── */}
+      <section className="sec-cloud-mesh-section">
+        <div className="sec-cloud-mesh-container">
+          {/* Left Column: Text, Subtitle, Stats, and CTA */}
+          <div className="sec-cloud-mesh-left">
+            <span className="sec-cm-tag">ABOUT ONENINELABS CLOUD SECURITY</span>
+            <h2 className="sec-cm-title">
+              Bypass Threats and<br />
+              Remain Fully Resilient<br />
+              Across Every Cloud
+            </h2>
+            <p className="sec-cm-desc">
+              With OneNineLabs Zero-Trust Cloud Armor, your infrastructure and multi-cloud workloads operate inside an encrypted, isolated perimeter. Shield sensitive data, stop lateral threat movement, and prevent unauthorized breaches with continuous real-time verification.
             </p>
-          </div>
 
-          {/* Module Switcher Tabs */}
-          <div className="sec-module-tabs">
-            <button
-              type="button"
-              onClick={() => setActiveTab("pentest")}
-              className={`sec-module-tab-btn ${activeTab === "pentest" ? "active" : ""}`}
-            >
-              <span>⚔️ Penetration Testing</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveTab("soc2")}
-              className={`sec-module-tab-btn ${activeTab === "soc2" ? "active" : ""}`}
-            >
-              <span>📋 SOC 2 &amp; ISO 27001</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveTab("zerotrust")}
-              className={`sec-module-tab-btn ${activeTab === "zerotrust" ? "active" : ""}`}
-            >
-              <span>🔒 Zero-Trust Cloud</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveTab("siem")}
-              className={`sec-module-tab-btn ${activeTab === "siem" ? "active" : ""}`}
-            >
-              <span>📡 24/7 SIEM &amp; SOC</span>
-            </button>
-          </div>
-
-          {/* Module Showcase Canvas */}
-          <div className="sec-module-canvas">
-            <div className="sec-module-left">
-              <div className="sec-mtag-row">
-                <span className="sec-mtag">{currentModule.tag}</span>
-                <span className="sec-mbadge">{currentModule.badge}</span>
+            {/* Feature Stat Blocks */}
+            <div className="sec-cm-stats-grid">
+              <div className="sec-cm-stat-card">
+                <div className="sec-cm-stat-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f04e23" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
+                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
+                    <line x1="6" y1="6" x2="6.01" y2="6" />
+                    <line x1="6" y1="18" x2="6.01" y2="18" />
+                  </svg>
+                </div>
+                <div className="sec-cm-stat-info">
+                  <span className="sec-cm-stat-num">1650+</span>
+                  <span className="sec-cm-stat-lbl">Secure Cloud Nodes</span>
+                </div>
               </div>
 
-              <h3 className="sec-mtitle">{currentModule.title}</h3>
-              <p className="sec-mdesc">{currentModule.desc}</p>
-
-              <div className="sec-mhighlights-list">
-                {currentModule.highlights.map((h, i) => (
-                  <div key={i} className="sec-mhighlight-item">
-                    <span className="sec-mcheck">✓</span>
-                    <span>{h}</span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="sec-mcta-row">
-                <Link href="/contact" className="sec-btn-primary">
-                  <span>Deploy {currentModule.title.split(" ")[0]} Defense</span>
-                  <span className="sec-btn-arrow">→</span>
-                </Link>
-                <Link href="/contact" className="sec-btn-ghost">
-                  Schedule Scoping Call
-                </Link>
-              </div>
-            </div>
-
-            {/* Right Interactive Telemetry Box */}
-            <div className="sec-module-right">
-              <div className="sec-telemetry-card">
-                <div className="sec-telemetry-header">
-                  <span className="sec-telemetry-title">Security Governance Target</span>
-                  <span className="sec-telemetry-live-dot" />
+              <div className="sec-cm-stat-card">
+                <div className="sec-cm-stat-icon-box">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f04e23" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="2" y1="12" x2="22" y2="12" />
+                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                  </svg>
                 </div>
-
-                <div className="sec-telemetry-stat-row">
-                  <div className="sec-tstat-box">
-                    <span className="sec-tstat-k">Target Benchmark</span>
-                    <span className="sec-tstat-v" style={{ color: "#38bdf8" }}>{currentModule.vulnTarget}</span>
-                  </div>
-                  <div className="sec-tstat-box">
-                    <span className="sec-tstat-k">Delivery Timeline</span>
-                    <span className="sec-tstat-v" style={{ color: "#4ade80" }}>{currentModule.auditTime}</span>
-                  </div>
-                </div>
-
-                <div className="sec-telemetry-standard-box">
-                  <span className="sec-tstandard-lbl">Security Framework Standard:</span>
-                  <span className="sec-tstandard-val">{currentModule.standard}</span>
-                </div>
-
-                <div className="sec-telemetry-terminal">
-                  <div className="sec-term-line text-green">$ onenine-security audit --deep-scan</div>
-                  <div className="sec-term-line">✓ Static code analysis (SAST) passed: 0 CVEs</div>
-                  <div className="sec-term-line">✓ Secret scanning: 0 exposed credentials</div>
-                  <div className="sec-term-line">✓ ZTNA Mutual TLS (mTLS) verified across pods</div>
-                  <div className="sec-term-line text-cyan">Audit Certificate Issued • Ready for Production</div>
+                <div className="sec-cm-stat-info">
+                  <span className="sec-cm-stat-num">125</span>
+                  <span className="sec-cm-stat-lbl">Global Cloud PoPs</span>
                 </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ── 3. INTERACTIVE CODE & TERRAFORM POLICY INSPECTOR ── */}
-      <section className="sec-code-section">
-        <div className="sec-code-container">
-          <div className="sec-sec-header">
-            <div className="sec-badge-pill" style={{ background: "#e0f2fe", color: "#0284c7", borderColor: "#bae6fd" }}>
-              <span className="sec-badge-dot" style={{ background: "#0284c7" }} />
-              INFRASTRUCTURE AS CODE GUARDRAILS
-            </div>
-            <h2 className="sec-sec-title">Hardened Security Policies &amp; Middleware</h2>
-            <p className="sec-sec-desc">
-              We encode automated security controls directly into Terraform IaC, rate-limiting reverse proxies, and immutable audit logs.
-            </p>
-          </div>
-
-          <div className="sec-code-window">
-            <div className="sec-code-top-bar">
-              <div className="sec-code-tabs">
-                <button
-                  type="button"
-                  onClick={() => setActiveCodeTab("zero-trust")}
-                  className={`sec-code-tab-btn ${activeCodeTab === "zero-trust" ? "active" : ""}`}
-                >
-                  <span>🔒 ZeroTrustPolicy.tf</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setActiveCodeTab("rate-limiter")}
-                  className={`sec-code-tab-btn ${activeCodeTab === "rate-limiter" ? "active" : ""}`}
-                >
-                  <span>⚡ DistributedRateLimiter.ts</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setActiveCodeTab("audit-logger")}
-                  className={`sec-code-tab-btn ${activeCodeTab === "audit-logger" ? "active" : ""}`}
-                >
-                  <span>📜 Soc2AuditLogger.ts</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setActiveCodeTab("sanitizer")}
-                  className={`sec-code-tab-btn ${activeCodeTab === "sanitizer" ? "active" : ""}`}
-                >
-                  <span>🛡️ InputSanitizerGuard.ts</span>
-                </button>
-              </div>
-
-              <div className="sec-code-actions">
-                <span className="sec-code-badge-sla">✓ {activeSnippet.badge}</span>
-                <button type="button" onClick={handleCopyCode} className="sec-copy-btn">
-                  {copiedCode ? "✓ Copied" : "📋 Copy Code"}
-                </button>
-              </div>
-            </div>
-
-            <div className="sec-code-body">
-              <div className="sec-code-meta">
-                <span className="sec-code-filename">{activeSnippet.title}</span>
-                <span className="sec-code-lang">{activeSnippet.lang}</span>
-              </div>
-              <pre className="sec-code-pre">
-                <code>{activeSnippet.code}</code>
-              </pre>
+            {/* Dark CTA Button */}
+            <div className="sec-cm-btn-wrap">
+              <Link href="/contact" className="sec-cm-cta-btn">
+                Get Started →
+              </Link>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* ── 4. 6-PILLAR CAPABILITIES BENTO GRID ── */}
-      <section className="sec-caps-section">
-        <div className="sec-caps-container">
-          <div className="sec-sec-header">
-            <div className="sec-badge-pill">
-              <span className="sec-badge-dot" />
-              FULL-SPECTRUM CAPABILITIES
-            </div>
-            <h2 className="sec-sec-title">Enterprise Cyber Security &amp; DevOps Pillars</h2>
-            <p className="sec-sec-desc">
-              Six foundational pillars engineered to protect your revenue, safeguard customer data, and satisfy enterprise auditor requirements.
-            </p>
-          </div>
-
-          <div className="sec-caps-grid">
-            {capabilities.map((cap, i) => (
-              <div key={i} className="sec-cap-card" style={{ borderColor: cap.borderCol }}>
-                <div className="sec-cap-header">
-                  <div className="sec-cap-icon-box" style={{ background: cap.bgGradient }}>
-                    <span>{cap.icon}</span>
-                  </div>
-                  <span className="sec-cap-badge" style={{ background: cap.lightBg, borderColor: cap.borderCol }}>
-                    {cap.badge}
-                  </span>
+          {/* Right Column: Floating Gauge Card, Region List Card, and Modern Phone Mockup */}
+          <div className="sec-cloud-mesh-right">
+            {/* Left Sub-Stack: Gauge Card + PoP List Card */}
+            <div className="sec-cm-floating-stack">
+              {/* 1. Speedometer / Inspection Gauge Card */}
+              <div className="sec-cm-gauge-card">
+                <div className="sec-cm-speedometer">
+                  <svg viewBox="0 0 120 70" className="sec-speed-svg">
+                    <path
+                      d="M 15 60 A 45 45 0 0 1 105 60"
+                      fill="none"
+                      stroke="#f1f5f9"
+                      strokeWidth="10"
+                      strokeLinecap="round"
+                    />
+                    <path
+                      d="M 15 60 A 45 45 0 0 1 95 30"
+                      fill="none"
+                      stroke="url(#speedGrad)"
+                      strokeWidth="10"
+                      strokeLinecap="round"
+                    />
+                    <defs>
+                      <linearGradient id="speedGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#f59e0b" />
+                        <stop offset="70%" stopColor="#f04e23" />
+                        <stop offset="100%" stopColor="#dc2626" />
+                      </linearGradient>
+                    </defs>
+                    <line x1="60" y1="60" x2="80" y2="35" stroke="#1e293b" strokeWidth="2.5" strokeLinecap="round" />
+                    <circle cx="60" cy="60" r="4.5" fill="#1e293b" />
+                  </svg>
                 </div>
+                <div className="sec-cm-gauge-metric">
+                  <span className="sec-cm-gauge-lbl">Download & Inspection Speed</span>
+                  <span className="sec-cm-gauge-val">80.5 <small>Gbps/sec</small></span>
+                </div>
+              </div>
 
-                <h3 className="sec-cap-title">{cap.title}</h3>
-                <p className="sec-cap-desc">{cap.desc}</p>
-
-                <div className="sec-cap-bullets">
-                  {cap.highlights.map((h, hi) => (
-                    <div key={hi} className="sec-cap-bullet-item">
-                      <span className="sec-cap-dot" style={{ background: "#2563eb" }} />
-                      <span>{h}</span>
+              {/* 2. Global Server Locations Card */}
+              <div className="sec-cm-locations-card">
+                <div className="sec-cm-loc-item">
+                  <div className="sec-cm-loc-left">
+                    <span className="sec-cm-flag">🇬🇧</span>
+                    <div className="sec-cm-loc-text">
+                      <strong>London</strong>
+                      <span>AWS Cloud Region</span>
                     </div>
-                  ))}
+                  </div>
+                  <span className="sec-cm-status-dot green" />
+                </div>
+
+                <div className="sec-cm-loc-item">
+                  <div className="sec-cm-loc-left">
+                    <span className="sec-cm-flag">🇧🇷</span>
+                    <div className="sec-cm-loc-text">
+                      <strong>São Paulo</strong>
+                      <span>GCP Mesh Core</span>
+                    </div>
+                  </div>
+                  <span className="sec-cm-status-dot green" />
+                </div>
+
+                <div className="sec-cm-loc-item">
+                  <div className="sec-cm-loc-left">
+                    <span className="sec-cm-flag">🇩🇪</span>
+                    <div className="sec-cm-loc-text">
+                      <strong>Frankfurt</strong>
+                      <span>Azure Edge PoP</span>
+                    </div>
+                  </div>
+                  <span className="sec-cm-status-dot green" />
+                </div>
+
+                <div className="sec-cm-loc-item">
+                  <div className="sec-cm-loc-left">
+                    <span className="sec-cm-flag">🇫🇷</span>
+                    <div className="sec-cm-loc-text">
+                      <strong>Paris</strong>
+                      <span>Dedicated Zero-Trust</span>
+                    </div>
+                  </div>
+                  <span className="sec-cm-status-dot green" />
                 </div>
               </div>
-            ))}
+            </div>
+
+            {/* Right Sub-Stack: Sleek Smartphone Mockup with Active Shield UI */}
+            <div className="sec-cm-phone-mockup">
+              <div className="sec-phone-frame">
+                {/* Phone Speaker / Dynamic Island */}
+                <div className="sec-phone-island" />
+
+                {/* Phone Screen App UI */}
+                <div className="sec-phone-screen">
+                  <div className="sec-app-header">
+                    <span className="sec-app-title">Cloud Shield Status</span>
+                    <div className="sec-app-badges">
+                      <span className="sec-app-badge green">99.99% TLS</span>
+                      <span className="sec-app-badge red">Threats: 0</span>
+                    </div>
+                  </div>
+
+                  {/* Central Shield Power Switch */}
+                  <div className="sec-app-power-wrap">
+                    <div className="sec-app-power-ring-outer">
+                      <div className="sec-app-power-ring-inner">
+                        <div className="sec-app-power-btn">
+                          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                            <path d="M18.36 6.64a9 9 0 1 1-12.73 0" />
+                            <line x1="12" y1="2" x2="12" y2="12" />
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Connected Time Counter */}
+                  <div className="sec-app-timer">
+                    <span className="sec-app-timer-lbl">Connected Time</span>
+                    <span className="sec-app-timer-val">02:49:35</span>
+                  </div>
+
+                  {/* Active Cloud Region Strip */}
+                  <div className="sec-app-region-bar">
+                    <span className="sec-app-region-flag">🇩🇪</span>
+                    <div className="sec-app-region-txt">
+                      <strong>Frankfurt Core PoP</strong>
+                      <span>IP: 185.199.108.153 (Hidden)</span>
+                    </div>
+                  </div>
+
+                  {/* App Action Button */}
+                  <button className="sec-app-action-btn">
+                    Active Protection Mode
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── 5. COMPLIANCE & REGULATORY STANDARDS MATRIX ── */}
-      <section className="sec-compliance-section">
-        <div className="sec-compliance-container">
-          <div className="sec-sec-header">
-            <div className="sec-badge-pill" style={{ background: "#faf5ff", color: "#7c3aed", borderColor: "#e9d5ff" }}>
-              <span className="sec-badge-dot" style={{ background: "#7c3aed" }} />
-              COMPLIANCE STANDARDS
+      {/* ── 3. SIX CORE PILLARS OF CLOUD SECURITY & ZERO-TRUST ── */}
+      <section className="sec-pillars-section">
+        <div className="sec-pillars-container">
+          <div className="sec-pillars-grid">
+            {/* 1. High-Speed Threat Inspection */}
+            <div className="sec-pillar-item">
+              <div className="sec-pillar-icon-wrap">
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#1e293b" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                  <line x1="1" y1="21" x2="23" y2="21" />
+                </svg>
+                <span className="sec-pillar-dot-accent">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f04e23" strokeWidth="2.5">
+                    <circle cx="12" cy="12" r="10" />
+                    <polyline points="12 6 12 12 16 14" />
+                  </svg>
+                </span>
+              </div>
+              <div className="sec-pillar-content">
+                <h3 className="sec-pillar-title">High-Speed Threat Inspection</h3>
+                <p className="sec-pillar-desc">
+                  With our ultra-fast zero-trust mesh, enjoy seamless cloud throughput and sub-millisecond edge latency while every packet is deeply inspected in real time.
+                </p>
+              </div>
             </div>
-            <h2 className="sec-sec-title">Regulatory Frameworks &amp; Audit Matrices</h2>
-            <p className="sec-sec-desc">
-              We implement technical controls, evidence automation, and audit-ready policies compliant with global standards.
+
+            {/* 2. IP & Cloud Perimeter Cloaking */}
+            <div className="sec-pillar-item">
+              <div className="sec-pillar-icon-wrap">
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#1e293b" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                  <circle cx="12" cy="12" r="3" />
+                </svg>
+                <span className="sec-pillar-dot-accent">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f04e23" strokeWidth="2.5">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                  </svg>
+                </span>
+              </div>
+              <div className="sec-pillar-content">
+                <h3 className="sec-pillar-title">IP & Cloud Perimeter Cloaking</h3>
+                <p className="sec-pillar-desc">
+                  Your internal cloud traffic is protected from surveillance, origin IPs are masked, and data is shielded preventing unauthorized reconnaissance.
+                </p>
+              </div>
+            </div>
+
+            {/* 3. Zero-Knowledge SOC 2 Policy */}
+            <div className="sec-pillar-item">
+              <div className="sec-pillar-icon-wrap">
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#1e293b" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z" />
+                </svg>
+                <span className="sec-pillar-dot-accent">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f04e23" strokeWidth="2.5">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                </span>
+              </div>
+              <div className="sec-pillar-content">
+                <h3 className="sec-pillar-title">Zero-Knowledge SOC 2 Policy</h3>
+                <p className="sec-pillar-desc">
+                  Your enterprise data is protected under strict zero-knowledge protocols. No sensitive payload logs or confidential metadata are ever stored.
+                </p>
+              </div>
+            </div>
+
+            {/* 4. Quantum-Resistant Encryption */}
+            <div className="sec-pillar-item">
+              <div className="sec-pillar-icon-wrap">
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#1e293b" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="3" />
+                  <circle cx="12" cy="10" r="3" />
+                  <path d="M7 17h10" />
+                </svg>
+                <span className="sec-pillar-dot-accent">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f04e23" strokeWidth="2.5">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                  </svg>
+                </span>
+              </div>
+              <div className="sec-pillar-content">
+                <h3 className="sec-pillar-title">Quantum-Resistant Encryption</h3>
+                <p className="sec-pillar-desc">
+                  Next-generation AES-256-GCM and post-quantum cryptographic cipher suites ensure your data in transit and at rest remains uncompromised.
+                </p>
+              </div>
+            </div>
+
+            {/* 5. Unmetered Cloud Defense */}
+            <div className="sec-pillar-item">
+              <div className="sec-pillar-icon-wrap">
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#1e293b" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <circle cx="12" cy="12" r="10" />
+                  <line x1="2" y1="12" x2="22" y2="12" />
+                  <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
+                </svg>
+                <span className="sec-pillar-dot-accent">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f04e23" strokeWidth="2.5">
+                    <polyline points="13 17 18 12 13 7" />
+                    <polyline points="6 17 11 12 6 7" />
+                  </svg>
+                </span>
+              </div>
+              <div className="sec-pillar-content">
+                <h3 className="sec-pillar-title">Unmetered Cloud Defense</h3>
+                <p className="sec-pillar-desc">
+                  Enjoy unmetered bandwidth, automated auto-scaling edge capacity, and continuous layer 7 protection without throttling or overage constraints.
+                </p>
+              </div>
+            </div>
+
+            {/* 6. 24/7 Dedicated SOC Defense */}
+            <div className="sec-pillar-item">
+              <div className="sec-pillar-icon-wrap">
+                <svg width="38" height="38" viewBox="0 0 24 24" fill="none" stroke="#1e293b" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+                <span className="sec-pillar-dot-accent">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#f04e23" strokeWidth="2.5">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+                  </svg>
+                </span>
+              </div>
+              <div className="sec-pillar-content">
+                <h3 className="sec-pillar-title">24/7 Dedicated SOC Defense</h3>
+                <p className="sec-pillar-desc">
+                  Our dedicated Security Operations Center (SOC) engineers and cloud specialists are on standby around the clock to assist with threat mitigation.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── 4. 24/7 SURVEILLANCE & CLOUD THREAT MONITORING SECTION ── */}
+      <section className="sec-monitor-section">
+        <div className="sec-monitor-container">
+          {/* Top 2-Column Row */}
+          <div className="sec-monitor-main-row">
+            {/* Left: Rounded Hardware/Camera Photo Card */}
+            <div className="sec-monitor-visual-wrap">
+              <div className="sec-monitor-console-card">
+                {/* Console Window Top Header Bar */}
+                <div className="sec-console-header">
+                  <div className="sec-console-dots">
+                    <span className="sec-dot d-red" />
+                    <span className="sec-dot d-yellow" />
+                    <span className="sec-dot d-green" />
+                  </div>
+                  <div className="sec-console-title">cloud-sentinel-agent-v2</div>
+                  <div className="sec-console-status">
+                    <span className="sec-status-ping" />
+                    SECURE
+                  </div>
+                </div>
+
+                {/* Dashboard Stats Row */}
+                <div className="sec-console-stats">
+                  <div className="sec-cstat-box">
+                    <span className="sec-cstat-val">0.02s</span>
+                    <span className="sec-cstat-lbl">Detection Latency</span>
+                  </div>
+                  <div className="sec-cstat-box">
+                    <span className="sec-cstat-val text-green">100%</span>
+                    <span className="sec-cstat-lbl">mTLS Enforced</span>
+                  </div>
+                  <div className="sec-cstat-box">
+                    <span className="sec-cstat-val">0</span>
+                    <span className="sec-cstat-lbl">Active Alerts</span>
+                  </div>
+                </div>
+
+                {/* Live Threat Map Wave Graph Overlay */}
+                <div className="sec-console-graph">
+                  <svg viewBox="0 0 320 80" className="sec-wave-svg">
+                    <path
+                      d="M0,40 C40,40 60,10 100,10 C140,10 160,65 200,65 C240,65 280,25 320,25"
+                      fill="none"
+                      stroke="#f04e23"
+                      strokeWidth="2.5"
+                      className="sec-wave-line"
+                    />
+                    <path
+                      d="M0,40 C40,40 60,10 100,10 C140,10 160,65 200,65 C240,65 280,25 320,25 L320,80 L0,80 Z"
+                      fill="url(#waveGrad)"
+                      opacity="0.15"
+                    />
+                    <defs>
+                      <linearGradient id="waveGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#f04e23" />
+                        <stop offset="100%" stopColor="transparent" />
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <span className="sec-graph-indicator">Live Cloud Infrastructure Ingress</span>
+                </div>
+
+                {/* Live Console Terminal Feed logs */}
+                <div className="sec-console-terminal">
+                  <div className="sec-terminal-line"><span className="term-t">[12:04:12]</span> <span className="term-inf">INF:</span> Inbound TLS handshake from US-EAST-1 (Verified)</div>
+                  <div className="sec-terminal-line"><span className="term-t">[12:04:15]</span> <span className="term-warn">WRN:</span> Port scan attempt blocked from 198.51.100.42</div>
+                  <div className="sec-terminal-line"><span className="term-t">[12:04:22]</span> <span className="term-inf">INF:</span> Cilium network policy enforced on cluster-kube-3</div>
+                  <div className="sec-terminal-line"><span className="term-t">[12:04:31]</span> <span className="term-ok">OK:</span> Zero-trust token rotated for user admin@onenine.com</div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Content, Description, and CTA Row */}
+            <div className="sec-monitor-content-col">
+              <span className="sec-mon-tag">CONTINUOUS CLOUD & INFRASTRUCTURE DEFENSE</span>
+              <h2 className="sec-mon-title">
+                Monitor your Cloud via<br />
+                your Smartphone or<br />
+                Security Console
+              </h2>
+              <p className="sec-mon-desc">
+                Gain real-time telemetry, automated threat detection, and unified visibility across all cloud workloads, Kubernetes clusters, and remote employee endpoints from a single pane of glass.
+              </p>
+
+              {/* Action Buttons Row */}
+              <div className="sec-mon-actions-row">
+                <Link href="/contact" className="sec-mon-btn-dark">
+                  Explore Platform →
+                </Link>
+
+                <a href="tel:+18001995227" className="sec-mon-phone-widget">
+                  <span className="sec-mon-phone-icon">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#f04e23" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                    </svg>
+                  </span>
+                  <span className="sec-mon-phone-number">+1 800-19-SECURE</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom 4 Big Numbers Metrics Grid */}
+          <div className="sec-monitor-stats-bar">
+            <div className="sec-mon-stat-item">
+              <span className="sec-mon-stat-giant">24/7</span>
+              <span className="sec-mon-stat-caption">Continuous SOC Monitoring</span>
+            </div>
+
+            <div className="sec-mon-stat-item">
+              <span className="sec-mon-stat-giant">1.5k+</span>
+              <span className="sec-mon-stat-caption">Cloud Workloads Secured</span>
+            </div>
+
+            <div className="sec-mon-stat-item">
+              <span className="sec-mon-stat-giant">15+</span>
+              <span className="sec-mon-stat-caption">Years of Security Experience</span>
+            </div>
+
+            <div className="sec-mon-stat-item">
+              <span className="sec-mon-stat-giant">35+</span>
+              <span className="sec-mon-stat-caption">Certified SOC Professionals</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+      {/* ── 3. AI TRANSFORMATION & THREAT INTEL SECTION ── */}
+      <section className="sec-intel-section">
+        <div className="sec-intel-container">
+          {/* Left Column: The Response & Progress Bars */}
+          <div className="sec-intel-left">
+            <span className="sec-intel-tag-good">THE RESPONSE</span>
+            <h2 className="sec-intel-title">
+              AI-Driven Threat<br />Resolution at Scale
+            </h2>
+            <p className="sec-intel-subtitle-text">
+              Harnessing machine learning models to isolate and contain threats at sub-second speeds before they reach critical database layers.
             </p>
-          </div>
 
-          <div className="sec-standards-grid">
-            {complianceStandards.map((std, i) => (
-              <div key={i} className="sec-std-card">
-                <div className="sec-std-top">
-                  <div className="sec-std-icon" style={{ borderColor: std.color }}>
-                    <span>{std.icon}</span>
+            <div className="sec-intel-bars-wrap">
+              {/* Bar 1 */}
+              <div className="sec-intel-bar-item">
+                <span className="sec-intel-bar-label">Automated Threat Containment Rate</span>
+                <div className="sec-intel-bar-row">
+                  <div className="sec-intel-progress-track">
+                    <div className="sec-intel-progress-fill p-fill-98" style={{ width: "98%" }} />
                   </div>
-                  <div>
-                    <h4 className="sec-std-name">{std.name}</h4>
-                    <span className="sec-std-badge" style={{ color: std.color }}>{std.badge}</span>
-                  </div>
-                </div>
-
-                <div className="sec-std-metrics">
-                  <div className="sec-std-row">
-                    <span className="sec-std-k">Scope Criteria:</span>
-                    <span className="sec-std-v">{std.scope}</span>
-                  </div>
-                  <div className="sec-std-row">
-                    <span className="sec-std-k">Audit Timeline:</span>
-                    <span className="sec-std-v" style={{ color: "#059669" }}>{std.timeline}</span>
-                  </div>
-                  <div className="sec-std-row">
-                    <span className="sec-std-k">Automation Stack:</span>
-                    <span className="sec-std-v">{std.tools}</span>
-                  </div>
+                  <span className="sec-intel-bar-pct">98.4%</span>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ── 6. 4-STAGE AUDIT & HARDENING LIFECYCLE ── */}
-      <section className="sec-process-section">
-        <div className="sec-process-container">
-          <div className="sec-sec-header">
-            <div className="sec-badge-pill">
-              <span className="sec-badge-dot" />
-              SECURITY LIFECYCLE
-            </div>
-            <h2 className="sec-sec-title">4-Stage Security Audit &amp; Hardening Pipeline</h2>
-            <p className="sec-sec-desc">
-              Our proven methodology for discovering vulnerabilities, remediating risks, and hardening production cloud environments.
-            </p>
-          </div>
-
-          <div className="sec-process-grid">
-            {deliverySteps.map((step, i) => (
-              <div key={i} className="sec-process-card">
-                <div className="sec-proc-num-row">
-                  <span className="sec-proc-num">{step.num}</span>
-                  <span className="sec-proc-icon">{step.icon}</span>
+              {/* Bar 2 */}
+              <div className="sec-intel-bar-item">
+                <span className="sec-intel-bar-label">SecOps Alert Noise Reduction</span>
+                <div className="sec-intel-bar-row">
+                  <div className="sec-intel-progress-track">
+                    <div className="sec-intel-progress-fill p-fill-85" style={{ width: "85%" }} />
+                  </div>
+                  <span className="sec-intel-bar-pct">85.0%</span>
                 </div>
-                <span className="sec-proc-tag">{step.tag}</span>
-                <h3 className="sec-proc-title">{step.title}</h3>
-                <p className="sec-proc-desc">{step.desc}</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ── 7. FAQ SECTION (WITH STICKY SIDEBAR) ── */}
-      <section className="sec-faq-section">
-        <div className="sec-faq-container">
-          <div className="sec-sec-header">
-            <div className="sec-badge-pill">
-              <span className="sec-badge-dot" />
-              SECURITY FAQS
+              {/* Bar 3 */}
+              <div className="sec-intel-bar-item">
+                <span className="sec-intel-bar-label">Edge Firewall Policy Sync Latency</span>
+                <div className="sec-intel-bar-row">
+                  <div className="sec-intel-progress-track">
+                    <div className="sec-intel-progress-fill p-fill-100" style={{ width: "100%" }} />
+                  </div>
+                  <span className="sec-intel-bar-pct">&lt; 1.2s</span>
+                </div>
+              </div>
             </div>
-            <h2 className="sec-sec-title">Frequently Asked Questions</h2>
-            <p className="sec-sec-desc">Everything you need to know about our penetration testing, SOC 2 readiness, and zero-trust cloud engineering.</p>
           </div>
 
-          <div className="sec-faq-layout">
-            <div className="sec-faq-sidebar">
-              <h3>Need an Enterprise Security Assessment?</h3>
-              <p>Speak directly with our Lead Security Architect to scope your penetration test, SOC 2 timeline, or cloud hardening review.</p>
-              <Link href="/contact" className="sec-faq-contact-btn">
-                Talk to a Security Architect →
-              </Link>
-              <div className="sec-faq-stat-box">
-                <div className="sec-faq-stat-num">100%</div>
-                <div className="sec-faq-stat-lbl">SOC 2 &amp; ISO 27001 First-Time Audit Pass Rate</div>
+          {/* Right Column: Circular Gauges & The Risk Box */}
+          <div className="sec-intel-right">
+            {/* Donut Gauges Row */}
+            <div className="sec-intel-gauges-row">
+              {/* Gauge 1 */}
+              <div className="sec-intel-gauge-box">
+                <div className="sec-intel-circle-wrap">
+                  <svg className="sec-gauge-svg" viewBox="0 0 120 120">
+                    <circle cx="60" cy="60" r="50" className="sec-gauge-track" />
+                    <circle
+                      cx="60"
+                      cy="60"
+                      r="50"
+                      className="sec-gauge-fill"
+                      style={{ strokeDashoffset: "calc(314.159 * (1 - 0.94))" }}
+                    />
+                  </svg>
+                  <span className="sec-gauge-number text-green">94%</span>
+                </div>
+                <div className="sec-gauge-caption">
+                  <strong>Efficiency Gains</strong>
+                  <span>reported by SecOps teams adopting AI copilots</span>
+                </div>
+              </div>
+
+              {/* Gauge 2 */}
+              <div className="sec-intel-gauge-box">
+                <div className="sec-intel-circle-wrap">
+                  <svg className="sec-gauge-svg" viewBox="0 0 120 120">
+                    <circle cx="60" cy="60" r="50" className="sec-gauge-track" />
+                    <circle
+                      cx="60"
+                      cy="60"
+                      r="50"
+                      className="sec-gauge-fill fill-orange"
+                      style={{ strokeDashoffset: "calc(314.159 * (1 - 0.78))" }}
+                    />
+                  </svg>
+                  <span className="sec-gauge-number">78%</span>
+                </div>
+                <div className="sec-gauge-caption">
+                  <strong>Attack Growth</strong>
+                  <span>in automated edge scanner queries blocked YoY</span>
+                </div>
               </div>
             </div>
 
-            <div className="sec-faq-accordion">
-              {faqs.map((f, i) => (
-                <details key={i} className="sec-faq-item">
-                  <summary>
-                    <span className="sec-faq-idx">{String(i + 1).padStart(2, "0")}</span>
-                    <span className="sec-faq-q">{f.q}</span>
-                    <span className="sec-faq-toggle">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                        <path d="M6 9l6 6 6-6" stroke="#64748b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </span>
-                  </summary>
-                  <div className="sec-faq-a">{f.a}</div>
-                </details>
-              ))}
+            {/* The Risk Landscape Box */}
+            <div className="sec-intel-bad-card">
+              <span className="sec-intel-tag-bad">THE RISK FACTOR</span>
+              <h3 className="sec-intel-bad-title">
+                Threat actors are weaponizing machine learning to locate open hybrid cloud perimeters.
+              </h3>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── 8. HIGH-CONVERTING BOTTOM CTA BANNER ── */}
-      <section className="sec-cta-banner-section">
-        <div className="sec-cta-banner-card">
-          <div className="sec-cta-glow-orb" />
-          <div className="sec-cta-inner">
-            <div className="sec-badge-pill" style={{ background: "rgba(255,255,255,0.15)", color: "#fff", borderColor: "rgba(255,255,255,0.25)" }}>
-              <span className="sec-badge-dot" style={{ background: "#38bdf8" }} />
-              ZERO COMPROMISE SECURITY
-            </div>
-            <h2 className="sec-cta-title">Ready to Audit &amp; Harden Your Platform?</h2>
-            <p className="sec-cta-desc">
-              Receive a comprehensive penetration testing proposal, SOC 2 audit readiness roadmap, and cloud security architecture plan within 48 hours.
-            </p>
-            <div className="sec-cta-actions">
-              <Link href="/contact" className="sec-cta-btn-primary">
-                Book Free Security Audit →
-              </Link>
-              <Link href="/services" className="sec-cta-btn-ghost">
-                Explore All Services
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* ── EMBEDDED SCOPED STYLING ── */}
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{
+        __html: `
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
+
         .sec-page-root {
-          font-family: -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", "Inter", sans-serif;
+          font-family: 'Inter', sans-serif;
           color: #0f172a;
           background: #ffffff;
           overflow-x: hidden;
@@ -940,288 +1104,1042 @@ export function validateIncomingPayload(payload: unknown) {
           box-shadow: 0 0 6px rgba(37, 99, 235, 0.8);
         }
         .sec-sec-title {
-          font-size: clamp(28px, 3.8vw, 44px);
-          font-weight: 800;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: clamp(28px, 3.5vw, 40px);
+          font-weight: 850;
           color: #0f172a;
           line-height: 1.15;
-          letter-spacing: -1.2px;
+          letter-spacing: -1px;
           margin: 0 0 16px;
         }
         .sec-sec-desc {
-          font-size: 15.5px;
+          font-size: 15px;
           color: #64748b;
           line-height: 1.65;
           margin: 0;
         }
 
-        /* Hero Section */
-        .sec-hero-section {
-          background: linear-gradient(135deg, #070d18 0%, #0f172a 50%, #1e293b 100%);
-          padding: 135px 24px 80px 24px;
+        /* ── Hero Section: Two-Column Premium Layout ── */
+        .vpn-hero-section {
+          background: radial-gradient(circle at top right, #fbfbfd 0%, #f7f9fc 100%);
+          padding: 160px 24px 120px;
           position: relative;
           overflow: hidden;
-          color: #ffffff;
+          color: #0f172a;
+          display: flex;
+          align-items: center;
+          min-height: 85vh;
         }
-        .sec-hero-glow-1 {
+        .vpn-hero-grid-bg {
           position: absolute;
-          top: -100px;
-          right: -50px;
-          width: 500px;
-          height: 500px;
-          border-radius: 50%;
-          background: radial-gradient(circle, rgba(37, 99, 235, 0.25) 0%, transparent 70%);
+          inset: 0;
+          background-image: radial-gradient(#e2e8f0 1.5px, transparent 1.5px);
+          background-size: 32px 32px;
+          opacity: 0.5;
           pointer-events: none;
         }
-        .sec-hero-glow-2 {
-          position: absolute;
-          bottom: -100px;
-          left: -50px;
-          width: 500px;
-          height: 500px;
-          border-radius: 50%;
-          background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, transparent 70%);
-          pointer-events: none;
-        }
-        .sec-hero-container {
-          max-width: 1280px;
+        .vpn-hero-container {
+          max-width: 1240px;
           margin: 0 auto;
           display: grid;
-          grid-template-columns: 1.1fr 540px;
-          gap: 48px;
+          grid-template-columns: 1.15fr 1fr;
+          gap: 60px;
           align-items: center;
           position: relative;
           z-index: 2;
+          width: 100%;
         }
-        .sec-hero-left {
+        .vpn-hero-left {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          text-align: left;
+        }
+        .vpn-hero-tag {
+          font-size: 12.5px;
+          font-weight: 800;
+          color: #f04e23;
+          letter-spacing: 1.8px;
+          text-transform: uppercase;
+          margin-bottom: 20px;
+          display: inline-block;
+        }
+        .vpn-hero-title {
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: clamp(36px, 4.8vw, 62px);
+          font-weight: 900;
+          line-height: 1.06;
+          letter-spacing: -1.8px;
+          margin: 0 0 24px;
+        }
+        .vpn-title-orange {
+          color: #f04e23;
+        }
+        .vpn-title-dark {
+          color: #0f172a;
+        }
+        .vpn-hero-subtitle {
+          font-size: 16px;
+          color: #475569;
+          line-height: 1.7;
+          max-width: 520px;
+          margin: 0 0 36px;
+          font-weight: 500;
+        }
+        .vpn-hero-actions {
+          display: flex;
+          align-items: center;
+          gap: 20px;
+          margin-bottom: 48px;
+          flex-wrap: wrap;
+        }
+        .vpn-hero-btn {
+          background: #f04e23;
+          color: #ffffff !important;
+          font-size: 15.5px;
+          font-weight: 700;
+          padding: 16px 38px;
+          border-radius: 9999px;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          box-shadow: 0 10px 25px rgba(240, 78, 35, 0.35);
+          transition: all 0.2s ease;
+        }
+        .vpn-hero-btn:hover {
+          background: #e03e12;
+          transform: translateY(-2px);
+          box-shadow: 0 14px 30px rgba(240, 78, 35, 0.45);
+        }
+        .vpn-live-status-badge {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          background: #ecfdf5;
+          border: 1px solid #a7f3d0;
+          color: #059669;
+          font-size: 11px;
+          font-weight: 850;
+          padding: 6px 14px;
+          border-radius: 9999px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+        }
+        .vpn-pulse-dot {
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: #10b981;
+          display: inline-block;
+          box-shadow: 0 0 6px #10b981;
+          animation: statusPulse 2s infinite;
+        }
+        @keyframes statusPulse {
+          0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7); }
+          70% { transform: scale(1); box-shadow: 0 0 0 6px rgba(16, 185, 129, 0); }
+          100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
+        }
+        .vpn-hero-trust-row {
+          display: flex;
+          gap: 32px;
+          border-top: 1px solid #e2e8f0;
+          padding-top: 28px;
+          width: 100%;
+          max-width: 520px;
+        }
+        .vpn-trust-item {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+        }
+        .vpn-trust-item strong {
+          font-size: 20px;
+          font-weight: 900;
+          color: #0f172a;
+          font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .vpn-trust-item span {
+          font-size: 12px;
+          color: #64748b;
+          font-weight: 600;
+        }
+        .vpn-hero-right {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: relative;
+          width: 100%;
+        }
+        .vpn-hero-visual-frame {
+          position: relative;
+          width: 100%;
+          max-width: 440px;
+        }
+        .vpn-hero-image-wrap {
+          width: 100%;
+          aspect-ratio: 4 / 3;
+          border-radius: 28px;
+          overflow: hidden;
+          border: 1.5px solid #e2e8f0;
+          box-shadow: 0 20px 48px rgba(15, 23, 42, 0.06);
+          position: relative;
+          background: #ffffff;
+        }
+        .vpn-hero-main-img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+        }
+        .vpn-hero-image-overlay {
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(135deg, rgba(240, 78, 35, 0.05) 0%, transparent 70%);
+        }
+        .vpn-hero-scan-line {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, #f04e23, transparent);
+          animation: scanY 4s linear infinite;
+        }
+        @keyframes scanY {
+          0% { top: 0%; }
+          50% { top: 100%; }
+          100% { top: 0%; }
+        }
+        .vpn-float-card {
+          position: absolute;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(8px);
+          border: 1px solid #e2e8f0;
+          padding: 12px 18px;
+          border-radius: 16px;
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08);
+          z-index: 3;
+        }
+        .vpn-float-card.fc-top {
+          top: 10%;
+          left: -40px;
+        }
+        .vpn-float-card.fc-bottom {
+          bottom: 10%;
+          right: -30px;
+        }
+        .fc-icon {
+          font-size: 20px;
+        }
+        .fc-text {
+          display: flex;
+          flex-direction: column;
+        }
+        .fc-text strong {
+          font-size: 13.5px;
+          color: #0f172a;
+          font-weight: 800;
+        }
+        .fc-text span {
+          font-size: 10.5px;
+          color: #64748b;
+          font-weight: 600;
+        }
+        @media (max-width: 1024px) {
+          .vpn-hero-container {
+            grid-template-columns: 1fr;
+            gap: 56px;
+            text-align: center;
+          }
+          .vpn-hero-left {
+            align-items: center;
+            text-align: center;
+          }
+          .vpn-hero-subtitle {
+            margin-left: auto;
+            margin-right: auto;
+          }
+          .vpn-hero-actions {
+            justify-content: center;
+          }
+          .vpn-hero-trust-row {
+            margin-left: auto;
+            margin-right: auto;
+            justify-content: center;
+          }
+          .vpn-float-card.fc-top {
+            left: -10px;
+          }
+          .vpn-float-card.fc-bottom {
+            right: -10px;
+          }
+        }
+        @media (max-width: 640px) {
+          .vpn-hero-section {
+            padding: 110px 16px 80px;
+          }
+        }
+
+        /* ── 2. Cloud Mesh & Zero-Trust Immunity Section ── */
+        .sec-cloud-mesh-section {
+          padding: 120px 24px 100px;
+          background: #ffffff;
+          color: #0f172a;
+          border-top: 1px solid #f1f5f9;
+          position: relative;
+          overflow: hidden;
+        }
+        .sec-cloud-mesh-container {
+          max-width: 1240px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 1.1fr 1fr;
+          gap: 60px;
+          align-items: center;
+        }
+        .sec-cloud-mesh-left {
           display: flex;
           flex-direction: column;
           align-items: flex-start;
         }
-        .sec-hero-title {
-          font-size: clamp(34px, 4.2vw, 54px);
-          font-weight: 900;
-          color: #ffffff;
-          line-height: 1.12;
-          letter-spacing: -1.5px;
-          margin: 0 0 20px;
-        }
-        .sec-highlight-text {
-          background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
-          -webkit-background-clip: text;
-          background-clip: text;
-          color: transparent;
-        }
-        .sec-hero-subtitle {
-          font-size: 16px;
-          color: #94a3b8;
-          line-height: 1.65;
-          margin: 0 0 32px;
-          max-width: 520px;
-          font-weight: 400;
-        }
-        .sec-hero-actions {
-          display: flex;
-          gap: 16px;
-          flex-wrap: wrap;
-          margin-bottom: 36px;
-        }
-        .sec-btn-primary {
-          background: #ffffff;
-          color: #0f172a !important;
+        .sec-cm-tag {
+          font-size: 12.5px;
           font-weight: 800;
-          border-radius: 100px;
-          padding: 14px 28px;
-          font-size: 15px;
-          text-decoration: none;
-          display: inline-flex;
+          color: #94a3b8;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          margin-bottom: 20px;
+          display: inline-block;
+        }
+        .sec-cm-title {
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: clamp(32px, 4vw, 48px);
+          font-weight: 850;
+          color: #0f172a;
+          line-height: 1.1;
+          letter-spacing: -1px;
+          margin: 0 0 24px;
+        }
+        .sec-cm-desc {
+          font-size: 16px;
+          color: #475569;
+          line-height: 1.65;
+          max-width: 520px;
+          margin: 0 0 36px;
+        }
+        .sec-cm-stats-grid {
+          display: flex;
+          gap: 36px;
           align-items: center;
-          gap: 10px;
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
-          transition: all 0.2s ease;
+          margin-bottom: 40px;
+          flex-wrap: wrap;
         }
-        .sec-btn-primary:hover {
-          background: #f8fafc;
-          transform: translateY(-2px);
-          box-shadow: 0 14px 32px rgba(0, 0, 0, 0.4);
+        .sec-cm-stat-card {
+          display: flex;
+          align-items: center;
+          gap: 14px;
         }
-        .sec-btn-arrow {
-          width: 24px;
-          height: 24px;
-          border-radius: 50%;
-          background: #0f172a;
-          color: #ffffff;
+        .sec-cm-stat-icon-box {
+          width: 48px;
+          height: 48px;
+          border-radius: 14px;
+          background: #fff5f5;
+          border: 1.5px solid #fed7aa;
           display: flex;
           align-items: center;
           justify-content: center;
-          font-size: 13px;
+          flex-shrink: 0;
         }
-        .sec-btn-ghost {
-          background: rgba(255, 255, 255, 0.08);
-          border: 1.5px solid rgba(255, 255, 255, 0.2);
+        .sec-cm-stat-info {
+          display: flex;
+          flex-direction: column;
+          gap: 2px;
+        }
+        .sec-cm-stat-num {
+          font-size: 28px;
+          font-weight: 800;
+          color: #0f172a;
+          line-height: 1;
+          letter-spacing: -0.5px;
+        }
+        .sec-cm-stat-lbl {
+          font-size: 13.5px;
+          color: #64748b;
+          font-weight: 500;
+        }
+        .sec-cm-btn-wrap {
+          display: flex;
+        }
+        .sec-cm-cta-btn {
+          background: #111827;
           color: #ffffff !important;
+          font-size: 15.5px;
           font-weight: 700;
-          border-radius: 100px;
-          padding: 14px 26px;
-          font-size: 15px;
+          padding: 15px 38px;
+          border-radius: 9999px;
           text-decoration: none;
           display: inline-flex;
           align-items: center;
+          gap: 8px;
+          box-shadow: 0 4px 15px rgba(17, 24, 39, 0.2);
           transition: all 0.2s ease;
         }
-        .sec-btn-ghost:hover {
-          background: rgba(255, 255, 255, 0.15);
-          border-color: rgba(255, 255, 255, 0.4);
+        .sec-cm-cta-btn:hover {
+          background: #000000;
           transform: translateY(-2px);
+          box-shadow: 0 8px 22px rgba(17, 24, 39, 0.35);
         }
 
-        /* Hero Stats */
-        .sec-hero-stats {
+        /* Right Column Dashboards & Mockups */
+        .sec-cloud-mesh-right {
           display: flex;
           gap: 24px;
-          padding-top: 24px;
-          border-top: 1px solid rgba(255, 255, 255, 0.1);
-          flex-wrap: wrap;
+          align-items: center;
+          justify-content: center;
         }
-        .sec-hstat-item {
-          display: flex;
-          flex-direction: column;
-        }
-        .sec-hstat-num {
-          font-size: 24px;
-          font-weight: 900;
-          color: #ffffff;
-          line-height: 1.1;
-        }
-        .sec-hstat-lbl {
-          font-size: 11.5px;
-          font-weight: 600;
-          color: #94a3b8;
-          margin-top: 4px;
-        }
-        .sec-hstat-div {
-          width: 1px;
-          height: 36px;
-          background: rgba(255, 255, 255, 0.12);
-        }
-
-        /* Active Threat HUD Card */
-        .sec-hud-card {
-          background: #090f1d;
-          border: 1.5px solid #1e293b;
-          border-radius: 28px;
-          padding: 28px;
-          box-shadow: 0 25px 60px rgba(0, 0, 0, 0.4);
+        .sec-cm-floating-stack {
           display: flex;
           flex-direction: column;
           gap: 20px;
+          width: 250px;
         }
-        .sec-hud-header {
+        .sec-cm-gauge-card {
+          background: #ffffff;
+          border: 1.5px solid #e2e8f0;
+          border-radius: 22px;
+          padding: 22px 18px;
+          box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 12px;
+        }
+        .sec-cm-speedometer {
+          width: 130px;
+          height: 75px;
+        }
+        .sec-speed-svg {
+          width: 100%;
+          height: 100%;
+        }
+        .sec-cm-gauge-metric {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 3px;
+        }
+        .sec-cm-gauge-lbl {
+          font-size: 11.5px;
+          color: #64748b;
+          font-weight: 600;
+        }
+        .sec-cm-gauge-val {
+          font-size: 24px;
+          font-weight: 800;
+          color: #0f172a;
+          letter-spacing: -0.5px;
+        }
+        .sec-cm-gauge-val small {
+          font-size: 13px;
+          font-weight: 600;
+          color: #94a3b8;
+        }
+
+        .sec-cm-locations-card {
+          background: #ffffff;
+          border: 1.5px solid #e2e8f0;
+          border-radius: 22px;
+          padding: 16px 14px;
+          box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+          display: flex;
+          flex-direction: column;
+          gap: 8px;
+        }
+        .sec-cm-loc-item {
+          background: #f8fafc;
+          border: 1px solid #f1f5f9;
+          border-radius: 12px;
+          padding: 8px 12px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          transition: background 0.2s ease;
+        }
+        .sec-cm-loc-item:hover {
+          background: #f1f5f9;
+        }
+        .sec-cm-loc-left {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        .sec-cm-flag {
+          font-size: 16px;
+        }
+        .sec-cm-loc-text {
+          display: flex;
+          flex-direction: column;
+          text-align: left;
+        }
+        .sec-cm-loc-text strong {
+          font-size: 13px;
+          color: #0f172a;
+          font-weight: 700;
+        }
+        .sec-cm-loc-text span {
+          font-size: 11px;
+          color: #64748b;
+        }
+        .sec-cm-status-dot {
+          width: 8px;
+          height: 8px;
+          border-radius: 50%;
+        }
+        .sec-cm-status-dot.green {
+          background: #22c55e;
+          box-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+        }
+
+        /* Smartphone Mockup */
+        .sec-cm-phone-mockup {
+          position: relative;
+        }
+        .sec-phone-frame {
+          width: 270px;
+          height: 520px;
+          background: #0f172a;
+          border-radius: 42px;
+          border: 6px solid #1e293b;
+          padding: 14px;
+          box-shadow: 0 25px 60px rgba(15, 23, 42, 0.16), inset 0 0 10px rgba(0, 0, 0, 0.6);
+          position: relative;
+        }
+        .sec-phone-island {
+          width: 65px;
+          height: 16px;
+          background: #000000;
+          border-radius: 20px;
+          margin: 0 auto 14px;
+        }
+        .sec-phone-screen {
+          background: #18181b;
+          border-radius: 30px;
+          height: calc(100% - 30px);
+          padding: 18px 14px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          color: #ffffff;
+        }
+        .sec-app-header {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 6px;
+        }
+        .sec-app-title {
+          font-size: 13px;
+          font-weight: 700;
+          color: #e4e4e7;
+        }
+        .sec-app-badges {
+          display: flex;
+          gap: 6px;
+        }
+        .sec-app-badge {
+          font-size: 10px;
+          font-weight: 700;
+          padding: 3px 8px;
+          border-radius: 100px;
+        }
+        .sec-app-badge.green {
+          background: rgba(34, 197, 94, 0.15);
+          color: #4ade80;
+          border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+        .sec-app-badge.red {
+          background: rgba(239, 68, 68, 0.15);
+          color: #f87171;
+          border: 1px solid rgba(239, 68, 68, 0.3);
+        }
+        .sec-app-power-wrap {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin: 10px 0;
+        }
+        .sec-app-power-ring-outer {
+          width: 100px;
+          height: 100px;
+          border-radius: 50%;
+          background: #27272a;
+          border: 2px solid rgba(240, 78, 35, 0.4);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 0 25px rgba(240, 78, 35, 0.25);
+        }
+        .sec-app-power-ring-inner {
+          width: 76px;
+          height: 76px;
+          border-radius: 50%;
+          background: #3f3f46;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .sec-app-power-btn {
+          width: 54px;
+          height: 54px;
+          border-radius: 50%;
+          background: radial-gradient(circle at 35% 35%, #ff6b4a, #f04e23 80%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 0 20px rgba(240, 78, 35, 0.7);
+        }
+        .sec-app-timer {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 2px;
+        }
+        .sec-app-timer-lbl {
+          font-size: 11px;
+          color: #71717a;
+        }
+        .sec-app-timer-val {
+          font-size: 20px;
+          font-weight: 800;
+          color: #ffffff;
+          font-variant-numeric: tabular-nums;
+          letter-spacing: 1px;
+        }
+        .sec-app-region-bar {
+          background: rgba(255, 255, 255, 0.08);
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 12px;
+          padding: 8px 10px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+        .sec-app-region-flag {
+          font-size: 16px;
+        }
+        .sec-app-region-txt {
+          display: flex;
+          flex-direction: column;
+          text-align: left;
+        }
+        .sec-app-region-txt strong {
+          font-size: 11.5px;
+          color: #ffffff;
+        }
+        .sec-app-region-txt span {
+          font-size: 9.5px;
+          color: #a1a1aa;
+        }
+        .sec-app-action-btn {
+          background: #f04e23;
+          color: #ffffff;
+          border: none;
+          padding: 11px;
+          border-radius: 12px;
+          font-weight: 700;
+          font-size: 12.5px;
+          cursor: pointer;
+          transition: background 0.2s ease;
+        }
+        }
+
+        /* ── 3. Six Core Pillars Feature Grid Section ── */
+        .sec-pillars-section {
+          padding: 110px 24px 120px;
+          background: #ffffff;
+          color: #0f172a;
+          border-top: 1px solid #f1f5f9;
+        }
+        .sec-pillars-container {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        .sec-pillars-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 60px 80px;
+        }
+        .sec-pillar-item {
+          display: flex;
+          gap: 22px;
+          align-items: flex-start;
+        }
+        .sec-pillar-icon-wrap {
+          position: relative;
+          width: 52px;
+          height: 52px;
+          flex-shrink: 0;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .sec-pillar-dot-accent {
+          position: absolute;
+          bottom: -2px;
+          right: -2px;
+          width: 22px;
+          height: 22px;
+          border-radius: 50%;
+          background: #ffffff;
+          border: 1.5px solid #fed7aa;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 2px 6px rgba(240, 78, 35, 0.15);
+        }
+        .sec-pillar-content {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+        .sec-pillar-title {
+          font-size: 20px;
+          font-weight: 800;
+          color: #0f172a;
+          margin: 0;
+          letter-spacing: -0.4px;
+        }
+        .sec-pillar-desc {
+          font-size: 14.5px;
+          color: #64748b;
+          line-height: 1.6;
+          margin: 0;
+          max-width: 480px;
+        }
+
+        @media (max-width: 860px) {
+          .sec-pillars-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+          }
+        }
+
+        @media (max-width: 1024px) {
+          .sec-cloud-mesh-container {
+            grid-template-columns: 1fr;
+            gap: 50px;
+          }
+          .sec-cloud-mesh-right {
+            justify-content: center;
+            flex-wrap: wrap;
+          }
+        }
+        @media (max-width: 640px) {
+          .sec-cloud-mesh-right {
+            flex-direction: column;
+          }
+          .sec-cm-floating-stack {
+            width: 100%;
+          }
+        }
+
+        /* ── 4. 24/7 Cloud & Threat Monitoring Section ── */
+        .sec-monitor-section {
+          padding: 120px 24px 100px;
+          background: #ffffff;
+          color: #0f172a;
+          border-top: 1px solid #f1f5f9;
+          position: relative;
+        }
+        .sec-monitor-container {
+          max-width: 1240px;
+          margin: 0 auto;
+          display: flex;
+          flex-direction: column;
+          gap: 80px;
+        }
+        .sec-monitor-main-row {
+          display: grid;
+          grid-template-columns: 1fr 1.15fr;
+          gap: 70px;
+          align-items: center;
+        }
+        .sec-monitor-visual-wrap {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .sec-monitor-console-card {
+          width: 100%;
+          max-width: 480px;
+          background: #090d16;
+          border: 1px solid rgba(255, 255, 255, 0.1);
+          border-radius: 28px;
+          padding: 22px;
+          font-family: 'JetBrains Mono', 'Fira Code', monospace;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+          box-sizing: border-box;
+          color: #ffffff;
+        }
+        .sec-console-header {
           display: flex;
           justify-content: space-between;
           align-items: center;
           border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-          padding-bottom: 14px;
+          padding-bottom: 12px;
         }
-        .sec-hud-title-wrap {
+        .sec-console-dots {
           display: flex;
-          align-items: center;
-          gap: 8px;
+          gap: 6px;
         }
-        .sec-hud-radar-dot {
+        .sec-dot {
           width: 8px;
           height: 8px;
           border-radius: 50%;
-          background: #38bdf8;
-          box-shadow: 0 0 8px #38bdf8;
-          animation: pulseDot 2s infinite;
+          display: inline-block;
         }
-        @keyframes pulseDot {
-          0%, 100% { transform: scale(1); opacity: 1; }
-          50% { transform: scale(1.4); opacity: 0.6; }
-        }
-        .sec-hud-title {
-          font-size: 11.5px;
-          font-weight: 800;
+        .sec-dot.d-red { background: #ef4444; }
+        .sec-dot.d-yellow { background: #f59e0b; }
+        .sec-dot.d-green { background: #10b981; }
+        .sec-console-title {
           color: #94a3b8;
-          letter-spacing: 0.8px;
+          font-size: 11px;
+          font-weight: 700;
         }
-        .sec-hud-status-badge {
-          background: rgba(74, 222, 128, 0.12);
-          border: 1px solid rgba(74, 222, 128, 0.3);
-          color: #4ade80;
-          font-size: 10.5px;
-          font-weight: 800;
-          padding: 3px 10px;
-          border-radius: 100px;
+        .sec-console-status {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+          font-size: 9px;
+          color: #10b981;
+          font-weight: 700;
         }
-        .sec-hud-grid {
+        .sec-status-ping {
+          width: 6px;
+          height: 6px;
+          border-radius: 50%;
+          background: #10b981;
+          display: inline-block;
+          box-shadow: 0 0 6px #10b981;
+          animation: secPing 1.5s infinite;
+        }
+        @keyframes secPing {
+          0% { transform: scale(0.9); opacity: 0.6; }
+          50% { transform: scale(1.1); opacity: 1; }
+          100% { transform: scale(0.9); opacity: 0.6; }
+        }
+        .sec-console-stats {
           display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 12px;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 10px;
         }
-        .sec-hud-stat-box {
+        .sec-cstat-box {
           background: rgba(255, 255, 255, 0.03);
-          border: 1px solid rgba(255, 255, 255, 0.06);
+          border: 1px solid rgba(255, 255, 255, 0.05);
+          border-radius: 12px;
+          padding: 10px 8px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 4px;
+        }
+        .sec-cstat-val {
+          font-size: 13.5px;
+          font-weight: 700;
+        }
+        .sec-cstat-val.text-green {
+          color: #10b981;
+        }
+        .sec-cstat-lbl {
+          font-size: 8.5px;
+          color: #64748b;
+          text-align: center;
+          font-weight: 600;
+        }
+        .sec-console-graph {
+          background: rgba(255, 255, 255, 0.02);
+          border: 1px solid rgba(255, 255, 255, 0.05);
+          border-radius: 14px;
+          padding: 10px;
+          position: relative;
+          height: 85px;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+        }
+        .sec-wave-svg {
+          width: 100%;
+          height: 50px;
+          overflow: visible;
+        }
+        .sec-graph-indicator {
+          font-size: 8.5px;
+          color: #475569;
+          font-weight: 700;
+          margin-top: 6px;
+          display: block;
+        }
+        .sec-console-terminal {
+          background: #05070c;
+          border: 1px solid rgba(255, 255, 255, 0.05);
           border-radius: 14px;
           padding: 12px 14px;
           display: flex;
           flex-direction: column;
-          gap: 4px;
+          gap: 6px;
+          font-size: 9px;
+          color: #94a3b8;
+          height: 105px;
+          overflow-y: hidden;
+          text-align: left;
         }
-        .sec-hud-k {
-          font-size: 10px;
-          color: #64748b;
-          font-weight: 700;
-          text-transform: uppercase;
-        }
-        .sec-hud-v {
-          font-size: 13px;
-          font-weight: 800;
-        }
-        .sec-hud-bar {
-          width: 100%;
-          height: 3px;
-          background: rgba(255, 255, 255, 0.08);
-          border-radius: 2px;
+        .sec-terminal-line {
+          white-space: nowrap;
           overflow: hidden;
-          margin-top: 4px;
+          text-overflow: ellipsis;
         }
-        .sec-hud-bar div {
-          height: 100%;
-          border-radius: 2px;
-        }
-        .sec-hud-compliance-box {
-          background: rgba(255, 255, 255, 0.02);
-          border: 1px solid rgba(255, 255, 255, 0.06);
-          border-radius: 14px;
-          padding: 14px;
+        .term-t { color: #475569; }
+        .term-inf { color: #3b82f6; font-weight: 700; }
+        .term-warn { color: #f59e0b; font-weight: 700; }
+        .term-ok { color: #10b981; font-weight: 700; }
+        .sec-monitor-content-col {
           display: flex;
           flex-direction: column;
-          gap: 8px;
+          align-items: flex-start;
         }
-        .sec-hud-comp-label {
-          font-size: 11px;
+        .sec-mon-tag {
+          font-size: 12.5px;
+          font-weight: 800;
           color: #94a3b8;
-          font-weight: 700;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          margin-bottom: 20px;
+          display: inline-block;
         }
-        .sec-hud-comp-tags {
+        .sec-mon-title {
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: clamp(32px, 4vw, 48px);
+          font-weight: 850;
+          color: #0f172a;
+          line-height: 1.1;
+          letter-spacing: -1px;
+          margin: 0 0 24px;
+        }
+        .sec-mon-desc {
+          font-size: 16px;
+          color: #475569;
+          line-height: 1.65;
+          max-width: 520px;
+          margin: 0 0 36px;
+        }
+        .sec-mon-actions-row {
           display: flex;
-          gap: 8px;
+          align-items: center;
+          gap: 28px;
           flex-wrap: wrap;
         }
-        .sec-comp-tag {
-          font-size: 10.5px;
-          font-weight: 800;
-          padding: 3px 10px;
-          border-radius: 100px;
-          border: 1px solid;
+        .sec-mon-btn-dark {
+          background: #111827;
+          color: #ffffff !important;
+          font-size: 15.5px;
+          font-weight: 700;
+          padding: 15px 38px;
+          border-radius: 9999px;
+          text-decoration: none;
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          box-shadow: 0 4px 15px rgba(17, 24, 39, 0.2);
+          transition: all 0.2s ease;
         }
-        .sec-comp-tag.blue { background: rgba(56, 189, 248, 0.1); color: #38bdf8; border-color: rgba(56, 189, 248, 0.25); }
-        .sec-comp-tag.green { background: rgba(74, 222, 128, 0.1); color: #4ade80; border-color: rgba(74, 222, 128, 0.25); }
-        .sec-comp-tag.purple { background: rgba(168, 85, 247, 0.1); color: #c084fc; border-color: rgba(168, 85, 247, 0.25); }
-        .sec-comp-tag.orange { background: rgba(251, 191, 36, 0.1); color: #fbbf24; border-color: rgba(251, 191, 36, 0.25); }
+        .sec-mon-btn-dark:hover {
+          background: #000000;
+          transform: translateY(-2px);
+          box-shadow: 0 8px 22px rgba(17, 24, 39, 0.35);
+        }
+        .sec-mon-phone-widget {
+          display: flex;
+          align-items: center;
+          gap: 12px;
+          text-decoration: none;
+          transition: transform 0.2s ease;
+        }
+        .sec-mon-phone-widget:hover {
+          transform: translateY(-1px);
+        }
+        .sec-mon-phone-icon {
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          background: #fff5f5;
+          border: 1.5px solid #fed7aa;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 2px 8px rgba(240, 78, 35, 0.15);
+        }
+        .sec-mon-phone-number {
+          font-size: 16px;
+          font-weight: 800;
+          color: #111827;
+          letter-spacing: -0.2px;
+        }
 
-        /* Modules Section */
+        /* 4 Big Numbers Metrics Grid */
+        .sec-monitor-stats-bar {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 32px;
+          padding-top: 50px;
+          border-top: 1px solid #f1f5f9;
+          text-align: center;
+        }
+        .sec-mon-stat-item {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 8px;
+        }
+        .sec-mon-stat-giant {
+          font-size: clamp(52px, 6vw, 76px);
+          font-weight: 800;
+          color: #edd5c5;
+          line-height: 1;
+          letter-spacing: -2px;
+          font-variant-numeric: tabular-nums;
+        }
+        .sec-mon-stat-caption {
+          font-size: 14px;
+          font-weight: 600;
+          color: #475569;
+          letter-spacing: -0.2px;
+        }
+
+        @media (max-width: 1024px) {
+          .sec-monitor-main-row {
+            grid-template-columns: 1fr;
+            gap: 48px;
+          }
+          .sec-monitor-stats-bar {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px 24px;
+          }
+        }
+        @media (max-width: 640px) {
+          .sec-monitor-stats-bar {
+            grid-template-columns: 1fr;
+            gap: 32px;
+          }
+        }
+
         .sec-modules-section {
           padding: 80px 24px;
           background: #ffffff;
@@ -2014,6 +2932,13 @@ export function validateIncomingPayload(payload: unknown) {
             grid-template-columns: 1fr;
             padding: 32px 24px;
           }
+          .sec-module-left {
+            align-items: center;
+            text-align: center;
+          }
+          .sec-mtag-row {
+            justify-content: center;
+          }
           .sec-caps-grid, .sec-standards-grid {
             grid-template-columns: repeat(2, 1fr);
           }
@@ -2026,24 +2951,453 @@ export function validateIncomingPayload(payload: unknown) {
           .sec-faq-sidebar {
             position: static;
           }
+          .sec-cloud-mesh-left {
+            align-items: center;
+            text-align: center;
+          }
+          .sec-cm-desc {
+            margin-left: auto;
+            margin-right: auto;
+          }
+          .sec-cm-stats-grid {
+            justify-content: center;
+          }
+          .sec-cm-btn-wrap {
+            justify-content: center;
+          }
+          .sec-monitor-content-col {
+            align-items: center;
+            text-align: center;
+          }
+          .sec-mon-desc {
+            margin-left: auto;
+            margin-right: auto;
+          }
+          .sec-mon-actions-row {
+            justify-content: center;
+          }
         }
 
-        @media (max-width: 640px) {
-          .sec-hero-section {
-            padding: 110px 16px 60px;
-          }
-          .sec-hud-grid {
+        /* ── Why Palo Alto Networks Section (White Theme) ── */
+        .sec-why-section {
+          background: #ffffff;
+          color: #0f172a;
+          padding: 100px 24px 80px;
+          position: relative;
+          overflow: hidden;
+          border-top: 1px solid #f1f5f9;
+        }
+        .sec-why-radar-bg {
+          position: absolute;
+          bottom: 0;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 1200px;
+          height: 600px;
+          pointer-events: none;
+          overflow: hidden;
+          display: flex;
+          justify-content: center;
+          align-items: flex-end;
+          z-index: 1;
+        }
+        .sec-why-arc {
+          position: absolute;
+          border-radius: 50%;
+          bottom: -40px;
+          border-style: solid;
+        }
+        .arc-1 {
+          width: 950px;
+          height: 950px;
+          border-width: 1.5px;
+          border-color: rgba(229, 9, 20, 0.12);
+        }
+        .arc-2 {
+          width: 680px;
+          height: 680px;
+          border-width: 1.5px;
+          border-color: rgba(229, 9, 20, 0.22);
+        }
+        .arc-3 {
+          width: 420px;
+          height: 420px;
+          border-width: 1.5px;
+          border-color: rgba(229, 9, 20, 0.35);
+        }
+        .sec-why-arc-glow {
+          position: absolute;
+          bottom: -90px;
+          width: 460px;
+          height: 280px;
+          border-radius: 50% 50% 0 0;
+          background: radial-gradient(ellipse at bottom, rgba(229, 9, 20, 0.14) 0%, rgba(229, 9, 20, 0.05) 50%, transparent 75%);
+          filter: blur(35px);
+          opacity: 0.9;
+        }
+        .sec-why-container {
+          max-width: 1240px;
+          margin: 0 auto;
+          position: relative;
+          z-index: 3;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .sec-why-title {
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: clamp(30px, 4.2vw, 46px);
+          font-weight: 850;
+          color: #0f172a;
+          text-align: center;
+          margin: 0 0 64px;
+          letter-spacing: -1px;
+        }
+        .sec-why-grid {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 24px;
+          width: 100%;
+          margin-bottom: 56px;
+        }
+        .sec-why-card {
+          background: #ffffff;
+          border: 1.5px solid #e2e8f0;
+          border-radius: 20px;
+          padding: 34px 28px;
+          display: flex;
+          flex-direction: column;
+          gap: 20px;
+          box-shadow: 0 12px 35px rgba(15, 23, 42, 0.05), 0 2px 6px rgba(15, 23, 42, 0.02);
+          transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+        .sec-why-card:hover {
+          transform: translateY(-5px);
+          border-color: #fca5a5;
+          box-shadow: 0 20px 45px rgba(229, 9, 20, 0.09);
+        }
+        .sec-why-card-header {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+        }
+        .sec-why-icon-circle {
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          background: #fef2f2;
+          border: 1.5px solid #fecaca;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          color: #dc2626;
+          flex-shrink: 0;
+        }
+        .sec-why-stat {
+          font-size: 17.5px;
+          font-weight: 800;
+          color: #0f172a;
+          margin: 0;
+          line-height: 1.32;
+        }
+        .sec-why-card-desc {
+          font-size: 14.5px;
+          color: #475569;
+          line-height: 1.65;
+          margin: 0;
+        }
+        .sec-why-center-node-wrap {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 90px;
+          height: 90px;
+          margin-top: 10px;
+          z-index: 4;
+        }
+        .sec-why-node-ring {
+          position: absolute;
+          width: 82px;
+          height: 82px;
+          border-radius: 50%;
+          border: 1.5px solid rgba(229, 9, 20, 0.35);
+          box-shadow: 0 0 20px rgba(229, 9, 20, 0.15);
+        }
+        .sec-why-node-btn {
+          width: 58px;
+          height: 58px;
+          border-radius: 50%;
+          background: radial-gradient(circle at 35% 35%, #ff4d4d, #dc2626 80%);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          box-shadow: 0 8px 25px rgba(229, 9, 20, 0.4);
+          cursor: pointer;
+          transition: transform 0.2s ease;
+        }
+        .sec-why-node-btn:hover {
+          transform: scale(1.08);
+        }
+
+        /* ── AI Transformation & Threat Intel Section (Optimized White Theme) ── */
+        .sec-intel-section {
+          padding: 120px 24px 100px;
+          background: #ffffff;
+          color: #0f172a;
+          border-top: 1px solid #f1f5f9;
+          position: relative;
+          overflow: hidden;
+        }
+        .sec-intel-container {
+          max-width: 1240px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 1.15fr 1fr;
+          gap: 70px;
+          align-items: start;
+        }
+        .sec-intel-left {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .sec-intel-tag-good {
+          color: #e50914;
+          font-size: 13px;
+          font-weight: 800;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+          margin-bottom: 20px;
+          display: inline-block;
+        }
+        .sec-intel-title {
+          font-family: 'Plus Jakarta Sans', sans-serif;
+          font-size: clamp(32px, 4vw, 48px);
+          font-weight: 850;
+          color: #0f172a;
+          line-height: 1.06;
+          letter-spacing: -1px;
+          margin: 0 0 52px;
+        }
+        .sec-intel-bars-wrap {
+          display: flex;
+          flex-direction: column;
+          gap: 34px;
+          width: 100%;
+          max-width: 540px;
+        }
+        .sec-intel-bar-item {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+        .sec-intel-bar-label {
+          font-size: 15px;
+          font-weight: 700;
+          color: #334155;
+          letter-spacing: -0.2px;
+        }
+        .sec-intel-bar-row {
+          display: flex;
+          align-items: center;
+          gap: 22px;
+        }
+        .sec-intel-progress-track {
+          flex: 1;
+          height: 18px;
+          background: #f1f5f9;
+          border-radius: 100px;
+          overflow: hidden;
+          position: relative;
+          border: 1px solid #e2e8f0;
+          box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.04);
+        }
+
+        .sec-intel-progress-fill {
+          height: 100%;
+          border-radius: 100px;
+          background: linear-gradient(90deg, #3b82f6 0%, #60a5fa 100%);
+          box-shadow: 0 0 14px rgba(59, 130, 246, 0.4);
+          transition: width 1s ease-in-out;
+        }
+        .sec-intel-progress-fill.p-fill-98 {
+          background: linear-gradient(90deg, #0d9488 0%, #06b6d4 50%, #22d3ee 100%);
+          box-shadow: 0 0 14px rgba(6, 182, 212, 0.4);
+        }
+        .sec-intel-progress-fill.p-fill-85 {
+          background: linear-gradient(90deg, #059669 0%, #10b981 50%, #34d399 100%);
+          box-shadow: 0 0 14px rgba(16, 185, 129, 0.4);
+        }
+        .sec-intel-progress-fill.p-fill-100 {
+          background: linear-gradient(90deg, #2563eb 0%, #3b82f6 50%, #60a5fa 100%);
+          box-shadow: 0 0 14px rgba(59, 130, 246, 0.4);
+        }
+
+        .sec-intel-bar-pct {
+          font-size: 30px;
+          font-weight: 800;
+          color: #0f172a;
+          min-width: 75px;
+          letter-spacing: -0.8px;
+        }
+        .sec-intel-right {
+          display: flex;
+          flex-direction: column;
+          gap: 48px;
+        }
+        .sec-intel-gauges-row {
+          display: flex;
+          gap: 36px;
+          align-items: flex-start;
+          justify-content: space-around;
+        }
+        .sec-intel-gauge-box {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          gap: 18px;
+          flex: 1;
+        }
+        .sec-intel-circle-wrap {
+          position: relative;
+          width: 150px;
+          height: 150px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .sec-gauge-svg {
+          width: 100%;
+          height: 100%;
+          transform: rotate(-90deg);
+        }
+        .sec-gauge-track {
+          fill: none;
+          stroke: #f1f5f9;
+          stroke-width: 13;
+        }
+        .sec-gauge-fill {
+          fill: none;
+          stroke: #10b981;
+          stroke-width: 13;
+          stroke-linecap: round;
+          stroke-dasharray: 314.159;
+          transition: stroke-dashoffset 1s ease;
+        }
+        .sec-gauge-fill.fill-orange {
+          stroke: #f04e23;
+        }
+        .sec-gauge-number {
+          position: absolute;
+          font-size: 30px;
+          font-weight: 800;
+          color: #0f172a;
+          letter-spacing: -0.6px;
+        }
+        .sec-gauge-number.text-green {
+          color: #10b981;
+        }
+        .sec-intel-subtitle-text {
+          font-size: 15.5px;
+          color: #475569;
+          line-height: 1.65;
+          max-width: 500px;
+          margin: 0 0 40px;
+        }
+        .sec-gauge-caption {
+          display: flex;
+          flex-direction: column;
+          gap: 5px;
+        }
+        .sec-gauge-caption strong {
+          font-size: 16.5px;
+          color: #0f172a;
+          font-weight: 800;
+        }
+        .sec-gauge-caption span {
+          font-size: 14px;
+          color: #64748b;
+          line-height: 1.45;
+        }
+        .sec-intel-bad-card {
+          background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+          border: 1.5px solid #e2e8f0;
+          border-radius: 22px;
+          padding: 40px 36px;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 14px;
+          box-shadow: 0 15px 40px rgba(15, 23, 42, 0.05), 0 2px 6px rgba(15, 23, 42, 0.02);
+          transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+        .sec-intel-bad-card:hover {
+          transform: translateY(-4px);
+          border-color: #cbd5e1;
+          box-shadow: 0 20px 48px rgba(15, 23, 42, 0.08);
+        }
+        .sec-intel-tag-bad {
+          color: #e50914;
+          font-size: 13px;
+          font-weight: 800;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+        }
+        .sec-intel-bad-title {
+          font-size: 24px;
+          font-weight: 800;
+          color: #0f172a;
+          line-height: 1.35;
+          margin: 0;
+          letter-spacing: -0.6px;
+        }
+
+        @media (max-width: 1024px) {
+          .sec-why-grid {
             grid-template-columns: 1fr;
+            gap: 20px;
           }
-          .sec-caps-grid, .sec-standards-grid, .sec-process-grid {
+          .sec-intel-container {
             grid-template-columns: 1fr;
-          }
-          .sec-cta-banner-card {
-            padding: 44px 20px;
-            border-radius: 24px;
+            gap: 48px;
           }
         }
-      `}</style>
+        @media (max-width: 640px) {
+          .sec-intel-gauges-row {
+            flex-direction: column;
+            gap: 28px;
+          }
+          .sec-caps-grid, .sec-standards-grid, .sec-process-grid {
+            grid-template-columns: 1fr !important;
+            gap: 24px !important;
+          }
+          .sec-monitor-console-card {
+            padding: 16px !important;
+            gap: 12px !important;
+            border-radius: 20px !important;
+          }
+          .sec-console-stats {
+            gap: 6px !important;
+          }
+          .sec-cstat-box {
+            padding: 8px 4px !important;
+            border-radius: 8px !important;
+          }
+          .sec-cstat-val {
+            font-size: 11px !important;
+          }
+          .sec-cstat-lbl {
+            font-size: 8px !important;
+          }
+          .sec-console-terminal {
+            height: 90px !important;
+            padding: 10px !important;
+          }
+        }
+      ` }} />
     </div>
   );
 }

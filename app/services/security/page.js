@@ -5,16 +5,16 @@ import SecurityPageContent from "@/components/SecurityPageContent";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://oneninelabs.com";
 
 export const metadata = {
-  title: "Cybersecurity & SOC 2 Compliance — Threat Defense & Penetration Testing | OneNineLabs",
-  description: "Enterprise cybersecurity audits, penetration testing, SOC 2 Type II readiness, zero-trust cloud architecture, and real-time vulnerability scanning.",
+  title: "Cloud & Cyber Security — Threat Defense & SOC 2 Compliance | OneNineLabs",
+  description: "Enterprise cloud & cybersecurity audits, zero-trust cloud architecture, penetration testing, SOC 2 Type II compliance, and real-time threat defense.",
   keywords: [
-    "cybersecurity audit company",
+    "cloud security audit",
+    "cybersecurity services",
     "penetration testing services",
     "SOC 2 Type II compliance",
     "zero trust architecture",
     "vulnerability scanner",
-    "cloud security audit",
-    "DevSecOps engineering",
+    "cloud cyber security",
     "ISO 27001 readiness"
   ],
   alternates: {
@@ -27,15 +27,15 @@ export const metadata = {
     },
   },
   openGraph: {
-    title: "Cybersecurity & SOC 2 Readiness | OneNineLabs",
+    title: "Cloud & Cyber Security Readiness | OneNineLabs",
     description: "Zero-trust cloud architecture, penetration testing & real-time threat defense.",
     url: `${siteUrl}/services/security`,
     type: "website",
-    images: [{ url: "/services/security_preview.png", width: 1200, height: 630, alt: "Cybersecurity & SOC 2 by OneNineLabs" }],
+    images: [{ url: "/services/security_preview.png", width: 1200, height: 630, alt: "Cloud & Cyber Security by OneNineLabs" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Cybersecurity & SOC 2 Readiness | OneNineLabs",
+    title: "Cloud & Cyber Security Readiness | OneNineLabs",
     description: "Zero-trust cloud architecture, penetration testing & real-time threat defense.",
     images: ["/services/security_preview.png"],
   },
@@ -76,7 +76,7 @@ export default function SecurityServicePage() {
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
       { "@type": "ListItem", position: 2, name: "Services", item: `${siteUrl}/services` },
-      { "@type": "ListItem", position: 3, name: "Cybersecurity & DevOps Infrastructure", item: `${siteUrl}/services/security` },
+      { "@type": "ListItem", position: 3, name: "Cloud & Cyber Security", item: `${siteUrl}/services/security` },
     ],
   };
 
@@ -84,10 +84,10 @@ export default function SecurityServicePage() {
     "@context": "https://schema.org",
     "@type": "Service",
     "@id": `${siteUrl}/services/security#service`,
-    name: "Cybersecurity & DevOps Infrastructure",
-    serviceType: "Cybersecurity and DevOps",
+    name: "Cloud & Cyber Security",
+    serviceType: "Cloud and Cyber Security",
     url: `${siteUrl}/services/security`,
-    description: "Enterprise cybersecurity audits, penetration testing, SOC 2 Type II readiness, zero-trust cloud architecture, and real-time vulnerability scanning.",
+    description: "Enterprise cloud & cybersecurity audits, zero-trust cloud architecture, penetration testing, SOC 2 Type II compliance, and real-time threat defense.",
     provider: { "@type": "Organization", name: "OneNineLabs", url: siteUrl },
     areaServed: { "@type": "Country", name: "Worldwide" },
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD", availability: "https://schema.org/InStock" },
