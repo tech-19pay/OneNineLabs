@@ -1,11 +1,13 @@
+import React from "react";
 import Link from "next/link";
+import { Metadata } from "next";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { servicePageStyles } from "@/lib/servicePageStyles";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://oneninelabs.com";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Custom Mobile App Development — iOS, Android & React Native | OneNineLabs",
   description: "High-performance native and cross-platform mobile apps engineered for 60/120 FPS fluid motion, offline-first SQLite sync, and rapid App Store & Google Play launch.",
   keywords: [
@@ -49,7 +51,60 @@ const GRAD_FROM = "#0369a1";
 const GRAD_TO = "#38bdf8";
 const GLOW = "rgba(2,132,199,0.15)";
 
-const corePillars = [
+interface CorePillar {
+  id: string;
+  title: string;
+  desc: string;
+  icon: string;
+  badge: string;
+}
+
+interface PlatformStack {
+  id: string;
+  name: string;
+  badge: string;
+  tagline: string;
+  framework: string;
+  renderingEngine: string;
+  runtime: string;
+  codeReuse: string;
+  coldStart: string;
+  file: string;
+  code: string;
+}
+
+interface IndustrySolution {
+  id: string;
+  title: string;
+  desc: string;
+  badge: string;
+  icon: string;
+  stats: string;
+  bullets: string[];
+}
+
+interface ArchLayer {
+  num: string;
+  title: string;
+  tag: string;
+  desc: string;
+  icon: string;
+}
+
+interface DeliveryStep {
+  num: string;
+  title: string;
+  tag: string;
+  desc: string;
+  icon: string;
+}
+
+interface FAQItem {
+  q: string;
+  a: string;
+}
+
+const corePillars: CorePillar[] = [
   {
     id: "performance",
     title: "120 FPS Fluidity",
@@ -80,7 +135,7 @@ const corePillars = [
   }
 ];
 
-const platformStacks = [
+const platformStacks: PlatformStack[] = [
   {
     id: "react-native",
     name: "React Native (Fabric C++)",
@@ -222,7 +277,7 @@ class HardwareTelemetryGauge extends StatelessWidget {
   }
 ];
 
-const industrySolutions = [
+const industrySolutions: IndustrySolution[] = [
   {
     id: "fintech",
     title: "Fintech & Mobile Wallets",
@@ -303,7 +358,7 @@ const industrySolutions = [
   }
 ];
 
-const archLayers = [
+const archLayers: ArchLayer[] = [
   {
     num: "01",
     title: "Presentation UI & Gestures",
@@ -334,7 +389,7 @@ const archLayers = [
   }
 ];
 
-const deliverySteps = [
+const deliverySteps: DeliveryStep[] = [
   {
     num: "01",
     title: "Mobile Architecture & UX Blueprint",
@@ -365,7 +420,7 @@ const deliverySteps = [
   }
 ];
 
-const faqs = [
+const faqs: FAQItem[] = [
   {
     q: "Native, hybrid or cross-platform — which is best for our mobile app?",
     a: "For 85% of mobile products, React Native or Flutter offers 90%+ code reuse across iOS and Android while delivering 120 FPS native performance. For apps requiring deep OS-level APIs, custom hardware integration, or complex AR/graphic pipelines, we build pure native Swift (iOS) and Kotlin (Android)."
