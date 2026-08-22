@@ -1,78 +1,110 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 
-export default function SaasPageContent() {
-  const [activeTab, setActiveTab] = useState("Role-based clarity");
-  const [activeRoleHover, setActiveRoleHover] = useState(null);
-  const [activeArchTab, setActiveArchTab] = useState("rls");
-  const [copiedCode, setCopiedCode] = useState(false);
+interface PillarCard {
+  id: string;
+  title: string;
+  desc: string;
+  icon: React.ReactNode;
+}
 
-  const tabs = [
-    "Role-based clarity",
-    "Short sections",
-    "Benefit-first copy",
-    "Easy to scan",
-    "Visual-friendly layout",
-  ];
+interface ArchTab {
+  title: string;
+  badge: string;
+  desc: string;
+  file: string;
+  lang: string;
+  code: string;
+}
 
-  const pillarCards = [
-    {
-      id: "clarity",
-      title: "Clarity",
-      desc: "Centralize tenant records, access logs, and permissions in one unified dashboard.",
-      icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <rect x="2" y="4" width="20" height="16" rx="3" />
-          <path d="M7 15h0M2 9.5h20" />
-        </svg>
-      ),
-    },
-    {
-      id: "control",
-      title: "Control",
-      desc: "Easily manage seat allocations, tiered subscriptions, and automated Stripe billing.",
-      icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="3" />
-          <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
-        </svg>
-      ),
-    },
-    {
-      id: "accuracy",
-      title: "Accuracy",
-      desc: "Zero cross-tenant data leaks with PostgreSQL Row-Level Security (RLS) policies.",
-      icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <circle cx="12" cy="12" r="10" />
-          <circle cx="12" cy="12" r="6" />
-          <circle cx="12" cy="12" r="2" />
-        </svg>
-      ),
-    },
-    {
-      id: "visibility",
-      title: "Visibility",
-      desc: "Real-time user engagement telemetry, audit trails, and subscription MRR metrics.",
-      icon: (
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-          <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
-          <circle cx="12" cy="12" r="3" />
-        </svg>
-      ),
-    },
-  ];
+interface SaasSolution {
+  title: string;
+  category: string;
+  badge: string;
+  desc: string;
+  icon: string;
+  bullets: string[];
+}
 
-  const archTabs = {
-    rls: {
-      title: "PostgreSQL Row-Level Security (RLS)",
-      badge: "Zero Cross-Tenant Leaks",
-      desc: "We enforce strict database-level isolation. Every query is filtered by tenant_id through PostgreSQL RLS policies, ensuring complete multi-tenant safety even if application logic is bypassed.",
-      file: "tenant_rls_policy.sql",
-      lang: "SQL (PostgreSQL 16+)",
-      code: `-- Enforce Row-Level Security (RLS) per Tenant
+interface ArchLayer {
+  num: string;
+  title: string;
+  desc: string;
+  icon: string;
+  tag: string;
+}
+
+interface DeliveryStep {
+  num: string;
+  title: string;
+  desc: string;
+  tag: string;
+  icon: string;
+}
+
+interface FAQItem {
+  q: string;
+  a: string;
+}
+
+const pillarCards: PillarCard[] = [
+  {
+    id: "clarity",
+    title: "Clarity",
+    desc: "Centralize tenant records, access logs, and permissions in one unified dashboard.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="3" />
+        <path d="M7 15h0M2 9.5h20" />
+      </svg>
+    ),
+  },
+  {
+    id: "control",
+    title: "Control",
+    desc: "Easily manage seat allocations, tiered subscriptions, and automated Stripe billing.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="3" />
+        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z" />
+      </svg>
+    ),
+  },
+  {
+    id: "accuracy",
+    title: "Accuracy",
+    desc: "Zero cross-tenant data leaks with PostgreSQL Row-Level Security (RLS) policies.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <circle cx="12" cy="12" r="6" />
+        <circle cx="12" cy="12" r="2" />
+      </svg>
+    ),
+  },
+  {
+    id: "visibility",
+    title: "Visibility",
+    desc: "Real-time user engagement telemetry, audit trails, and subscription MRR metrics.",
+    icon: (
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#059669" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z" />
+        <circle cx="12" cy="12" r="3" />
+      </svg>
+    ),
+  },
+];
+
+const archTabs: Record<string, ArchTab> = {
+  rls: {
+    title: "PostgreSQL Row-Level Security (RLS)",
+    badge: "Zero Cross-Tenant Leaks",
+    desc: "We enforce strict database-level isolation. Every query is filtered by tenant_id through PostgreSQL RLS policies, ensuring complete multi-tenant safety even if application logic is bypassed.",
+    file: "tenant_rls_policy.sql",
+    lang: "SQL (PostgreSQL 16+)",
+    code: `-- Enforce Row-Level Security (RLS) per Tenant
 ALTER TABLE public.organizations ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.subscriptions ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.documents ENABLE ROW LEVEL SECURITY;
@@ -90,14 +122,14 @@ BEGIN
   PERFORM set_config('app.current_tenant_id', user_tenant_id::text, false);
 END;
 $$ LANGUAGE plpgsql SECURITY DEFINER;`
-    },
-    billing: {
-      title: "Stripe Recurring & Metered Billing",
-      badge: "Automated Invoicing & Dunning",
-      desc: "Full-lifecycle subscription management with Stripe webhooks. Supports seat-based tiers, metered usage-based billing, automated proration, and dunning retry logic.",
-      file: "stripe_webhook_handler.ts",
-      lang: "TypeScript / Node.js",
-      code: `// Stripe Webhook Event Dispatcher for B2B Subscriptions
+  },
+  billing: {
+    title: "Stripe Recurring & Metered Billing",
+    badge: "Automated Invoicing & Dunning",
+    desc: "Full-lifecycle subscription management with Stripe webhooks. Supports seat-based tiers, metered usage-based billing, automated proration, and dunning retry logic.",
+    file: "stripe_webhook_handler.ts",
+    lang: "TypeScript / Node.js",
+    code: `// Stripe Webhook Event Dispatcher for B2B Subscriptions
 import Stripe from 'stripe';
 import { db } from '@/lib/db';
 
@@ -129,14 +161,14 @@ export async function handleStripeWebhook(payload: string, signature: string) {
     }
   }
 }`
-    },
-    sso: {
-      title: "Enterprise SAML SSO & SCIM Directory",
-      badge: "Okta, Google & Azure AD Ready",
-      desc: "Turnkey enterprise single sign-on (SSO) integrated via WorkOS and Clerk. Supports SAML 2.0, OpenID Connect, and automated SCIM user provisioning and deprovisioning.",
-      file: "saml_sso_middleware.ts",
-      lang: "TypeScript / Next.js Edge",
-      code: `// SAML SSO & Granular RBAC Role Verification Middleware
+  },
+  sso: {
+    title: "Enterprise SAML SSO & SCIM Directory",
+    badge: "Okta, Google & Azure AD Ready",
+    desc: "Turnkey enterprise single sign-on (SSO) integrated via WorkOS and Clerk. Supports SAML 2.0, OpenID Connect, and automated SCIM user provisioning and deprovisioning.",
+    file: "saml_sso_middleware.ts",
+    lang: "TypeScript / Next.js Edge",
+    code: `// SAML SSO & Granular RBAC Role Verification Middleware
 import { NextRequest, NextResponse } from 'next/server';
 import { verifyJwtSession } from '@/lib/auth';
 
@@ -159,14 +191,14 @@ export async function ssoAuthMiddleware(req: NextRequest) {
   requestHeaders.set('x-tenant-id', session.tenantId);
   return NextResponse.next({ request: { headers: requestHeaders } });
 }`
-    },
-    audit: {
-      title: "Audit Logging & Usage Telemetry",
-      badge: "SOC 2 Type II Ready",
-      desc: "Immutable cryptographic audit logs for every tenant transaction. Track user sessions, privilege escalations, billing alterations, and document exports with zero overhead.",
-      file: "tenant_audit_logger.ts",
-      lang: "TypeScript / Cryptographic Hash",
-      code: `// Immutable Cryptographic Audit Log Generator
+  },
+  audit: {
+    title: "Audit Logging & Usage Telemetry",
+    badge: "SOC 2 Type II Ready",
+    desc: "Immutable cryptographic audit logs for every tenant transaction. Track user sessions, privilege escalations, billing alterations, and document exports with zero overhead.",
+    file: "tenant_audit_logger.ts",
+    lang: "TypeScript / Cryptographic Hash",
+    code: `// Immutable Cryptographic Audit Log Generator
 import crypto from 'crypto';
 import { db } from '@/lib/db';
 
@@ -191,10 +223,193 @@ export async function logTenantAuditEvent(
     }
   });
 }`
-    }
-  };
+  }
+};
 
-  const currentArchTab = archTabs[activeArchTab];
+const saasSolutions: SaasSolution[] = [
+  {
+    title: "B2B Enterprise SaaS",
+    category: "Enterprise Software",
+    badge: "Multi-Org Hierarchies",
+    desc: "Complex organizational trees, SAML SSO, granular RBAC permissions, audit trails, and custom domain white-labeling.",
+    icon: "🏢",
+    bullets: [
+      "Okta, Google & Azure AD SAML SSO integrations",
+      "Subdomain & custom CNAME domain routing",
+      "Granular department role-based access controls (RBAC)"
+    ]
+  },
+  {
+    title: "Product-Led Growth (PLG) SaaS",
+    category: "Self-Serve Platforms",
+    badge: "Viral Onboarding",
+    desc: "Frictionless self-serve onboarding, in-app paywalls, viral teammate invitations, and automated feature flagging.",
+    icon: "⚡",
+    bullets: [
+      "1-Click Google & GitHub social auth onboarding",
+      "Interactive in-app trial countdowns & paywalls",
+      "PostHog / Mixpanel user funnel event tracking"
+    ]
+  },
+  {
+    title: "Usage-Based & Metered API SaaS",
+    category: "API & Developer Platforms",
+    badge: "Metered Billing",
+    desc: "Stripe metered usage ingestion, API key management, sliding-window rate limiters, and live telemetry dashboards.",
+    icon: "📊",
+    bullets: [
+      "Real-time event metering & automated Stripe invoicing",
+      "Cryptographic API key generation with scoping",
+      "Sub-2ms Redis sliding-window rate limiter guards"
+    ]
+  },
+  {
+    title: "Vertical SaaS & Compliance",
+    category: "Industry Specialized",
+    badge: "Domain Regulated",
+    desc: "Tailored workflows for healthcare (HIPAA), real estate, finance, or legal tech with electronic document signing.",
+    icon: "🏥",
+    bullets: [
+      "HIPAA & SOC 2 Type II compliant storage controls",
+      "Electronic signature capture & PDF contract generators",
+      "Automated compliance evidence export"
+    ]
+  },
+  {
+    title: "Multi-Tenant Marketplaces",
+    category: "Marketplace Platforms",
+    badge: "Split Payments",
+    desc: "Merchant onboarding via Stripe Connect, split payout ledgers, automated platform fee collection, and merchant dashboards.",
+    icon: "🛍️",
+    bullets: [
+      "Stripe Connect Custom & Express merchant onboarding",
+      "Automated platform take-rate & split payouts",
+      "Multi-currency payout reconciliation ledgers"
+    ]
+  },
+  {
+    title: "AI-Powered SaaS Applications",
+    category: "GenAI & Automation",
+    badge: "Vector Search RAG",
+    desc: "Tenant-scoped vector databases, LLM streaming interfaces, token consumption budgets, and autonomous agent queues.",
+    icon: "🤖",
+    bullets: [
+      "pgvector & Pinecone tenant namespace isolation",
+      "OpenAI & Claude streaming SSE text generation",
+      "Token quota limits & cost attribution per tenant"
+    ]
+  }
+];
+
+const archLayers: ArchLayer[] = [
+  {
+    num: "01",
+    title: "Next.js 15 & React 19 Frontend",
+    desc: "Edge SSR, React Server Components (RSC), and optimistic UI updates for sub-second page rendering across tenant subdomains.",
+    icon: "✨",
+    tag: "Sub-Second LCP"
+  },
+  {
+    num: "02",
+    title: "Tenant Scoped Middleware",
+    desc: "Subdomain resolution, signed JWT cookie sessions, and enterprise SAML SSO token injection at the Cloudflare Edge.",
+    icon: "🔑",
+    tag: "Edge Routing"
+  },
+  {
+    num: "03",
+    title: "Core API & Microservices",
+    desc: "Type-safe NestJS & FastAPI microservices communicating over gRPC, handling high-concurrency throughput with Redis caching.",
+    icon: "⚙️",
+    tag: "High Concurrency"
+  },
+  {
+    num: "04",
+    title: "PostgreSQL Database with RLS",
+    desc: "Shared database with PostgreSQL Row-Level Security (RLS) isolating every tenant's records, eliminating data leaks.",
+    icon: "💾",
+    tag: "100% RLS Isolation"
+  },
+  {
+    num: "05",
+    title: "Stripe Recurring Billing Engine",
+    desc: "Automated webhook dispatcher handling tiered subscriptions, metered usage counters, proration, and dunning workflows.",
+    icon: "💳",
+    tag: "Automated Invoicing"
+  },
+  {
+    num: "06",
+    title: "Telemetry & SOC 2 Audit Logs",
+    desc: "Cryptographically hashed audit trails, Datadog observability, and automated compliance evidence collection for auditors.",
+    icon: "🛡️",
+    tag: "SOC 2 Type II"
+  }
+];
+
+const deliverySteps: DeliveryStep[] = [
+  {
+    num: "01",
+    title: "Tenant Data Modeling & Architecture",
+    desc: "We define PostgreSQL Row-Level Security (RLS) schemas, auth flows (SAML/OAuth), and subscription pricing models in Stripe.",
+    tag: "Architecture Blueprint",
+    icon: "📐"
+  },
+  {
+    num: "02",
+    title: "Rapid MVP Pod Build (6–8 Weeks)",
+    desc: "Our senior SaaS pod builds your production MVP: Next.js 15 frontend, backend APIs, Stripe billing, and user management.",
+    tag: "Production Sprints",
+    icon: "⚡"
+  },
+  {
+    num: "03",
+    title: "Security Hardening & Penetration Testing",
+    desc: "We conduct exhaustive multi-tenant penetration tests, eliminate cross-tenant leak vectors, and configure SOC 2 audit logging.",
+    tag: "Zero-Leak Verification",
+    icon: "🔒"
+  },
+  {
+    num: "04",
+    title: "Production Launch & Scale Retainer",
+    desc: "We deploy to AWS/Vercel with CI/CD automation, configure 24/7 endpoint monitoring, and provide SLA-backed maintenance.",
+    tag: "Launch & Operate",
+    icon: "🚀"
+  }
+];
+
+const faqs: FAQItem[] = [
+  {
+    q: "What is multi-tenant SaaS architecture and why is PostgreSQL RLS the best approach?",
+    a: "Multi-tenant architecture allows a single application and database instance to securely serve thousands of distinct customers (tenants). We use PostgreSQL Row-Level Security (RLS), which enforces data isolation directly at the database engine layer. Every query is filtered by tenant_id, guaranteeing that no tenant can ever view or modify another tenant's data."
+  },
+  {
+    q: "How do you handle Stripe billing, seat changes, and usage-based tiers?",
+    a: "We implement full-lifecycle Stripe integrations using webhooks: seat-based recurring tiers, metered usage counters, automated proration when seats are added mid-month, invoice PDF downloads, and dunning retry logic to recover failed card payments."
+  },
+  {
+    q: "Can you implement enterprise SAML SSO (Okta, Google, Azure AD)?",
+    a: "Yes — we integrate enterprise Single Sign-On (SSO) via WorkOS or Clerk. Enterprise customers can authenticate using their existing identity providers (Okta, Azure Active Directory, Google Workspace), and we support SCIM for automated user directory provisioning."
+  },
+  {
+    q: "How fast can you build and launch a production-grade SaaS MVP?",
+    a: "Using our battle-tested Next.js + Node.js SaaS starter foundation, our dedicated engineering pod ships a production-ready multi-tenant MVP in 6 to 8 weeks, complete with auth, database isolation, Stripe billing, and user dashboards."
+  },
+  {
+    q: "Is the SaaS platform architecture SOC 2 Type II audit ready?",
+    a: "Yes — we bake in immutable cryptographic audit logging, role-based access controls (RBAC), database encryption at rest (KMS), and automated compliance evidence logs that integrate seamlessly with Vanta and Drata."
+  },
+  {
+    q: "Who owns the source code and database schemas upon handover?",
+    a: "You receive 100% full, exclusive ownership of all codebases, database schemas, Figma design files, deployment pipelines, and Stripe accounts upon milestone completion with zero vendor lock-in."
+  }
+];
+
+export default function SaasPageContent() {
+  const [activeRoleHover, setActiveRoleHover] = useState<string | null>(null);
+  const [activeArchTab, setActiveArchTab] = useState<string>("rls");
+  const [copiedCode, setCopiedCode] = useState<boolean>(false);
+
+  const currentArchTab = archTabs[activeArchTab] || archTabs.rls;
 
   const handleCopyCode = () => {
     if (typeof navigator !== "undefined" && navigator.clipboard) {
@@ -203,184 +418,6 @@ export async function logTenantAuditEvent(
       setTimeout(() => setCopiedCode(false), 2000);
     }
   };
-
-  const saasSolutions = [
-    {
-      title: "B2B Enterprise SaaS",
-      category: "Enterprise Software",
-      badge: "Multi-Org Hierarchies",
-      desc: "Complex organizational trees, SAML SSO, granular RBAC permissions, audit trails, and custom domain white-labeling.",
-      icon: "🏢",
-      bullets: [
-        "Okta, Google & Azure AD SAML SSO integrations",
-        "Subdomain & custom CNAME domain routing",
-        "Granular department role-based access controls (RBAC)"
-      ]
-    },
-    {
-      title: "Product-Led Growth (PLG) SaaS",
-      category: "Self-Serve Platforms",
-      badge: "Viral Onboarding",
-      desc: "Frictionless self-serve onboarding, in-app paywalls, viral teammate invitations, and automated feature flagging.",
-      icon: "⚡",
-      bullets: [
-        "1-Click Google & GitHub social auth onboarding",
-        "Interactive in-app trial countdowns & paywalls",
-        "PostHog / Mixpanel user funnel event tracking"
-      ]
-    },
-    {
-      title: "Usage-Based & Metered API SaaS",
-      category: "API & Developer Platforms",
-      badge: "Metered Billing",
-      desc: "Stripe metered usage ingestion, API key management, sliding-window rate limiters, and live telemetry dashboards.",
-      icon: "📊",
-      bullets: [
-        "Real-time event metering & automated Stripe invoicing",
-        "Cryptographic API key generation with scoping",
-        "Sub-2ms Redis sliding-window rate limiter guards"
-      ]
-    },
-    {
-      title: "Vertical SaaS & Compliance",
-      category: "Industry Specialized",
-      badge: "Domain Regulated",
-      desc: "Tailored workflows for healthcare (HIPAA), real estate, finance, or legal tech with electronic document signing.",
-      icon: "🏥",
-      bullets: [
-        "HIPAA & SOC 2 Type II compliant storage controls",
-        "Electronic signature capture & PDF contract generators",
-        "Automated compliance evidence export"
-      ]
-    },
-    {
-      title: "Multi-Tenant Marketplaces",
-      category: "Marketplace Platforms",
-      badge: "Split Payments",
-      desc: "Merchant onboarding via Stripe Connect, split payout ledgers, automated platform fee collection, and merchant dashboards.",
-      icon: "🛍️",
-      bullets: [
-        "Stripe Connect Custom & Express merchant onboarding",
-        "Automated platform take-rate & split payouts",
-        "Multi-currency payout reconciliation ledgers"
-      ]
-    },
-    {
-      title: "AI-Powered SaaS Applications",
-      category: "GenAI & Automation",
-      badge: "Vector Search RAG",
-      desc: "Tenant-scoped vector databases, LLM streaming interfaces, token consumption budgets, and autonomous agent queues.",
-      icon: "🤖",
-      bullets: [
-        "pgvector & Pinecone tenant namespace isolation",
-        "OpenAI & Claude streaming SSE text generation",
-        "Token quota limits & cost attribution per tenant"
-      ]
-    }
-  ];
-
-  const archLayers = [
-    {
-      num: "01",
-      title: "Next.js 15 & React 19 Frontend",
-      desc: "Edge SSR, React Server Components (RSC), and optimistic UI updates for sub-second page rendering across tenant subdomains.",
-      icon: "✨",
-      tag: "Sub-Second LCP"
-    },
-    {
-      num: "02",
-      title: "Tenant Scoped Middleware",
-      desc: "Subdomain resolution, signed JWT cookie sessions, and enterprise SAML SSO token injection at the Cloudflare Edge.",
-      icon: "🔑",
-      tag: "Edge Routing"
-    },
-    {
-      num: "03",
-      title: "Core API & Microservices",
-      desc: "Type-safe NestJS & FastAPI microservices communicating over gRPC, handling high-concurrency throughput with Redis caching.",
-      icon: "⚙️",
-      tag: "High Concurrency"
-    },
-    {
-      num: "04",
-      title: "PostgreSQL Database with RLS",
-      desc: "Shared database with PostgreSQL Row-Level Security (RLS) isolating every tenant's records, eliminating data leaks.",
-      icon: "💾",
-      tag: "100% RLS Isolation"
-    },
-    {
-      num: "05",
-      title: "Stripe Recurring Billing Engine",
-      desc: "Automated webhook dispatcher handling tiered subscriptions, metered usage counters, proration, and dunning workflows.",
-      icon: "💳",
-      tag: "Automated Invoicing"
-    },
-    {
-      num: "06",
-      title: "Telemetry & SOC 2 Audit Logs",
-      desc: "Cryptographically hashed audit trails, Datadog observability, and automated compliance evidence collection for auditors.",
-      icon: "🛡️",
-      tag: "SOC 2 Type II"
-    }
-  ];
-
-  const deliverySteps = [
-    {
-      num: "01",
-      title: "Tenant Data Modeling & Architecture",
-      desc: "We define PostgreSQL Row-Level Security (RLS) schemas, auth flows (SAML/OAuth), and subscription pricing models in Stripe.",
-      tag: "Architecture Blueprint",
-      icon: "📐"
-    },
-    {
-      num: "02",
-      title: "Rapid MVP Pod Build (6–8 Weeks)",
-      desc: "Our senior SaaS pod builds your production MVP: Next.js 15 frontend, backend APIs, Stripe billing, and user management.",
-      tag: "Production Sprints",
-      icon: "⚡"
-    },
-    {
-      num: "03",
-      title: "Security Hardening & Penetration Testing",
-      desc: "We conduct exhaustive multi-tenant penetration tests, eliminate cross-tenant leak vectors, and configure SOC 2 audit logging.",
-      tag: "Zero-Leak Verification",
-      icon: "🔒"
-    },
-    {
-      num: "04",
-      title: "Production Launch & Scale Retainer",
-      desc: "We deploy to AWS/Vercel with CI/CD automation, configure 24/7 endpoint monitoring, and provide SLA-backed maintenance.",
-      tag: "Launch & Operate",
-      icon: "🚀"
-    }
-  ];
-
-  const faqs = [
-    {
-      q: "What is multi-tenant SaaS architecture and why is PostgreSQL RLS the best approach?",
-      a: "Multi-tenant architecture allows a single application and database instance to securely serve thousands of distinct customers (tenants). We use PostgreSQL Row-Level Security (RLS), which enforces data isolation directly at the database engine layer. Every query is filtered by tenant_id, guaranteeing that no tenant can ever view or modify another tenant's data."
-    },
-    {
-      q: "How do you handle Stripe billing, seat changes, and usage-based tiers?",
-      a: "We implement full-lifecycle Stripe integrations using webhooks: seat-based recurring tiers, metered usage counters, automated proration when seats are added mid-month, invoice PDF downloads, and dunning retry logic to recover failed card payments."
-    },
-    {
-      q: "Can you implement enterprise SAML SSO (Okta, Google, Azure AD)?",
-      a: "Yes — we integrate enterprise Single Sign-On (SSO) via WorkOS or Clerk. Enterprise customers can authenticate using their existing identity providers (Okta, Azure Active Directory, Google Workspace), and we support SCIM for automated user directory provisioning."
-    },
-    {
-      q: "How fast can you build and launch a production-grade SaaS MVP?",
-      a: "Using our battle-tested Next.js + Node.js SaaS starter foundation, our dedicated engineering pod ships a production-ready multi-tenant MVP in 6 to 8 weeks, complete with auth, database isolation, Stripe billing, and user dashboards."
-    },
-    {
-      q: "Is the SaaS platform architecture SOC 2 Type II audit ready?",
-      a: "Yes — we bake in immutable cryptographic audit logging, role-based access controls (RBAC), database encryption at rest (KMS), and automated compliance evidence logs that integrate seamlessly with Vanta and Drata."
-    },
-    {
-      q: "Who owns the source code and database schemas upon handover?",
-      a: "You receive 100% full, exclusive ownership of all codebases, database schemas, Figma design files, deployment pipelines, and Stripe accounts upon milestone completion with zero vendor lock-in."
-    }
-  ];
 
   return (
     <div className="saas-page-root">
@@ -956,191 +993,201 @@ export async function logTenantAuditEvent(
           border-bottom: 1px solid #f1f5f9;
         }
         .saas-hero {
-          max-width: 1280px;
+          max-width: 1200px;
           margin: 0 auto;
           display: grid;
-          grid-template-columns: 1.18fr 1fr;
-          gap: 40px;
+          grid-template-columns: 460px 1fr;
+          gap: 64px;
           align-items: center;
         }
+
+        /* Node Graph Visualization */
         .node-network-wrapper {
           position: relative;
-          width: 100%;
-          min-height: 500px;
+          width: 440px;
+          height: 440px;
           display: flex;
           align-items: center;
           justify-content: center;
+          margin: 0 auto;
         }
         .network-ambient-glow {
           position: absolute;
           width: 320px;
           height: 320px;
-          background: radial-gradient(circle, rgba(52, 211, 153, 0.22) 0%, rgba(16, 185, 129, 0.05) 55%, transparent 70%);
+          background: radial-gradient(circle, rgba(16, 185, 129, 0.2) 0%, rgba(5, 150, 105, 0.05) 50%, transparent 70%);
           border-radius: 50%;
-          z-index: 1;
-          pointer-events: none;
+          filter: blur(24px);
         }
+
         .central-hub-container {
           position: relative;
-          z-index: 10;
           display: flex;
           align-items: center;
           justify-content: center;
         }
         .central-hub-outer-ring {
           position: absolute;
-          width: 90px;
-          height: 90px;
+          width: 110px;
+          height: 110px;
+          border: 2px dashed rgba(5, 150, 105, 0.35);
           border-radius: 50%;
-          border: 1.5px dashed rgba(16, 185, 129, 0.35);
+          animation: hubSpin 20s linear infinite;
         }
+        @keyframes hubSpin {
+          from { transform: rotate(0deg); }
+          to { transform: rotate(360deg); }
+        }
+
         .central-hub {
-          width: 68px;
-          height: 68px;
-          background: linear-gradient(135deg, #063a2f 0%, #03211a 100%);
-          border-radius: 20px;
+          width: 80px;
+          height: 80px;
+          background: linear-gradient(145deg, #0f172a, #1e293b);
+          border: 3px solid #34d399;
+          border-radius: 24px;
           display: flex;
           align-items: center;
           justify-content: center;
-          box-shadow: 0 16px 35px rgba(6, 58, 47, 0.32), 0 0 0 1px rgba(52, 211, 153, 0.25);
-          cursor: pointer;
+          box-shadow: 0 16px 36px rgba(5, 150, 105, 0.3), 0 0 0 8px rgba(16, 185, 129, 0.12);
+          z-index: 10;
           transition: transform 0.3s ease;
         }
         .central-hub:hover {
-          transform: scale(1.1);
+          transform: scale(1.06) rotate(6deg);
         }
+
         .node-card {
           position: absolute;
           background: #ffffff;
-          border: 1px solid #eef2f6;
-          box-shadow: 0 12px 28px rgba(15, 23, 42, 0.07);
-          border-radius: 14px;
-          padding: 10px 16px;
+          border: 1.5px solid #e2e8f0;
+          border-radius: 18px;
+          padding: 10px 14px;
           display: flex;
           align-items: center;
-          gap: 12px;
-          z-index: 8;
-          transition: all 0.28s ease;
+          gap: 10px;
+          box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
           cursor: pointer;
+          z-index: 5;
         }
-        .node-card:hover {
-          transform: translateY(-4px) scale(1.03);
-          border-color: #cbd5e1;
-          box-shadow: 0 18px 36px rgba(15, 23, 42, 0.12);
+        .node-card:hover, .node-card.node-active {
+          transform: translateY(-4px) scale(1.04);
+          border-color: #059669;
+          box-shadow: 0 18px 40px rgba(5, 150, 105, 0.18);
         }
+        .node-pos-1 { top: 15px; left: 10px; }
+        .node-pos-2 { top: 35px; right: 0px; }
+        .node-pos-3 { bottom: 45px; right: 10px; }
+        .node-pos-4 { bottom: 25px; left: 20px; }
+        .node-pos-5 { top: 50%; left: -25px; transform: translateY(-50%); }
+
         .node-avatar-circle {
-          width: 28px;
-          height: 28px;
-          border-radius: 50%;
+          width: 32px;
+          height: 32px;
+          border-radius: 10px;
+          color: #ffffff;
           display: flex;
           align-items: center;
           justify-content: center;
+          font-weight: 900;
           font-size: 11px;
-          font-weight: 700;
-          color: #ffffff;
           flex-shrink: 0;
+          box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
         }
         .node-title-text {
-          font-size: 13px;
-          font-weight: 700;
+          font-size: 12px;
+          font-weight: 800;
           color: #0f172a;
+          line-height: 1.2;
         }
         .node-subtitle-text {
-          font-size: 11px;
+          font-size: 10px;
           color: #64748b;
-          margin-top: 2px;
+          font-weight: 500;
         }
-        .node-pos-1 { top: 30px; left: 15px; }
-        .node-pos-2 { top: 30px; right: 15px; }
-        .node-pos-3 { bottom: 40px; right: 15px; }
-        .node-pos-4 { bottom: 40px; left: 15px; }
-        .node-pos-5 { top: 225px; left: -10px; }
 
+        /* Hero Right Column */
         .saas-hero-right {
           display: flex;
           flex-direction: column;
-          align-items: flex-start;
-          z-index: 2;
         }
         .saas-hero-title {
-          font-size: clamp(34px, 4.2vw, 54px);
+          font-size: clamp(34px, 4.5vw, 56px);
           font-weight: 900;
+          line-height: 1.08;
           color: #0f172a;
-          line-height: 1.12;
-          letter-spacing: -1.5px;
+          letter-spacing: -1.8px;
           margin: 0 0 20px;
         }
         .saas-highlight-text {
-          background: linear-gradient(135deg, #059669, #10b981);
+          background: linear-gradient(135deg, #059669 0%, #10b981 100%);
           -webkit-background-clip: text;
           background-clip: text;
           color: transparent;
         }
         .saas-hero-subtitle {
-          font-size: 16px;
-          color: #64748b;
-          line-height: 1.65;
+          font-size: 17px;
+          color: #475569;
+          line-height: 1.7;
+          max-width: 580px;
           margin: 0 0 32px;
-          max-width: 520px;
         }
         .saas-hero-actions {
           display: flex;
+          align-items: center;
           gap: 16px;
           flex-wrap: wrap;
-          margin-bottom: 36px;
+          margin-bottom: 40px;
         }
         .saas-btn-primary {
           background: #0f172a;
-          color: #ffffff !important;
-          font-weight: 700;
+          color: #ffffff;
+          padding: 16px 36px;
           border-radius: 100px;
-          padding: 14px 28px;
+          font-weight: 800;
           font-size: 15px;
           text-decoration: none;
           display: inline-flex;
           align-items: center;
-          gap: 10px;
-          box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
-          transition: all 0.2s ease;
+          gap: 8px;
+          box-shadow: 0 10px 28px rgba(15, 23, 42, 0.18);
+          transition: all 0.25s ease;
+          border: 2px solid transparent;
         }
         .saas-btn-primary:hover {
-          background: #1e293b;
+          background: #059669;
           transform: translateY(-2px);
-          box-shadow: 0 14px 32px rgba(15, 23, 42, 0.25);
-        }
-        .saas-btn-arrow {
-          width: 24px;
-          height: 24px;
-          border-radius: 50%;
-          border: 1.5px solid rgba(255, 255, 255, 0.4);
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 13px;
+          box-shadow: 0 16px 36px rgba(5, 150, 105, 0.3);
         }
         .saas-btn-ghost {
-          background: #ffffff;
-          border: 1.5px solid #cbd5e1;
-          color: #0f172a !important;
-          font-weight: 700;
+          color: #0f172a;
+          padding: 14px 28px;
           border-radius: 100px;
-          padding: 14px 26px;
+          font-weight: 700;
           font-size: 15px;
           text-decoration: none;
-          display: inline-flex;
-          align-items: center;
+          border: 2px solid #e2e8f0;
+          background: #ffffff;
           transition: all 0.2s ease;
         }
         .saas-btn-ghost:hover {
           background: #f8fafc;
-          border-color: #94a3b8;
-          transform: translateY(-2px);
+          border-color: #cbd5e1;
         }
+        .saas-btn-arrow {
+          font-size: 16px;
+          transition: transform 0.2s ease;
+        }
+        .saas-btn-primary:hover .saas-btn-arrow {
+          transform: translateX(3px);
+        }
+
         .saas-hero-stats {
           display: flex;
-          gap: 24px;
+          align-items: center;
+          gap: 20px;
           padding-top: 24px;
-          border-top: 1px solid #e2e8f0;
+          border-top: 1px solid rgba(15, 23, 42, 0.08);
           flex-wrap: wrap;
         }
         .saas-hstat-item {
@@ -1148,173 +1195,182 @@ export async function logTenantAuditEvent(
           flex-direction: column;
         }
         .saas-hstat-num {
-          font-size: 24px;
+          font-size: 20px;
           font-weight: 900;
           color: #0f172a;
-          line-height: 1.1;
+          letter-spacing: -0.5px;
         }
         .saas-hstat-lbl {
           font-size: 11.5px;
-          font-weight: 600;
           color: #64748b;
-          margin-top: 4px;
+          font-weight: 600;
         }
         .saas-hstat-div {
           width: 1px;
-          height: 36px;
+          height: 28px;
           background: #e2e8f0;
         }
 
-        /* Pillars Section */
+        /* ── 2. PILLARS SECTION ── */
         .saas-pillars-section {
-          padding: 60px 24px 40px;
           background: #ffffff;
+          padding: 80px 24px;
+          border-bottom: 1px solid #f1f5f9;
         }
         .saas-pillars-container {
-          max-width: 1240px;
+          max-width: 1200px;
           margin: 0 auto;
         }
         .saas-pillars-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          gap: 20px;
+          gap: 24px;
         }
         .saas-pillar-card {
           background: #f8fafc;
-          border: 1.5px solid #e2e8f0;
-          border-radius: 20px;
-          padding: 24px;
+          border: 1px solid #e2e8f0;
+          border-radius: 24px;
+          padding: 32px 26px;
           display: flex;
           flex-direction: column;
-          gap: 8px;
+          gap: 12px;
           transition: all 0.25s ease;
         }
         .saas-pillar-card:hover {
+          background: #ffffff;
+          border-color: #059669;
           transform: translateY(-4px);
-          border-color: #cbd5e1;
-          box-shadow: 0 14px 30px rgba(15, 23, 42, 0.05);
+          box-shadow: 0 16px 36px rgba(5, 150, 105, 0.08);
         }
         .saas-pillar-icon-box {
-          width: 44px;
-          height: 44px;
-          border-radius: 12px;
-          background: #ecfdf5;
-          border: 1px solid #a7f3d0;
+          width: 48px;
+          height: 48px;
+          background: #ffffff;
+          border: 1.5px solid #a7f3d0;
+          border-radius: 14px;
           display: flex;
           align-items: center;
           justify-content: center;
-          margin-bottom: 6px;
+          box-shadow: 0 4px 12px rgba(5, 150, 105, 0.08);
         }
         .saas-pillar-title {
-          font-size: 17px;
+          font-size: 20px;
           font-weight: 800;
           color: #0f172a;
           margin: 0;
         }
         .saas-pillar-desc {
-          font-size: 13px;
+          font-size: 14px;
           color: #64748b;
           line-height: 1.6;
           margin: 0;
         }
 
-        /* Architecture Section */
+        /* ── 3. ARCHITECTURE CODE INSPECTOR ── */
         .saas-arch-section {
-          padding: 80px 24px;
-          background: #ffffff;
+          background: #f8fafc;
+          padding: 100px 24px;
+          border-bottom: 1px solid #e2e8f0;
         }
         .saas-arch-container {
-          max-width: 1240px;
+          max-width: 1200px;
           margin: 0 auto;
         }
         .saas-arch-tabs {
           display: flex;
+          align-items: center;
           justify-content: center;
           gap: 12px;
-          margin-bottom: 40px;
+          margin-bottom: 36px;
           flex-wrap: wrap;
         }
         .saas-arch-tab-btn {
-          background: #f8fafc;
+          background: #ffffff;
           border: 1.5px solid #e2e8f0;
-          padding: 12px 24px;
-          border-radius: 100px;
-          font-size: 14px;
-          font-weight: 700;
           color: #475569;
+          padding: 12px 22px;
+          border-radius: 100px;
+          font-weight: 700;
+          font-size: 14px;
           cursor: pointer;
-          transition: all 0.25s ease;
+          transition: all 0.2s ease;
         }
         .saas-arch-tab-btn:hover {
-          color: #0f172a;
-          background: #ffffff;
           border-color: #cbd5e1;
-          transform: translateY(-2px);
+          color: #0f172a;
         }
         .saas-arch-tab-btn.active {
           background: #0f172a;
           color: #ffffff;
           border-color: #0f172a;
-          box-shadow: 0 10px 25px rgba(15, 23, 42, 0.18);
+          box-shadow: 0 6px 18px rgba(15, 23, 42, 0.2);
         }
+
         .saas-arch-canvas {
           background: #ffffff;
-          border: 1.5px solid #e2e8f0;
-          border-radius: 32px;
+          border: 1px solid #e2e8f0;
+          border-radius: 28px;
           padding: 44px;
-          box-shadow: 0 20px 45px rgba(15, 23, 42, 0.04);
           display: grid;
-          grid-template-columns: 1.05fr 1.15fr;
-          gap: 40px;
-          align-items: center;
+          grid-template-columns: 1fr 1.25fr;
+          gap: 48px;
+          box-shadow: 0 20px 50px rgba(15, 23, 42, 0.04);
         }
         .saas-arch-left {
           display: flex;
           flex-direction: column;
+          justify-content: space-between;
         }
         .saas-atag-row {
           margin-bottom: 12px;
         }
         .saas-abadge {
-          background: #f0fdf4;
+          background: #ecfdf5;
           border: 1px solid #a7f3d0;
           color: #059669;
           font-size: 11px;
           font-weight: 800;
-          padding: 3px 10px;
-          border-radius: 100px;
+          padding: 4px 12px;
+          border-radius: 99px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
         }
         .saas-atitle {
-          font-size: clamp(24px, 2.6vw, 32px);
+          font-size: 26px;
           font-weight: 800;
           color: #0f172a;
-          line-height: 1.2;
-          margin: 0 0 14px;
+          line-height: 1.25;
+          margin: 0 0 16px;
         }
         .saas-adesc {
-          font-size: 14.5px;
+          font-size: 15px;
           color: #64748b;
-          line-height: 1.65;
-          margin: 0 0 28px;
+          line-height: 1.7;
+          margin: 0 0 32px;
         }
         .saas-aaction-row {
           display: flex;
-          gap: 14px;
+          align-items: center;
+          gap: 16px;
           flex-wrap: wrap;
         }
+
         .saas-arch-right {
           background: #0f172a;
           border-radius: 20px;
-          overflow: hidden;
           border: 1px solid #1e293b;
-          box-shadow: 0 20px 40px rgba(15, 23, 42, 0.2);
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
         }
         .saas-acode-top {
-          background: #1e293b;
-          padding: 12px 18px;
           display: flex;
           align-items: center;
           justify-content: space-between;
+          padding: 12px 18px;
+          background: #1e293b;
+          border-bottom: 1px solid #334155;
         }
         .saas-acode-dots {
           display: flex;
@@ -1326,128 +1382,127 @@ export async function logTenantAuditEvent(
           border-radius: 50%;
         }
         .saas-acode-file {
-          font-size: 11.5px;
-          font-weight: 700;
-          color: #38bdf8;
+          color: #94a3b8;
           font-family: monospace;
+          font-size: 11.5px;
+          font-weight: 600;
         }
         .saas-acopy-btn {
-          background: rgba(255, 255, 255, 0.08);
-          border: 1px solid rgba(255, 255, 255, 0.15);
+          background: rgba(255, 255, 255, 0.1);
+          border: 1px solid rgba(255, 255, 255, 0.2);
           color: #ffffff;
-          font-size: 11px;
-          font-weight: 700;
           padding: 4px 10px;
           border-radius: 6px;
+          font-size: 11px;
+          font-weight: 700;
           cursor: pointer;
+          transition: background-color 0.2s ease;
+        }
+        .saas-acopy-btn:hover {
+          background: rgba(255, 255, 255, 0.2);
         }
         .saas-acode-pre {
-          padding: 20px;
+          padding: 22px;
           margin: 0;
-          overflow-x: auto;
-          font-family: "JetBrains Mono", "Fira Code", monospace;
+          font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
           font-size: 12px;
           line-height: 1.65;
-          color: #e2e8f0;
-          max-height: 380px;
+          color: #34d399;
+          overflow-x: auto;
+          flex: 1;
         }
 
-        /* Solutions Grid */
+        /* ── 4. SAAS SOLUTIONS GRID ── */
         .saas-solutions-section {
-          padding: 96px 24px;
-          background: #f8fafc;
+          background: #ffffff;
+          padding: 100px 24px;
+          border-bottom: 1px solid #f1f5f9;
         }
         .saas-solutions-container {
-          max-width: 1240px;
+          max-width: 1200px;
           margin: 0 auto;
         }
         .saas-solutions-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 24px;
+          gap: 28px;
         }
         .saas-sol-card {
           background: #ffffff;
           border: 1.5px solid #e2e8f0;
           border-radius: 24px;
-          padding: 32px 28px;
-          box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+          padding: 36px 30px;
           display: flex;
           flex-direction: column;
-          transition: all 0.25s ease;
+          box-shadow: 0 8px 24px rgba(15, 23, 42, 0.03);
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .saas-sol-card:hover {
           transform: translateY(-6px);
-          border-color: #cbd5e1;
-          box-shadow: 0 20px 40px rgba(15, 23, 42, 0.08);
+          border-color: #059669;
+          box-shadow: 0 20px 50px rgba(5, 150, 105, 0.1);
         }
         .saas-sol-top {
           display: flex;
-          justify-content: space-between;
           align-items: center;
-          margin-bottom: 18px;
+          justify-content: space-between;
+          margin-bottom: 20px;
         }
         .saas-sol-icon-box {
-          width: 48px;
-          height: 48px;
-          border-radius: 14px;
-          background: #f0fdf4;
-          border: 1px solid #bbf7d0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 22px;
+          font-size: 28px;
         }
         .saas-sol-badge {
-          font-size: 11px;
-          font-weight: 800;
-          color: #059669;
           background: #ecfdf5;
           border: 1px solid #a7f3d0;
-          padding: 3px 10px;
-          border-radius: 100px;
+          color: #059669;
+          font-size: 10.5px;
+          font-weight: 800;
+          padding: 4px 10px;
+          border-radius: 99px;
+          text-transform: uppercase;
         }
         .saas-sol-title {
-          font-size: 18px;
+          font-size: 20px;
           font-weight: 800;
           color: #0f172a;
           margin: 0 0 10px;
         }
         .saas-sol-desc {
-          font-size: 13.5px;
+          font-size: 14.5px;
           color: #64748b;
           line-height: 1.6;
-          margin: 0 0 20px;
-          flex-grow: 1;
+          margin: 0 0 24px;
         }
         .saas-sol-bullets {
-          border-top: 1px dashed #e2e8f0;
-          padding-top: 16px;
           display: flex;
           flex-direction: column;
-          gap: 8px;
+          gap: 10px;
+          margin-top: auto;
+          padding-top: 18px;
+          border-top: 1px dashed #e2e8f0;
         }
         .saas-sol-bullet-item {
           display: flex;
           align-items: flex-start;
-          gap: 8px;
-          font-size: 12px;
-          color: #334155;
+          gap: 10px;
+          font-size: 13px;
           font-weight: 600;
+          color: #334155;
+          line-height: 1.45;
         }
         .saas-sol-check {
           color: #059669;
           font-weight: 900;
         }
 
-        /* Layer Pipeline */
+        /* ── 5. LAYERED ARCHITECTURE ── */
         .saas-layer-section {
-          padding: 96px 24px;
-          background: #ffffff;
-          border-top: 1px solid #f1f5f9;
+          background: #f8fafc;
+          padding: 100px 24px;
+          border-bottom: 1px solid #e2e8f0;
         }
         .saas-layer-container {
-          max-width: 1240px;
+          max-width: 1200px;
           margin: 0 auto;
         }
         .saas-layer-grid {
@@ -1461,65 +1516,72 @@ export async function logTenantAuditEvent(
           border-radius: 20px;
           padding: 30px 24px;
           position: relative;
-          box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+          overflow: hidden;
           transition: all 0.25s ease;
         }
         .saas-layer-card:hover {
-          transform: translateY(-5px);
+          transform: translateY(-4px);
           border-color: #059669;
-          box-shadow: 0 16px 36px rgba(5, 150, 105, 0.09);
+          box-shadow: 0 16px 36px rgba(5, 150, 105, 0.08);
         }
         .saas-layer-top {
           display: flex;
-          justify-content: space-between;
           align-items: center;
+          justify-content: space-between;
           margin-bottom: 14px;
         }
         .saas-layer-num {
-          font-size: 26px;
+          font-size: 24px;
           font-weight: 900;
-          color: #059669;
-          font-family: monospace;
-          line-height: 1;
+          color: #0f172a;
+          letter-spacing: -0.5px;
         }
         .saas-layer-icon {
-          font-size: 22px;
+          font-size: 20px;
         }
         .saas-layer-tag {
-          font-size: 10.5px;
+          display: inline-block;
+          font-size: 10px;
           font-weight: 800;
-          color: #64748b;
+          color: #059669;
+          background: #ecfdf5;
+          padding: 2px 8px;
+          border-radius: 4px;
           text-transform: uppercase;
-          letter-spacing: 0.6px;
-          display: block;
-          margin-bottom: 6px;
+          letter-spacing: 0.5px;
+          margin-bottom: 10px;
         }
         .saas-layer-title {
           font-size: 17px;
           font-weight: 800;
           color: #0f172a;
-          margin: 0 0 10px;
+          margin: 0 0 8px;
         }
         .saas-layer-desc {
-          font-size: 13px;
+          font-size: 13.5px;
           color: #64748b;
           line-height: 1.6;
           margin: 0;
         }
         .saas-layer-indicator {
           position: absolute;
-          bottom: 14px;
-          right: 18px;
-          width: 7px;
-          height: 7px;
-          border-radius: 50%;
-          background: #10b981;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 3px;
+          background: linear-gradient(90deg, #059669, #10b981);
+          opacity: 0;
+          transition: opacity 0.25s ease;
+        }
+        .saas-layer-card:hover .saas-layer-indicator {
+          opacity: 1;
         }
 
-        /* Performance Section */
+        /* ── 6. PERFORMANCE SLA BENCHMARK ── */
         .saas-perf-section {
-          padding: 96px 24px;
-          background: #f8fafc;
+          background: #ffffff;
+          padding: 100px 24px;
+          border-bottom: 1px solid #f1f5f9;
         }
         .saas-perf-container {
           max-width: 1200px;
@@ -1527,26 +1589,25 @@ export async function logTenantAuditEvent(
         }
         .saas-perf-grid {
           display: grid;
-          grid-template-columns: 1.1fr 1fr;
-          gap: 56px;
+          grid-template-columns: 1fr 1fr;
+          gap: 64px;
           align-items: center;
         }
+        .saas-perf-left {
+          display: flex;
+          flex-direction: column;
+        }
         .saas-gauge-card {
+          background: #f8fafc;
+          border: 1px solid #e2e8f0;
+          border-radius: 20px;
+          padding: 20px 24px;
           display: flex;
           align-items: center;
           gap: 20px;
-          background: #ffffff;
-          padding: 22px 24px;
-          border-radius: 20px;
-          border: 1.5px solid #e2e8f0;
-          box-shadow: 0 10px 25px rgba(15, 23, 42, 0.03);
         }
-        @keyframes drawGaugeCircle {
-          0%, 100% { stroke-dashoffset: 100; }
-          70%, 90% { stroke-dashoffset: 0; }
-        }
-        .saas-gauge-circle {
-          animation: drawGaugeCircle 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        .saas-gauge-svg {
+          flex-shrink: 0;
         }
         .saas-gauge-title {
           font-size: 16px;
@@ -1554,227 +1615,231 @@ export async function logTenantAuditEvent(
           color: #0f172a;
         }
         .saas-gauge-sub {
-          font-size: 12.5px;
+          font-size: 12px;
           color: #64748b;
           margin-top: 2px;
         }
+
         .saas-perf-right {
           display: flex;
           flex-direction: column;
-          gap: 24px;
+          gap: 20px;
         }
         .saas-metric-row {
-          background: #ffffff;
+          background: #f8fafc;
           border: 1px solid #e2e8f0;
           border-radius: 16px;
-          padding: 18px 20px;
-          box-shadow: 0 4px 12px rgba(15, 23, 42, 0.02);
+          padding: 18px 22px;
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
         }
         .saas-metric-header {
           display: flex;
           justify-content: space-between;
+          align-items: center;
+        }
+        .saas-metric-name {
           font-size: 13.5px;
-          font-weight: 800;
+          font-weight: 700;
           color: #0f172a;
-          margin-bottom: 10px;
+        }
+        .saas-metric-val {
+          font-size: 13.5px;
+          font-weight: 900;
         }
         .saas-metric-bar-bg {
           width: 100%;
           height: 6px;
-          background: #f1f5f9;
-          border-radius: 3px;
+          background: #e2e8f0;
+          border-radius: 999px;
           overflow: hidden;
         }
         .saas-metric-bar-fill {
           height: 100%;
-          border-radius: 3px;
+          border-radius: 999px;
         }
 
-        /* Process Section */
+        /* ── 7. DELIVERY PROCESS ── */
         .saas-process-section {
-          padding: 96px 24px;
-          background: #ffffff;
+          background: #f8fafc;
+          padding: 100px 24px;
+          border-bottom: 1px solid #e2e8f0;
         }
         .saas-process-container {
-          max-width: 1240px;
+          max-width: 1200px;
           margin: 0 auto;
         }
         .saas-process-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          gap: 20px;
+          gap: 24px;
         }
         .saas-process-card {
           background: #ffffff;
           border: 1.5px solid #e2e8f0;
-          border-radius: 20px;
-          padding: 28px 22px;
-          box-shadow: 0 4px 16px rgba(15, 23, 42, 0.03);
+          border-radius: 22px;
+          padding: 32px 24px;
+          display: flex;
+          flex-direction: column;
+          box-shadow: 0 6px 18px rgba(15, 23, 42, 0.03);
           transition: all 0.25s ease;
         }
         .saas-process-card:hover {
-          transform: translateY(-5px);
+          transform: translateY(-4px);
           border-color: #059669;
-          box-shadow: 0 16px 36px rgba(5, 150, 105, 0.1);
+          box-shadow: 0 16px 36px rgba(5, 150, 105, 0.08);
         }
         .saas-proc-num-row {
           display: flex;
-          justify-content: space-between;
           align-items: center;
+          justify-content: space-between;
           margin-bottom: 16px;
         }
         .saas-proc-num {
-          font-size: 28px;
+          font-size: 26px;
           font-weight: 900;
-          color: #059669;
-          font-family: monospace;
-          line-height: 1;
+          color: #0f172a;
+          letter-spacing: -0.5px;
         }
         .saas-proc-icon {
-          font-size: 22px;
+          font-size: 24px;
         }
         .saas-proc-tag {
+          display: inline-block;
           font-size: 10px;
           font-weight: 800;
+          color: #059669;
+          background: #ecfdf5;
+          padding: 3px 8px;
+          border-radius: 4px;
           text-transform: uppercase;
-          letter-spacing: 0.6px;
-          color: #64748b;
-          display: block;
-          margin-bottom: 8px;
+          letter-spacing: 0.5px;
+          width: fit-content;
+          margin-bottom: 12px;
         }
         .saas-proc-title {
-          font-size: 16px;
+          font-size: 17px;
           font-weight: 800;
           color: #0f172a;
-          line-height: 1.3;
-          margin: 0 0 12px;
+          margin: 0 0 8px;
         }
         .saas-proc-desc {
-          font-size: 12.5px;
+          font-size: 13.5px;
           color: #64748b;
-          line-height: 1.65;
+          line-height: 1.6;
           margin: 0;
         }
 
-        /* FAQ Section */
+        /* ── 8. FAQ SECTION ── */
         .saas-faq-section {
-          padding: 96px 24px;
-          background: #f8fafc;
+          background: #ffffff;
+          padding: 100px 24px;
+          border-bottom: 1px solid #f1f5f9;
         }
         .saas-faq-container {
-          max-width: 1160px;
+          max-width: 1200px;
           margin: 0 auto;
         }
         .saas-faq-layout {
           display: grid;
-          grid-template-columns: 1fr 2fr;
+          grid-template-columns: 1fr 1.65fr;
           gap: 48px;
           align-items: start;
         }
         .saas-faq-sidebar {
-          background: #f0fdf4;
-          border: 1.5px solid #a7f3d0;
+          background: #f8fafc;
+          border: 1.5px solid #e2e8f0;
           border-radius: 24px;
-          padding: 36px 28px;
-          position: sticky;
-          top: 100px;
+          padding: 36px 30px;
+          display: flex;
+          flex-direction: column;
+          gap: 18px;
         }
         .saas-faq-sidebar h3 {
           font-size: 22px;
           font-weight: 800;
           color: #0f172a;
-          margin: 0 0 12px;
-          line-height: 1.25;
+          margin: 0;
         }
         .saas-faq-sidebar p {
           font-size: 14px;
-          color: #475569;
-          line-height: 1.65;
-          margin: 0 0 24px;
+          color: #64748b;
+          line-height: 1.6;
+          margin: 0;
         }
         .saas-faq-contact-btn {
-          display: inline-block;
           background: #0f172a;
-          color: #ffffff !important;
-          font-weight: 700;
-          font-size: 14px;
-          padding: 13px 24px;
+          color: #ffffff;
+          padding: 14px 24px;
           border-radius: 100px;
+          font-weight: 800;
+          font-size: 14px;
           text-decoration: none;
-          box-shadow: 0 4px 14px rgba(15, 23, 42, 0.15);
-          transition: all 0.2s ease;
+          text-align: center;
+          transition: background 0.2s ease;
         }
         .saas-faq-contact-btn:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 8px 24px rgba(15, 23, 42, 0.25);
+          background: #059669;
         }
         .saas-faq-stat-box {
-          margin-top: 32px;
-          border-top: 1px solid #bbf7d0;
-          padding-top: 20px;
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
+          border-radius: 16px;
+          padding: 18px;
+          text-align: center;
         }
         .saas-faq-stat-num {
-          font-size: 32px;
+          font-size: 28px;
           font-weight: 900;
           color: #059669;
-          line-height: 1;
         }
         .saas-faq-stat-lbl {
-          font-size: 12px;
-          color: #475569;
-          margin-top: 4px;
+          font-size: 11px;
+          color: #64748b;
           font-weight: 600;
+          text-transform: uppercase;
         }
+
         .saas-faq-accordion {
           display: flex;
           flex-direction: column;
+          gap: 12px;
         }
         .saas-faq-item {
-          border-bottom: 1px solid #e2e8f0;
+          background: #f8fafc;
+          border: 1.5px solid #e2e8f0;
+          border-radius: 18px;
+          padding: 20px 24px;
+          cursor: pointer;
+          transition: all 0.2s ease;
         }
-        .saas-faq-item:first-child {
-          border-top: 1px solid #e2e8f0;
+        .saas-faq-item[open] {
+          background: #ffffff;
+          border-color: #059669;
+          box-shadow: 0 8px 24px rgba(5, 150, 105, 0.08);
         }
         .saas-faq-item summary {
-          list-style: none;
-          padding: 22px 0;
-          cursor: pointer;
           display: flex;
           align-items: center;
+          justify-content: space-between;
           gap: 16px;
-          user-select: none;
+          list-style: none;
         }
         .saas-faq-item summary::-webkit-details-marker {
           display: none;
         }
         .saas-faq-idx {
-          width: 32px;
-          height: 32px;
-          border-radius: 50%;
-          background: #ffffff;
-          border: 1px solid #e2e8f0;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 11.5px;
+          font-family: monospace;
+          font-size: 12px;
           font-weight: 800;
-          color: #94a3b8;
-          flex-shrink: 0;
-        }
-        .saas-faq-item[open] .saas-faq-idx {
-          background: #ecfdf5;
           color: #059669;
-          border-color: #a7f3d0;
         }
         .saas-faq-q {
-          flex: 1;
-          font-size: 16px;
-          font-weight: 700;
+          font-size: 15.5px;
+          font-weight: 800;
           color: #0f172a;
-          line-height: 1.35;
-        }
-        .saas-faq-item[open] .saas-faq-q {
-          color: #059669;
+          flex: 1;
         }
         .saas-faq-toggle {
           width: 28px;
@@ -1786,131 +1851,131 @@ export async function logTenantAuditEvent(
           align-items: center;
           justify-content: center;
           flex-shrink: 0;
-          transition: transform 0.25s ease, background 0.25s ease;
         }
-        .saas-faq-item[open] .saas-faq-toggle {
-          background: #059669;
+        .saas-faq-item[open] .saas-faq-toggle svg {
           transform: rotate(180deg);
         }
-        .saas-faq-item[open] .saas-faq-toggle svg path {
-          stroke: #ffffff;
-        }
         .saas-faq-a {
-          padding: 0 0 24px 48px;
-          font-size: 14.5px;
+          margin-top: 14px;
+          padding-top: 14px;
+          border-top: 1px solid #f1f5f9;
+          font-size: 14px;
+          line-height: 1.65;
           color: #475569;
-          line-height: 1.7;
         }
 
-        /* Bottom CTA Banner */
+        /* ── 9. BOTTOM CTA BANNER ── */
         .saas-cta-banner-section {
-          padding: 80px 24px 100px;
           background: #ffffff;
-          border-top: 1px solid #f1f5f9;
+          padding: 80px 24px 100px;
         }
         .saas-cta-banner-card {
-          max-width: 1100px;
+          max-width: 1200px;
           margin: 0 auto;
-          background: linear-gradient(135deg, #052e16 0%, #064e3b 50%, #0f172a 100%);
+          background: linear-gradient(135deg, #064e3b 0%, #0f172a 60%, #022c22 100%);
           border-radius: 36px;
-          padding: 64px 40px;
-          text-align: center;
+          padding: clamp(40px, 6vw, 72px) clamp(24px, 5vw, 64px);
           position: relative;
           overflow: hidden;
-          box-shadow: 0 30px 70px rgba(5, 46, 22, 0.25);
-          border: 1px solid rgba(255, 255, 255, 0.1);
+          box-shadow: 0 30px 70px rgba(6, 78, 59, 0.25);
         }
         .saas-cta-glow-orb {
           position: absolute;
-          top: -50%;
-          left: 50%;
-          transform: translateX(-50%);
-          width: 500px;
-          height: 500px;
+          top: -80px;
+          right: -80px;
+          width: 320px;
+          height: 320px;
+          background: radial-gradient(circle, rgba(52, 211, 153, 0.3) 0%, transparent 70%);
           border-radius: 50%;
-          background: radial-gradient(circle, rgba(16, 185, 129, 0.35) 0%, transparent 70%);
           pointer-events: none;
         }
         .saas-cta-inner {
           position: relative;
-          z-index: 1;
-          max-width: 760px;
+          z-index: 10;
+          max-width: 800px;
           margin: 0 auto;
+          text-align: center;
           display: flex;
           flex-direction: column;
           align-items: center;
         }
         .saas-cta-title {
-          font-size: clamp(30px, 4.5vw, 48px);
+          font-size: clamp(26px, 4vw, 42px);
           font-weight: 900;
           color: #ffffff;
-          line-height: 1.12;
           letter-spacing: -1.2px;
-          margin: 16px 0;
+          line-height: 1.18;
+          margin: 0 0 18px;
         }
         .saas-cta-desc {
-          font-size: 16px;
-          color: rgba(255, 255, 255, 0.85);
+          font-size: 15.5px;
           line-height: 1.65;
+          color: rgba(255, 255, 255, 0.75);
           margin: 0 0 36px;
+          max-width: 680px;
         }
         .saas-cta-actions {
           display: flex;
+          align-items: center;
           gap: 16px;
           flex-wrap: wrap;
           justify-content: center;
         }
         .saas-cta-btn-primary {
-          background: #ffffff;
-          color: #0f172a !important;
-          padding: 15px 32px;
+          background: #34d399;
+          color: #064e3b;
+          padding: 16px 36px;
           border-radius: 100px;
-          font-weight: 800;
-          font-size: 15px;
+          font-size: 14.5px;
+          font-weight: 900;
           text-decoration: none;
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 6px 20px rgba(52, 211, 153, 0.4);
           transition: all 0.2s ease;
         }
         .saas-cta-btn-primary:hover {
+          background: #6ee7b7;
           transform: translateY(-2px);
-          box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+          box-shadow: 0 10px 28px rgba(52, 211, 153, 0.5);
         }
         .saas-cta-btn-ghost {
-          background: rgba(255, 255, 255, 0.1);
-          border: 1.5px solid rgba(255, 255, 255, 0.3);
-          color: #ffffff !important;
-          padding: 15px 30px;
-          border-radius: 100px;
+          color: rgba(255, 255, 255, 0.85);
+          font-size: 14.5px;
           font-weight: 700;
-          font-size: 15px;
           text-decoration: none;
-          transition: all 0.2s ease;
+          padding: 14px 26px;
+          border-radius: 100px;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          transition: background 0.2s ease;
         }
         .saas-cta-btn-ghost:hover {
-          background: rgba(255, 255, 255, 0.2);
-          border-color: rgba(255, 255, 255, 0.5);
-          transform: translateY(-2px);
+          background: rgba(255, 255, 255, 0.1);
         }
 
-        /* Responsive Breakpoints */
-        @media (max-width: 1024px) {
+        /* ── RESPONSIVENESS ── */
+        @media (max-width: 1100px) {
           .saas-hero {
             grid-template-columns: 1fr;
             gap: 48px;
+          }
+          .node-network-wrapper {
+            width: 100%;
+            max-width: 400px;
           }
           .saas-pillars-grid {
             grid-template-columns: repeat(2, 1fr);
           }
           .saas-arch-canvas {
             grid-template-columns: 1fr;
-            padding: 32px 24px;
           }
-          .saas-solutions-grid, .saas-layer-grid {
+          .saas-solutions-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          .saas-layer-grid {
             grid-template-columns: repeat(2, 1fr);
           }
           .saas-perf-grid {
             grid-template-columns: 1fr;
-            gap: 40px;
+            gap: 36px;
           }
           .saas-process-grid {
             grid-template-columns: repeat(2, 1fr);
@@ -1918,24 +1983,41 @@ export async function logTenantAuditEvent(
           .saas-faq-layout {
             grid-template-columns: 1fr;
           }
-          .saas-faq-sidebar {
-            position: static;
-          }
         }
 
         @media (max-width: 640px) {
           .saas-hero-wrapper {
-            padding: 110px 16px 60px;
+            padding: 100px 16px 50px;
           }
           .node-network-wrapper {
-            transform: scale(0.8);
+            height: 360px;
           }
-          .saas-pillars-grid, .saas-solutions-grid, .saas-layer-grid, .saas-process-grid {
+          .central-hub {
+            width: 64px;
+            height: 64px;
+          }
+          .node-card {
+            padding: 6px 10px;
+          }
+          .node-title-text {
+            font-size: 11px;
+          }
+          .node-subtitle-text {
+            font-size: 9px;
+          }
+          .saas-pillars-grid,
+          .saas-solutions-grid,
+          .saas-layer-grid,
+          .saas-process-grid {
             grid-template-columns: 1fr;
           }
+          .saas-arch-canvas {
+            padding: 24px 18px;
+            border-radius: 20px;
+          }
           .saas-cta-banner-card {
-            padding: 44px 20px;
-            border-radius: 24px;
+            border-radius: 28px;
+            padding: 40px 20px;
           }
         }
       `}</style>
