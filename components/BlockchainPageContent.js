@@ -3,7 +3,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import BlockchainHeroNew from "@/components/BlockchainHeroNew";
-import BlockchainStats from "@/components/BlockchainStats";
 import BlockchainServicesGrid from "@/components/BlockchainServicesGrid";
 import BlockchainTrustedPlatform from "@/components/BlockchainTrustedPlatform";
 import BlockchainSaveSwap from "@/components/BlockchainSaveSwap";
@@ -22,9 +21,8 @@ export default function BlockchainPageContent() {
       <Header variant="light" />
       <main>
         <BlockchainHeroNew />
-        <BlockchainStats />
-        <BlockchainServicesGrid />
         <BlockchainTrustedPlatform />
+        <BlockchainServicesGrid />
         <BlockchainSaveSwap />
         <BlockchainInvestingTrading />
         <BlockchainWalletBenefits />

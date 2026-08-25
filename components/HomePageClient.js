@@ -38,7 +38,13 @@ export default function Home() {
           sourcePage: "homepage_beta_modal",
         }),
       });
-      const data = await res.json();
+      const resText = await res.text();
+      let data = {};
+      try {
+        data = resText ? JSON.parse(resText) : {};
+      } catch (e) {
+        console.error("HomePage JSON parse error:", e);
+      }
       if (res.ok && data.success) {
         setModalSubmitted(true);
         addToast("Successfully requested consultation!");

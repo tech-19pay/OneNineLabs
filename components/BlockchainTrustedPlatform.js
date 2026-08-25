@@ -6,20 +6,15 @@ export default function BlockchainTrustedPlatform() {
   return (
     <section className="bc-bento-section">
       <div className="new-bc-container">
-        
-        {/* Header */}
-        <div className="bc-bento-header">
-          <h2>Everything You Need.<br/>Nothing You Don&apos;t.</h2>
-          <p className="bc-bento-sub">Production-ready blockchain modules we design, build and secure for you — treasury systems, DeFi flows, trading engines and fiat on-ramps, tailored to your product.</p>
-        </div>
-
         {/* Bento Grid */}
         <div className="bc-bento-grid">
           
           {/* Top Left Card (2 Columns) */}
           <div className="bento-card col-span-2 row-top-left">
             <div className="bento-content-left">
-              <h3>Treasury & Withdrawal Systems</h3>
+              <h2 className="bento-main-heading">
+                Everything You Need. <span className="bc-bento-highlight">Nothing You Don&apos;t.</span>
+              </h2>
               <p>Policy-driven withdrawal flows, multi-sig approvals and real-time balances across 20+ chains — the custody and payout infrastructure exchanges and fintechs run on.</p>
               <Link href="/contact" className="bento-btn-black">Get Started ↗</Link>
             </div>
@@ -165,29 +160,25 @@ export default function BlockchainTrustedPlatform() {
 
       <style>{`
         .bc-bento-section {
-          padding: 100px 0;
+          padding: 20px 0 70px;
           background: #ffffff;
           font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
         }
-        
-        .bc-bento-header {
-          text-align: center;
-          margin-bottom: 60px;
+
+        .bento-main-heading {
+          font-size: 32px;
+          font-weight: 800;
+          color: #0f172a;
+          line-height: 1.25;
+          letter-spacing: -0.8px;
+          margin: 0 0 16px 0;
         }
-        .bc-bento-header h2 {
-          font-size: 52px;
-          font-weight: 700;
-          color: #000;
-          line-height: 1.1;
-          letter-spacing: -1px;
-          margin: 0;
-        }
-        .bc-bento-sub {
-          margin: 20px auto 0;
-          max-width: 560px;
-          font-size: 16px;
-          color: #666;
-          line-height: 1.6;
+
+        .bc-bento-highlight {
+          color: #1e3a8a;
+          background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #2563eb 100%);
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
 
         .bc-bento-grid {

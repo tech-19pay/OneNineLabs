@@ -4,581 +4,1047 @@ import Link from 'next/link';
 
 export default function BlockchainHeroNew() {
   return (
-    <section className="bc-hero-new">
-      <div className="new-bc-container">
-        <div className="bc-hero-content">
-          <div className="bc-hero-left">
-            <h1 className="bc-hero-title">
-              <span style={{ whiteSpace: 'nowrap' }}>Build the Future of</span><br/><span className="text-gradient">Web3 & Blockchain</span>
-            </h1>
-            <p className="bc-hero-subtitle">
-              End-to-end blockchain development services. From audited smart contracts and dApps to DeFi protocols, NFT marketplaces, wallets, tokenization and high-performance crypto exchanges — we design, build, audit and launch it all.
-            </p>
-            <div className="bc-hero-features">
-              <div className="hero-feature-item">
-                <span className="hf-icon">✓</span>
-                <span className="hf-text">Advanced audits, secure smart contracts, and multi-sig integration for absolute safety.</span>
-              </div>
-              <div className="hero-feature-item">
-                <span className="hf-icon">✓</span>
-                <span className="hf-text">Optimized network throughput and low latency architecture for instant settlements.</span>
-              </div>
-              <div className="hero-feature-item">
-                <span className="hf-icon">✓</span>
-                <span className="hf-text">Plug-and-play infrastructure and robust APIs for wallets, exchanges, and DeFi platforms.</span>
-              </div>
-            </div>
+    <section className="cry-hero-section">
+      {/* Background Ambient Glows & Constellation Arcs */}
+      <div className="cry-bg-effects">
+        <div className="cry-glow-orb orb-1"></div>
+        <div className="cry-glow-orb orb-2"></div>
+        <svg className="cry-constellation" viewBox="0 0 1200 800" fill="none">
+          <circle cx="950" cy="400" r="300" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="4 6" opacity="0.6" />
+          <circle cx="950" cy="400" r="420" stroke="#e2e8f0" strokeWidth="1" strokeDasharray="3 5" opacity="0.4" />
+          <path d="M700 250 Q 880 180 1100 320" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="4 4" opacity="0.5" />
+          <path d="M650 500 Q 850 620 1150 480" stroke="#cbd5e1" strokeWidth="1" strokeDasharray="4 4" opacity="0.5" />
+          <circle cx="700" cy="250" r="4" fill="#10b981" opacity="0.6" />
+          <circle cx="1100" cy="320" r="3" fill="#eab308" opacity="0.6" />
+          <circle cx="650" cy="500" r="4" fill="#3b82f6" opacity="0.5" />
+          <circle cx="1150" cy="480" r="3" fill="#10b981" opacity="0.6" />
+        </svg>
+      </div>
 
-            <div className="bc-hero-actions">
-              <Link href="#get-started" className="bc-hero-primary-btn">
-                Get Started <span className="btn-arrow">→</span>
-              </Link>
-              <Link href="/services/blockchain#services" className="bc-hero-secondary-btn">
-                Explore Services
-              </Link>
-            </div>
+      <div className="new-bc-container cry-container">
+        {/* Left Column: Hero Copy & Actions */}
+        <div className="cry-hero-left">
+          <h1 className="cry-hero-title">
+            <span className="cry-title-nowrap">Build the Future of</span><br />
+            <span className="cry-brand-highlight cry-title-nowrap">
+              Web3 & Blockchain
+              <svg className="cry-swoosh-svg" viewBox="0 0 260 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path 
+                  d="M6 18C70 28 190 28 254 8C200 22 90 27 12 21" 
+                  stroke="url(#cry_swoosh_grad)" 
+                  strokeWidth="8" 
+                  strokeLinecap="round" 
+                />
+                <defs>
+                  <linearGradient id="cry_swoosh_grad" x1="6" y1="18" x2="254" y2="8" gradientUnits="userSpaceOnUse">
+                    <stop stopColor="#1e3a8a" />
+                    <stop offset="0.5" stopColor="#2563eb" />
+                    <stop offset="1" stopColor="#38bdf8" />
+                  </linearGradient>
+                </defs>
+              </svg>
+            </span>
+          </h1>
 
-            <div className="bc-hero-chains">
-              <span className="hc-label">We build on</span>
-              {["Ethereum", "Solana", "Polygon", "BNB Chain", "Arbitrum", "Base"].map((c) => (
-                <span key={c} className="hc-chip">{c}</span>
-              ))}
-            </div>
-          </div>
-          
-          <div className="bc-hero-right">
-            <div className="bc-hero-mockup-scene dual-phones">
-              <div className="bc-hero-glow"></div>
-              {/* Floating stars */}
-              <div className="bc-float-star s1">✦</div>
-              <div className="bc-float-star s2">✦</div>
-              <div className="bc-float-star s3">✦</div>
-              <div className="bc-float-star s4">✦</div>
-              
-              {/* Circular Rings Background */}
-              <div className="bc-rings-bg">
-                <div className="bc-ring r1"></div>
-                <div className="bc-ring r2"></div>
-                <div className="bc-ring r3"></div>
-              </div>
-              
-              {/* Left Phone (Crypto Wallet) */}
-              <div className="bc-phone-frame dark-phone phone-left">
-                <div className="bc-phone-notch"></div>
-                <div className="bc-phone-screen dark">
-                  <div className="dp-header">
-                    <div className="dp-greeting">Hi Arima Kou</div>
-                    <div className="dp-sub">Manage your money here 💰</div>
-                    <div className="dp-scan-icon">⎚</div>
-                  </div>
-                  
-                  <div className="dp-card blue-card">
-                    <div className="dp-card-top">
-                      <span>Crypto Exchange</span>
-                      <span className="dp-card-icons">📈</span>
-                    </div>
-                    <div className="dp-card-bal">$3,720.60</div>
-                    <div className="dp-card-bot">
-                      <span>Monthly profit<br/>$12.00</span>
-                      <span className="dp-badge">▲ 12%</span>
-                    </div>
-                  </div>
-                  
-                  <div className="dp-actions">
-                    <button>↗ Send</button>
-                    <button>↙ Buy</button>
-                  </div>
-                  
-                  <div className="dp-activity">
-                    <div className="dp-act-header">
-                      <span>Your Activity</span>
-                      <span className="dp-act-filter">Last 7 days ⌄</span>
-                    </div>
-                    <div className="dp-act-list">
-                      <div className="dp-act-item">
-                        <div className="dp-act-icon blue">SN</div>
-                        <div className="dp-act-info">
-                          <div className="dp-act-name">Sarouti</div>
-                          <div className="dp-act-date">23 Oct • 08:30 AM</div>
-                        </div>
-                        <div className="dp-act-amt negative">-$19.0<br/><span>Send</span></div>
-                      </div>
-                      <div className="dp-act-item">
-                        <div className="dp-act-icon green">MG</div>
-                        <div className="dp-act-info">
-                          <div className="dp-act-name">Megu</div>
-                          <div className="dp-act-date">23 Oct • 08:00 AM</div>
-                        </div>
-                        <div className="dp-act-amt negative">-$12.0<br/><span>Send</span></div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="dp-navbar">
-                    <span className="active">⌂</span>
-                    <span>💳</span>
-                    <span>◒</span>
-                    <span>👤</span>
-                  </div>
-                </div>
-              </div>
-              
-              {/* Right Phone (Web3 Wallet) */}
-              <div className="bc-phone-frame dark-phone phone-right">
-                <div className="bc-phone-notch"></div>
-                <div className="bc-phone-screen dark">
-                  <div className="dp-stacked-cards">
-                    <div className="dp-card purple-card stacked-back">
-                      <div className="dp-card-top">
-                        <span>Web3 Wallet</span>
-                        <span className="dp-card-icons">💳</span>
-                      </div>
-                      <div className="dp-card-bal">$1,240.60</div>
-                      <div className="dp-card-bot">
-                        <span>Monthly profit<br/>$10.00</span>
-                        <span className="dp-badge">▲ 10%</span>
-                      </div>
-                    </div>
-                    <div className="dp-card blue-card stacked-front">
-                      <div className="dp-card-top">
-                        <span>Web3 Wallet</span>
-                        <span className="dp-card-icons">💳</span>
-                      </div>
-                      <div className="dp-card-bal">$3,720.60</div>
-                      <div className="dp-card-bot">
-                        <span>Monthly profit<br/>$12.00</span>
-                        <span className="dp-badge">▲ 12%</span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="dp-dots">
-                    <span className="dot active"></span>
-                    <span className="dot"></span>
-                    <span className="dot"></span>
-                  </div>
-                  
-                  <div className="dp-web3-info">
-                    <h3>Web3 Wallet crypto</h3>
-                    <div className="dp-mini-swap">
-                      <div className="dp-mini-swap-row">
-                        <span className="label">Swap</span> <span className="val">0.5 BTC → USDT</span>
-                      </div>
-                      <div className="dp-mini-swap-row">
-                        <span className="label">Rate</span> <span className="val">1 BTC = 79,106 USDT</span>
-                      </div>
-                    </div>
-                  </div>
-                  
-                  <div className="dp-bottom-action">
-                    <button className="dp-round-btn">→</button>
-                  </div>
-                </div>
-              </div>
-            </div>
+          <p className="cry-hero-desc">
+            End-to-end blockchain development services. From audited smart contracts and DeFi protocols to custom wallets, DEXs, and cross-chain dApps engineered for institutional-grade security and scale.
+          </p>
+
+          <div className="cry-hero-actions">
+            <Link href="#get-started" className="cry-btn-primary">
+              Get Started
+            </Link>
+
+            <Link href="/services/blockchain#services" className="cry-btn-secondary">
+              <span>Explore Services</span>
+              <span className="cry-play-icon">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <path d="M5 12h14M12 5l7 7-7 7" />
+                </svg>
+              </span>
+            </Link>
           </div>
         </div>
+
+        {/* Right Column: 3D Angled Phone Mockups Scene */}
+        <div className="cry-hero-right">
+          <div className="cry-mockups-scene">
+            
+            {/* Phone 1: Front / Left Phone (Market View) */}
+            <div className="cry-phone-device phone-front">
+              <div className="cry-phone-inner">
+                {/* Phone Header / Status Bar */}
+                <div className="cphone-status-bar">
+                  <span className="cphone-time">9:27</span>
+                  <div className="cphone-dynamic-island"></div>
+                  <div className="cphone-status-icons">
+                    <svg width="12" height="10" viewBox="0 0 16 12" fill="#0f172a"><path d="M0 10h3v2H0zm5-4h3v6H5zm5-4h3v10h-3zm5-2h1v12h-1z"/></svg>
+                    <svg width="14" height="10" viewBox="0 0 20 12" fill="#0f172a"><rect x="1" y="1" width="15" height="10" rx="3" stroke="#0f172a" strokeWidth="1.5" fill="none"/><rect x="3" y="3" width="9" height="6" rx="1.5" fill="#0f172a"/><path d="M17 4h1a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-1z" fill="#0f172a"/></svg>
+                  </div>
+                </div>
+
+                {/* In-App Navigation Bar */}
+                <div className="cphone-nav">
+                  <span className="cphone-nav-icon">☰</span>
+                  <span className="cphone-nav-title">Market</span>
+                  <span className="cphone-nav-icon">🔔</span>
+                </div>
+
+                {/* Search Bar */}
+                <div className="cphone-search">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="2.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+                  <span>Search</span>
+                </div>
+
+                {/* Favorite Section */}
+                <div className="cphone-section-label">Favorite</div>
+                <div className="cphone-cards-grid">
+                  {/* Card 1: Ethereum */}
+                  <div className="cphone-fav-card">
+                    <div className="cpc-top">
+                      <div className="cpc-coin-ic eth">⧫</div>
+                      <div className="cpc-coin-meta">
+                        <span className="cpc-name">Ethereum</span>
+                        <span className="cpc-symbol">(ETH)</span>
+                      </div>
+                    </div>
+                    {/* Sparkline Graph */}
+                    <svg className="cpc-chart" viewBox="0 0 100 28" fill="none">
+                      <path d="M0 20 Q 20 8 40 18 T 75 6 T 100 12" stroke="#10b981" strokeWidth="2.2" strokeLinecap="round"/>
+                    </svg>
+                    <div className="cpc-bottom">
+                      <span className="cpc-price">$ 19.347,2</span>
+                      <span className="cpc-change green">+0,39%</span>
+                    </div>
+                  </div>
+
+                  {/* Card 2: Cardano */}
+                  <div className="cphone-fav-card">
+                    <div className="cpc-top">
+                      <div className="cpc-coin-ic ada">₳</div>
+                      <div className="cpc-coin-meta">
+                        <span className="cpc-name">Cardano</span>
+                        <span className="cpc-symbol">(ADA)</span>
+                      </div>
+                    </div>
+                    {/* Sparkline Graph */}
+                    <svg className="cpc-chart" viewBox="0 0 100 28" fill="none">
+                      <path d="M0 10 Q 25 22 50 12 T 80 24 T 100 16" stroke="#ef4444" strokeWidth="2.2" strokeLinecap="round"/>
+                    </svg>
+                    <div className="cpc-bottom">
+                      <span className="cpc-price">$ 12.113,9</span>
+                      <span className="cpc-change red">-0,89%</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Trend Market Section */}
+                <div className="cphone-section-label">Trend Market</div>
+                <div className="cphone-market-list">
+                  {/* Row 1: Ethereum */}
+                  <div className="cphone-list-item">
+                    <span className="cli-rank">1#</span>
+                    <div className="cli-coin eth">⧫</div>
+                    <div className="cli-info">
+                      <span className="cli-title">Ethereum</span>
+                      <span className="cli-sub">ETH</span>
+                    </div>
+                    <div className="cli-stats">
+                      <span className="cli-price">$12,9</span>
+                      <span className="cli-rate green">▲ 2,98%</span>
+                    </div>
+                  </div>
+
+                  {/* Row 2: Bitcoin with Favorite Badge */}
+                  <div className="cphone-list-item relative-fav">
+                    <span className="cli-rank">2#</span>
+                    <div className="cli-coin btc">₿</div>
+                    <div className="cli-info">
+                      <span className="cli-title">Bitcoin</span>
+                      <span className="cli-sub">BTC</span>
+                    </div>
+                    <div className="cli-stats">
+                      <span className="cli-price">$10,2</span>
+                      <span className="cli-rate green">▲ 2,65%</span>
+                    </div>
+                    {/* Floating Favorite Tag */}
+                    <div className="cli-fav-tag">
+                      <svg width="10" height="10" viewBox="0 0 24 24" fill="#fff"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+                      Favorite
+                    </div>
+                  </div>
+
+                  {/* Row 3: Cardano */}
+                  <div className="cphone-list-item">
+                    <span className="cli-rank">3#</span>
+                    <div className="cli-coin ada">₳</div>
+                    <div className="cli-info">
+                      <span className="cli-title">Cardano</span>
+                      <span className="cli-sub">ADA</span>
+                    </div>
+                    <div className="cli-stats">
+                      <span className="cli-price">$9,8</span>
+                      <span className="cli-rate green">▲ 2,78%</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+
+              {/* Floating Breakout Card: Chainlink */}
+              <div className="cry-floating-pill-card pill-card-1">
+                <span className="cli-rank">3#</span>
+                <div className="cli-coin link">🔗</div>
+                <div className="cli-info">
+                  <span className="cli-title">Chainlink</span>
+                </div>
+                <span className="cli-price">$12,9</span>
+              </div>
+            </div>
+
+            {/* Phone 2: Back / Right Phone (Wallet & Balance View) */}
+            <div className="cry-phone-device phone-back">
+              <div className="cry-phone-inner">
+                {/* Phone Header / Status Bar */}
+                <div className="cphone-status-bar">
+                  <span className="cphone-time">9:27</span>
+                  <div className="cphone-dynamic-island"></div>
+                  <div className="cphone-status-icons">
+                    <svg width="12" height="10" viewBox="0 0 16 12" fill="#0f172a"><path d="M0 10h3v2H0zm5-4h3v6H5zm5-4h3v10h-3zm5-2h1v12h-1z"/></svg>
+                    <svg width="14" height="10" viewBox="0 0 20 12" fill="#0f172a"><rect x="1" y="1" width="15" height="10" rx="3" stroke="#0f172a" strokeWidth="1.5" fill="none"/><rect x="3" y="3" width="9" height="6" rx="1.5" fill="#0f172a"/><path d="M17 4h1a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1h-1z" fill="#0f172a"/></svg>
+                  </div>
+                </div>
+
+                {/* Top Balance Card (Floating Glass Effect) */}
+                <div className="cphone-bal-card">
+                  <div className="cbal-header">
+                    <span>Current Balance</span>
+                    <div className="cbal-icons">
+                      <span className="cbal-mini eth">⧫</span>
+                      <span className="cbal-mini btc">₿</span>
+                      <span className="cbal-mini more">1+</span>
+                    </div>
+                  </div>
+                  <div className="cbal-amount">$ 48.369,88</div>
+                  <div className="cbal-footer">
+                    <span className="cbal-profit-label">Profit <strong className="cbal-profit-val">$ 191,02</strong></span>
+                    <span className="cbal-profit-pct">(0,39%) <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3"><path d="m5 15 7-7 7 7"/></svg></span>
+                  </div>
+                </div>
+
+                {/* Action Buttons Row */}
+                <div className="cphone-actions-row">
+                  <div className="cact-btn">
+                    <div className="cact-icon">⇄</div>
+                    <span>Exchange</span>
+                  </div>
+                  <div className="cact-btn">
+                    <div className="cact-icon">+</div>
+                    <span>Topup</span>
+                  </div>
+                  <div className="cact-btn">
+                    <div className="cact-icon">↗</div>
+                    <span>Withdraw</span>
+                  </div>
+                </div>
+
+                {/* Assets Section */}
+                <div className="cphone-section-header">
+                  <span>Assets</span>
+                  <span className="cphone-see-all">See all</span>
+                </div>
+                <div className="cphone-cards-grid">
+                  {/* Asset 1: Ethereum */}
+                  <div className="cphone-fav-card">
+                    <div className="cpc-top">
+                      <div className="cpc-coin-ic eth">⧫</div>
+                      <div className="cpc-coin-meta">
+                        <span className="cpc-name">Ethereum</span>
+                        <span className="cpc-symbol">(ETH)</span>
+                      </div>
+                    </div>
+                    <div className="cpc-subprice">$ 19.347,2 <span className="green-txt">+0,39%</span></div>
+                    <svg className="cpc-chart" viewBox="0 0 100 24" fill="none">
+                      <path d="M0 18 Q 30 6 60 14 T 100 4" stroke="#10b981" strokeWidth="2.2" strokeLinecap="round"/>
+                    </svg>
+                  </div>
+
+                  {/* Asset 2: Bitcoin */}
+                  <div className="cphone-fav-card">
+                    <div className="cpc-top">
+                      <div className="cpc-coin-ic btc">₿</div>
+                      <div className="cpc-coin-meta">
+                        <span className="cpc-name">Bitcoin</span>
+                        <span className="cpc-symbol">(BTC)</span>
+                      </div>
+                    </div>
+                    <div className="cpc-subprice">$ 12.113,9 <span className="red-txt">-1,98%</span></div>
+                    <svg className="cpc-chart" viewBox="0 0 100 24" fill="none">
+                      <path d="M0 6 Q 30 18 60 10 T 100 20" stroke="#ef4444" strokeWidth="2.2" strokeLinecap="round"/>
+                    </svg>
+                  </div>
+                </div>
+
+                {/* Transaction History Section */}
+                <div className="cphone-section-header mt-8">
+                  <span>Transaction History</span>
+                  <span className="cphone-see-all">See all</span>
+                </div>
+                <div className="cphone-tx-list">
+                  <div className="cphone-tx-item">
+                    <div className="ctx-icon eth">⧫</div>
+                    <div className="ctx-meta">
+                      <span className="ctx-title">Ethereum</span>
+                      <span className="ctx-sub">Send</span>
+                    </div>
+                    <div className="ctx-amount">
+                      <span className="ctx-val">$12,9</span>
+                      <span className="ctx-date">Today, 11:15 AM</span>
+                    </div>
+                  </div>
+                  <div className="cphone-tx-item">
+                    <div className="ctx-icon ada">₳</div>
+                    <div className="ctx-meta">
+                      <span className="ctx-title">Cardano</span>
+                      <span className="ctx-sub">Receive</span>
+                    </div>
+                    <div className="ctx-amount">
+                      <span className="ctx-val">$8,2</span>
+                      <span className="ctx-date">Yesterday</span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+
       </div>
 
       <style>{`
-        .bc-hero-new {
-          padding: 20px 0 10px;
-          background: #fdfdfd;
+        .cry-hero-section {
           position: relative;
+          background: #ffffff;
+          padding: 20px 0 0;
+          overflow: hidden;
+          font-family: -apple-system, BlinkMacSystemFont, "Inter", "Segoe UI", Roboto, sans-serif;
+        }
+
+        /* Ambient Background Elements */
+        .cry-bg-effects {
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+          z-index: 0;
           overflow: hidden;
         }
-        .bc-hero-content {
+        .cry-glow-orb {
+          position: absolute;
+          border-radius: 50%;
+          filter: blur(90px);
+          opacity: 0.45;
+        }
+        .orb-1 {
+          width: 500px;
+          height: 500px;
+          background: radial-gradient(circle, rgba(16, 185, 129, 0.18) 0%, rgba(255,255,255,0) 70%);
+          top: -50px;
+          right: 20%;
+        }
+        .orb-2 {
+          width: 600px;
+          height: 600px;
+          background: radial-gradient(circle, rgba(234, 179, 8, 0.12) 0%, rgba(59, 130, 246, 0.08) 50%, rgba(255,255,255,0) 70%);
+          bottom: -100px;
+          right: -50px;
+        }
+        .cry-constellation {
+          position: absolute;
+          right: -50px;
+          top: 50%;
+          transform: translateY(-50%);
+          width: 900px;
+          height: 600px;
+        }
+
+        .cry-container {
+          position: relative;
+          z-index: 1;
           display: grid;
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: 1.05fr 1.35fr;
           gap: 40px;
           align-items: center;
         }
-        .bc-hero-left {
-          max-width: 600px;
-          align-self: flex-start;
-          margin-top: 40px;
+
+        /* Left Side Typography & Actions */
+        .cry-hero-left {
+          max-width: 580px;
+        }
+        .cry-title-nowrap {
+          white-space: nowrap;
+          display: inline-block;
         }
 
-        .bc-hero-title {
+        .cry-hero-title {
           font-size: 52px;
           font-weight: 800;
-          line-height: 1.1;
-          color: #111;
-          margin-bottom: 24px;
+          color: #0f172a;
+          line-height: 1.18;
+          letter-spacing: -1.5px;
+          margin: 0 0 24px;
         }
-        .text-gradient {
-          background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 100%);
+        .cry-brand-highlight {
+          position: relative;
+          display: inline-block;
+          color: #1e3a8a; /* Dark Royal Blue */
+          background: linear-gradient(135deg, #1e3a8a 0%, #1d4ed8 50%, #2563eb 100%);
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
         }
-        .bc-hero-subtitle {
-          font-size: 16px;
-          color: #666;
-          line-height: 1.6;
-          margin-bottom: 24px;
-          max-width: 440px;
-        }
-        .bc-hero-actions {
-          margin-top: 40px;
-          display: flex;
-          align-items: center;
-          gap: 16px;
-          flex-wrap: wrap;
-        }
-        .bc-hero-secondary-btn {
-          display: inline-flex;
-          align-items: center;
-          gap: 8px;
-          color: #111;
-          font-weight: 600;
-          padding: 16px 28px;
-          border-radius: 100px;
-          text-decoration: none;
-          border: 1px solid #e5e7eb;
-          background: #fff;
-          transition: all 0.2s;
-        }
-        .bc-hero-secondary-btn:hover {
-          border-color: #111;
-          transform: translateY(-2px);
-        }
-        .bc-hero-chains {
-          margin-top: 32px;
-          display: flex;
-          align-items: center;
-          flex-wrap: wrap;
-          gap: 8px;
-        }
-        .hc-label {
-          font-size: 12px;
-          font-weight: 700;
-          color: #94a3b8;
-          text-transform: uppercase;
-          letter-spacing: 1px;
-          margin-right: 6px;
-        }
-        .hc-chip {
-          font-size: 12.5px;
-          font-weight: 600;
-          color: #334155;
-          background: #f3f4f6;
-          border: 1px solid #e5e7eb;
-          padding: 6px 13px;
-          border-radius: 100px;
-          transition: all 0.2s;
-        }
-        .hc-chip:hover {
-          border-color: #2563eb;
-          color: #2563eb;
-          background: #eff6ff;
-        }
-        .bc-hero-primary-btn {
-          display: inline-flex;
-          align-items: center;
-          gap: 12px;
-          background: linear-gradient(90deg, #1e3a8a 0%, #2563eb 100%);
-          color: #fff;
-          font-weight: 600;
-          padding: 16px 32px;
-          border-radius: 100px;
-          text-decoration: none;
-          box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
-          transition: transform 0.2s;
-        }
-        .bc-hero-primary-btn:hover {
-          transform: translateY(-2px);
-        }
-        .bc-hero-features {
-          display: flex;
-          flex-direction: column;
-          gap: 16px;
-          margin-top: 32px;
-        }
-        .hero-feature-item {
-          display: flex;
-          align-items: flex-start;
-          gap: 12px;
-        }
-        .hf-icon {
-          color: #2563eb;
-          font-weight: 800;
-          font-size: 14px;
-          margin-top: 2px;
-        }
-        .hf-text {
-          font-size: 15px;
-          color: #555;
-          line-height: 1.5;
-        }
-
-        .bc-hero-right {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          position: relative;
-        }
-        .bc-hero-mockup-scene {
-          position: relative;
-          width: 500px;
-          height: 600px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-        }
-        .bc-hero-glow {
+        .cry-swoosh-svg {
           position: absolute;
-          width: 400px;
-          height: 400px;
-          background: radial-gradient(circle, rgba(37,99,235,0.15) 0%, rgba(255,255,255,0) 70%);
-          top: 50%;
-          left: 50%;
-          transform: translate(-50%, -50%);
-          z-index: 0;
-        }
-        
-        .bc-float-star {
-          position: absolute;
-          color: #2563eb;
-          font-size: 14px;
-          opacity: 0.6;
-        }
-        .s1 { top: 10%; left: 20%; font-size: 18px; }
-        .s2 { top: 20%; right: 10%; font-size: 12px; color: #1e3a8a; }
-        .s3 { bottom: 10%; left: 30%; font-size: 16px; }
-        .s4 { bottom: 20%; right: 20%; font-size: 12px; }
-
-        /* Dual Phone Mockup Scene CSS */
-        .bc-hero-mockup-scene.dual-phones {
-          width: 550px;
-          height: 600px;
-          perspective: 1000px;
-        }
-        
-        .bc-rings-bg {
-          position: absolute;
-          width: 100%;
-          height: 100%;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          z-index: 0;
+          left: -4px;
+          bottom: -14px;
+          width: 106%;
+          height: 26px;
           pointer-events: none;
         }
-        .bc-ring {
-          position: absolute;
-          border-radius: 50%;
-          border: 1px solid rgba(0,0,0,0.1);
-          transform: rotateX(60deg);
+
+        .cry-hero-desc {
+          font-size: 17px;
+          color: #475569;
+          line-height: 1.65;
+          margin: 0 0 36px;
+          max-width: 460px;
         }
-        .r1 { width: 350px; height: 350px; }
-        .r2 { width: 450px; height: 450px; }
-        .r3 { width: 550px; height: 550px; }
-        
-        .dark-phone {
-          width: 250px;
-          height: 520px;
-          background: #fff;
-          border: 6px solid #e5e7eb;
-          box-shadow: 0 40px 80px rgba(0,0,0,0.1), inset 0 0 0 2px #f3f4f6;
-          position: absolute;
-          border-radius: 36px;
-        }
-        .dark-phone .bc-phone-notch {
-          background: #1a1a1a;
-          width: 100px;
-          height: 20px;
-        }
-        .dark-phone .bc-phone-screen.dark {
-          background: #fdfdfd;
-          color: #111;
-          border-radius: 30px;
-          overflow: hidden;
+
+        .cry-hero-actions {
           display: flex;
-          flex-direction: column;
+          align-items: center;
+          gap: 16px;
+          flex-wrap: wrap;
         }
-        
-        .phone-left {
-          top: 20px;
-          left: 20px;
-          transform: rotate(-10deg) rotateY(15deg) scale(0.9);
-          z-index: 1;
-        }
-        .phone-right {
-          bottom: 20px;
-          right: 20px;
-          transform: rotate(5deg) rotateY(-10deg) scale(0.95);
-          z-index: 2;
-        }
-        
-        /* Dark Phone Inner UI - Converted to Light Theme */
-        .dp-header {
-          padding: 30px 16px 16px;
-          position: relative;
-        }
-        .dp-greeting { font-size: 14px; font-weight: 700; margin-bottom: 4px; }
-        .dp-sub { font-size: 10px; color: #666; }
-        .dp-scan-icon { position: absolute; right: 16px; top: 30px; font-size: 16px; color: #666; }
-        
-        .dp-card {
-          margin: 0 16px;
-          padding: 16px;
-          border-radius: 16px;
-          position: relative;
-          overflow: hidden;
-          color: #fff;
-        }
-        .dp-card::after {
-          content: '';
-          position: absolute;
-          right: -20px;
-          bottom: -20px;
-          width: 100px;
-          height: 100px;
-          background: rgba(255,255,255,0.1);
-          border-radius: 50%;
-        }
-        .blue-card { background: linear-gradient(135deg, #1e3a8a, #2563eb); }
-        .purple-card { background: linear-gradient(135deg, #581c87, #9333ea); }
-        
-        .dp-card-top { display: flex; justify-content: space-between; font-size: 10px; margin-bottom: 12px; }
-        .dp-card-bal { font-size: 24px; font-weight: 700; margin-bottom: 16px; }
-        .dp-card-bot { display: flex; justify-content: space-between; align-items: flex-end; font-size: 9px; opacity: 0.9; }
-        .dp-badge { background: rgba(0,0,0,0.2); padding: 4px 6px; border-radius: 6px; font-weight: 600; }
-        
-        .dp-actions {
-          display: flex;
-          gap: 12px;
-          padding: 16px;
-        }
-        .dp-actions button {
-          flex: 1;
-          background: #f3f4f6;
-          border: 1px solid #e5e7eb;
-          color: #111;
-          padding: 10px;
-          border-radius: 12px;
-          font-size: 11px;
+        .cry-btn-primary {
+          background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%); /* Royal Blue Palette */
+          color: #ffffff;
+          font-size: 16px;
           font-weight: 600;
-        }
-        
-        .dp-activity {
-          flex: 1;
-          padding: 0 16px;
-        }
-        .dp-act-header {
-          display: flex;
-          justify-content: space-between;
-          font-size: 11px;
-          font-weight: 600;
-          margin-bottom: 12px;
-        }
-        .dp-act-filter { color: #666; font-weight: 400; font-size: 9px; }
-        
-        .dp-act-list { display: flex; flex-direction: column; gap: 12px; }
-        .dp-act-item { display: flex; align-items: center; gap: 10px; }
-        .dp-act-icon { width: 32px; height: 32px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 11px; font-weight: 700; color: #fff; }
-        .dp-act-icon.blue { background: #1d4ed8; }
-        .dp-act-icon.green { background: #047857; }
-        .dp-act-info { flex: 1; }
-        .dp-act-name { font-size: 12px; font-weight: 600; }
-        .dp-act-date { font-size: 9px; color: #888; margin-top: 2px; }
-        .dp-act-amt { font-size: 11px; font-weight: 600; text-align: right; }
-        .dp-act-amt.negative { color: #ef4444; }
-        .dp-act-amt span { font-size: 9px; color: #888; font-weight: 400; }
-        
-        .dp-navbar {
-          display: flex;
-          justify-content: space-around;
-          padding: 16px;
-          background: #fff;
-          border-top: 1px solid #e5e7eb;
-          font-size: 18px;
-          color: #9ca3af;
-        }
-        .dp-navbar .active { color: #3b82f6; }
-        
-        /* Right Phone Specific UI */
-        .dp-stacked-cards {
-          padding: 40px 16px 20px;
-          position: relative;
-          height: 240px;
-        }
-        .stacked-back {
-          position: absolute;
-          top: 40px;
-          left: 16px;
-          right: 32px;
-          transform: rotate(-5deg);
-          opacity: 0.9;
-        }
-        .stacked-front {
-          position: absolute;
-          top: 80px;
-          left: 16px;
-          right: 16px;
-          box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-        
-        .dp-dots {
-          display: flex;
-          justify-content: center;
-          gap: 6px;
-          margin-bottom: 24px;
-        }
-        .dp-dots .dot {
-          width: 16px;
-          height: 4px;
-          background: #e5e7eb;
-          border-radius: 4px;
-        }
-        .dp-dots .active { background: #3b82f6; }
-        
-        .dp-web3-info {
-          text-align: center;
-          padding: 0 20px;
-          flex: 1;
-        }
-        .dp-web3-info h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
-        .dp-mini-swap {
-          background: #f3f4f6;
-          border-radius: 12px;
-          padding: 10px 12px;
-          margin-top: 12px;
-          display: flex;
-          flex-direction: column;
-          gap: 6px;
-        }
-        .dp-mini-swap-row {
-          display: flex;
-          justify-content: space-between;
-          font-size: 11px;
-        }
-        .dp-mini-swap-row .label { color: #666; }
-        .dp-mini-swap-row .val { color: #111; font-weight: 600; }
-        
-        .dp-bottom-action {
-          padding: 24px;
-          display: flex;
-          justify-content: center;
-        }
-        .dp-round-btn {
-          width: 48px;
-          height: 48px;
-          border-radius: 50%;
-          background: #2563eb;
-          color: #fff;
+          padding: 16px 36px;
+          border-radius: 100px;
+          text-decoration: none;
+          box-shadow: 0 10px 25px -3px rgba(37, 99, 235, 0.35);
+          transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
           border: none;
-          font-size: 20px;
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .cry-btn-primary:hover {
+          background: linear-gradient(135deg, #172554 0%, #1d4ed8 100%);
+          transform: translateY(-2px);
+          box-shadow: 0 15px 30px -3px rgba(37, 99, 235, 0.45);
+        }
+
+        .cry-btn-secondary {
+          background: #ffffff;
+          color: #0f172a;
+          font-size: 16px;
+          font-weight: 600;
+          padding: 14px 28px;
+          border-radius: 100px;
+          border: 1.5px solid #0f172a;
+          cursor: pointer;
+          display: inline-flex;
+          align-items: center;
+          gap: 12px;
+          transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+          text-decoration: none;
+        }
+        .cry-play-icon {
+          width: 28px;
+          height: 28px;
+          border-radius: 50%;
+          border: 1.5px solid #2563eb;
+          color: #2563eb;
           display: flex;
           align-items: center;
           justify-content: center;
-          box-shadow: 0 10px 20px rgba(37, 99, 235, 0.4);
+          transition: all 0.2s;
         }
-        @media (max-width: 900px) {
-          .bc-hero-content { grid-template-columns: 1fr; text-align: center; }
-          .bc-hero-left { margin: 0 auto; }
-          .bc-hero-trustpilot { justify-content: center; }
-          .bc-phone-frame.tilted { transform: rotate(0); }
+        .cry-btn-secondary:hover {
+          background: #f8fafc;
+          border-color: #2563eb;
+          color: #2563eb;
+          transform: translateY(-2px);
+        }
+        .cry-btn-secondary:hover .cry-play-icon {
+          background: #2563eb;
+          color: #ffffff;
+        }
+
+        /* Right Side: Dual Angled Phones Scene */
+        .cry-hero-right {
+          position: relative;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          min-height: 460px;
+        }
+        .cry-mockups-scene {
+          position: relative;
+          width: 100%;
+          max-width: 460px;
+          height: 460px;
+          perspective: 1400px;
+        }
+
+        /* Common Phone Frame Styling - White Theme */
+        .cry-phone-device {
+          position: absolute;
+          width: 225px;
+          height: 445px;
+          background: #ffffff;
+          border: 7px solid #e2e8f0;
+          border-radius: 36px;
+          box-shadow: 
+            0 25px 50px -10px rgba(15, 23, 42, 0.12),
+            0 12px 24px -10px rgba(15, 23, 42, 0.08),
+            inset 0 0 0 1px #ffffff;
+          overflow: visible;
+          transform-style: preserve-3d;
+          transition: transform 0.4s ease;
+        }
+        .cry-phone-inner {
+          position: relative;
+          width: 100%;
+          height: 100%;
+          background: #f8fafc;
+          border-radius: 28px;
+          overflow: hidden;
+          padding: 10px 10px 14px;
+          display: flex;
+          flex-direction: column;
+          color: #0f172a;
+        }
+
+        /* Phone 1 (Front/Left Angle) */
+        .phone-front {
+          left: 10px;
+          bottom: 10px;
+          z-index: 2;
+          transform: rotate(-7deg) rotateY(12deg) scale(0.88);
+        }
+        .phone-front:hover {
+          transform: rotate(-4deg) rotateY(6deg) scale(0.92);
+        }
+
+        /* Phone 2 (Back/Right Angle) */
+        .phone-back {
+          right: 10px;
+          top: 10px;
+          z-index: 1;
+          transform: rotate(5deg) rotateY(-8deg) scale(0.84);
+        }
+        .phone-back:hover {
+          transform: rotate(2deg) rotateY(-4deg) scale(0.88);
+        }
+
+        /* Phone Status Bar */
+        .cphone-status-bar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 4px 10px 10px;
+        }
+        .cphone-time {
+          font-size: 11px;
+          font-weight: 700;
+          color: #0f172a;
+        }
+        .cphone-dynamic-island {
+          width: 68px;
+          height: 15px;
+          background: #0f172a;
+          border-radius: 20px;
+        }
+        .cphone-status-icons {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+        }
+
+        /* In-Phone Header / Nav */
+        .cphone-nav {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 12px;
+          padding: 0 4px;
+        }
+        .cphone-nav-icon {
+          font-size: 14px;
+          color: #64748b;
+          cursor: pointer;
+        }
+        .cphone-nav-title {
+          font-size: 13px;
+          font-weight: 700;
+          color: #0f172a;
+        }
+
+        /* Phone Search Bar */
+        .cphone-search {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
+          border-radius: 12px;
+          padding: 8px 12px;
+          font-size: 11px;
+          color: #94a3b8;
+          margin-bottom: 14px;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+
+        /* Section Labels */
+        .cphone-section-label {
+          font-size: 12px;
+          font-weight: 700;
+          color: #0f172a;
+          margin: 0 0 8px 2px;
+        }
+        .cphone-section-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 12px;
+          font-weight: 700;
+          color: #0f172a;
+          margin-bottom: 8px;
+        }
+        .cphone-see-all {
+          font-size: 10px;
+          font-weight: 600;
+          color: #10b981;
+          cursor: pointer;
+        }
+
+        /* Cards Grid */
+        .cphone-cards-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 8px;
+          margin-bottom: 14px;
+        }
+        .cphone-fav-card {
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
+          border-radius: 14px;
+          padding: 10px;
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+          box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+        }
+        .cpc-top {
+          display: flex;
+          align-items: center;
+          gap: 6px;
+        }
+        .cpc-coin-ic {
+          width: 22px;
+          height: 22px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 11px;
+          font-weight: 700;
+          color: #fff;
+        }
+        .cpc-coin-ic.eth { background: #627eea; }
+        .cpc-coin-ic.ada { background: #0033ad; }
+        .cpc-coin-ic.btc { background: #f7931a; }
+        .cpc-coin-meta {
+          display: flex;
+          flex-direction: column;
+          line-height: 1.1;
+        }
+        .cpc-name {
+          font-size: 10px;
+          font-weight: 700;
+          color: #0f172a;
+        }
+        .cpc-symbol {
+          font-size: 8px;
+          color: #64748b;
+        }
+        .cpc-chart {
+          width: 100%;
+          height: 22px;
+          margin: 2px 0;
+        }
+        .cpc-bottom {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .cpc-price {
+          font-size: 11px;
+          font-weight: 700;
+          color: #0f172a;
+        }
+        .cpc-subprice {
+          font-size: 10px;
+          font-weight: 700;
+          color: #0f172a;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+        .cpc-change {
+          font-size: 8.5px;
+          font-weight: 700;
+          padding: 1px 4px;
+          border-radius: 4px;
+        }
+        .cpc-change.green, .green-txt { color: #10b981; }
+        .cpc-change.red, .red-txt { color: #ef4444; }
+
+        /* Market List (Phone 1) */
+        .cphone-market-list {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+        .cphone-list-item {
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
+          border-radius: 12px;
+          padding: 8px 10px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          position: relative;
+          box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+        }
+        .cli-rank {
+          font-size: 9px;
+          font-weight: 700;
+          color: #94a3b8;
+          width: 14px;
+        }
+        .cli-coin {
+          width: 22px;
+          height: 22px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 11px;
+          font-weight: 700;
+          color: #fff;
+        }
+        .cli-coin.eth { background: #627eea; }
+        .cli-coin.btc { background: #f7931a; }
+        .cli-coin.ada { background: #0033ad; }
+        .cli-coin.link { background: #375bd2; font-size: 10px; }
+        .cli-info {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          line-height: 1.1;
+        }
+        .cli-title {
+          font-size: 11px;
+          font-weight: 700;
+          color: #0f172a;
+        }
+        .cli-sub {
+          font-size: 8.5px;
+          color: #64748b;
+        }
+        .cli-stats {
+          text-align: right;
+          display: flex;
+          flex-direction: column;
+          line-height: 1.1;
+        }
+        .cli-price {
+          font-size: 11px;
+          font-weight: 700;
+          color: #0f172a;
+        }
+        .cli-rate.green {
+          font-size: 8.5px;
+          font-weight: 700;
+          color: #10b981;
+        }
+
+        /* Floating Favorite Tag */
+        .cli-fav-tag {
+          position: absolute;
+          right: -6px;
+          top: -6px;
+          background: #10b981;
+          color: #fff;
+          font-size: 8px;
+          font-weight: 700;
+          padding: 2px 6px;
+          border-radius: 6px;
+          display: flex;
+          align-items: center;
+          gap: 3px;
+          box-shadow: 0 4px 10px rgba(16, 185, 129, 0.35);
+        }
+
+        /* Floating Pill Card (Chainlink Breakout) */
+        .cry-floating-pill-card {
+          position: absolute;
+          bottom: 24px;
+          right: -30px;
+          background: #ffffff;
+          border: 1px solid #cbd5e1;
+          border-radius: 100px;
+          padding: 8px 16px;
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          box-shadow: 0 16px 32px rgba(15, 23, 42, 0.12);
+          z-index: 10;
+          color: #0f172a;
+        }
+
+        /* Phone 2 Specific Elements */
+        .cphone-bal-card {
+          background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);
+          border: 1px solid #dcfce7;
+          border-radius: 18px;
+          padding: 14px;
+          margin-bottom: 12px;
+          box-shadow: 0 4px 14px rgba(16, 185, 129, 0.08);
+        }
+        .cbal-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 10px;
+          color: #64748b;
+          margin-bottom: 4px;
+        }
+        .cbal-icons {
+          display: flex;
+          align-items: center;
+          gap: 3px;
+        }
+        .cbal-mini {
+          width: 16px;
+          height: 16px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 8px;
+          font-weight: 700;
+          color: #fff;
+        }
+        .cbal-mini.eth { background: #627eea; }
+        .cbal-mini.btc { background: #f7931a; }
+        .cbal-mini.more { background: #e2e8f0; color: #475569; font-size: 7px; }
+        .cbal-amount {
+          font-size: 22px;
+          font-weight: 800;
+          color: #0f172a;
+          letter-spacing: -0.5px;
+          margin-bottom: 6px;
+        }
+        .cbal-footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          font-size: 9.5px;
+        }
+        .cbal-profit-label {
+          color: #64748b;
+        }
+        .cbal-profit-val {
+          color: #0f172a;
+          font-weight: 700;
+        }
+        .cbal-profit-pct {
+          background: #dcfce7;
+          color: #15803d;
+          border: 1px solid #bbf7d0;
+          padding: 2px 6px;
+          border-radius: 6px;
+          font-weight: 700;
+          display: flex;
+          align-items: center;
+          gap: 2px;
+        }
+
+        /* Action Buttons */
+        .cphone-actions-row {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 8px;
+          margin-bottom: 14px;
+        }
+        .cact-btn {
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
+          border-radius: 12px;
+          padding: 8px 4px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 4px;
+          font-size: 9px;
+          font-weight: 600;
+          color: #475569;
+          cursor: pointer;
+          transition: all 0.2s;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+        .cact-btn:hover {
+          background: #f1f5f9;
+          color: #0f172a;
+          border-color: #cbd5e1;
+        }
+        .cact-icon {
+          width: 26px;
+          height: 26px;
+          border-radius: 8px;
+          background: #f1f5f9;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 12px;
+          color: #0f172a;
+        }
+
+        /* Transactions List */
+        .mt-8 { margin-top: 8px; }
+        .cphone-tx-list {
+          display: flex;
+          flex-direction: column;
+          gap: 6px;
+        }
+        .cphone-tx-item {
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
+          border-radius: 12px;
+          padding: 8px 10px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+        }
+        .ctx-icon {
+          width: 22px;
+          height: 22px;
+          border-radius: 50%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 11px;
+          font-weight: 700;
+          color: #fff;
+        }
+        .ctx-icon.eth { background: #627eea; }
+        .ctx-icon.ada { background: #0033ad; }
+        .ctx-meta {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          line-height: 1.1;
+        }
+        .ctx-title {
+          font-size: 11px;
+          font-weight: 700;
+          color: #0f172a;
+        }
+        .ctx-sub {
+          font-size: 8.5px;
+          color: #64748b;
+        }
+        .ctx-amount {
+          text-align: right;
+          display: flex;
+          flex-direction: column;
+          line-height: 1.1;
+        }
+        .ctx-val {
+          font-size: 11px;
+          font-weight: 700;
+          color: #0f172a;
+        }
+        .ctx-date {
+          font-size: 8px;
+          color: #64748b;
+        }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1080px) {
+          .cry-container {
+            grid-template-columns: 1fr;
+            gap: 60px;
+          }
+          .cry-hero-left {
+            max-width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .cry-hero-desc {
+            max-width: 540px;
+          }
+          .cry-hero-actions {
+            justify-content: center;
+          }
+          .cry-hero-right {
+            min-height: 540px;
+          }
+          .cry-mockups-scene {
+            max-width: 520px;
+            height: 540px;
+          }
+          .cry-phone-device {
+            width: 250px;
+            height: 500px;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .cry-hero-section {
+            padding: 50px 0 70px;
+          }
+          .cry-hero-title {
+            font-size: 38px;
+            letter-spacing: -1px;
+          }
+          .cry-hero-actions {
+            flex-direction: column;
+            width: 100%;
+          }
+          .cry-btn-primary, .cry-btn-secondary {
+            width: 100%;
+            justify-content: center;
+          }
+          .cry-mockups-scene {
+            transform: scale(0.85);
+            height: 480px;
+          }
+          .phone-front {
+            left: -20px;
+          }
+          .phone-back {
+            right: -20px;
+          }
         }
       `}</style>
     </section>

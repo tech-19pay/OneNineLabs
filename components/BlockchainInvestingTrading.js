@@ -126,7 +126,6 @@ export default function BlockchainInvestingTrading() {
           </div>
           
           <div className="bc-it-right">
-            <span className="bc-eyebrow">Service Spotlight 02</span>
             <h2 className="bc-section-title">Exchange Development</h2>
             <div className="bc-it-list">
               {items.map((item, idx) => (
@@ -145,7 +144,7 @@ export default function BlockchainInvestingTrading() {
       
       <style>{`
         .bc-invest-trade {
-          padding: 110px 0;
+          padding: 30px 0 70px;
           background: #ffffff;
         }
         .bc-eyebrow {

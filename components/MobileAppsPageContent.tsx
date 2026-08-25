@@ -437,217 +437,195 @@ export default function MobileAppsPageContent() {
   return (
     <div className="mobile-page-content-root">
       {/* ── 1. HERO SECTION ── */}
-      <section style={{
-        backgroundColor: "#f9f9fb",
+      <section className="hero-section-wrapper" style={{
+        background: "linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)",
         position: "relative",
         overflow: "hidden",
-        padding: "120px 20px 60px",
+        padding: "100px 20px 40px",
         fontFamily: "Inter, sans-serif"
       }}>
-        {/* Purple background shape */}
-        <div style={{
-          position: "absolute",
-          bottom: "-5%",
-          right: "-5%",
-          width: "120%",
-          height: "60%",
-          background: "linear-gradient(135deg, #8B78F0 0%, #765ff0 100%)",
-          borderTopLeftRadius: "60% 15%",
-          borderTopRightRadius: "60% 15%",
-          transform: "rotate(-6deg)",
-          zIndex: 0
-        }}></div>
 
-        <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 10, display: "flex", flexWrap: "wrap", justifyContent: "space-between" }}>
+        {/* Abstract Graphics */}
+        <div style={{ position: "absolute", top: "-10%", left: "-10%", width: "500px", height: "500px", background: "radial-gradient(circle, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 70%)", borderRadius: "50%", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "20%", right: "-15%", width: "600px", height: "600px", background: "radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 60%)", borderRadius: "50%", pointerEvents: "none" }} />
 
-          {/* Left Content */}
-          <div style={{ flex: "1 1 500px", maxWidth: "600px", paddingBottom: "100px", paddingTop: "40px" }}>
-            <h1 style={{
-              fontSize: "clamp(36px, 5vw, 64px)",
-              fontWeight: "800",
-              color: "#1a1a2e",
-              lineHeight: "1.15",
-              marginBottom: "24px",
-              letterSpacing: "-1px"
-            }}>
-              <span style={{ whiteSpace: "nowrap" }}>High-Performance</span> <br /> 
-              <span style={{ color: "#765ff0", whiteSpace: "nowrap" }}>Mobile Engineering</span>
+        <div className="hero-split-layout" style={{ maxWidth: "1400px", margin: "0 auto", display: "flex", flexWrap: "nowrap", alignItems: "center", justifyContent: "space-between", position: "relative", zIndex: 10 }}>
+
+          {/* Text Content (1 Hisse / Left) */}
+          <div style={{ flex: "1 1 50%", textAlign: "left", paddingRight: "140px", paddingBottom: "40px", marginTop: "60px", minWidth: 0 }}>
+            <h1 className="hero-heading" style={{ fontWeight: "800", color: "#111827", lineHeight: "1.1", marginBottom: "30px", letterSpacing: "-1.5px", whiteSpace: "nowrap" }}>
+              Mobile Apps<br />for iOS & Android
             </h1>
-            <p style={{
-              fontSize: "18px",
-              color: "#6b7280",
-              lineHeight: "1.6",
-              marginBottom: "40px",
-              fontWeight: "500",
-              maxWidth: "400px"
-            }}>
-              We architect, design, and engineer native and cross-platform mobile applications with zero-latency offline sync and fluid 120 FPS performance.
+            <p style={{ fontSize: "16px", color: "#4b5563", lineHeight: "1.6", marginBottom: "40px" }}>
+              Deliver seamless, native-like mobile experiences to your users with our expert custom app development services. From intuitive UI/UX design to robust backend integration, we build scalable iOS and Android applications that drive engagement and accelerate your business growth.
             </p>
-            <button style={{
-              background: "linear-gradient(90deg, #d369f0, #ff6b98)",
-              color: "#fff",
-              border: "none",
-              padding: "16px 36px",
-              borderRadius: "999px",
-              fontSize: "16px",
-              fontWeight: "700",
-              cursor: "pointer",
-              boxShadow: "0 10px 25px rgba(211, 105, 240, 0.4)",
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              textTransform: "uppercase",
-              letterSpacing: "1px"
-            }}>
-              Start Your Project <span style={{ fontSize: "18px" }}>→</span>
-            </button>
+
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "flex-start", gap: "16px", flexWrap: "wrap" }}>
+              <a href="/contact" style={{ background: "#111827", color: "#fff", textDecoration: "none", border: "none", padding: "16px 32px", borderRadius: "99px", fontSize: "16px", fontWeight: "600", display: "inline-flex", alignItems: "center", gap: "8px", cursor: "pointer", boxShadow: "0 10px 25px rgba(17,24,39,0.2)", transition: "all 0.2s ease" }}>
+                Contact Us
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"></line>
+                  <polyline points="12 5 19 12 12 19"></polyline>
+                </svg>
+              </a>
+            </div>
+
           </div>
 
-          {/* Right/Center Content (Phone & Floating Cards) */}
-          <div style={{ flex: "1 1 500px", position: "relative", minHeight: "500px", display: "flex", justifyContent: "center" }}>
+          {/* Phones Layout (3 Hisse / Right) */}
+          <div className="mobile-apps-phones-wrapper" style={{ flex: "1 1 50%", display: "flex", justifyContent: "center", alignItems: "flex-end", height: "550px", marginTop: "-50px", marginLeft: "-120px", position: "relative", zIndex: 10, minWidth: 0 }}>
 
-            {/* Phone Mockup */}
-            <div style={{
-              width: "280px",
-              height: "580px",
-              background: "#ffffff",
-              borderRadius: "40px",
-              boxShadow: "0 25px 50px rgba(0,0,0,0.15)",
-              position: "absolute",
-              top: "-20px",
-              left: "50%",
-              transform: "translateX(-50%)",
-              padding: "16px",
-              zIndex: 5,
-              display: "flex",
-              flexDirection: "column"
-            }}>
-              {/* Notch */}
-              <div style={{ width: "90px", height: "24px", background: "#f3f4f6", borderRadius: "12px", margin: "0 auto 20px" }}></div>
+            {/* LEFT PHONE */}
+            <div className="ma-left-phone" style={{ width: "260px", height: "400px", background: "#f8fafc", borderRadius: "32px", border: "10px solid #111827", position: "relative", transform: "translateX(40px)", zIndex: 5, overflow: "visible", boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}>
+              <div style={{ width: "90px", height: "20px", background: "#111827", borderRadius: "0 0 10px 10px", margin: "0 auto", position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)" }} />
 
-              <div style={{ fontSize: "12px", color: "#9ca3af", fontWeight: "600", marginBottom: "4px" }}>System Status</div>
-              <div style={{ fontSize: "20px", fontWeight: "800", color: "#1a1a2e", marginBottom: "20px" }}>App Telemetry <span style={{ color: "#d1d5db", float: "right" }}>⚙️</span></div>
-
-              {/* Purple Card */}
-              <div style={{
-                background: "linear-gradient(135deg, #a084f5, #7b5ef0)",
-                borderRadius: "20px",
-                padding: "20px",
-                color: "#fff",
-                marginBottom: "20px",
-                boxShadow: "0 10px 20px rgba(123, 94, 240, 0.3)"
-              }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "24px" }}>
-                  <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "rgba(255,255,255,0.2)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "18px" }}>⚡</div>
-                  <div style={{ fontSize: "24px", fontWeight: "300" }}>...</div>
-                </div>
-                <div style={{ fontSize: "32px", fontWeight: "700" }}>120 FPS</div>
-                <div style={{ fontSize: "12px", opacity: 0.8 }}>Native Rendering Engine</div>
-              </div>
-
-              {/* List */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "16px", flex: 1 }}>
-                {[{ n: "React Native", d: "Fabric UI", a: "0.45s", c: "⚛️" }, { n: "SwiftUI", d: "Metal GPU", a: "0.28s", c: "🍏" }, { n: "Kotlin", d: "Jetpack Compose", a: "0.35s", c: "🤖" }].map((item, i) => (
-                  <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                      <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "#f3f4f6", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "600", color: "#7b5ef0", fontSize: "18px" }}>{item.c}</div>
-                      <div>
-                        <div style={{ fontSize: "14px", fontWeight: "700", color: "#1a1a2e" }}>{item.n}</div>
-                        <div style={{ fontSize: "11px", color: "#9ca3af" }}>{item.d}</div>
-                      </div>
-                    </div>
-                    <div style={{ fontSize: "12px", fontWeight: "700", color: "#10b981", background: "#ecfdf5", padding: "4px 8px", borderRadius: "6px" }}>{item.a} start</div>
+              <div className="ma-float-left-1" style={{ position: "absolute", left: "-80px", top: "60px", width: "220px", background: "#fff", borderRadius: "16px", padding: "12px", boxShadow: "0 10px 25px rgba(0,0,0,0.08)", zIndex: 20 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                  <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "#fdf4ff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "14px" }}>🔬</div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: "11px", fontWeight: "700", color: "#1e293b" }}>Annual Science Fair</div>
+                    <div style={{ fontSize: "9px", color: "#64748b" }}>July 18 • 10:00 AM</div>
                   </div>
-                ))}
-              </div>
-
-              {/* Bottom Nav */}
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 20px", borderTop: "1px solid #f3f4f6", marginTop: "auto" }}>
-                <div style={{ color: "#9ca3af", fontSize: "16px", fontWeight: "600" }}>Dev</div>
-                <div style={{ width: "44px", height: "44px", borderRadius: "50%", background: "#7b5ef0", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", boxShadow: "0 4px 10px rgba(123, 94, 240, 0.4)", fontSize: "20px", lineHeight: 1 }}>🚀</div>
-                <div style={{ color: "#9ca3af", fontSize: "16px", fontWeight: "600" }}>Prod</div>
-              </div>
-            </div>
-
-            {/* Transfer Floating Pill */}
-            <div style={{
-              position: "absolute",
-              top: "160px",
-              left: "10%",
-              background: "#fff",
-              borderRadius: "99px",
-              padding: "12px 20px",
-              display: "flex",
-              alignItems: "center",
-              gap: "12px",
-              boxShadow: "0 15px 30px rgba(0,0,0,0.1)",
-              zIndex: 10
-            }}>
-              <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: "#f3f4f6", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "14px", color: "#6b7280" }}>⚡</div>
-              <span style={{ fontWeight: "700", fontSize: "15px", color: "#1a1a2e" }}>Live Reload</span>
-              <span style={{ background: "#ecfdf5", color: "#10b981", padding: "4px 8px", borderRadius: "8px", fontSize: "13px", fontWeight: "700" }}>Active</span>
-            </div>
-
-            {/* Project Information Card */}
-            <div style={{
-              position: "absolute",
-              top: "80px",
-              right: "0%",
-              background: "rgba(255,255,255,0.95)",
-              backdropFilter: "blur(10px)",
-              borderRadius: "20px",
-              padding: "20px",
-              width: "240px",
-              boxShadow: "0 20px 40px rgba(0,0,0,0.08)",
-              zIndex: 10,
-              border: "1px solid rgba(255,255,255,0.5)"
-            }}>
-              <div style={{ fontSize: "15px", fontWeight: "800", color: "#1a1a2e", marginBottom: "16px" }}>Architecture Specs</div>
-              <div style={{ display: "flex", alignItems: "flex-start", gap: "12px", marginBottom: "16px" }}>
-                <div style={{ width: "24px", height: "24px", borderRadius: "8px", background: "#7b5ef0", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "12px", flexShrink: 0 }}>✓</div>
-                <div>
-                  <div style={{ fontSize: "12px", color: "#6b7280", lineHeight: "1.5" }}>Offline-first SQLite sync engine integrated.</div>
+                  <div style={{ fontSize: "9px", color: "#94a3b8", fontWeight: "600", textAlign: "right" }}>⏱️<br />2 hour</div>
                 </div>
               </div>
-              <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
-                <div style={{ width: "24px", height: "24px", borderRadius: "8px", background: "#7b5ef0", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "12px", flexShrink: 0 }}>✓</div>
-                <div>
-                  <div style={{ fontSize: "12px", color: "#6b7280", lineHeight: "1.5" }}>Biometric security enclave active.</div>
+
+              <div className="ma-float-left-2" style={{ position: "absolute", left: "-80px", top: "125px", width: "220px", background: "#fff", borderRadius: "16px", padding: "12px", boxShadow: "0 10px 25px rgba(0,0,0,0.08)", zIndex: 20 }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                  <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "#ecfeff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "14px" }}>👨‍🏫</div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{ fontSize: "11px", fontWeight: "700", color: "#1e293b" }}>Parent-Teacher Meeting</div>
+                    <div style={{ fontSize: "9px", color: "#64748b" }}>July 22 • 09:30 AM</div>
+                  </div>
+                  <div style={{ fontSize: "9px", color: "#94a3b8", fontWeight: "600", textAlign: "right" }}>⏱️<br />30 min</div>
+                </div>
+              </div>
+
+              <div style={{ padding: "40px 16px 16px", height: "100%", background: "linear-gradient(180deg, #e0e7ff 0%, #f8fafc 100%)", borderRadius: "20px" }}>
+                <div style={{ display: "flex", gap: "10px", marginBottom: "20px" }}>
+                  <span style={{ fontSize: "10px", fontWeight: "700", background: "#fff", padding: "4px 8px", borderRadius: "99px", boxShadow: "0 2px 4px rgba(0,0,0,0.05)" }}>All Events</span>
+                  <span style={{ fontSize: "10px", fontWeight: "600", color: "#64748b" }}>Exam</span>
+                  <span style={{ fontSize: "10px", fontWeight: "600", color: "#64748b" }}>Holidays</span>
+                </div>
+                <div style={{ background: "#fff", borderRadius: "16px", padding: "16px", height: "200px" }}>
+                  <div style={{ textAlign: "center", fontSize: "12px", fontWeight: "700", marginBottom: "12px", color: "#1e293b" }}>July 2025</div>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: "4px", textAlign: "center", fontSize: "9px", color: "#94a3b8", marginBottom: "8px", fontWeight: "600" }}>
+                    <span>S</span><span>M</span><span>T</span><span>W</span><span>T</span><span>F</span><span>S</span>
+                  </div>
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(7, 1fr)", gap: "4px", textAlign: "center", fontSize: "10px", fontWeight: "600", color: "#334155" }}>
+                    {Array.from({ length: 14 }).map((_, i) => <span key={i} style={{ padding: "4px 0" }}>{i + 1}</span>)}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* CENTER PHONE */}
+            <div className="ma-center-phone" style={{ width: "300px", height: "500px", background: "#faf5ff", borderRadius: "40px", border: "10px solid #111827", position: "relative", zIndex: 10, boxShadow: "0 30px 60px rgba(0,0,0,0.15)", display: "flex", flexDirection: "column" }}>
+              <div style={{ width: "100px", height: "24px", background: "#111827", borderRadius: "0 0 12px 12px", margin: "0 auto", position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)" }} />
+
+              <div style={{ padding: "40px 16px 16px", flex: 1 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                    <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "#ddd6fe", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "18px" }}>👩🏻‍🎓</div>
+                    <div>
+                      <div style={{ fontSize: "13px", fontWeight: "800", color: "#111827" }}>Hello, Annette</div>
+                      <div style={{ fontSize: "10px", color: "#6b7280", fontWeight: "500" }}>Grade 10 - Section A</div>
+                    </div>
+                  </div>
+                  <div style={{ display: "flex", gap: "8px" }}>
+                    <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "14px", boxShadow: "0 2px 5px rgba(0,0,0,0.05)" }}>🔍</div>
+                    <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "14px", boxShadow: "0 2px 5px rgba(0,0,0,0.05)" }}>🔔</div>
+                  </div>
+                </div>
+
+                <div style={{ background: "linear-gradient(135deg, #fdf4ff 0%, #ede9fe 100%)", borderRadius: "20px", padding: "16px", marginBottom: "24px", position: "relative", overflow: "hidden" }}>
+                  <div style={{ fontSize: "15px", fontWeight: "800", color: "#1e293b", marginBottom: "4px" }}>Ready to Learn? ⭐</div>
+                  <div style={{ fontSize: "10px", color: "#64748b", marginBottom: "16px", maxWidth: "60%", lineHeight: "1.4" }}>Assignments, and upcoming events with your personalized dashboard.</div>
+                  <button style={{ background: "#8b5cf6", color: "#fff", border: "none", padding: "8px 16px", borderRadius: "99px", fontSize: "10px", fontWeight: "700" }}>View Schedule</button>
+                  <div style={{ position: "absolute", right: "-5px", bottom: "-5px", fontSize: "60px", opacity: 0.9 }}>📚</div>
+                </div>
+
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
+                  <div style={{ fontSize: "13px", fontWeight: "800", color: "#1e293b" }}>Quick Access</div>
+                  <div style={{ fontSize: "10px", color: "#8b5cf6", fontWeight: "700" }}>See all</div>
+                </div>
+                <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "8px", marginBottom: "24px" }}>
+                  {[{ i: "📓", l: "Homework" }, { i: "📅", l: "Timetable" }, { i: "✅", l: "Attendance" }, { i: "📊", l: "Result" }].map((a, idx) => (
+                    <div key={idx} style={{ background: "#fff", borderRadius: "12px", padding: "10px 4px", display: "flex", flexDirection: "column", alignItems: "center", gap: "6px", boxShadow: "0 2px 5px rgba(0,0,0,0.02)" }}>
+                      <div style={{ fontSize: "18px" }}>{a.i}</div>
+                      <div style={{ fontSize: "9px", fontWeight: "700", color: "#475569" }}>{a.l}</div>
+                    </div>
+                  ))}
+                </div>
+
+
+              </div>
+            </div>
+
+            {/* RIGHT PHONE */}
+            <div className="ma-right-phone" style={{ width: "260px", height: "400px", background: "#f8fafc", borderRadius: "32px", border: "10px solid #111827", position: "relative", transform: "translateX(-40px)", zIndex: 5, overflow: "visible", boxShadow: "0 20px 40px rgba(0,0,0,0.1)" }}>
+              <div style={{ width: "90px", height: "20px", background: "#111827", borderRadius: "0 0 10px 10px", margin: "0 auto", position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)" }} />
+
+              <div className="ma-float-right-1" style={{ position: "absolute", right: "-70px", top: "70px", width: "220px", background: "#fff", borderRadius: "16px", padding: "16px", boxShadow: "0 10px 25px rgba(0,0,0,0.08)", zIndex: 20 }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
+                  <div style={{ fontSize: "11px", fontWeight: "800", color: "#1e293b" }}>Academic Overview</div>
+                  <div style={{ fontSize: "9px", background: "#f8fafc", padding: "2px 6px", borderRadius: "99px", fontWeight: "600", color: "#64748b" }}>Month ⌄</div>
+                </div>
+
+                <div style={{ display: "flex", justifyContent: "space-between", fontSize: "9px", fontWeight: "700", color: "#1e293b", marginBottom: "6px" }}>
+                  <span>Attendance</span>
+                  <span>75/100%</span>
+                </div>
+                <div style={{ width: "100%", height: "12px", background: "#f1f5f9", borderRadius: "99px", marginBottom: "16px" }}>
+                  <div style={{ width: "75%", height: "100%", background: "#a78bfa", borderRadius: "99px" }}></div>
+                </div>
+
+                <div style={{ display: "flex", justifyContent: "space-between", fontSize: "9px", fontWeight: "700", color: "#1e293b", marginBottom: "6px" }}>
+                  <span>Pending Assignments</span>
+                  <span>45/100%</span>
+                </div>
+                <div style={{ width: "100%", height: "12px", background: "#f1f5f9", borderRadius: "99px" }}>
+                  <div style={{ width: "45%", height: "100%", background: "#fbcfe8", borderRadius: "99px" }}></div>
+                </div>
+              </div>
+
+              <div style={{ padding: "40px 16px 16px", height: "100%", background: "linear-gradient(180deg, #ede9fe 0%, #f8fafc 100%)", borderRadius: "20px" }}>
+                <div style={{ fontSize: "13px", fontWeight: "800", color: "#1e293b", marginBottom: "4px" }}>Academic</div>
+                <div style={{ fontSize: "10px", color: "#64748b", marginBottom: "16px" }}>Track your learning progress</div>
+
+                <div style={{ background: "linear-gradient(135deg, #38bdf8 0%, #0ea5e9 100%)", borderRadius: "16px", padding: "16px", color: "#fff", marginBottom: "20px" }}>
+                  <div style={{ fontSize: "11px", fontWeight: "700", marginBottom: "4px", lineHeight: "1.3" }}>Celebrate Every Milestone, Grow Every Day</div>
+                  <div style={{ fontSize: "28px", marginTop: "10px" }}>⛰️</div>
+                </div>
+
+                <div style={{ background: "#fff", borderRadius: "16px", padding: "16px" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
+                    <div style={{ fontSize: "11px", fontWeight: "700", color: "#1e293b" }}>Overall Progress 🚀</div>
+                    <div style={{ fontSize: "13px", fontWeight: "800", color: "#8b5cf6" }}>82%</div>
+                  </div>
+                  <div style={{ width: "100%", height: "6px", background: "#f1f5f9", borderRadius: "99px", marginBottom: "16px" }}>
+                    <div style={{ width: "82%", height: "100%", background: "#8b5cf6", borderRadius: "99px" }}></div>
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "space-between", textAlign: "center" }}>
+                    <div><div style={{ fontSize: "12px", fontWeight: "800", color: "#1e293b" }}>385</div><div style={{ fontSize: "8px", color: "#64748b", fontWeight: "600" }}>pts</div></div>
+                    <div><div style={{ fontSize: "12px", fontWeight: "800", color: "#1e293b" }}>75%</div><div style={{ fontSize: "8px", color: "#64748b", fontWeight: "600" }}>attendance</div></div>
+                    <div><div style={{ fontSize: "12px", fontWeight: "800", color: "#1e293b" }}>45</div><div style={{ fontSize: "8px", color: "#64748b", fontWeight: "600" }}>assignments</div></div>
+                  </div>
                 </div>
               </div>
             </div>
 
           </div>
         </div>
-
-
       </section>
 
       {/* ── 2. CORE PILLARS SECTION ── */}
-      <section style={{ background: "#ffffff", padding: "80px 24px", fontFamily: "Inter, sans-serif" }}>
+      <section className="core-pillars-section" style={{ background: "#ffffff", padding: "40px 24px 80px", fontFamily: "Inter, sans-serif" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
 
           <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 64px" }}>
-            <div style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              background: "#ffffff",
-              border: "1px solid #e0f2fe",
-              color: "#0284c7",
-              fontSize: "11px",
-              fontWeight: "800",
-              letterSpacing: "1.5px",
-              padding: "6px 16px",
-              borderRadius: "9999px",
-              textTransform: "uppercase",
-              marginBottom: "20px",
-              boxShadow: "0 4px 12px rgba(14, 165, 233, 0.08)"
-            }}>
-              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#0ea5e9", boxShadow: "0 0 8px rgba(14, 165, 233, 0.5)" }} />
-              ENGINEERING EXCELLENCE
-            </div>
-            <h2 style={{ fontSize: "clamp(30px, 3.8vw, 48px)", fontWeight: "900", letterSpacing: "-0.02em", color: "#0f172a", margin: "0 0 20px 0", lineHeight: "1.14" }}>
+
+            <h2 className="core-pillars-heading" style={{ fontSize: "clamp(24px, 3.5vw, 48px)", fontWeight: "900", letterSpacing: "-0.02em", color: "#0f172a", margin: "0 0 20px 0", lineHeight: "1.14" }}>
               Core Pillars of Mobile Engineering
             </h2>
             <p style={{ fontSize: "16px", color: "#64748b", lineHeight: "1.65", margin: 0 }}>
@@ -655,7 +633,7 @@ export default function MobileAppsPageContent() {
             </p>
           </div>
 
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "60px", alignItems: "center", justifyContent: "center" }}>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "60px", alignItems: "center", justifyContent: "center" }}>
             {/* Left Graphic Side */}
             <div style={{ flex: "1 1 100%", maxWidth: "500px", position: "relative", minHeight: "450px", overflow: "hidden" }}>
               {/* Background shape */}
@@ -805,25 +783,7 @@ export default function MobileAppsPageContent() {
           <div style={{ display: "flex", flexWrap: "wrap", gap: "60px", alignItems: "center" }}>
             {/* Left: Title and 2 Stacks (Cross-Platform) */}
             <div style={{ flex: "1 1 500px" }}>
-              <div style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                background: "#ffffff",
-                border: "1px solid #e0f2fe",
-                color: "#0284c7",
-                fontSize: "11px",
-                fontWeight: "800",
-                letterSpacing: "1.5px",
-                padding: "6px 16px",
-                borderRadius: "9999px",
-                textTransform: "uppercase",
-                marginBottom: "20px",
-                boxShadow: "0 4px 12px rgba(14, 165, 233, 0.08)"
-              }}>
-                <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#0ea5e9", boxShadow: "0 0 8px rgba(14, 165, 233, 0.5)" }} />
-                FRAMEWORK ARCHITECTURE
-              </div>
+
               <h2 style={{ fontSize: "clamp(30px, 3vw, 42px)", fontWeight: "800", color: "#1a1a2e", marginBottom: "16px", lineHeight: "1.2", letterSpacing: "-1px" }}>
                 Multi-Platform &amp; Native Engineering Stacks
               </h2>
@@ -921,7 +881,7 @@ export default function MobileAppsPageContent() {
             }
           `}</style>
           <div style={{ position: "relative", borderRadius: "32px", boxShadow: "0 20px 40px rgba(123, 94, 240, 0.2)", marginTop: "40px" }}>
-            
+
             {/* Background Layer with Overflow Hidden (for the rings) */}
             <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "linear-gradient(135deg, #a084f5, #7b5ef0)", borderRadius: "32px", overflow: "hidden", zIndex: 0 }}>
               <div style={{ position: "absolute", right: "-5%", top: "-20%", width: "400px", height: "400px", borderRadius: "50%", border: "40px solid rgba(255,255,255,0.05)", zIndex: 0 }}></div>
@@ -934,85 +894,67 @@ export default function MobileAppsPageContent() {
               {/* Phone Mockup on the left */}
               <div className="native-banner-mockup" style={{ flex: "1 1 260px", maxWidth: "260px", height: "380px", position: "relative", margin: "-80px 0 -80px 20px", transform: "rotate(-5deg)" }}>
                 <div style={{ background: "#ffffff", width: "100%", height: "100%", borderRadius: "36px", padding: "16px", boxShadow: "0 25px 50px rgba(0,0,0,0.3)", display: "flex", flexDirection: "column", border: "8px solid #f3f4f6" }}>
-                <div style={{ width: "60px", height: "20px", background: "#e5e7eb", borderRadius: "10px", margin: "0 auto 20px" }}></div>
+                  <div style={{ width: "60px", height: "20px", background: "#e5e7eb", borderRadius: "10px", margin: "0 auto 20px" }}></div>
 
-                {/* Mobile Header */}
-                <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
-                  <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: "linear-gradient(135deg, #a084f5, #7b5ef0)", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "14px" }}>👤</div>
-                  <div>
-                    <div style={{ fontSize: "13px", fontWeight: "800", color: "#1a1a2e" }}>Native Engineering</div>
-                    <div style={{ fontSize: "10px", color: "#6b7280" }}>{platformStacks[1].badge}</div>
-                  </div>
-                </div>
-
-                {/* Mobile Card */}
-                <div style={{ background: "#f8fafc", borderRadius: "16px", padding: "16px", marginBottom: "16px", border: "1px solid #e5e7eb" }}>
-                  <div style={{ fontSize: "10px", color: "#6b7280", marginBottom: "6px", textTransform: "uppercase", fontWeight: "700", letterSpacing: "0.5px" }}>{platformStacks[1].name}</div>
-                  <div style={{ fontSize: "13px", fontWeight: "700", color: "#1a1a2e", marginBottom: "12px" }}>{platformStacks[1].renderingEngine}</div>
-                  <div style={{ width: "100%", height: "6px", background: "#e5e7eb", borderRadius: "3px" }}>
-                    <div style={{ width: "85%", height: "100%", background: "#a084f5", borderRadius: "3px" }}></div>
-                  </div>
-                </div>
-
-                {/* Mobile List */}
-                <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "12px" }}>
-                  <div style={{ display: "flex", gap: "12px", alignItems: "center", background: "#ffffff", padding: "12px", borderRadius: "16px", border: "1px solid #e5e7eb", boxShadow: "0 4px 12px rgba(0,0,0,0.02)" }}>
-                    <div style={{ width: "32px", height: "32px", borderRadius: "10px", background: "#e0f2fe", display: "flex", alignItems: "center", justifyContent: "center", color: "#0284c7", fontSize: "14px" }}>🤖</div>
+                  {/* Mobile Header */}
+                  <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
+                    <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: "linear-gradient(135deg, #a084f5, #7b5ef0)", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "14px" }}>👤</div>
                     <div>
-                      <div style={{ fontSize: "12px", fontWeight: "700", color: "#1a1a2e" }}>{platformStacks[2].name}</div>
-                      <div style={{ fontSize: "10px", color: "#6b7280", marginTop: "2px" }}>{platformStacks[2].coldStart} cold start</div>
+                      <div style={{ fontSize: "13px", fontWeight: "800", color: "#1a1a2e" }}>Native Engineering</div>
+                      <div style={{ fontSize: "10px", color: "#6b7280" }}>{platformStacks[1].badge}</div>
                     </div>
                   </div>
-                </div>
 
-                {/* Mobile Bottom Button */}
-                <div style={{ width: "100%", padding: "14px 0", background: "linear-gradient(to right, #a084f5, #7b5ef0)", borderRadius: "16px", textAlign: "center", color: "#fff", fontSize: "13px", fontWeight: "800", boxShadow: "0 8px 16px rgba(123, 94, 240, 0.3)" }}>
-                  Deploy Now
+                  {/* Mobile Card */}
+                  <div style={{ background: "#f8fafc", borderRadius: "16px", padding: "16px", marginBottom: "16px", border: "1px solid #e5e7eb" }}>
+                    <div style={{ fontSize: "10px", color: "#6b7280", marginBottom: "6px", textTransform: "uppercase", fontWeight: "700", letterSpacing: "0.5px" }}>{platformStacks[1].name}</div>
+                    <div style={{ fontSize: "13px", fontWeight: "700", color: "#1a1a2e", marginBottom: "12px" }}>{platformStacks[1].renderingEngine}</div>
+                    <div style={{ width: "100%", height: "6px", background: "#e5e7eb", borderRadius: "3px" }}>
+                      <div style={{ width: "85%", height: "100%", background: "#a084f5", borderRadius: "3px" }}></div>
+                    </div>
+                  </div>
+
+                  {/* Mobile List */}
+                  <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "12px" }}>
+                    <div style={{ display: "flex", gap: "12px", alignItems: "center", background: "#ffffff", padding: "12px", borderRadius: "16px", border: "1px solid #e5e7eb", boxShadow: "0 4px 12px rgba(0,0,0,0.02)" }}>
+                      <div style={{ width: "32px", height: "32px", borderRadius: "10px", background: "#e0f2fe", display: "flex", alignItems: "center", justifyContent: "center", color: "#0284c7", fontSize: "14px" }}>🤖</div>
+                      <div>
+                        <div style={{ fontSize: "12px", fontWeight: "700", color: "#1a1a2e" }}>{platformStacks[2].name}</div>
+                        <div style={{ fontSize: "10px", color: "#6b7280", marginTop: "2px" }}>{platformStacks[2].coldStart} cold start</div>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Mobile Bottom Button */}
+                  <div style={{ width: "100%", padding: "14px 0", background: "linear-gradient(to right, #a084f5, #7b5ef0)", borderRadius: "16px", textAlign: "center", color: "#fff", fontSize: "13px", fontWeight: "800", boxShadow: "0 8px 16px rgba(123, 94, 240, 0.3)" }}>
+                    Deploy Now
+                  </div>
                 </div>
               </div>
-            </div>
 
-            {/* Banner Text on the right */}
-            <div className="native-banner-text" style={{ flex: "1 1 300px", position: "relative", zIndex: 10, color: "#ffffff" }}>
-              <h3 style={{ fontSize: "32px", fontWeight: "800", marginBottom: "16px", lineHeight: "1.2", letterSpacing: "-0.5px" }}>
-                Ready? Let's Build with {platformStacks[1].badge} & {platformStacks[2].badge}
-              </h3>
-              <p style={{ fontSize: "15px", lineHeight: "1.7", opacity: 0.9, marginBottom: "32px", maxWidth: "500px" }}>
-                {platformStacks[1].tagline} {platformStacks[2].tagline}
-              </p>
-              <button style={{ background: "linear-gradient(to right, #f472b6, #d946ef)", color: "#fff", border: "none", padding: "14px 28px", borderRadius: "99px", fontSize: "15px", fontWeight: "700", cursor: "pointer", boxShadow: "0 8px 20px rgba(217, 70, 239, 0.4)" }}>
-                Explore Native Stacks →
-              </button>
-            </div>
+              {/* Banner Text on the right */}
+              <div className="native-banner-text" style={{ flex: "1 1 300px", position: "relative", zIndex: 10, color: "#ffffff" }}>
+                <h3 style={{ fontSize: "32px", fontWeight: "800", marginBottom: "16px", lineHeight: "1.2", letterSpacing: "-0.5px" }}>
+                  Ready? Let's Build with {platformStacks[1].badge} & {platformStacks[2].badge}
+                </h3>
+                <p style={{ fontSize: "15px", lineHeight: "1.7", opacity: 0.9, marginBottom: "32px", maxWidth: "500px" }}>
+                  {platformStacks[1].tagline} {platformStacks[2].tagline}
+                </p>
+                <button style={{ background: "linear-gradient(to right, #f472b6, #d946ef)", color: "#fff", border: "none", padding: "14px 28px", borderRadius: "99px", fontSize: "15px", fontWeight: "700", cursor: "pointer", boxShadow: "0 8px 20px rgba(217, 70, 239, 0.4)" }}>
+                  Explore Native Stacks →
+                </button>
+              </div>
 
-          </div>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── 4. INDUSTRY SOLUTIONS (6 BENTO CARDS) ── */}
-      <section style={{ background: "#ffffff", padding: "80px 24px" }}>
+      <section className="business-vertical-section" style={{ background: "#ffffff", padding: "80px 24px" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 56px" }}>
-            <div style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              background: "#ffffff",
-              border: "1px solid #e0f2fe",
-              color: "#0284c7",
-              fontSize: "11px",
-              fontWeight: "800",
-              letterSpacing: "1.5px",
-              padding: "6px 16px",
-              borderRadius: "9999px",
-              textTransform: "uppercase",
-              marginBottom: "20px",
-              boxShadow: "0 4px 12px rgba(14, 165, 233, 0.08)"
-            }}>
-              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#0ea5e9", boxShadow: "0 0 8px rgba(14, 165, 233, 0.5)" }} />
-              ENTERPRISE VERTICALS
-            </div>
+
             <h2 style={{ fontSize: "clamp(30px, 3.8vw, 48px)", fontWeight: "900", letterSpacing: "-0.02em", color: "#0f172a", margin: "0 0 20px 0", lineHeight: "1.14" }}>
               Tailored Mobile Applications by Business Vertical
             </h2>
@@ -1032,41 +974,41 @@ export default function MobileAppsPageContent() {
               }}>
                 {/* Left Side: Graphic with floating elements */}
                 <div style={{ flex: "1 1 400px", position: "relative", minHeight: "450px", display: "flex", justifyContent: "center", alignItems: "center" }}>
-                  
+
                   {/* Big background shape */}
-                  <div style={{ 
-                    position: "absolute", 
-                    width: "320px", 
-                    height: "380px", 
-                    background: index % 2 === 0 ? "linear-gradient(135deg, #f472b6, #d946ef)" : "linear-gradient(135deg, #60a5fa, #3b82f6)", 
+                  <div style={{
+                    position: "absolute",
+                    width: "320px",
+                    height: "380px",
+                    background: index % 2 === 0 ? "linear-gradient(135deg, #f472b6, #d946ef)" : "linear-gradient(135deg, #60a5fa, #3b82f6)",
                     borderRadius: "40px",
                     zIndex: 0,
                     left: index % 2 === 0 ? "10%" : "auto",
                     right: index % 2 !== 0 ? "10%" : "auto",
                     top: "5%"
                   }}></div>
-                  
+
                   {/* The actual image */}
-                  <img src={sol.image} alt={sol.title} style={{ 
-                    position: "relative", 
-                    zIndex: 10, 
-                    width: "300px", 
-                    height: "400px", 
-                    objectFit: "cover", 
+                  <img src={sol.image} alt={sol.title} style={{
+                    position: "relative",
+                    zIndex: 10,
+                    width: "300px",
+                    height: "400px",
+                    objectFit: "cover",
                     borderRadius: "32px",
                     boxShadow: "0 25px 50px rgba(0,0,0,0.15)"
                   }} />
 
                   {/* Top Floating Card (Badge) */}
-                  <div style={{ 
-                    position: "absolute", 
-                    top: "20px", 
-                    right: index % 2 === 0 ? "10%" : "auto", 
-                    left: index % 2 !== 0 ? "10%" : "auto", 
-                    background: "#ffffff", 
-                    padding: "14px 24px", 
-                    borderRadius: "99px", 
-                    boxShadow: "0 15px 35px rgba(0,0,0,0.1)", 
+                  <div style={{
+                    position: "absolute",
+                    top: "20px",
+                    right: index % 2 === 0 ? "10%" : "auto",
+                    left: index % 2 !== 0 ? "10%" : "auto",
+                    background: "#ffffff",
+                    padding: "14px 24px",
+                    borderRadius: "99px",
+                    boxShadow: "0 15px 35px rgba(0,0,0,0.1)",
                     zIndex: 20,
                     display: "flex",
                     alignItems: "center",
@@ -1077,15 +1019,15 @@ export default function MobileAppsPageContent() {
                   </div>
 
                   {/* Bottom Floating Card (Stats) */}
-                  <div style={{ 
-                    position: "absolute", 
-                    bottom: "20px", 
+                  <div style={{
+                    position: "absolute",
+                    bottom: "20px",
                     left: index % 2 === 0 ? "5%" : "auto",
                     right: index % 2 !== 0 ? "5%" : "auto",
-                    background: "linear-gradient(135deg, #a084f5, #7b5ef0)", 
-                    padding: "24px", 
-                    borderRadius: "24px", 
-                    boxShadow: "0 20px 40px rgba(123,94,240,0.3)", 
+                    background: "linear-gradient(135deg, #a084f5, #7b5ef0)",
+                    padding: "24px",
+                    borderRadius: "24px",
+                    boxShadow: "0 20px 40px rgba(123,94,240,0.3)",
                     zIndex: 20,
                     width: "240px"
                   }}>
@@ -1097,10 +1039,10 @@ export default function MobileAppsPageContent() {
                     <div style={{ width: "100%", height: "6px", background: "rgba(255,255,255,0.2)", borderRadius: "3px", marginBottom: "10px" }}></div>
                     <div style={{ width: "80%", height: "6px", background: "rgba(255,255,255,0.2)", borderRadius: "3px", marginBottom: "10px" }}></div>
                     <div style={{ width: "60%", height: "6px", background: "rgba(255,255,255,0.2)", borderRadius: "3px" }}></div>
-                    
+
                     {/* Avatars */}
                     <div style={{ display: "flex", marginTop: "20px" }}>
-                      {[1,2,3].map(i => (
+                      {[1, 2, 3].map(i => (
                         <div key={i} style={{ width: "28px", height: "28px", borderRadius: "50%", background: "#e2e8f0", border: "2px solid #7b5ef0", marginLeft: i !== 1 ? "-10px" : "0", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "10px" }}>👤</div>
                       ))}
                     </div>
@@ -1111,11 +1053,11 @@ export default function MobileAppsPageContent() {
                 <div style={{ flex: "1 1 400px", padding: "20px" }}>
                   {/* Decorative Quote Icon */}
                   <div style={{ fontSize: "72px", color: "#a084f5", lineHeight: "1", opacity: 0.5, marginBottom: "10px", fontFamily: "serif" }}>"</div>
-                  
+
                   <h3 style={{ fontSize: "clamp(28px, 3.5vw, 36px)", fontWeight: "800", color: "#1a1a2e", margin: "0 0 24px 0", lineHeight: "1.25", letterSpacing: "-0.5px" }}>
                     {sol.title}
                   </h3>
-                  
+
                   <p style={{ fontSize: "17px", lineHeight: "1.7", color: "#475569", margin: "0 0 32px 0" }}>
                     {sol.desc}
                   </p>
@@ -1136,30 +1078,12 @@ export default function MobileAppsPageContent() {
       </section>
 
       {/* ── 5. LAYERED MOBILE STACK ARCHITECTURE ── */}
-      <section style={{ background: "#ffffff", padding: "80px 24px", fontFamily: "Inter, sans-serif" }}>
+      <section className="layered-stack-section" style={{ background: "#ffffff", padding: "80px 24px", fontFamily: "Inter, sans-serif" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          
+
           <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 64px" }}>
-            <div style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              background: "#f8fafc",
-              border: "1px solid #e2e8f0",
-              color: "#7b5ef0",
-              fontSize: "11px",
-              fontWeight: "800",
-              letterSpacing: "1.5px",
-              padding: "8px 16px",
-              borderRadius: "9999px",
-              textTransform: "uppercase",
-              marginBottom: "24px",
-              boxShadow: "0 4px 12px rgba(123, 94, 240, 0.08)"
-            }}>
-              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#7b5ef0", boxShadow: "0 0 8px rgba(123, 94, 240, 0.5)" }} />
-              LAYERED PIPELINE
-            </div>
-            <h2 style={{ fontSize: "clamp(36px, 4vw, 54px)", fontWeight: "900", letterSpacing: "-0.03em", color: "#0f172a", margin: "0 0 24px 0", lineHeight: "1.1" }}>
+
+            <h2 className="core-pillars-heading" style={{ fontSize: "clamp(26px, 3.5vw, 54px)", fontWeight: "900", letterSpacing: "-0.03em", color: "#0f172a", margin: "0 0 24px 0", lineHeight: "1.1", whiteSpace: "nowrap" }}>
               How We Layer Your Mobile Stack
             </h2>
             <p style={{ fontSize: "17px", color: "#64748b", lineHeight: "1.7", margin: "0", maxWidth: "800px", marginLeft: "auto", marginRight: "auto" }}>
@@ -1199,56 +1123,56 @@ export default function MobileAppsPageContent() {
 
                 {/* Right Side: Mini Phone Mockup */}
                 <div style={{ width: "140px", flexShrink: 0, position: "relative", zIndex: 10, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                   <div style={{ width: "120px", height: "240px", background: "#ffffff", borderRadius: "20px", border: "6px solid #e2e8f0", boxShadow: "0 10px 25px rgba(0,0,0,0.1)", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column" }}>
-                     
-                     {/* Dynamic Mockup Contents Based on Layer */}
-                     {layer.num === "01" && (
-                       <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "8px", height: "100%", background: "#f8fafc" }}>
-                         <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "4px" }}>
-                           <div style={{ width: "16px", height: "16px", borderRadius: "50%", background: "#a084f5" }}></div>
-                           <div style={{ flex: 1, height: "6px", borderRadius: "3px", background: "#cbd5e1" }}></div>
-                         </div>
-                         <div style={{ flex: 1, borderRadius: "8px", background: "linear-gradient(135deg, #a084f5, #7b5ef0)" }}></div>
-                         <div style={{ flex: 1, borderRadius: "8px", background: "#ffffff", border: "1px solid #e2e8f0" }}></div>
-                         <div style={{ height: "20px", borderRadius: "4px", background: "#e2e8f0", marginTop: "auto" }}></div>
-                       </div>
-                     )}
+                  <div style={{ width: "120px", height: "240px", background: "#ffffff", borderRadius: "20px", border: "6px solid #e2e8f0", boxShadow: "0 10px 25px rgba(0,0,0,0.1)", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column" }}>
 
-                     {layer.num === "02" && (
-                       <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "6px", height: "100%", background: "#f0fdf4" }}>
-                         <div style={{ textAlign: "center", fontSize: "10px", color: "#16a34a", fontWeight: "800", marginBottom: "4px" }}>SYNCED ✓</div>
-                         {[1,2,3,4,5].map(j => (
-                           <div key={j} style={{ background: "#ffffff", borderRadius: "6px", padding: "6px", border: "1px solid #bbf7d0", display: "flex", alignItems: "center", gap: "6px" }}>
-                             <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#22c55e" }}></div>
-                             <div style={{ flex: 1, height: "4px", borderRadius: "2px", background: "#cbd5e1" }}></div>
-                           </div>
-                         ))}
-                       </div>
-                     )}
+                    {/* Dynamic Mockup Contents Based on Layer */}
+                    {layer.num === "01" && (
+                      <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "8px", height: "100%", background: "#f8fafc" }}>
+                        <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "4px" }}>
+                          <div style={{ width: "16px", height: "16px", borderRadius: "50%", background: "#a084f5" }}></div>
+                          <div style={{ flex: 1, height: "6px", borderRadius: "3px", background: "#cbd5e1" }}></div>
+                        </div>
+                        <div style={{ flex: 1, borderRadius: "8px", background: "linear-gradient(135deg, #a084f5, #7b5ef0)" }}></div>
+                        <div style={{ flex: 1, borderRadius: "8px", background: "#ffffff", border: "1px solid #e2e8f0" }}></div>
+                        <div style={{ height: "20px", borderRadius: "4px", background: "#e2e8f0", marginTop: "auto" }}></div>
+                      </div>
+                    )}
 
-                     {layer.num === "03" && (
-                       <div style={{ padding: "8px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100%", background: "#1e293b", color: "#ffffff" }}>
-                         <div style={{ fontSize: "28px", marginBottom: "16px", color: "#a084f5" }}>🔒</div>
-                         <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "rgba(160, 132, 245, 0.2)", border: "2px solid #a084f5", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px", marginBottom: "16px" }}>👤</div>
-                         <div style={{ fontSize: "8px", fontWeight: "700", letterSpacing: "1px", color: "#10b981", background: "rgba(16,185,129,0.2)", padding: "4px 8px", borderRadius: "8px" }}>SECURE ENCLAVE</div>
-                       </div>
-                     )}
+                    {layer.num === "02" && (
+                      <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "6px", height: "100%", background: "#f0fdf4" }}>
+                        <div style={{ textAlign: "center", fontSize: "10px", color: "#16a34a", fontWeight: "800", marginBottom: "4px" }}>SYNCED ✓</div>
+                        {[1, 2, 3, 4, 5].map(j => (
+                          <div key={j} style={{ background: "#ffffff", borderRadius: "6px", padding: "6px", border: "1px solid #bbf7d0", display: "flex", alignItems: "center", gap: "6px" }}>
+                            <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#22c55e" }}></div>
+                            <div style={{ flex: 1, height: "4px", borderRadius: "2px", background: "#cbd5e1" }}></div>
+                          </div>
+                        ))}
+                      </div>
+                    )}
 
-                     {layer.num === "04" && (
-                       <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "8px", height: "100%", background: "#f8fafc" }}>
-                         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                           <div style={{ fontSize: "12px" }}>☁️</div>
-                           <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#3b82f6", boxShadow: "0 0 8px #3b82f6" }}></div>
-                         </div>
-                         <div style={{ height: "40px", borderRadius: "8px", background: "#e0f2fe", border: "1px dashed #7dd3fc" }}></div>
-                         <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                           <div style={{ fontSize: "6px", color: "#64748b" }}>GET /api/v1/sync</div>
-                           <div style={{ width: "100%", height: "2px", background: "#cbd5e1" }}><div style={{ width: "100%", height: "100%", background: "#3b82f6" }}></div></div>
-                           <div style={{ fontSize: "6px", color: "#64748b" }}>WSS connection live</div>
-                         </div>
-                       </div>
-                     )}
-                   </div>
+                    {layer.num === "03" && (
+                      <div style={{ padding: "8px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100%", background: "#1e293b", color: "#ffffff" }}>
+                        <div style={{ fontSize: "28px", marginBottom: "16px", color: "#a084f5" }}>🔒</div>
+                        <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "rgba(160, 132, 245, 0.2)", border: "2px solid #a084f5", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px", marginBottom: "16px" }}>👤</div>
+                        <div style={{ fontSize: "8px", fontWeight: "700", letterSpacing: "1px", color: "#10b981", background: "rgba(16,185,129,0.2)", padding: "4px 8px", borderRadius: "8px" }}>SECURE ENCLAVE</div>
+                      </div>
+                    )}
+
+                    {layer.num === "04" && (
+                      <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "8px", height: "100%", background: "#f8fafc" }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                          <div style={{ fontSize: "12px" }}>☁️</div>
+                          <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#3b82f6", boxShadow: "0 0 8px #3b82f6" }}></div>
+                        </div>
+                        <div style={{ height: "40px", borderRadius: "8px", background: "#e0f2fe", border: "1px dashed #7dd3fc" }}></div>
+                        <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                          <div style={{ fontSize: "6px", color: "#64748b" }}>GET /api/v1/sync</div>
+                          <div style={{ width: "100%", height: "2px", background: "#cbd5e1" }}><div style={{ width: "100%", height: "100%", background: "#3b82f6" }}></div></div>
+                          <div style={{ fontSize: "6px", color: "#64748b" }}>WSS connection live</div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
 
                 {/* Huge faint number */}
@@ -1258,35 +1182,17 @@ export default function MobileAppsPageContent() {
               </div>
             ))}
           </div>
-          
+
         </div>
       </section>
 
       {/* ── 6. PERFORMANCE & DEVICE SLA BENCHMARK ── */}
-      <section style={{ background: "#ffffff", padding: "80px 24px" }}>
+      <section className="sla-benchmark-section" style={{ background: "#ffffff", padding: "80px 24px" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))", gap: "60px", alignItems: "center" }}>
             {/* Left Column */}
             <div>
-              <div style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                background: "#ffffff",
-                border: "1px solid #e0f2fe",
-                color: "#0284c7",
-                fontSize: "11px",
-                fontWeight: "800",
-                letterSpacing: "1.5px",
-                padding: "6px 16px",
-                borderRadius: "9999px",
-                textTransform: "uppercase",
-                marginBottom: "20px",
-                boxShadow: "0 4px 12px rgba(14, 165, 233, 0.08)"
-              }}>
-                <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#0ea5e9", boxShadow: "0 0 8px rgba(14, 165, 233, 0.5)" }} />
-                ZERO-LATENCY GUARANTEE
-              </div>
+
               <h2 style={{ fontSize: "clamp(30px, 3.8vw, 48px)", fontWeight: "900", color: "#0f172a", margin: "0 0 20px 0", letterSpacing: "-0.02em", lineHeight: "1.14" }}>
                 Engineered for 99.9% Crash-Free Production SLA
               </h2>
@@ -1332,26 +1238,7 @@ export default function MobileAppsPageContent() {
       <section style={{ background: "#f8fafc", padding: "80px 24px", fontFamily: "Inter, sans-serif" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 80px" }}>
-            <div style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              background: "#ffffff",
-              border: "1px solid #e2e8f0",
-              color: "#0284c7",
-              fontSize: "11px",
-              fontWeight: "800",
-              letterSpacing: "1.5px",
-              padding: "8px 16px",
-              borderRadius: "9999px",
-              textTransform: "uppercase",
-              marginBottom: "24px",
-              boxShadow: "0 4px 12px rgba(14, 165, 233, 0.08)"
-            }}>
-              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#0ea5e9", boxShadow: "0 0 8px rgba(14, 165, 233, 0.5)" }} />
-              AGILE POD LIFECYCLE
-            </div>
-            <h2 style={{ fontSize: "clamp(36px, 4vw, 54px)", fontWeight: "900", letterSpacing: "-0.03em", color: "#0f172a", margin: "0 0 24px 0", lineHeight: "1.1" }}>
+            <h2 className="core-pillars-heading" style={{ fontSize: "clamp(26px, 3.2vw, 54px)", fontWeight: "900", letterSpacing: "-0.03em", color: "#0f172a", margin: "0 0 24px 0", lineHeight: "1.1", whiteSpace: "nowrap" }}>
               4-Stage Mobile App Development Process
             </h2>
             <p style={{ fontSize: "17px", color: "#64748b", lineHeight: "1.7", margin: "0 auto", maxWidth: "600px" }}>
@@ -1368,113 +1255,96 @@ export default function MobileAppsPageContent() {
                 { hex: "#7b5ef0", grad: "linear-gradient(135deg, #a084f5, #7b5ef0)", shadow: "rgba(123,94,240,0.3)", bg: "rgba(123,94,240,0.08)" }
               ];
               const c = colors[i];
-              
+
               return (
-              <div key={i} style={{
-                background: "#ffffff",
-                border: "1px solid #e5e7eb",
-                borderRadius: "32px",
-                padding: "32px",
-                display: "flex",
-                flexDirection: "row",
-                flexWrap: "wrap",
-                gap: "24px",
-                boxShadow: "0 15px 35px rgba(0, 0, 0, 0.03)",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                position: "relative",
-                overflow: "hidden",
-                borderTop: `6px solid ${c.hex}`
-              }}>
-                {/* Left Side: Content */}
-                <div style={{ flex: "1 1 240px", display: "flex", flexDirection: "column", zIndex: 10 }}>
-                  <div style={{ width: "56px", height: "56px", borderRadius: "16px", background: c.grad, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px", flexShrink: 0, boxShadow: `0 8px 16px ${c.shadow}`, marginBottom: "20px", color: "#fff" }}>
-                    {step.num}
+                <div key={i} style={{
+                  background: "#ffffff",
+                  border: "1px solid #e5e7eb",
+                  borderRadius: "32px",
+                  padding: "32px",
+                  display: "flex",
+                  flexDirection: "row",
+                  flexWrap: "wrap",
+                  gap: "24px",
+                  boxShadow: "0 15px 35px rgba(0, 0, 0, 0.03)",
+                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                  position: "relative",
+                  overflow: "hidden",
+                  borderTop: `6px solid ${c.hex}`
+                }}>
+                  {/* Left Side: Content */}
+                  <div style={{ flex: "1 1 240px", display: "flex", flexDirection: "column", zIndex: 10 }}>
+                    <div style={{ width: "56px", height: "56px", borderRadius: "16px", background: c.grad, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px", flexShrink: 0, boxShadow: `0 8px 16px ${c.shadow}`, marginBottom: "20px", color: "#fff" }}>
+                      {step.num}
+                    </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
+                      <span style={{ fontSize: "10.5px", fontWeight: "800", color: c.hex, background: c.bg, border: `1px solid ${c.hex}30`, padding: "4px 10px", borderRadius: "8px", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+                        {step.tag}
+                      </span>
+                    </div>
+                    <h3 style={{ fontSize: "22px", fontWeight: "800", color: "#0f172a", margin: "0 0 12px 0", letterSpacing: "-0.5px" }}>{step.title}</h3>
+                    <p style={{ fontSize: "15px", lineHeight: "1.7", color: "#475569", margin: 0, paddingRight: "10px" }}>{step.desc}</p>
                   </div>
-                  <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
-                    <span style={{ fontSize: "10.5px", fontWeight: "800", color: c.hex, background: c.bg, border: `1px solid ${c.hex}30`, padding: "4px 10px", borderRadius: "8px", textTransform: "uppercase", letterSpacing: "0.5px" }}>
-                      {step.tag}
-                    </span>
+
+                  {/* Right Side: Mini Mockup */}
+                  <div style={{ width: "140px", flexShrink: 0, position: "relative", zIndex: 10, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <div style={{ width: "120px", height: "160px", background: "#f8fafc", borderRadius: "20px", border: "4px solid #e2e8f0", boxShadow: "0 10px 25px rgba(0,0,0,0.05)", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column" }}>
+
+                      {step.num === "01" && (
+                        <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "6px", height: "100%" }}>
+                          <div style={{ width: "100%", height: "40px", background: "#e2e8f0", borderRadius: "8px" }}></div>
+                          <div style={{ display: "flex", gap: "6px" }}>
+                            <div style={{ width: "30%", height: "30px", background: "#e2e8f0", borderRadius: "6px" }}></div>
+                            <div style={{ width: "70%", height: "30px", background: "#e2e8f0", borderRadius: "6px" }}></div>
+                          </div>
+                          <div style={{ flex: 1, background: c.bg, borderRadius: "8px", border: `1px dashed ${c.hex}` }}></div>
+                        </div>
+                      )}
+
+                      {step.num === "02" && (
+                        <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "4px", height: "100%", background: "#1e293b" }}>
+                          <div style={{ width: "60%", height: "4px", background: "#38bdf8", borderRadius: "2px", marginBottom: "4px" }}></div>
+                          <div style={{ width: "80%", height: "4px", background: "#a084f5", borderRadius: "2px" }}></div>
+                          <div style={{ width: "40%", height: "4px", background: "#f472b6", borderRadius: "2px" }}></div>
+                          <div style={{ width: "90%", height: "4px", background: "#34d399", borderRadius: "2px" }}></div>
+                          <div style={{ width: "70%", height: "4px", background: "#f472b6", borderRadius: "2px", marginTop: "8px" }}></div>
+                          <div style={{ width: "50%", height: "4px", background: "#38bdf8", borderRadius: "2px" }}></div>
+                        </div>
+                      )}
+
+                      {step.num === "03" && (
+                        <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "6px", height: "100%", alignItems: "center", justifyContent: "center" }}>
+                          <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "#ecfdf5", border: "2px solid #10b981", display: "flex", alignItems: "center", justifyContent: "center", color: "#10b981", fontSize: "20px" }}>✓</div>
+                          <div style={{ width: "80%", height: "6px", background: "#e2e8f0", borderRadius: "3px", marginTop: "8px" }}><div style={{ width: "100%", height: "100%", background: "#10b981", borderRadius: "3px" }}></div></div>
+                          <div style={{ fontSize: "8px", color: "#64748b", fontWeight: "700" }}>TESTS PASSED</div>
+                        </div>
+                      )}
+
+                      {step.num === "04" && (
+                        <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "8px", height: "100%", background: "#f8fafc", alignItems: "center" }}>
+                          <div style={{ fontSize: "32px", marginTop: "10px" }}>🚀</div>
+                          <div style={{ width: "80%", height: "20px", background: "#0ea5e9", borderRadius: "10px", marginTop: "auto", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "8px", fontWeight: "800" }}>DEPLOY</div>
+                        </div>
+                      )}
+                    </div>
                   </div>
-                  <h3 style={{ fontSize: "22px", fontWeight: "800", color: "#0f172a", margin: "0 0 12px 0", letterSpacing: "-0.5px" }}>{step.title}</h3>
-                  <p style={{ fontSize: "15px", lineHeight: "1.7", color: "#475569", margin: 0, paddingRight: "10px" }}>{step.desc}</p>
+
+                  {/* Huge faded background icon */}
+                  <div style={{ position: "absolute", bottom: "-20px", right: "-20px", fontSize: "160px", opacity: 0.03, zIndex: 0, transform: "rotate(-15deg)" }}>
+                    {step.icon}
+                  </div>
                 </div>
-
-                {/* Right Side: Mini Mockup */}
-                <div style={{ width: "140px", flexShrink: 0, position: "relative", zIndex: 10, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                   <div style={{ width: "120px", height: "160px", background: "#f8fafc", borderRadius: "20px", border: "4px solid #e2e8f0", boxShadow: "0 10px 25px rgba(0,0,0,0.05)", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column" }}>
-                     
-                     {step.num === "01" && (
-                       <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "6px", height: "100%" }}>
-                         <div style={{ width: "100%", height: "40px", background: "#e2e8f0", borderRadius: "8px" }}></div>
-                         <div style={{ display: "flex", gap: "6px" }}>
-                           <div style={{ width: "30%", height: "30px", background: "#e2e8f0", borderRadius: "6px" }}></div>
-                           <div style={{ width: "70%", height: "30px", background: "#e2e8f0", borderRadius: "6px" }}></div>
-                         </div>
-                         <div style={{ flex: 1, background: c.bg, borderRadius: "8px", border: `1px dashed ${c.hex}` }}></div>
-                       </div>
-                     )}
-
-                     {step.num === "02" && (
-                       <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "4px", height: "100%", background: "#1e293b" }}>
-                         <div style={{ width: "60%", height: "4px", background: "#38bdf8", borderRadius: "2px", marginBottom: "4px" }}></div>
-                         <div style={{ width: "80%", height: "4px", background: "#a084f5", borderRadius: "2px" }}></div>
-                         <div style={{ width: "40%", height: "4px", background: "#f472b6", borderRadius: "2px" }}></div>
-                         <div style={{ width: "90%", height: "4px", background: "#34d399", borderRadius: "2px" }}></div>
-                         <div style={{ width: "70%", height: "4px", background: "#f472b6", borderRadius: "2px", marginTop: "8px" }}></div>
-                         <div style={{ width: "50%", height: "4px", background: "#38bdf8", borderRadius: "2px" }}></div>
-                       </div>
-                     )}
-
-                     {step.num === "03" && (
-                       <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "6px", height: "100%", alignItems: "center", justifyContent: "center" }}>
-                         <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "#ecfdf5", border: "2px solid #10b981", display: "flex", alignItems: "center", justifyContent: "center", color: "#10b981", fontSize: "20px" }}>✓</div>
-                         <div style={{ width: "80%", height: "6px", background: "#e2e8f0", borderRadius: "3px", marginTop: "8px" }}><div style={{ width: "100%", height: "100%", background: "#10b981", borderRadius: "3px" }}></div></div>
-                         <div style={{ fontSize: "8px", color: "#64748b", fontWeight: "700" }}>TESTS PASSED</div>
-                       </div>
-                     )}
-
-                     {step.num === "04" && (
-                       <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "8px", height: "100%", background: "#f8fafc", alignItems: "center" }}>
-                         <div style={{ fontSize: "32px", marginTop: "10px" }}>🚀</div>
-                         <div style={{ width: "80%", height: "20px", background: "#0ea5e9", borderRadius: "10px", marginTop: "auto", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "8px", fontWeight: "800" }}>DEPLOY</div>
-                       </div>
-                     )}
-                   </div>
-                </div>
-
-                {/* Huge faded background icon */}
-                <div style={{ position: "absolute", bottom: "-20px", right: "-20px", fontSize: "160px", opacity: 0.03, zIndex: 0, transform: "rotate(-15deg)" }}>
-                  {step.icon}
-                </div>
-              </div>
-            )})}
+              )
+            })}
           </div>
         </div>
       </section>
 
       {/* ── 8. MOBILE ENGINEERING FAQS ── */}
-      <section style={{ background: "#ffffff", padding: "80px 24px" }}>
+      <section className="faq-section" style={{ background: "#ffffff", padding: "80px 24px" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 56px" }}>
-            <div style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              background: "#ffffff",
-              border: "1px solid #e0f2fe",
-              color: "#0284c7",
-              fontSize: "11px",
-              fontWeight: "800",
-              letterSpacing: "1.5px",
-              padding: "6px 16px",
-              borderRadius: "9999px",
-              textTransform: "uppercase",
-              marginBottom: "20px",
-              boxShadow: "0 4px 12px rgba(14, 165, 233, 0.08)"
-            }}>
-              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#0ea5e9", boxShadow: "0 0 8px rgba(14, 165, 233, 0.5)" }} />
-              MOBILE ENGINEERING FAQS
-            </div>
+
             <h2 style={{ fontSize: "clamp(30px, 3.8vw, 48px)", fontWeight: "900", letterSpacing: "-0.02em", color: "#0f172a", margin: "0 0 20px 0", lineHeight: "1.14" }}>
               Frequently Asked Questions
             </h2>
@@ -1522,76 +1392,94 @@ export default function MobileAppsPageContent() {
         </div>
       </section>
 
-      {/* ── 9. BOTTOM CTA BANNER ── */}
-      <section style={{ background: "#ffffff", padding: "60px 24px 100px" }}>
-        <div style={{
-          maxWidth: "1200px",
-          margin: "0 auto",
-          background: "linear-gradient(135deg, #090d16 0%, #0f172a 60%, #1e293b 100%)",
-          borderRadius: "36px",
-          padding: "clamp(40px, 6vw, 70px) clamp(24px, 5vw, 60px)",
-          position: "relative",
-          overflow: "hidden",
-          boxShadow: "0 30px 70px rgba(15, 23, 42, 0.2)",
-          textAlign: "center",
-          color: "#ffffff"
-        }}>
-          <div style={{ maxWidth: "800px", margin: "0 auto", display: "flex", flexDirection: "column", alignItems: "center" }}>
-            <div style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              background: "rgba(255,255,255,0.15)",
-              border: "1px solid rgba(255,255,255,0.25)",
-              color: "#ffffff",
-              fontSize: "11px",
-              fontWeight: "800",
-              letterSpacing: "1.2px",
-              padding: "6px 14px",
-              borderRadius: "9999px",
-              textTransform: "uppercase",
-              marginBottom: "18px"
-            }}>
-              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#d7f82e" }} />
-              READY TO SHIP ON APP STORE &amp; PLAY STORE
-            </div>
 
-            <h2 style={{ fontSize: "clamp(26px, 4vw, 42px)", fontWeight: "900", color: "#ffffff", letterSpacing: "-1.2px", lineHeight: "1.18", margin: "0 0 18px 0" }}>
-              Build &amp; Launch Your High-Performance Mobile App With OneNineLabs
-            </h2>
-
-            <p style={{ fontSize: "15px", lineHeight: "1.65", color: "rgba(255, 255, 255, 0.75)", margin: "0 0 36px 0", maxWidth: "680px" }}>
-              Receive a comprehensive mobile architecture proposal, framework recommendation, and 6–8 week MVP roadmap from our principal engineers within 48 hours.
-            </p>
-
-            <div style={{ display: "flex", alignItems: "center", gap: "16px", flexWrap: "wrap", justifyContent: "center" }}>
-              <Link href="/contact" style={{
-                backgroundColor: "#d7f82e",
-                color: "#090d16",
-                padding: "15px 32px",
-                borderRadius: "9999px",
-                fontSize: "14px",
-                fontWeight: "900",
-                textDecoration: "none",
-                boxShadow: "0 4px 16px rgba(215, 248, 46, 0.4)"
-              }}>
-                Book Free Architecture Review →
-              </Link>
-              <Link href="/services" style={{
-                color: "rgba(255, 255, 255, 0.85)",
-                fontSize: "14px",
-                fontWeight: "700",
-                textDecoration: "none",
-                padding: "14px 24px",
-                borderRadius: "9999px",
-                border: "1px solid rgba(255, 255, 255, 0.2)"
-              }}>
-                Explore All Services
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ── RESPONSIVE STYLING ── */}
+      <style jsx>{`
+        .hero-heading {
+          font-size: clamp(32px, 4.5vw, 56px);
+        }
+        .mobile-apps-phones-wrapper {
+          transform: scale(0.85);
+          transform-origin: right center;
+        }
+        .core-pillars-heading {
+          white-space: nowrap;
+        }
+        @media (max-width: 1200px) {
+          .mobile-apps-phones-wrapper {
+            transform: scale(0.75);
+            transform-origin: right center;
+          }
+        }
+        @media (max-width: 1024px) {
+          .hero-heading {
+            font-size: 26px !important;
+            letter-spacing: -0.5px !important;
+          }
+          .hero-split-layout {
+            flex-direction: column !important;
+            text-align: center !important;
+          }
+          .hero-split-layout > div:first-child {
+            padding-right: 0 !important;
+            text-align: center !important;
+          }
+          .hero-split-layout > div:first-child div {
+            justify-content: center !important;
+          }
+          .mobile-apps-phones-wrapper {
+            transform: scale(0.6);
+            transform-origin: top center;
+            margin-top: 0px !important;
+            margin-left: 0 !important;
+            margin-bottom: 0px !important;
+            height: 280px !important;
+            width: 100%;
+            justify-content: center !important;
+          }
+          .hero-section-wrapper {
+            padding-bottom: 0px !important;
+            margin-bottom: 0px !important;
+          }
+          .core-pillars-section {
+            padding-top: 0px !important;
+            margin-top: -140px !important;
+            position: relative;
+            z-index: 20;
+          }
+          .layered-stack-section {
+            padding-top: 0px !important;
+            margin-top: -100px !important;
+          }
+          .sla-benchmark-section {
+            padding-top: 0px !important;
+            margin-top: -40px !important;
+          }
+          .business-vertical-section {
+            padding-top: 0px !important;
+            margin-top: -120px !important;
+          }
+          .faq-section {
+            padding-top: 0px !important;
+            margin-top: -80px !important;
+          }
+          .core-pillars-heading {
+            white-space: normal !important;
+          }
+        }
+        @media (max-width: 600px) {
+          .mobile-apps-phones-wrapper {
+            transform: scale(0.45);
+            height: 200px !important;
+          }
+        }
+        @media (max-width: 400px) {
+          .mobile-apps-phones-wrapper {
+            transform: scale(0.38);
+            height: 170px !important;
+          }
+        }
+      `}</style>
     </div>
   );
 }
