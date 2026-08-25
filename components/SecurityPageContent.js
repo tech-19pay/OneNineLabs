@@ -418,79 +418,233 @@ export function validateIncomingPayload(payload: unknown) {
 
   return (
     <div className="sec-page-root">
-      {/* ── 1. HERO SECTION: GET SECURE AND PRIVATE SURFING ── */}
-      <section className="vpn-hero-section">
-        {/* Subtle Cyber Network Grid Watermark */}
-        <div className="vpn-hero-grid-bg" />
 
-        <div className="vpn-hero-container">
-          {/* Left Column: Headline, Subtitle, & CTA */}
-          <div className="vpn-hero-left">
-
-            <h1 className="vpn-hero-title">
-              <span className="vpn-title-orange">Cloud &amp; Cyber </span>
-              <span className="vpn-title-dark">Security Scale</span>
+<style>{`
+.hero-wrapper { position: relative; width: 100%; overflow: hidden; background-color: #f4f7f6; min-height: auto; display: flex; align-items: center; padding: 128px 0 48px 0; font-family: 'Inter', sans-serif; }
+.hero-bg-dark { display: none; }
+@media(min-width: 1024px) {
+  .hero-bg-dark { display: block; position: absolute; top: 0; right: 0; width: 55%; height: 100%; background-color: #0b1c16; z-index: 0; clip-path: polygon(15% 0, 100% 0, 100% 100%, 0 100%); }
+}
+.hero-bg-mobile { position: absolute; bottom: 0; left: 0; width: 100%; height: 45%; background-color: #0b1c16; z-index: 0; }
+@media(min-width: 1024px) {
+  .hero-bg-mobile { display: none; }
+}
+.hero-container { max-width: 1300px; margin: 0 auto; padding: 0 24px; width: 100%; position: relative; z-index: 10; display: flex; flex-direction: column; gap: 64px; align-items: center; }
+@media(min-width: 1024px) {
+  .hero-container { flex-direction: row; gap: 32px; align-items: center; }
+}
+.hero-left { max-width: 576px; width: 100%; }
+@media(min-width: 1024px) {
+  .hero-left { flex: 1; }
+}
+.hero-badge { display: inline-flex; align-items: center; gap: 12px; padding: 6px 12px; border-radius: 6px; background: #fff; border: 1px solid #f3f4f6; box-shadow: 0 1px 2px rgba(0,0,0,0.05); margin-bottom: 32px; }
+.hero-badge-tag { background: #ff5a1f; color: #fff; font-size: 11px; font-weight: bold; padding: 2px 8px; border-radius: 4px; text-transform: uppercase; letter-spacing: 0.05em; }
+.hero-badge-text { font-size: 13px; color: #374151; font-weight: 500; }
+.hero-title { font-size: 36px; font-weight: 800; line-height: 1.05; color: #111827; margin-bottom: 24px; letter-spacing: -0.02em; }
+@media(min-width: 768px) { .hero-title { font-size: 48px; } }
+@media(min-width: 1024px) { .hero-title { font-size: 56px; } }
+.hero-title-highlight { position: relative; display: inline-block; color: #111827; }
+.hero-title-svg { position: absolute; width: 105%; height: 24px; bottom: -12px; left: -2%; z-index: -1; }
+.hero-subtitle { color: #4b5563; font-size: 17px; line-height: 1.6; margin-bottom: 40px; max-width: 480px; }
+.hero-cta-group { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; margin-bottom: 32px; }
+.hero-btn-primary { background: #111827; color: #fff; padding: 16px 28px; border-radius: 12px; font-weight: bold; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: background 0.2s; box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1); border: none; font-size: 16px; }
+.hero-btn-primary:hover { background: #000; }
+.hero-btn-secondary { background: #e5e7eb; color: #111827; padding: 16px 28px; border-radius: 12px; font-weight: bold; display: flex; align-items: center; gap: 12px; cursor: pointer; transition: background 0.2s; border: none; font-size: 16px; }
+.hero-btn-secondary:hover { background: #d1d5db; }
+.hero-btn-icon-orange { background: #ff5a1f; padding: 4px; border-radius: 50%; color: #fff; display: flex; }
+.hero-btn-icon-dark { background: #111827; padding: 4px; border-radius: 50%; color: #fff; display: flex; }
+.hero-features { display: flex; align-items: center; gap: 24px; font-size: 14px; color: #4b5563; font-weight: 600; margin-bottom: 56px; }
+.hero-feature-item { display: flex; align-items: center; gap: 8px; }
+.hero-testi { background: #fff; padding: 20px; border-radius: 16px; box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1); max-width: 340px; position: relative; border: 1px solid #f3f4f6; }
+.hero-testi-circle { position: absolute; left: -64px; bottom: -40px; width: 128px; height: 128px; border-radius: 50%; border: 12px solid #1e293b; opacity: 0.05; z-index: -1; }
+.hero-testi-author { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+.hero-testi-img { width: 44px; height: 44px; border-radius: 50%; background: #e5e7eb; overflow: hidden; }
+.hero-testi-img img { width: 100%; height: 100%; object-fit: cover; }
+.hero-testi-name { font-weight: bold; color: #111827; font-size: 14px; }
+.hero-testi-role { font-size: 12px; color: #6b7280; }
+.hero-testi-text { font-size: 13px; color: #4b5563; font-weight: 500; line-height: 1.6; }
+.hero-right { width: 100%; max-width: 512px; position: relative; }
+@media(min-width: 1024px) {
+  .hero-right { flex: 1; margin-left: auto; }
+}
+.hero-card-main { background: #fff; border-radius: 24px; padding: 28px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); position: relative; z-index: 10; border: 1px solid #f9fafb; }
+.hero-card-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px; }
+.hero-card-title { font-size: 22px; font-weight: bold; color: #111827; margin:0; }
+.hero-card-btn { width: 36px; height: 36px; border-radius: 50%; border: 1px solid #e5e7eb; display: flex; align-items: center; justify-content: center; color: #6b7280; background: transparent; cursor: pointer; padding:0; }
+.hero-chart-area { position: relative; width: 224px; height: 224px; margin: 0 auto 40px auto; }
+.hero-chart-svg { width: 100%; height: 100%; transform: rotate(-90deg); }
+.hero-chart-label { position: absolute; background: #fff; font-size: 11px; font-weight: bold; padding: 4px 8px; border-radius: 4px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1); color: #374151; }
+.hero-chart-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.hero-stats-row { display: flex; gap: 16px; }
+.hero-stat-box { background: #f8fafc; border-radius: 16px; padding: 16px; flex: 1; border: 1px solid #f1f5f9; }
+.hero-stat-title { font-size: 11px; color: #64748b; font-weight: 600; margin-bottom: 4px; }
+.hero-stat-val { font-size: 20px; font-weight: 800; color: #111827; margin-bottom: 8px; }
+.hero-stat-footer { display: flex; align-items: center; justify-content: space-between; }
+.hero-stat-change-up { font-size: 10px; color: #22c55e; font-weight: bold; }
+.hero-stat-change-down { font-size: 10px; color: #ff5a1f; font-weight: bold; }
+.hero-stat-vs { color: #94a3b8; font-weight: 500; }
+.hero-widget-dark { position: absolute; top: 45%; left: -24px; background: #2b2b40; border-radius: 16px; padding: 20px; box-shadow: 0 20px 40px rgba(0,0,0,0.3); z-index: 20; width: 280px; }
+@media(min-width: 1024px) { .hero-widget-dark { top: 50%; left: -80px; } }
+.hero-widget-dark-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px; }
+.hero-widget-dark-title { color: #fff; font-weight: 600; font-size: 14px; }
+.hero-widget-dark-legend { display: flex; gap: 12px; }
+.hero-widget-dark-legend-item { display: flex; align-items: center; gap: 6px; font-size: 10px; color: #9ca3af; font-weight: 500; }
+.hero-widget-dark-dot-orange { width: 8px; height: 8px; border-radius: 4px; background: #ff5a1f; }
+.hero-widget-dark-dot-white { width: 8px; height: 8px; border-radius: 4px; background: #fff; }
+.hero-widget-dark-val-row { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; }
+.hero-widget-dark-val { font-size: 24px; font-weight: bold; color: #fff; margin:0; }
+.hero-widget-dark-val-change { font-size: 10px; color: #22c55e; font-weight: 600; }
+.hero-widget-dark-val-change span { color: #9ca3af; font-weight: 500; }
+.hero-widget-bars { display: flex; justify-content: space-between; align-items: flex-end; height: 50px; gap: 8px; }
+.hero-widget-bar-col { display: flex; flex-direction: column; justify-content: flex-end; width: 100%; gap: 2px; height: 100%; }
+.hero-widget-bar-top { background: #ff5a1f; width: 100%; border-top-left-radius: 2px; border-top-right-radius: 2px; }
+.hero-widget-bar-bottom { background: #fff; width: 100%; border-bottom-left-radius: 2px; border-bottom-right-radius: 2px; }
+.hero-widget-light { position: absolute; bottom: 5%; right: -16px; background: #fff; border-radius: 16px; padding: 20px; box-shadow: 0 15px 35px rgba(0,0,0,0.1); z-index: 20; width: 110px; display: flex; flex-direction: column; align-items: center; }
+@media(min-width: 1024px) { .hero-widget-light { top: 60%; bottom: auto; right: -48px; } }
+.hero-widget-light-val { font-size: 13px; font-weight: 800; color: #111827; margin-bottom: 8px; }
+.hero-ratings { display: none; gap: 16px; margin-top: 32px; width: 100%; max-width: 480px; }
+@media(min-width: 1024px) { .hero-ratings { display: flex; } }
+.hero-ratings-mobile { display: flex; gap: 12px; margin-top: 64px; width: 100%; padding: 0 24px; max-width: 500px; margin-left: auto; margin-right: auto; position: relative; z-index: 10; }
+@media(min-width: 1024px) { .hero-ratings-mobile { display: none; } }
+.hero-rating-box { flex: 1; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 12px; display: flex; flex-direction: column; align-items: center; justify-content: center; backdrop-filter: blur(4px); }
+.hero-rating-stars { display: flex; color: #facc15; margin-bottom: 6px; font-size: 14px; }
+.hero-rating-text { font-size: 12px; color: #d1d5db; font-weight: 500; display: flex; align-items: center; gap: 6px; }
+`}</style>
+      {/* ── 1. SAFU DEFI HERO SECTION ── */}
+      <section className="hero-wrapper">
+        <div className="hero-bg-dark">
+          <div style={{ position: "absolute", inset: 0, opacity: 0.03, backgroundImage: "radial-gradient(circle at 70% 50%, #ffffff 0%, transparent 60%)" }}></div>
+        </div>
+        <div className="hero-bg-mobile"></div>
+        <div className="hero-container">
+          <div className="hero-left">
+            <h1 className="hero-title">
+              Secure your Cloud<br />
+              with a Zero-Trust<br />
+              <span className="hero-title-highlight">
+                Architecture
+                <svg className="hero-title-svg" viewBox="0 0 200 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M4 18 Q 50 4 196 14" stroke="#ff5a1f" strokeWidth="6" strokeLinecap="round" />
+                  <path d="M10 22 Q 90 12 190 18" stroke="#ff5a1f" strokeWidth="4" strokeLinecap="round" opacity="0.6" />
+                </svg>
+              </span>
             </h1>
-
-            <p className="vpn-hero-subtitle">
-              Harden your cloud infrastructure, automate compliance audits, and shield multi-cloud perimeters with real-time zero-trust enforcement.
+            <p className="hero-subtitle">
+              Build strong, lasting security postures that seamlessly adapt to your cloud environments, ensuring effortless compliance and threat defense.
             </p>
-
-            <div className="vpn-hero-actions">
-              <Link href="/contact" className="vpn-hero-btn">
-                Schedule Audit Call →
-              </Link>
-              <div className="vpn-live-status-badge">
-                <span className="vpn-pulse-dot" />
-                Active Protection
+            <div className="hero-cta-group">
+              <button className="hero-btn-primary">
+                Start Security Audit — It&apos;s FREE
+                <span className="hero-btn-icon-orange">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 19L19 5M19 5H9M19 5V15"/></svg>
+                </span>
+              </button>
+              <button className="hero-btn-secondary">
+                View Features
+                <span className="hero-btn-icon-dark">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+                </span>
+              </button>
+            </div>
+            <div className="hero-features">
+              <div className="hero-feature-item">
+                <svg style={{width:"20px",height:"20px",color:"#374151"}} fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path></svg>
+                Zero downtime required
+              </div>
+              <div className="hero-feature-item">
+                <svg style={{width:"20px",height:"20px",color:"#374151"}} fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"></path></svg>
+                Real-time protection
               </div>
             </div>
-
           </div>
-
-          {/* Right Column: Premium Card Displaying generated security_hero.jpg */}
-          <div className="vpn-hero-right">
-            <div className="vpn-hero-visual-frame">
-              <div className="vpn-hero-image-wrap">
-                <img
-                  src="/services/security_hero.jpg"
-                  alt="OneNineLabs Cloud & Cyber Security Infrastructure Map"
-                  className="vpn-hero-main-img"
-                />
-                <div className="vpn-hero-image-overlay" />
-
-                {/* Scan line effect */}
-                <div className="vpn-hero-scan-line" />
+          <div className="hero-right">
+            <div className="hero-card-main">
+              <div className="hero-card-header">
+                <h3 className="hero-card-title">Security Overview</h3>
+                <button className="hero-card-btn">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M9 18l6-6-6-6"/></svg>
+                </button>
               </div>
-
-              {/* Floating Stat Card 1 */}
-              <div className="vpn-float-card fc-top">
-                <span className="fc-icon">🛡️</span>
-                <div className="fc-text">
-                  <strong>Zero Trust</strong>
-                  <span>Active Workloads</span>
+              <div className="hero-chart-area">
+                <svg viewBox="0 0 100 100" className="hero-chart-svg">
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="#0d211a" strokeWidth="18" strokeDasharray="251.2" strokeDashoffset="110.5" />
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="#ff5a1f" strokeWidth="18" strokeDasharray="251.2" strokeDashoffset="180.8" style={{transformOrigin:"center",transform:"rotate(140deg)"}} />
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="#f1f5f9" strokeWidth="18" strokeDasharray="251.2" strokeDashoffset="211" style={{transformOrigin:"center",transform:"rotate(240deg)"}} />
+                </svg>
+                <div className="hero-chart-label" style={{ top:"15%", left:"5%" }}>28%</div>
+                <div className="hero-chart-label" style={{ top:"20%", right:"0%" }}>16%</div>
+                <div className="hero-chart-label" style={{ bottom:"10%", left:"20%" }}>56%</div>
+                <div className="hero-chart-center">
+                  <span style={{fontSize:"10px",color:"#9ca3af",fontWeight:"bold",textTransform:"uppercase",letterSpacing:"0.05em",marginBottom:"4px"}}>Threats Blocked</span>
+                  <span style={{fontSize:"32px",fontWeight:"800",color:"#111827",lineHeight:1}}>78.5%</span>
                 </div>
               </div>
-
-              {/* Floating Stat Card 2 */}
-              <div className="vpn-float-card fc-bottom">
-                <span className="fc-icon">⚡</span>
-                <div className="fc-text">
-                  <strong>480B+</strong>
-                  <span>Threats Blocked Daily</span>
+              <div className="hero-stats-row">
+                <div className="hero-stat-box">
+                  <div className="hero-stat-title">Total Audits</div>
+                  <div className="hero-stat-val">1,262</div>
+                  <div className="hero-stat-footer">
+                    <span className="hero-stat-change-up">+12.4% <span className="hero-stat-vs">vs prev</span></span>
+                    <svg width="30" height="12" viewBox="0 0 30 12"><path d="M0 8 L10 2 L20 6 L30 0" fill="none" stroke="#22c55e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </div>
                 </div>
+                <div className="hero-stat-box">
+                  <div className="hero-stat-title">Threats Blocked</div>
+                  <div className="hero-stat-val">2.4M</div>
+                  <div className="hero-stat-footer">
+                    <span className="hero-stat-change-up">+35.7% <span className="hero-stat-vs">vs prev</span></span>
+                    <svg width="30" height="12" viewBox="0 0 30 12"><path d="M0 8 L10 2 L20 6 L30 0" fill="none" stroke="#22c55e" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div className="hero-widget-dark">
+              <div className="hero-widget-dark-header">
+                <span className="hero-widget-dark-title">Cloud Workloads</span>
+                <div className="hero-widget-dark-legend">
+                  <div className="hero-widget-dark-legend-item"><span className="hero-widget-dark-dot-orange"></span> Secured</div>
+                  <div className="hero-widget-dark-legend-item"><span className="hero-widget-dark-dot-white"></span> Monitored</div>
+                </div>
+              </div>
+              <div className="hero-widget-dark-val-row">
+                <span className="hero-widget-dark-val">14,250</span>
+                <span className="hero-widget-dark-val-change">↗ +24% <span style={{color:"#9ca3af"}}>from last month</span></span>
+              </div>
+              <div className="hero-widget-bars">
+                {[30,40,55,65,45,80,60,75].map((val, i) => (
+                  <div key={i} className="hero-widget-bar-col">
+                    <div className="hero-widget-bar-top" style={{ height: val + "%" }}></div>
+                    <div className="hero-widget-bar-bottom" style={{ height: (30 - (val * 0.2)) + "%" }}></div>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="hero-widget-light">
+              <div style={{position:"relative",width:"50px",height:"50px",marginBottom:"12px"}}>
+                <svg viewBox="0 0 100 100" style={{width:"100%",height:"100%",transform:"rotate(-45deg)"}}>
+                  <path d="M 50 50 L 100 50 A 50 50 0 1 1 50 0 Z" fill="#0d211a" />
+                  <circle cx="65" cy="25" r="5" fill="white" />
+                </svg>
+                <div style={{position:"absolute",top:"10%",right:"-15%",width:"8px",height:"8px",borderRadius:"4px",background:"#ff5a1f"}}></div>
+              </div>
+              <div className="hero-widget-light-val">99.99% SLA</div>
+              <div style={{display:"flex",justifyContent:"center",alignItems:"flex-end",gap:"3px",height:"16px",width:"100%"}}>
+                <div style={{width:"6px",background:"#0d211a",height:"60%",borderRadius:"2px"}}></div>
+                <div style={{width:"6px",background:"#e5e7eb",height:"40%",borderRadius:"2px"}}></div>
+                <div style={{width:"6px",background:"#0d211a",height:"80%",borderRadius:"2px"}}></div>
+                <div style={{width:"6px",background:"#e5e7eb",height:"30%",borderRadius:"2px"}}></div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ── 2. BYPASS THREATS & CLOUD IMMUNITY SECTION ── */}
+            {/* ── 2. BYPASS THREATS & CLOUD IMMUNITY SECTION ── */}
       <section className="sec-cloud-mesh-section">
         <div className="sec-cloud-mesh-container">
           {/* Left Column: Text, Subtitle, Stats, and CTA */}
           <div className="sec-cloud-mesh-left">
-            <span className="sec-cm-tag">ABOUT ONENINELABS CLOUD SECURITY</span>
+            <span className="sec-cm-tag" style={{ color: "#ff40ca", letterSpacing: "3px" }}>ABOUT ONENINELABS CLOUD SECURITY</span>
             <h2 className="sec-cm-title">
               Bypass Threats and<br />
               Remain Fully Resilient<br />
@@ -503,8 +657,8 @@ export function validateIncomingPayload(payload: unknown) {
             {/* Feature Stat Blocks */}
             <div className="sec-cm-stats-grid">
               <div className="sec-cm-stat-card">
-                <div className="sec-cm-stat-icon-box">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f04e23" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <div className="sec-cm-stat-icon-box" style={{ background: "#fdf2f8", borderColor: "#fbcfe8" }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ff40ca" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <rect x="2" y="2" width="20" height="8" rx="2" ry="2" />
                     <rect x="2" y="14" width="20" height="8" rx="2" ry="2" />
                     <line x1="6" y1="6" x2="6.01" y2="6" />
@@ -518,8 +672,8 @@ export function validateIncomingPayload(payload: unknown) {
               </div>
 
               <div className="sec-cm-stat-card">
-                <div className="sec-cm-stat-icon-box">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#f04e23" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <div className="sec-cm-stat-icon-box" style={{ background: "#eff6ff", borderColor: "#bfdbfe" }}>
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                     <circle cx="12" cy="12" r="10" />
                     <line x1="2" y1="12" x2="22" y2="12" />
                     <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
@@ -532,9 +686,9 @@ export function validateIncomingPayload(payload: unknown) {
               </div>
             </div>
 
-            {/* Dark CTA Button */}
+            {/* Gradient CTA Button */}
             <div className="sec-cm-btn-wrap">
-              <Link href="/contact" className="sec-cm-cta-btn">
+              <Link href="/contact" className="sec-cm-cta-btn" style={{ background: "linear-gradient(90deg, #ff40ca, #ff7a45)", border: "none", boxShadow: "0 10px 30px rgba(255, 64, 202, 0.3)" }}>
                 Get Started →
               </Link>
             </div>
@@ -564,9 +718,9 @@ export function validateIncomingPayload(payload: unknown) {
                     />
                     <defs>
                       <linearGradient id="speedGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stopColor="#f59e0b" />
-                        <stop offset="70%" stopColor="#f04e23" />
-                        <stop offset="100%" stopColor="#dc2626" />
+                        <stop offset="0%" stopColor="#00e5ff" />
+                        <stop offset="50%" stopColor="#ff40ca" />
+                        <stop offset="100%" stopColor="#ff7a45" />
                       </linearGradient>
                     </defs>
                     <line x1="60" y1="60" x2="80" y2="35" stroke="#1e293b" strokeWidth="2.5" strokeLinecap="round" />
@@ -633,49 +787,54 @@ export function validateIncomingPayload(payload: unknown) {
                 {/* Phone Speaker / Dynamic Island */}
                 <div className="sec-phone-island" />
 
-                {/* Phone Screen App UI */}
-                <div className="sec-phone-screen">
-                  <div className="sec-app-header">
-                    <span className="sec-app-title">Cloud Shield Status</span>
-                    <div className="sec-app-badges">
-                      <span className="sec-app-badge green">99.99% TLS</span>
-                      <span className="sec-app-badge red">Threats: 0</span>
-                    </div>
+                {/* Phone Screen App UI: Zero-Trust Alert */}
+                <div className="sec-phone-screen" style={{ background: "#0f172a", color: "#f8fafc", position: "relative", overflow: "hidden" }}>
+                  {/* Header */}
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
+                    <span style={{ fontSize: "14px", fontWeight: "700", color: "#f8fafc" }}>Security Alerts</span>
+                    <span style={{ background: "rgba(239, 68, 68, 0.2)", color: "#ef4444", padding: "4px 8px", borderRadius: "12px", fontSize: "10px", fontWeight: "800", letterSpacing: "1px" }}>1 CRITICAL</span>
                   </div>
 
-                  {/* Central Shield Power Switch */}
-                  <div className="sec-app-power-wrap">
-                    <div className="sec-app-power-ring-outer">
-                      <div className="sec-app-power-ring-inner">
-                        <div className="sec-app-power-btn">
-                          <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                            <path d="M18.36 6.64a9 9 0 1 1-12.73 0" />
-                            <line x1="12" y1="2" x2="12" y2="12" />
-                          </svg>
-                        </div>
+                  {/* Alert Card */}
+                  <div style={{ background: "#1e293b", border: "1px solid #334155", borderRadius: "16px", padding: "16px", marginBottom: "16px", position: "relative", zIndex: 5 }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "12px" }}>
+                      <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(239, 68, 68, 0.1)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                      </div>
+                      <span style={{ fontSize: "13px", fontWeight: "700", color: "#f8fafc" }}>Unauthorized Access</span>
+                    </div>
+                    
+                    <div style={{ fontSize: "11px", color: "#94a3b8", display: "flex", flexDirection: "column", gap: "6px", marginBottom: "12px" }}>
+                      <div style={{ display: "flex", justifyContent: "space-between" }}>
+                        <span>Target:</span>
+                        <span style={{ color: "#f8fafc", fontFamily: "monospace" }}>PROD-DB-01</span>
+                      </div>
+                      <div style={{ display: "flex", justifyContent: "space-between" }}>
+                        <span>Vector:</span>
+                        <span style={{ color: "#f8fafc" }}>SQL Injection Attempt</span>
+                      </div>
+                      <div style={{ display: "flex", justifyContent: "space-between" }}>
+                        <span>Status:</span>
+                        <span style={{ color: "#22c55e", fontWeight: "700" }}>Blocked & Isolated</span>
                       </div>
                     </div>
+
+                    <button style={{ width: "100%", background: "#3b82f6", color: "#fff", border: "none", padding: "10px", borderRadius: "8px", fontSize: "12px", fontWeight: "600", cursor: "pointer" }}>
+                      View Audit Log
+                    </button>
                   </div>
 
-                  {/* Connected Time Counter */}
-                  <div className="sec-app-timer">
-                    <span className="sec-app-timer-lbl">Connected Time</span>
-                    <span className="sec-app-timer-val">02:49:35</span>
-                  </div>
-
-                  {/* Active Cloud Region Strip */}
-                  <div className="sec-app-region-bar">
-                    <span className="sec-app-region-flag">🇩🇪</span>
-                    <div className="sec-app-region-txt">
-                      <strong>Frankfurt Core PoP</strong>
-                      <span>IP: 185.199.108.153 (Hidden)</span>
+                  {/* System Status */}
+                  <div style={{ background: "#1e293b", border: "1px solid #334155", borderRadius: "16px", padding: "12px 16px", display: "flex", alignItems: "center", gap: "12px" }}>
+                    <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#22c55e", boxShadow: "0 0 8px #22c55e" }}></div>
+                    <div style={{ display: "flex", flexDirection: "column" }}>
+                      <span style={{ fontSize: "12px", fontWeight: "700" }}>Zero-Trust Mesh Active</span>
+                      <span style={{ fontSize: "10px", color: "#94a3b8" }}>All nodes operating normally</span>
                     </div>
                   </div>
 
-                  {/* App Action Button */}
-                  <button className="sec-app-action-btn">
-                    Active Protection Mode
-                  </button>
+                  {/* Background Glow */}
+                  <div style={{ position: "absolute", top: "20%", right: "-20px", width: "100px", height: "100px", background: "radial-gradient(circle, rgba(239,68,68,0.2) 0%, transparent 70%)", filter: "blur(20px)", zIndex: 0 }}></div>
                 </div>
               </div>
             </div>
@@ -924,137 +1083,109 @@ export function validateIncomingPayload(payload: unknown) {
             </div>
           </div>
 
-          {/* Bottom 4 Big Numbers Metrics Grid */}
-          <div className="sec-monitor-stats-bar">
-            <div className="sec-mon-stat-item">
-              <span className="sec-mon-stat-giant">24/7</span>
-              <span className="sec-mon-stat-caption">Continuous SOC Monitoring</span>
-            </div>
 
-            <div className="sec-mon-stat-item">
-              <span className="sec-mon-stat-giant">1.5k+</span>
-              <span className="sec-mon-stat-caption">Cloud Workloads Secured</span>
-            </div>
-
-            <div className="sec-mon-stat-item">
-              <span className="sec-mon-stat-giant">15+</span>
-              <span className="sec-mon-stat-caption">Years of Security Experience</span>
-            </div>
-
-            <div className="sec-mon-stat-item">
-              <span className="sec-mon-stat-giant">35+</span>
-              <span className="sec-mon-stat-caption">Certified SOC Professionals</span>
-            </div>
-          </div>
         </div>
       </section>
 
 
 
       {/* ── 3. AI TRANSFORMATION & THREAT INTEL SECTION ── */}
-      <section className="sec-intel-section">
-        <div className="sec-intel-container">
-          {/* Left Column: The Response & Progress Bars */}
-          <div className="sec-intel-left">
-            <span className="sec-intel-tag-good">THE RESPONSE</span>
-            <h2 className="sec-intel-title">
+      <section style={{ padding: "100px 24px", background: "#f8fafc", borderTop: "1px solid #f1f5f9" }}>
+        <div className="sec-intel-container" style={{ alignItems: "center" }}>
+          
+          {/* Left Column: Progress Bars */}
+          <div className="sec-intel-left" style={{ width: "100%" }}>
+            <span style={{ color: "#00e5ff", fontSize: "12.5px", fontWeight: "800", letterSpacing: "3px", textTransform: "uppercase", marginBottom: "20px", display: "block" }}>
+              THE RESPONSE
+            </span>
+            <h2 className="sec-intel-title" style={{ color: "#0f172a" }}>
               AI-Driven Threat<br />Resolution at Scale
             </h2>
-            <p className="sec-intel-subtitle-text">
+            <p className="sec-intel-subtitle-text" style={{ color: "#475569" }}>
               Harnessing machine learning models to isolate and contain threats at sub-second speeds before they reach critical database layers.
             </p>
 
-            <div className="sec-intel-bars-wrap">
+            <div className="sec-intel-bars-wrap" style={{ gap: "28px", width: "100%" }}>
               {/* Bar 1 */}
-              <div className="sec-intel-bar-item">
-                <span className="sec-intel-bar-label">Automated Threat Containment Rate</span>
-                <div className="sec-intel-bar-row">
-                  <div className="sec-intel-progress-track">
-                    <div className="sec-intel-progress-fill p-fill-98" style={{ width: "98%" }} />
-                  </div>
-                  <span className="sec-intel-bar-pct">98.4%</span>
+              <div className="sec-intel-bar-item" style={{ gap: "10px" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
+                  <span className="sec-intel-bar-label" style={{ color: "#0f172a" }}>Automated Threat Containment Rate</span>
+                  <span className="sec-intel-bar-pct" style={{ color: "#00e5ff", minWidth: "auto", fontSize: "14px" }}>98.4%</span>
+                </div>
+                <div className="sec-intel-progress-track" style={{ height: "10px", border: "none", background: "#e2e8f0" }}>
+                  <div className="sec-intel-progress-fill" style={{ width: "98.4%", background: "linear-gradient(90deg, #00e5ff, #3b82f6)", boxShadow: "none" }} />
                 </div>
               </div>
 
               {/* Bar 2 */}
-              <div className="sec-intel-bar-item">
-                <span className="sec-intel-bar-label">SecOps Alert Noise Reduction</span>
-                <div className="sec-intel-bar-row">
-                  <div className="sec-intel-progress-track">
-                    <div className="sec-intel-progress-fill p-fill-85" style={{ width: "85%" }} />
-                  </div>
-                  <span className="sec-intel-bar-pct">85.0%</span>
+              <div className="sec-intel-bar-item" style={{ gap: "10px" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
+                  <span className="sec-intel-bar-label" style={{ color: "#0f172a" }}>SecOps Alert Noise Reduction</span>
+                  <span className="sec-intel-bar-pct" style={{ color: "#ff40ca", minWidth: "auto", fontSize: "14px" }}>85.0%</span>
+                </div>
+                <div className="sec-intel-progress-track" style={{ height: "10px", border: "none", background: "#e2e8f0" }}>
+                  <div className="sec-intel-progress-fill" style={{ width: "85%", background: "linear-gradient(90deg, #ff40ca, #ff7a45)", boxShadow: "none" }} />
                 </div>
               </div>
 
               {/* Bar 3 */}
-              <div className="sec-intel-bar-item">
-                <span className="sec-intel-bar-label">Edge Firewall Policy Sync Latency</span>
-                <div className="sec-intel-bar-row">
-                  <div className="sec-intel-progress-track">
-                    <div className="sec-intel-progress-fill p-fill-100" style={{ width: "100%" }} />
-                  </div>
-                  <span className="sec-intel-bar-pct">&lt; 1.2s</span>
+              <div className="sec-intel-bar-item" style={{ gap: "10px" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", width: "100%" }}>
+                  <span className="sec-intel-bar-label" style={{ color: "#0f172a" }}>Edge Firewall Policy Sync Latency</span>
+                  <span className="sec-intel-bar-pct" style={{ color: "#10b981", minWidth: "auto", fontSize: "14px" }}>&lt; 1.2s</span>
+                </div>
+                <div className="sec-intel-progress-track" style={{ height: "10px", border: "none", background: "#e2e8f0" }}>
+                  <div className="sec-intel-progress-fill" style={{ width: "100%", background: "linear-gradient(90deg, #10b981, #34d399)", boxShadow: "none" }} />
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Circular Gauges & The Risk Box */}
-          <div className="sec-intel-right">
-            {/* Donut Gauges Row */}
-            <div className="sec-intel-gauges-row">
+          {/* Right Column: Gauges & Risk Box */}
+          <div className="sec-intel-right" style={{ gap: "24px", width: "100%" }}>
+            {/* Gauges Row */}
+            <div className="sec-intel-gauges-row" style={{ gap: "24px", width: "100%" }}>
               {/* Gauge 1 */}
-              <div className="sec-intel-gauge-box">
-                <div className="sec-intel-circle-wrap">
-                  <svg className="sec-gauge-svg" viewBox="0 0 120 120">
-                    <circle cx="60" cy="60" r="50" className="sec-gauge-track" />
-                    <circle
-                      cx="60"
-                      cy="60"
-                      r="50"
-                      className="sec-gauge-fill"
-                      style={{ strokeDashoffset: "calc(314.159 * (1 - 0.94))" }}
-                    />
-                  </svg>
-                  <span className="sec-gauge-number text-green">94%</span>
-                </div>
-                <div className="sec-gauge-caption">
-                  <strong>Efficiency Gains</strong>
-                  <span>reported by SecOps teams adopting AI copilots</span>
-                </div>
+              <div className="sec-intel-gauge-box" style={{ background: "#ffffff", border: "1.5px solid #f1f5f9", borderRadius: "24px", padding: "32px 24px", boxShadow: "0 15px 35px rgba(0,0,0,0.03)" }}>
+                 <div className="sec-intel-circle-wrap" style={{ width: "110px", height: "110px", marginBottom: "4px" }}>
+                   <svg className="sec-gauge-svg" viewBox="0 0 120 120">
+                     <circle cx="60" cy="60" r="50" fill="none" stroke="#f1f5f9" strokeWidth="10" />
+                     <circle cx="60" cy="60" r="50" fill="none" stroke="#00e5ff" strokeWidth="10" strokeDasharray="314.159" strokeDashoffset="18.85" strokeLinecap="round" />
+                   </svg>
+                   <span className="sec-gauge-number" style={{ color: "#0f172a", fontSize: "24px" }}>94%</span>
+                 </div>
+                 <div className="sec-gauge-caption">
+                   <strong style={{ color: "#0f172a", fontSize: "15px" }}>Efficiency Gains</strong>
+                   <span style={{ color: "#64748b", fontSize: "13px" }}>reported by SecOps teams adopting AI copilots</span>
+                 </div>
               </div>
 
               {/* Gauge 2 */}
-              <div className="sec-intel-gauge-box">
-                <div className="sec-intel-circle-wrap">
-                  <svg className="sec-gauge-svg" viewBox="0 0 120 120">
-                    <circle cx="60" cy="60" r="50" className="sec-gauge-track" />
-                    <circle
-                      cx="60"
-                      cy="60"
-                      r="50"
-                      className="sec-gauge-fill fill-orange"
-                      style={{ strokeDashoffset: "calc(314.159 * (1 - 0.78))" }}
-                    />
-                  </svg>
-                  <span className="sec-gauge-number">78%</span>
-                </div>
-                <div className="sec-gauge-caption">
-                  <strong>Attack Growth</strong>
-                  <span>in automated edge scanner queries blocked YoY</span>
-                </div>
+              <div className="sec-intel-gauge-box" style={{ background: "#ffffff", border: "1.5px solid #f1f5f9", borderRadius: "24px", padding: "32px 24px", boxShadow: "0 15px 35px rgba(0,0,0,0.03)" }}>
+                 <div className="sec-intel-circle-wrap" style={{ width: "110px", height: "110px", marginBottom: "4px" }}>
+                   <svg className="sec-gauge-svg" viewBox="0 0 120 120">
+                     <circle cx="60" cy="60" r="50" fill="none" stroke="#f1f5f9" strokeWidth="10" />
+                     <circle cx="60" cy="60" r="50" fill="none" stroke="#ff40ca" strokeWidth="10" strokeDasharray="314.159" strokeDashoffset="69.11" strokeLinecap="round" />
+                   </svg>
+                   <span className="sec-gauge-number" style={{ color: "#0f172a", fontSize: "24px" }}>78%</span>
+                 </div>
+                 <div className="sec-gauge-caption">
+                   <strong style={{ color: "#0f172a", fontSize: "15px" }}>Attack Growth</strong>
+                   <span style={{ color: "#64748b", fontSize: "13px" }}>in automated edge scanner queries blocked YoY</span>
+                 </div>
               </div>
             </div>
 
             {/* The Risk Landscape Box */}
-            <div className="sec-intel-bad-card">
-              <span className="sec-intel-tag-bad">THE RISK FACTOR</span>
-              <h3 className="sec-intel-bad-title">
+            <div className="sec-intel-bad-card" style={{ background: "#0f172a", borderRadius: "24px", padding: "36px", position: "relative", overflow: "hidden", boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.1), 0 20px 40px rgba(15,23,42,0.15)", border: "none" }}>
+              <div style={{ position: "absolute", top: "-50px", right: "-50px", width: "200px", height: "200px", background: "radial-gradient(circle, rgba(255,64,202,0.2) 0%, transparent 70%)", filter: "blur(30px)" }}></div>
+              <span className="sec-intel-tag-bad" style={{ color: "#ff40ca", fontSize: "12.5px", letterSpacing: "2.5px", margin: "0 0 16px 0", zIndex: 10 }}>THE RISK FACTOR</span>
+              <h3 className="sec-intel-bad-title" style={{ color: "#f8fafc", fontSize: "22px", zIndex: 10 }}>
                 Threat actors are weaponizing machine learning to locate open hybrid cloud perimeters.
               </h3>
             </div>
           </div>
+
         </div>
       </section>
 
@@ -1386,7 +1517,7 @@ export function validateIncomingPayload(payload: unknown) {
 
         /* ── 2. Cloud Mesh & Zero-Trust Immunity Section ── */
         .sec-cloud-mesh-section {
-          padding: 120px 24px 100px;
+          padding: 60px 24px 100px;
           background: #ffffff;
           color: #0f172a;
           border-top: 1px solid #f1f5f9;
@@ -1399,7 +1530,7 @@ export function validateIncomingPayload(payload: unknown) {
           display: grid;
           grid-template-columns: 1.1fr 1fr;
           gap: 60px;
-          align-items: center;
+          align-items: flex-start;
         }
         .sec-cloud-mesh-left {
           display: flex;
@@ -1498,7 +1629,7 @@ export function validateIncomingPayload(payload: unknown) {
         .sec-cloud-mesh-right {
           display: flex;
           gap: 24px;
-          align-items: center;
+          align-items: flex-start;
           justify-content: center;
         }
         .sec-cm-floating-stack {

@@ -33,6 +33,7 @@ interface IndustrySolution {
   icon: string;
   stats: string;
   bullets: string[];
+  image: string;
 }
 
 interface ArchLayer {
@@ -241,7 +242,8 @@ const industrySolutions: IndustrySolution[] = [
       "Secure Enclave Biometric Auth & Token Vault",
       "Stripe & Plaid Native Payment Sheets",
       "Offline Transaction Signing & Queuing"
-    ]
+    ],
+    image: "/fintech_mockup_1787414064376.jpg"
   },
   {
     id: "healthcare",
@@ -254,7 +256,8 @@ const industrySolutions: IndustrySolution[] = [
       "End-to-End Encrypted WebRTC Video & Chat",
       "HealthKit & Wearable Sensor Telemetry Sync",
       "FHIR / HL7 EHR Database Interoperability"
-    ]
+    ],
+    image: "/healthcare_mockup_1787414078229.jpg"
   },
   {
     id: "ondemand",
@@ -267,7 +270,8 @@ const industrySolutions: IndustrySolution[] = [
       "Background Location Battery Optimization",
       "Mapbox & Google Maps Vector Tile Caching",
       "Live WebSocket Driver Dispatch Engine"
-    ]
+    ],
+    image: "/ondemand_mockup_1787414092810.jpg"
   },
   {
     id: "ecommerce",
@@ -280,7 +284,8 @@ const industrySolutions: IndustrySolution[] = [
       "Apple Pay & Google Pay Native Sheet Checkout",
       "ARKit / ARCore Interactive 3D Product View",
       "Intelligent Push Notifications (FCM / APNs)"
-    ]
+    ],
+    image: "/ecommerce_mockup_1787414107806.jpg"
   },
   {
     id: "enterprise",
@@ -293,7 +298,8 @@ const industrySolutions: IndustrySolution[] = [
       "Offline WatermelonDB / SQLite Replication",
       "Native Camera Barcode & QR Hardware Scanner",
       "AES-256 Encrypted Local Storage Vault"
-    ]
+    ],
+    image: "/enterprise_mockup_1787414120314.jpg"
   },
   {
     id: "social",
@@ -306,7 +312,8 @@ const industrySolutions: IndustrySolution[] = [
       "WebRTC & HLS Adaptive Live Video Player",
       "FFmpeg Native Hardware Video Compression",
       "Real-Time WebSocket Interactive Reaction Feeds"
-    ]
+    ],
+    image: "/social_mockup_1787414135953.jpg"
   }
 ];
 
@@ -429,583 +436,698 @@ export default function MobileAppsPageContent() {
 
   return (
     <div className="mobile-page-content-root">
-      {/* ── 1. HERO SECTION (Dual Card Layout) ── */}
+      {/* ── 1. HERO SECTION ── */}
       <section style={{
-        backgroundColor: "#f4f5f7",
-        paddingTop: "120px",
-        paddingBottom: "60px",
-        paddingLeft: "20px",
-        paddingRight: "20px",
+        backgroundColor: "#f9f9fb",
         position: "relative",
-        overflow: "hidden"
+        overflow: "hidden",
+        padding: "120px 20px 60px",
+        fontFamily: "Inter, sans-serif"
       }}>
-        <div style={{ maxWidth: "1280px", margin: "0 auto" }}>
-          <div style={{
-            display: "grid",
-            gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
-            gap: "28px",
-            alignItems: "stretch"
-          }}>
+        {/* Purple background shape */}
+        <div style={{
+          position: "absolute",
+          bottom: "-5%",
+          right: "-5%",
+          width: "120%",
+          height: "60%",
+          background: "linear-gradient(135deg, #8B78F0 0%, #765ff0 100%)",
+          borderTopLeftRadius: "60% 15%",
+          borderTopRightRadius: "60% 15%",
+          transform: "rotate(-6deg)",
+          zIndex: 0
+        }}></div>
 
-            {/* Left White Card */}
-            <div style={{
-              backgroundColor: "#ffffff",
-              borderRadius: "36px",
-              padding: "clamp(28px, 3.8vw, 48px)",
-              border: "1px solid #e5e7eb",
-              boxShadow: "0 10px 30px rgba(0, 0, 0, 0.03)",
-              display: "flex",
-              flexDirection: "column",
-              justifyContent: "space-between",
-              minHeight: "520px"
+        <div style={{ maxWidth: "1280px", margin: "0 auto", position: "relative", zIndex: 10, display: "flex", flexWrap: "wrap", justifyContent: "space-between" }}>
+
+          {/* Left Content */}
+          <div style={{ flex: "1 1 500px", maxWidth: "600px", paddingBottom: "100px", paddingTop: "40px" }}>
+            <h1 style={{
+              fontSize: "clamp(36px, 5vw, 64px)",
+              fontWeight: "800",
+              color: "#1a1a2e",
+              lineHeight: "1.15",
+              marginBottom: "24px",
+              letterSpacing: "-1px"
             }}>
-              <div>
-                <div style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  background: "#f1f5f9",
-                  border: "1.5px solid #e2e8f0",
-                  color: "#475569",
-                  fontSize: "11px",
-                  fontWeight: "800",
-                  letterSpacing: "1.2px",
-                  padding: "6px 14px",
-                  borderRadius: "9999px",
-                  textTransform: "uppercase",
-                  marginBottom: "16px"
-                }}>
-                  <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#0ea5e9" }} />
-                  FAST &amp; NATIVE-GRADE APPS
+              <span style={{ whiteSpace: "nowrap" }}>High-Performance</span> <br /> 
+              <span style={{ color: "#765ff0", whiteSpace: "nowrap" }}>Mobile Engineering</span>
+            </h1>
+            <p style={{
+              fontSize: "18px",
+              color: "#6b7280",
+              lineHeight: "1.6",
+              marginBottom: "40px",
+              fontWeight: "500",
+              maxWidth: "400px"
+            }}>
+              We architect, design, and engineer native and cross-platform mobile applications with zero-latency offline sync and fluid 120 FPS performance.
+            </p>
+            <button style={{
+              background: "linear-gradient(90deg, #d369f0, #ff6b98)",
+              color: "#fff",
+              border: "none",
+              padding: "16px 36px",
+              borderRadius: "999px",
+              fontSize: "16px",
+              fontWeight: "700",
+              cursor: "pointer",
+              boxShadow: "0 10px 25px rgba(211, 105, 240, 0.4)",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              textTransform: "uppercase",
+              letterSpacing: "1px"
+            }}>
+              Start Your Project <span style={{ fontSize: "18px" }}>→</span>
+            </button>
+          </div>
+
+          {/* Right/Center Content (Phone & Floating Cards) */}
+          <div style={{ flex: "1 1 500px", position: "relative", minHeight: "500px", display: "flex", justifyContent: "center" }}>
+
+            {/* Phone Mockup */}
+            <div style={{
+              width: "280px",
+              height: "580px",
+              background: "#ffffff",
+              borderRadius: "40px",
+              boxShadow: "0 25px 50px rgba(0,0,0,0.15)",
+              position: "absolute",
+              top: "-20px",
+              left: "50%",
+              transform: "translateX(-50%)",
+              padding: "16px",
+              zIndex: 5,
+              display: "flex",
+              flexDirection: "column"
+            }}>
+              {/* Notch */}
+              <div style={{ width: "90px", height: "24px", background: "#f3f4f6", borderRadius: "12px", margin: "0 auto 20px" }}></div>
+
+              <div style={{ fontSize: "12px", color: "#9ca3af", fontWeight: "600", marginBottom: "4px" }}>System Status</div>
+              <div style={{ fontSize: "20px", fontWeight: "800", color: "#1a1a2e", marginBottom: "20px" }}>App Telemetry <span style={{ color: "#d1d5db", float: "right" }}>⚙️</span></div>
+
+              {/* Purple Card */}
+              <div style={{
+                background: "linear-gradient(135deg, #a084f5, #7b5ef0)",
+                borderRadius: "20px",
+                padding: "20px",
+                color: "#fff",
+                marginBottom: "20px",
+                boxShadow: "0 10px 20px rgba(123, 94, 240, 0.3)"
+              }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "24px" }}>
+                  <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "rgba(255,255,255,0.2)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "18px" }}>⚡</div>
+                  <div style={{ fontSize: "24px", fontWeight: "300" }}>...</div>
                 </div>
-
-                <h1 style={{
-                  fontSize: "clamp(30px, 3.8vw, 48px)",
-                  fontWeight: "900",
-                  lineHeight: "1.14",
-                  letterSpacing: "-0.02em",
-                  color: "#0f172a",
-                  margin: "0 0 20px 0"
-                }}>
-                  High-Performance iOS, Android &amp; React Native Apps
-                </h1>
-
-                <p style={{
-                  fontSize: "15px",
-                  color: "#64748b",
-                  lineHeight: "1.65",
-                  maxWidth: "520px",
-                  fontWeight: "400",
-                  margin: "0 0 32px 0"
-                }}>
-                  Expertly crafted native applications using iOS Swift and Android Kotlin, alongside powerful cross-platform solutions in React Native and Flutter. We engineer every application to deliver sub-second cold starts, uncompromised 120 FPS fluid animations, and offline-first data sync at scale.
-                </p>
-
-                <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap", marginBottom: "24px" }}>
-                  <Link href="/contact" style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    fontWeight: "900",
-                    fontSize: "14px",
-                    padding: "14px 28px",
-                    borderRadius: "9999px",
-                    backgroundColor: "#d7f82e",
-                    color: "#090d16",
-                    boxShadow: "0 4px 14px rgba(215, 248, 46, 0.45)",
-                    textDecoration: "none"
-                  }}>
-                    <span>Build Your App</span>
-                    <span style={{ fontSize: "16px" }}>↗</span>
-                  </Link>
-                  <a href="#stacks" style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    fontWeight: "700",
-                    fontSize: "14px",
-                    padding: "13px 24px",
-                    borderRadius: "9999px",
-                    backgroundColor: "#ffffff",
-                    color: "#0f172a",
-                    border: "1px solid #cbd5e1",
-                    boxShadow: "0 2px 6px rgba(0, 0, 0, 0.03)",
-                    textDecoration: "none"
-                  }}>
-                    <span>Explore Stacks</span>
-                    <span>↓</span>
-                  </a>
-                </div>
+                <div style={{ fontSize: "32px", fontWeight: "700" }}>120 FPS</div>
+                <div style={{ fontSize: "12px", opacity: 0.8 }}>Native Rendering Engine</div>
               </div>
 
-              {/* Store Badges */}
-              <div style={{
-                display: "flex",
-                alignItems: "center",
-                gap: "12px",
-                paddingTop: "24px",
-                borderTop: "1px solid #f1f5f9",
-                flexWrap: "wrap"
-              }}>
-                <Link href="/contact" style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  backgroundColor: "#ffffff",
-                  border: "1px solid #cbd5e1",
-                  color: "#0f172a",
-                  fontSize: "12px",
-                  fontWeight: "700",
-                  padding: "8px 16px",
-                  borderRadius: "9999px",
-                  textDecoration: "none",
-                  boxShadow: "0 2px 6px rgba(0,0,0,0.03)"
-                }}>
-                  <svg style={{ width: "14px", height: "14px" }} viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.34c.64-.78 1.08-1.85.96-2.94-.93.04-2.06.62-2.73 1.4-.59.68-1.11 1.77-.97 2.83 1.05.08 2.1-.51 2.74-1.29z" />
-                  </svg>
-                  <span>App Store Ready</span>
-                  <span style={{ fontSize: "10.5px", background: "#f1f5f9", color: "#0284c7", padding: "2px 6px", borderRadius: "6px", fontWeight: "800" }}>★ 4.9</span>
-                </Link>
+              {/* List */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "16px", flex: 1 }}>
+                {[{ n: "React Native", d: "Fabric UI", a: "0.45s", c: "⚛️" }, { n: "SwiftUI", d: "Metal GPU", a: "0.28s", c: "🍏" }, { n: "Kotlin", d: "Jetpack Compose", a: "0.35s", c: "🤖" }].map((item, i) => (
+                  <div key={i} style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
+                      <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "#f3f4f6", display: "flex", alignItems: "center", justifyContent: "center", fontWeight: "600", color: "#7b5ef0", fontSize: "18px" }}>{item.c}</div>
+                      <div>
+                        <div style={{ fontSize: "14px", fontWeight: "700", color: "#1a1a2e" }}>{item.n}</div>
+                        <div style={{ fontSize: "11px", color: "#9ca3af" }}>{item.d}</div>
+                      </div>
+                    </div>
+                    <div style={{ fontSize: "12px", fontWeight: "700", color: "#10b981", background: "#ecfdf5", padding: "4px 8px", borderRadius: "6px" }}>{item.a} start</div>
+                  </div>
+                ))}
+              </div>
 
-                <Link href="/contact" style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  backgroundColor: "#ffffff",
-                  border: "1px solid #cbd5e1",
-                  color: "#0f172a",
-                  fontSize: "12px",
-                  fontWeight: "700",
-                  padding: "8px 16px",
-                  borderRadius: "9999px",
-                  textDecoration: "none",
-                  boxShadow: "0 2px 6px rgba(0,0,0,0.03)"
-                }}>
-                  <svg style={{ width: "14px", height: "14px" }} viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M3 20.5v-17c0-.55.45-1 1-1h.22l9.95 9.95L4.22 22.4H4c-.55 0-1-.45-1-.9zm1.41-1.41l8.54-8.54-8.54-8.54v17.08zM15.59 13.59l2.71-2.71c.39-.39.39-1.02 0-1.41l-2.71-2.71-8.54 8.54 8.54 8.54 8.54-8.54z" />
-                  </svg>
-                  <span>Google Play Certified</span>
-                  <span style={{ fontSize: "10.5px", background: "#f1f5f9", color: "#0284c7", padding: "2px 6px", borderRadius: "6px", fontWeight: "800" }}>★ 4.8</span>
-                </Link>
+              {/* Bottom Nav */}
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "10px 20px", borderTop: "1px solid #f3f4f6", marginTop: "auto" }}>
+                <div style={{ color: "#9ca3af", fontSize: "16px", fontWeight: "600" }}>Dev</div>
+                <div style={{ width: "44px", height: "44px", borderRadius: "50%", background: "#7b5ef0", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", boxShadow: "0 4px 10px rgba(123, 94, 240, 0.4)", fontSize: "20px", lineHeight: 1 }}>🚀</div>
+                <div style={{ color: "#9ca3af", fontSize: "16px", fontWeight: "600" }}>Prod</div>
               </div>
             </div>
 
-            {/* Right Lime Accent Card */}
+            {/* Transfer Floating Pill */}
             <div style={{
-              backgroundColor: "#d7f82e",
-              borderRadius: "36px",
-              padding: "clamp(24px, 3.5vw, 36px)",
-              minHeight: "520px",
-              position: "relative",
-              overflow: "hidden",
+              position: "absolute",
+              top: "160px",
+              left: "10%",
+              background: "#fff",
+              borderRadius: "99px",
+              padding: "12px 20px",
               display: "flex",
-              flexDirection: "row",
-              justifyContent: "space-between",
               alignItems: "center",
-              gap: "20px",
-              flexWrap: "wrap"
+              gap: "12px",
+              boxShadow: "0 15px 30px rgba(0,0,0,0.1)",
+              zIndex: 10
             }}>
-              {/* Floating Telemetry Chips */}
-              <div style={{ display: "flex", flexDirection: "column", gap: "14px", zIndex: 15, flex: "1 1 200px" }}>
-                <div style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.92)",
-                  backdropFilter: "blur(16px)",
-                  borderRadius: "20px",
-                  padding: "14px 18px",
-                  boxShadow: "0 10px 24px rgba(0, 0, 0, 0.06)"
-                }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2px" }}>
-                    <span style={{ fontSize: "10.5px", fontWeight: "700", color: "#64748b" }}>App Telemetry</span>
-                    <span style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#10b981", boxShadow: "0 0 8px #10b981" }} />
-                  </div>
-                  <div style={{ fontSize: "18px", fontWeight: "900", color: "#0f172a", marginBottom: "3px" }}>
-                    120 FPS <span style={{ fontSize: "12px", color: "#64748b", fontWeight: "700" }}>• 0.38s</span>
-                  </div>
-                  <div style={{ fontSize: "10.5px", fontWeight: "700", color: "#15803d" }}>
-                    Hermes C++ → <span style={{ background: "#dcfce7", color: "#15803d", padding: "2px 6px", borderRadius: "6px", fontSize: "9.5px", fontWeight: "800" }}>▲ 99.98% SLA</span>
-                  </div>
-                </div>
+              <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: "#f3f4f6", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "14px", color: "#6b7280" }}>⚡</div>
+              <span style={{ fontWeight: "700", fontSize: "15px", color: "#1a1a2e" }}>Live Reload</span>
+              <span style={{ background: "#ecfdf5", color: "#10b981", padding: "4px 8px", borderRadius: "8px", fontSize: "13px", fontWeight: "700" }}>Active</span>
+            </div>
 
-                <div style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.92)",
-                  backdropFilter: "blur(16px)",
-                  borderRadius: "20px",
-                  padding: "14px 18px",
-                  boxShadow: "0 10px 24px rgba(0, 0, 0, 0.06)"
-                }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2px" }}>
-                    <span style={{ fontSize: "10.5px", fontWeight: "700", color: "#64748b" }}>Security Enclave</span>
-                    <span style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#0ea5e9" }} />
-                  </div>
-                  <div style={{ fontSize: "18px", fontWeight: "900", color: "#0f172a", marginBottom: "3px" }}>
-                    Biometrics <span style={{ fontSize: "12px", color: "#64748b" }}>🔒</span>
-                  </div>
-                  <div style={{ fontSize: "10.5px", fontWeight: "700", color: "#0284c7" }}>
-                    AES-256 GCM → <span style={{ background: "#e0f2fe", color: "#0284c7", padding: "2px 6px", borderRadius: "6px", fontSize: "9.5px", fontWeight: "800" }}>Encrypted</span>
-                  </div>
-                </div>
-
-                <div style={{
-                  backgroundColor: "rgba(255, 255, 255, 0.92)",
-                  backdropFilter: "blur(16px)",
-                  borderRadius: "20px",
-                  padding: "14px 18px",
-                  boxShadow: "0 10px 24px rgba(0, 0, 0, 0.06)"
-                }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "2px" }}>
-                    <span style={{ fontSize: "10.5px", fontWeight: "700", color: "#64748b" }}>Offline Sync</span>
-                    <span style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#a855f7" }} />
-                  </div>
-                  <div style={{ fontSize: "18px", fontWeight: "900", color: "#0f172a", marginBottom: "3px" }}>
-                    0ms Latency <span style={{ fontSize: "12px", color: "#64748b" }}>💾</span>
-                  </div>
-                  <div style={{ fontSize: "10.5px", fontWeight: "700", color: "#7e22ce" }}>
-                    WatermelonDB → <span style={{ background: "#f3e8ff", color: "#7e22ce", padding: "2px 6px", borderRadius: "6px", fontSize: "9.5px", fontWeight: "800" }}>Delta Merge</span>
-                  </div>
+            {/* Project Information Card */}
+            <div style={{
+              position: "absolute",
+              top: "80px",
+              right: "0%",
+              background: "rgba(255,255,255,0.95)",
+              backdropFilter: "blur(10px)",
+              borderRadius: "20px",
+              padding: "20px",
+              width: "240px",
+              boxShadow: "0 20px 40px rgba(0,0,0,0.08)",
+              zIndex: 10,
+              border: "1px solid rgba(255,255,255,0.5)"
+            }}>
+              <div style={{ fontSize: "15px", fontWeight: "800", color: "#1a1a2e", marginBottom: "16px" }}>Architecture Specs</div>
+              <div style={{ display: "flex", alignItems: "flex-start", gap: "12px", marginBottom: "16px" }}>
+                <div style={{ width: "24px", height: "24px", borderRadius: "8px", background: "#7b5ef0", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "12px", flexShrink: 0 }}>✓</div>
+                <div>
+                  <div style={{ fontSize: "12px", color: "#6b7280", lineHeight: "1.5" }}>Offline-first SQLite sync engine integrated.</div>
                 </div>
               </div>
-
-              {/* Smartphone Device Simulator */}
-              <div style={{
-                width: "270px",
-                height: "460px",
-                background: "#0a0e17",
-                border: "6px solid #1e293b",
-                borderRadius: "36px",
-                padding: "8px",
-                display: "flex",
-                flexDirection: "column",
-                boxShadow: "0 25px 50px rgba(0, 0, 0, 0.25)",
-                position: "relative",
-                margin: "0 auto"
-              }}>
-                {/* Status Bar */}
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "0 8px", marginBottom: "6px", fontSize: "10px", color: "#94a3b8", fontWeight: "600" }}>
-                  <span>9:41</span>
-                  <div style={{ width: "64px", height: "14px", background: "#000000", borderRadius: "9999px", display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0 6px" }}>
-                    <span style={{ width: "5px", height: "5px", borderRadius: "50%", background: "#1e293b" }} />
-                    <span style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#22c55e", boxShadow: "0 0 4px #22c55e" }} />
-                  </div>
-                  <span>5G</span>
+              <div style={{ display: "flex", alignItems: "flex-start", gap: "12px" }}>
+                <div style={{ width: "24px", height: "24px", borderRadius: "8px", background: "#7b5ef0", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "12px", flexShrink: 0 }}>✓</div>
+                <div>
+                  <div style={{ fontSize: "12px", color: "#6b7280", lineHeight: "1.5" }}>Biometric security enclave active.</div>
                 </div>
-
-                {/* Phone Screen UI */}
-                <div style={{
-                  flex: 1,
-                  background: "#070b13",
-                  borderRadius: "22px",
-                  padding: "10px",
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "6px",
-                  border: "1px solid rgba(255, 255, 255, 0.06)"
-                }}>
-                  {/* Header */}
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                      <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: "#0f172a", border: "1.5px solid #38bdf8", display: "flex", alignItems: "center", justifyContent: "center", color: "#38bdf8", fontSize: "8.5px", fontWeight: "900" }}>19</div>
-                      <div>
-                        <div style={{ fontSize: "9.5px", fontWeight: "800", color: "#ffffff" }}>OneNine Engine <span style={{ fontSize: "7px", background: "rgba(56, 189, 248, 0.2)", color: "#38bdf8", padding: "1px 3px", borderRadius: "3px" }}>PRO</span></div>
-                        <div style={{ fontSize: "7px", color: "#94a3b8" }}>v2.4.0 • TestFlight #412</div>
-                      </div>
-                    </div>
-                    <span style={{ fontSize: "10px" }}>🚀</span>
-                  </div>
-
-                  {/* Telemetry Box */}
-                  <div style={{ background: "rgba(15, 23, 42, 0.9)", border: "1px solid rgba(56, 189, 248, 0.2)", borderRadius: "10px", padding: "6px 8px" }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", fontSize: "8px", color: "#94a3b8", fontWeight: "600" }}>
-                      <span>Runtime Performance</span>
-                      <span style={{ color: "#22c55e", fontWeight: "700" }}>● 120 FPS</span>
-                    </div>
-                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "baseline", marginTop: "2px" }}>
-                      <div style={{ fontSize: "14px", fontWeight: "900", color: "#ffffff" }}>0.38s <span style={{ fontSize: "8px", color: "#38bdf8" }}>Cold Start</span></div>
-                      <span style={{ fontSize: "7.5px", color: "#a855f7", background: "rgba(168, 85, 247, 0.15)", padding: "1px 4px", borderRadius: "4px" }}>Hermes C++</span>
-                    </div>
-                  </div>
-
-                  {/* Architecture Modules */}
-                  <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                    {[
-                      { key: "reactNative", icon: "⚛️", title: "React Native", sub: "Fabric C++ Engine • v0.76" },
-                      { key: "swiftIos", icon: "🍏", title: "Swift & SwiftUI", sub: "Metal GPU • iOS 18 SDK" },
-                      { key: "kotlinAndroid", icon: "🤖", title: "Android Kotlin", sub: "Jetpack Compose • ART" },
-                      { key: "offlineDb", icon: "💾", title: "Offline Database", sub: "WatermelonDB / SQLite" },
-                    ].map((mod) => (
-                      <div
-                        key={mod.key}
-                        onClick={() => toggleModule(mod.key)}
-                        style={{
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "space-between",
-                          padding: "5px 8px",
-                          borderRadius: "8px",
-                          background: enabledModules[mod.key] ? "rgba(15, 23, 42, 0.95)" : "rgba(15, 23, 42, 0.5)",
-                          border: enabledModules[mod.key] ? "1px solid rgba(56, 189, 248, 0.4)" : "1px solid rgba(30, 41, 59, 0.8)",
-                          cursor: "pointer"
-                        }}
-                      >
-                        <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
-                          <span style={{ fontSize: "9px" }}>{mod.icon}</span>
-                          <div>
-                            <div style={{ fontSize: "9px", fontWeight: "700", color: "#ffffff" }}>{mod.title}</div>
-                            <div style={{ fontSize: "6.5px", color: "#94a3b8" }}>{mod.sub}</div>
-                          </div>
-                        </div>
-                        <span style={{
-                          width: "16px",
-                          height: "9px",
-                          background: enabledModules[mod.key] ? "#0ea5e9" : "#334155",
-                          borderRadius: "99px",
-                          display: "inline-block"
-                        }} />
-                      </div>
-                    ))}
-                  </div>
-
-                  {/* Store Status */}
-                  <div style={{
-                    marginTop: "auto",
-                    background: "rgba(22, 101, 52, 0.25)",
-                    border: "1px solid rgba(34, 197, 94, 0.3)",
-                    borderRadius: "8px",
-                    padding: "3px 6px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    gap: "4px",
-                    fontSize: "7.5px",
-                    color: "#4ade80",
-                    fontWeight: "700"
-                  }}>
-                    <span style={{ width: "4px", height: "4px", borderRadius: "50%", background: "#4ade80" }} />
-                    <span>App Store &amp; Play Store Certified</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Signature Corner */}
-              <div style={{
-                position: "absolute",
-                bottom: 0,
-                right: 0,
-                backgroundColor: "#ffffff",
-                padding: "8px 16px",
-                borderTopLeftRadius: "20px",
-                fontFamily: "monospace",
-                fontSize: "8.5px",
-                fontWeight: "900",
-                color: "#0f172a",
-                textAlign: "right"
-              }}>
-                LAUNCH YOUR APP <br /> WITH ONE NINE
               </div>
             </div>
 
           </div>
         </div>
+
+
       </section>
 
-      {/* ── 2. 4 CORE PILLARS SECTION ── */}
-      <section style={{ background: "#ffffff", padding: "80px 24px", borderBottom: "1px solid #e2e8f0" }}>
+      {/* ── 2. CORE PILLARS SECTION ── */}
+      <section style={{ background: "#ffffff", padding: "80px 24px", fontFamily: "Inter, sans-serif" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 48px" }}>
+
+          <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 64px" }}>
             <div style={{
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
-              background: "#f0fdf4",
-              border: "1.5px solid #a7f3d0",
-              color: "#059669",
+              background: "#ffffff",
+              border: "1px solid #e0f2fe",
+              color: "#0284c7",
               fontSize: "11px",
               fontWeight: "800",
-              letterSpacing: "1.2px",
-              padding: "6px 14px",
+              letterSpacing: "1.5px",
+              padding: "6px 16px",
               borderRadius: "9999px",
               textTransform: "uppercase",
-              marginBottom: "16px"
+              marginBottom: "20px",
+              boxShadow: "0 4px 12px rgba(14, 165, 233, 0.08)"
             }}>
-              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#059669" }} />
+              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#0ea5e9", boxShadow: "0 0 8px rgba(14, 165, 233, 0.5)" }} />
               ENGINEERING EXCELLENCE
             </div>
-            <h2 style={{ fontSize: "clamp(28px, 4vw, 42px)", fontWeight: "900", letterSpacing: "-1px", color: "#0f172a", margin: "0 0 16px 0" }}>
+            <h2 style={{ fontSize: "clamp(30px, 3.8vw, 48px)", fontWeight: "900", letterSpacing: "-0.02em", color: "#0f172a", margin: "0 0 20px 0", lineHeight: "1.14" }}>
               Core Pillars of Mobile Engineering
             </h2>
-            <p style={{ fontSize: "15px", color: "#64748b", lineHeight: "1.65", margin: 0 }}>
+            <p style={{ fontSize: "16px", color: "#64748b", lineHeight: "1.65", margin: 0 }}>
               We architect scalable, offline-first mobile applications with native 120 FPS fluency and bank-grade security for iOS and Android.
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: "24px" }}>
-            {corePillars.map((pillar) => (
-              <div key={pillar.id} style={{
-                background: "#f8fafc",
-                border: "1px solid #e2e8f0",
-                borderRadius: "24px",
-                padding: "30px 24px",
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "60px", alignItems: "center", justifyContent: "center" }}>
+            {/* Left Graphic Side */}
+            <div style={{ flex: "1 1 100%", maxWidth: "500px", position: "relative", minHeight: "450px", overflow: "hidden" }}>
+              {/* Background shape */}
+              <div style={{
+                position: "absolute",
+                top: "20px",
+                left: "10%",
+                width: "80%",
+                height: "400px",
+                background: "linear-gradient(180deg, #fdf4f8 0%, #faf5ff 100%)",
+                borderRadius: "40px",
+                zIndex: 0
+              }}></div>
+
+              {/* Diamond Icon */}
+              <div style={{
+                position: "absolute",
+                top: "120px",
+                left: "5%",
+                width: "72px",
+                height: "72px",
+                background: "linear-gradient(135deg, #a084f5, #7b5ef0)",
+                borderRadius: "20px",
+                transform: "rotate(45deg)",
+                boxShadow: "0 15px 30px rgba(123, 94, 240, 0.3)",
                 display: "flex",
-                flexDirection: "column",
-                gap: "12px",
-                boxShadow: "0 4px 16px rgba(15,23,42,0.02)"
+                alignItems: "center",
+                justifyContent: "center",
+                zIndex: 10
               }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <span style={{ fontSize: "24px" }}>{pillar.icon}</span>
-                  <span style={{ fontSize: "9.5px", fontWeight: "800", color: "#0284c7", background: "#e0f2fe", padding: "3px 8px", borderRadius: "6px", textTransform: "uppercase" }}>
-                    {pillar.badge}
-                  </span>
-                </div>
-                <h3 style={{ fontSize: "18px", fontWeight: "800", color: "#0f172a", margin: 0 }}>{pillar.title}</h3>
-                <p style={{ fontSize: "13.5px", lineHeight: "1.6", color: "#64748b", margin: 0 }}>{pillar.desc}</p>
+                <span style={{ transform: "rotate(-45deg)", color: "#fff", fontSize: "28px" }}>💎</span>
               </div>
-            ))}
+
+              {/* Main Card (Client #12) */}
+              <div style={{
+                position: "absolute",
+                top: "40px",
+                right: "5%",
+                background: "#ffffff",
+                borderRadius: "24px",
+                padding: "24px",
+                width: "70%",
+                maxWidth: "320px",
+                boxShadow: "0 20px 40px rgba(0,0,0,0.06)",
+                zIndex: 5
+              }}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "24px" }}>
+                  <span style={{ fontSize: "16px", fontWeight: "700", color: "#1a1a2e" }}>Client #12</span>
+                  <span style={{ fontSize: "13px", color: "#9ca3af", fontWeight: "600" }}>+ Add new</span>
+                </div>
+                <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
+                  {[1, 2, 3].map(i => (
+                    <div key={i} style={{ display: "flex", gap: "16px", alignItems: "flex-start" }}>
+                      <div style={{ width: "20px", height: "20px", borderRadius: "50%", background: i === 1 ? "#10b981" : "#f3f4f6", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, marginTop: "2px" }}>
+                        {i === 1 && <span style={{ color: "#fff", fontSize: "12px" }}>✓</span>}
+                      </div>
+                      <div style={{ flex: 1 }}>
+                        <div style={{ width: "100%", maxWidth: "180px", height: "8px", background: "#f3f4f6", borderRadius: "4px", marginBottom: "8px" }}></div>
+                        <div style={{ width: "70%", maxWidth: "120px", height: "8px", background: "#f3f4f6", borderRadius: "4px" }}></div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Bar Chart Box */}
+              <div style={{
+                position: "absolute",
+                bottom: "60px",
+                left: "10%",
+                background: "#ffffff",
+                borderRadius: "16px",
+                padding: "16px",
+                boxShadow: "0 15px 30px rgba(0,0,0,0.05)",
+                zIndex: 10,
+                display: "flex",
+                alignItems: "flex-end",
+                gap: "8px",
+                height: "90px"
+              }}>
+                {[40, 60, 30, 80, 50, 90, 40, 60].map((h, i) => (
+                  <div key={i} style={{ width: "8px", height: `${h}%`, background: i === 5 ? "#7b5ef0" : "#f3f4f6", borderRadius: "4px" }}></div>
+                ))}
+              </div>
+
+              {/* Avatars Box */}
+              <div style={{
+                position: "absolute",
+                bottom: "60px",
+                right: "5%",
+                background: "#ffffff",
+                borderRadius: "99px",
+                padding: "8px 16px",
+                boxShadow: "0 15px 30px rgba(0,0,0,0.05)",
+                zIndex: 10,
+                display: "flex",
+                alignItems: "center"
+              }}>
+                {[1, 2, 3].map(i => (
+                  <div key={i} style={{ width: "36px", height: "36px", borderRadius: "50%", background: "#f3f4f6", border: "2px solid #fff", marginLeft: i !== 1 ? "-12px" : "0", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "16px" }}>👤</div>
+                ))}
+                <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "#7b5ef0", border: "2px solid #fff", marginLeft: "-12px", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "14px", fontWeight: "700" }}>+</div>
+              </div>
+            </div>
+
+            {/* Right Content Side */}
+            <div style={{ flex: "1 1 100%", maxWidth: "500px", display: "flex", flexWrap: "wrap", gap: "40px" }}>
+
+              {/* Left Column (Stats from pillars 0, 1) */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "40px", flex: "1 1 200px" }}>
+                {corePillars.slice(0, 2).map((pillar) => (
+                  <div key={pillar.id}>
+                    <div style={{ fontSize: "32px", fontWeight: "800", color: "#1a1a2e", marginBottom: "12px", letterSpacing: "-1px", lineHeight: "1.2" }}>
+                      {pillar.title}
+                    </div>
+                    <div style={{ fontSize: "14px", color: "#6b7280", lineHeight: "1.6", fontWeight: "500" }}>
+                      {pillar.desc}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Right Column (Features from pillars 2, 3) */}
+              <div style={{ display: "flex", flexDirection: "column", gap: "40px", flex: "1 1 200px" }}>
+                {corePillars.slice(2, 4).map((pillar) => (
+                  <div key={pillar.id}>
+                    <h4 style={{ fontSize: "18px", fontWeight: "700", color: "#1a1a2e", marginBottom: "12px", display: "flex", alignItems: "center", gap: "10px" }}>
+                      <span style={{ fontSize: "24px", lineHeight: 1 }}>{pillar.icon}</span> {pillar.title}
+                    </h4>
+                    <p style={{ fontSize: "14px", color: "#6b7280", lineHeight: "1.7", fontWeight: "400", margin: 0 }}>
+                      {pillar.desc}
+                    </p>
+                  </div>
+                ))}
+              </div>
+
+            </div>
           </div>
         </div>
       </section>
 
       {/* ── 3. MULTI-PLATFORM & NATIVE ENGINEERING STACKS ── */}
-      <section id="stacks" style={{ background: "#f8fafc", padding: "90px 24px", borderBottom: "1px solid #e2e8f0" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 48px" }}>
-            <div style={{
-              display: "inline-flex",
-              alignItems: "center",
-              gap: "8px",
-              background: "#e0f2fe",
-              border: "1.5px solid #bae6fd",
-              color: "#0284c7",
-              fontSize: "11px",
-              fontWeight: "800",
-              letterSpacing: "1.2px",
-              padding: "6px 14px",
-              borderRadius: "9999px",
-              textTransform: "uppercase",
-              marginBottom: "16px"
-            }}>
-              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#0284c7" }} />
-              FRAMEWORK ARCHITECTURE
-            </div>
-            <h2 style={{ fontSize: "clamp(28px, 4vw, 42px)", fontWeight: "900", letterSpacing: "-1px", color: "#0f172a", margin: "0 0 16px 0" }}>
-              Multi-Platform &amp; Native Engineering Stacks
-            </h2>
-            <p style={{ fontSize: "15px", color: "#64748b", lineHeight: "1.65", margin: 0 }}>
-              We select the optimal framework and rendering architecture for your product, balancing rapid cross-platform deployment with uncompromised 120 FPS performance.
-            </p>
-          </div>
+      <section id="stacks" style={{ background: "#ffffff", padding: "80px 24px", fontFamily: "Inter, sans-serif" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "80px" }}>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: "24px" }}>
-            {platformStacks.map((p) => (
-              <div key={p.id} style={{
+          {/* Top Section */}
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "60px", alignItems: "center" }}>
+            {/* Left: Title and 2 Stacks (Cross-Platform) */}
+            <div style={{ flex: "1 1 500px" }}>
+              <div style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
                 background: "#ffffff",
-                border: "1px solid #e2e8f0",
-                borderRadius: "24px",
-                padding: "28px",
+                border: "1px solid #e0f2fe",
+                color: "#0284c7",
+                fontSize: "11px",
+                fontWeight: "800",
+                letterSpacing: "1.5px",
+                padding: "6px 16px",
+                borderRadius: "9999px",
+                textTransform: "uppercase",
+                marginBottom: "20px",
+                boxShadow: "0 4px 12px rgba(14, 165, 233, 0.08)"
+              }}>
+                <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#0ea5e9", boxShadow: "0 0 8px rgba(14, 165, 233, 0.5)" }} />
+                FRAMEWORK ARCHITECTURE
+              </div>
+              <h2 style={{ fontSize: "clamp(30px, 3vw, 42px)", fontWeight: "800", color: "#1a1a2e", marginBottom: "16px", lineHeight: "1.2", letterSpacing: "-1px" }}>
+                Multi-Platform &amp; Native Engineering Stacks
+              </h2>
+              <p style={{ fontSize: "15px", color: "#6b7280", lineHeight: "1.7", marginBottom: "40px", maxWidth: "480px" }}>
+                We select the optimal framework and rendering architecture for your product, balancing rapid cross-platform deployment with uncompromised 120 FPS performance.
+              </p>
+
+              <div style={{ display: "flex", flexDirection: "column", gap: "32px" }}>
+                {/* Render React Native and Flutter here (indices 0 and 3) */}
+                {[platformStacks[0], platformStacks[3]].map((p, i) => (
+                  <div key={p.id} style={{ display: "flex", gap: "20px" }}>
+                    <div style={{ width: "48px", height: "48px", borderRadius: "16px", background: "#f3f4f6", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px", flexShrink: 0 }}>
+                      {i === 0 ? "⚛️" : "🦋"}
+                    </div>
+                    <div>
+                      <h4 style={{ fontSize: "18px", fontWeight: "700", color: "#1a1a2e", marginBottom: "8px" }}>{p.name}</h4>
+                      <p style={{ fontSize: "14px", color: "#6b7280", lineHeight: "1.6", margin: 0 }}>{p.tagline}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Right: Graphic / Phone Mockup */}
+            <div style={{ flex: "1 1 500px", position: "relative", minHeight: "500px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+              <div style={{
+                background: "#f8fafc",
+                width: "280px",
+                height: "540px",
+                borderRadius: "40px",
+                padding: "16px",
+                boxShadow: "0 25px 50px rgba(0,0,0,0.1)",
                 display: "flex",
                 flexDirection: "column",
-                boxShadow: "0 10px 30px rgba(15,23,42,0.03)"
+                border: "10px solid #e2e8f0",
+                position: "relative",
+                overflow: "hidden"
               }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
-                  <span style={{ fontSize: "10px", fontWeight: "800", color: "#0284c7", background: "#e0f2fe", padding: "3px 8px", borderRadius: "6px", textTransform: "uppercase" }}>
-                    {p.badge}
-                  </span>
-                  <span style={{ fontFamily: "monospace", fontSize: "11px", color: "#64748b", fontWeight: "600" }}>
-                    {p.coldStart} Cold Start
-                  </span>
+                {/* Notch */}
+                <div style={{ width: "100px", height: "24px", background: "#e2e8f0", borderRadius: "0 0 16px 16px", position: "absolute", top: 0, left: "50%", transform: "translateX(-50%)", zIndex: 20 }}></div>
+
+                {/* App Header Inside Phone */}
+                <div style={{ marginTop: "40px", marginBottom: "24px", textAlign: "center" }}>
+                  <div style={{ fontSize: "15px", fontWeight: "800", color: "#1a1a2e", letterSpacing: "-0.5px" }}>Frameworks</div>
+                  <div style={{ fontSize: "11px", color: "#64748b", fontWeight: "500" }}>Live Performance Stats</div>
                 </div>
 
-                <h3 style={{ fontSize: "20px", fontWeight: "800", color: "#0f172a", margin: "0 0 8px 0" }}>{p.name}</h3>
-                <p style={{ fontSize: "13px", color: "#64748b", lineHeight: "1.6", margin: "0 0 16px 0" }}>{p.tagline}</p>
+                <div style={{ position: "relative", zIndex: 10, width: "100%", display: "flex", flexDirection: "column", gap: "16px" }}>
+                  {/* Bubble 1: React Native */}
+                  <div style={{ background: "#ffffff", borderRadius: "16px", padding: "16px", boxShadow: "0 4px 12px rgba(0,0,0,0.04)" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
+                      <span style={{ fontSize: "13px", fontWeight: "700", color: "#1a1a2e" }}>{platformStacks[0].name}</span>
+                      <span style={{ fontSize: "10px", color: "#0ea5e9", background: "#f0f9ff", padding: "2px 8px", borderRadius: "8px", fontWeight: "700" }}>{platformStacks[0].coldStart} start</span>
+                    </div>
+                    <p style={{ fontSize: "11px", color: "#6b7280", margin: 0, lineHeight: "1.4" }}>{platformStacks[0].renderingEngine}</p>
+                  </div>
 
-                <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "12px", padding: "12px", marginBottom: "16px", fontSize: "11.5px" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "4px" }}>
-                    <span style={{ color: "#64748b" }}>Rendering Engine:</span>
-                    <strong style={{ color: "#0f172a" }}>{p.renderingEngine}</strong>
+                  {/* Bubble 2: Flutter */}
+                  <div style={{ background: "#ffffff", borderRadius: "16px", padding: "16px", boxShadow: "0 4px 12px rgba(0,0,0,0.04)" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
+                      <span style={{ fontSize: "13px", fontWeight: "700", color: "#1a1a2e" }}>{platformStacks[3].name}</span>
+                      <span style={{ fontSize: "10px", color: "#0ea5e9", background: "#f0f9ff", padding: "2px 8px", borderRadius: "8px", fontWeight: "700" }}>{platformStacks[3].coldStart} start</span>
+                    </div>
+                    <p style={{ fontSize: "11px", color: "#6b7280", margin: 0, lineHeight: "1.4" }}>{platformStacks[3].renderingEngine}</p>
                   </div>
-                  <div style={{ display: "flex", justifyContent: "space-between" }}>
-                    <span style={{ color: "#64748b" }}>Code Reuse:</span>
-                    <strong style={{ color: "#0284c7" }}>{p.codeReuse}</strong>
-                  </div>
-                </div>
 
-                {/* Code Box */}
-                <div style={{ background: "#090d16", borderRadius: "12px", padding: "14px", overflow: "hidden", marginTop: "auto" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", borderBottom: "1px solid rgba(255,255,255,0.08)", paddingBottom: "6px", marginBottom: "8px" }}>
-                    <span style={{ fontFamily: "monospace", fontSize: "10px", color: "#94a3b8" }}>{p.file}</span>
-                    <span style={{ fontSize: "9px", color: "#22c55e", fontWeight: "700" }}>✓ Verified</span>
+                  {/* Bubble 3: 120 FPS */}
+                  <div style={{ background: "linear-gradient(135deg, #a084f5, #7b5ef0)", borderRadius: "16px", padding: "16px", boxShadow: "0 8px 16px rgba(123, 94, 240, 0.2)", color: "#fff", marginTop: "8px" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "14px" }}>
+                      <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "rgba(255,255,255,0.2)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "18px" }}>⚡</div>
+                      <div>
+                        <span style={{ fontSize: "13px", fontWeight: "800", display: "block", marginBottom: "2px" }}>120 FPS Native Performance</span>
+                        <span style={{ fontSize: "10px", opacity: 0.9, fontWeight: "500" }}>Across all frameworks</span>
+                      </div>
+                    </div>
                   </div>
-                  <pre style={{ margin: 0, fontFamily: "monospace", fontSize: "10.5px", lineHeight: "1.5", color: "#38bdf8", overflowX: "auto" }}>
-                    <code>{p.code}</code>
-                  </pre>
                 </div>
               </div>
-            ))}
+            </div>
+          </div>
+
+          {/* Bottom Banner (Purple) for Native Stacks (iOS/Android) */}
+          <style>{`
+            @media (max-width: 768px) {
+              .native-banner-mockup {
+                margin: 0 auto 20px auto !important;
+                transform: rotate(0deg) !important;
+              }
+              .native-banner-text {
+                text-align: center !important;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+              }
+            }
+          `}</style>
+          <div style={{ position: "relative", borderRadius: "32px", boxShadow: "0 20px 40px rgba(123, 94, 240, 0.2)", marginTop: "40px" }}>
+            
+            {/* Background Layer with Overflow Hidden (for the rings) */}
+            <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "linear-gradient(135deg, #a084f5, #7b5ef0)", borderRadius: "32px", overflow: "hidden", zIndex: 0 }}>
+              <div style={{ position: "absolute", right: "-5%", top: "-20%", width: "400px", height: "400px", borderRadius: "50%", border: "40px solid rgba(255,255,255,0.05)", zIndex: 0 }}></div>
+              <div style={{ position: "absolute", right: "15%", bottom: "-30%", width: "200px", height: "200px", borderRadius: "50%", border: "20px solid rgba(255,255,255,0.05)", zIndex: 0 }}></div>
+            </div>
+
+            {/* Content Layer (allows phone to pop out) */}
+            <div style={{ display: "flex", flexWrap: "wrap", alignItems: "center", gap: "40px", padding: "40px", position: "relative", zIndex: 10 }}>
+
+              {/* Phone Mockup on the left */}
+              <div className="native-banner-mockup" style={{ flex: "1 1 260px", maxWidth: "260px", height: "380px", position: "relative", margin: "-80px 0 -80px 20px", transform: "rotate(-5deg)" }}>
+                <div style={{ background: "#ffffff", width: "100%", height: "100%", borderRadius: "36px", padding: "16px", boxShadow: "0 25px 50px rgba(0,0,0,0.3)", display: "flex", flexDirection: "column", border: "8px solid #f3f4f6" }}>
+                <div style={{ width: "60px", height: "20px", background: "#e5e7eb", borderRadius: "10px", margin: "0 auto 20px" }}></div>
+
+                {/* Mobile Header */}
+                <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
+                  <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: "linear-gradient(135deg, #a084f5, #7b5ef0)", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "14px" }}>👤</div>
+                  <div>
+                    <div style={{ fontSize: "13px", fontWeight: "800", color: "#1a1a2e" }}>Native Engineering</div>
+                    <div style={{ fontSize: "10px", color: "#6b7280" }}>{platformStacks[1].badge}</div>
+                  </div>
+                </div>
+
+                {/* Mobile Card */}
+                <div style={{ background: "#f8fafc", borderRadius: "16px", padding: "16px", marginBottom: "16px", border: "1px solid #e5e7eb" }}>
+                  <div style={{ fontSize: "10px", color: "#6b7280", marginBottom: "6px", textTransform: "uppercase", fontWeight: "700", letterSpacing: "0.5px" }}>{platformStacks[1].name}</div>
+                  <div style={{ fontSize: "13px", fontWeight: "700", color: "#1a1a2e", marginBottom: "12px" }}>{platformStacks[1].renderingEngine}</div>
+                  <div style={{ width: "100%", height: "6px", background: "#e5e7eb", borderRadius: "3px" }}>
+                    <div style={{ width: "85%", height: "100%", background: "#a084f5", borderRadius: "3px" }}></div>
+                  </div>
+                </div>
+
+                {/* Mobile List */}
+                <div style={{ flex: 1, display: "flex", flexDirection: "column", gap: "12px" }}>
+                  <div style={{ display: "flex", gap: "12px", alignItems: "center", background: "#ffffff", padding: "12px", borderRadius: "16px", border: "1px solid #e5e7eb", boxShadow: "0 4px 12px rgba(0,0,0,0.02)" }}>
+                    <div style={{ width: "32px", height: "32px", borderRadius: "10px", background: "#e0f2fe", display: "flex", alignItems: "center", justifyContent: "center", color: "#0284c7", fontSize: "14px" }}>🤖</div>
+                    <div>
+                      <div style={{ fontSize: "12px", fontWeight: "700", color: "#1a1a2e" }}>{platformStacks[2].name}</div>
+                      <div style={{ fontSize: "10px", color: "#6b7280", marginTop: "2px" }}>{platformStacks[2].coldStart} cold start</div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Mobile Bottom Button */}
+                <div style={{ width: "100%", padding: "14px 0", background: "linear-gradient(to right, #a084f5, #7b5ef0)", borderRadius: "16px", textAlign: "center", color: "#fff", fontSize: "13px", fontWeight: "800", boxShadow: "0 8px 16px rgba(123, 94, 240, 0.3)" }}>
+                  Deploy Now
+                </div>
+              </div>
+            </div>
+
+            {/* Banner Text on the right */}
+            <div className="native-banner-text" style={{ flex: "1 1 300px", position: "relative", zIndex: 10, color: "#ffffff" }}>
+              <h3 style={{ fontSize: "32px", fontWeight: "800", marginBottom: "16px", lineHeight: "1.2", letterSpacing: "-0.5px" }}>
+                Ready? Let's Build with {platformStacks[1].badge} & {platformStacks[2].badge}
+              </h3>
+              <p style={{ fontSize: "15px", lineHeight: "1.7", opacity: 0.9, marginBottom: "32px", maxWidth: "500px" }}>
+                {platformStacks[1].tagline} {platformStacks[2].tagline}
+              </p>
+              <button style={{ background: "linear-gradient(to right, #f472b6, #d946ef)", color: "#fff", border: "none", padding: "14px 28px", borderRadius: "99px", fontSize: "15px", fontWeight: "700", cursor: "pointer", boxShadow: "0 8px 20px rgba(217, 70, 239, 0.4)" }}>
+                Explore Native Stacks →
+              </button>
+            </div>
+
+          </div>
           </div>
         </div>
       </section>
 
       {/* ── 4. INDUSTRY SOLUTIONS (6 BENTO CARDS) ── */}
-      <section style={{ background: "#ffffff", padding: "90px 24px", borderBottom: "1px solid #e2e8f0" }}>
+      <section style={{ background: "#ffffff", padding: "80px 24px" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 48px" }}>
+          <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 56px" }}>
             <div style={{
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
-              background: "#fdf4ff",
-              border: "1.5px solid #f5d0fe",
-              color: "#c026d3",
+              background: "#ffffff",
+              border: "1px solid #e0f2fe",
+              color: "#0284c7",
               fontSize: "11px",
               fontWeight: "800",
-              letterSpacing: "1.2px",
-              padding: "6px 14px",
+              letterSpacing: "1.5px",
+              padding: "6px 16px",
               borderRadius: "9999px",
               textTransform: "uppercase",
-              marginBottom: "16px"
+              marginBottom: "20px",
+              boxShadow: "0 4px 12px rgba(14, 165, 233, 0.08)"
             }}>
-              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#c026d3" }} />
+              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#0ea5e9", boxShadow: "0 0 8px rgba(14, 165, 233, 0.5)" }} />
               ENTERPRISE VERTICALS
             </div>
-            <h2 style={{ fontSize: "clamp(28px, 4vw, 42px)", fontWeight: "900", letterSpacing: "-1px", color: "#0f172a", margin: "0 0 16px 0" }}>
+            <h2 style={{ fontSize: "clamp(30px, 3.8vw, 48px)", fontWeight: "900", letterSpacing: "-0.02em", color: "#0f172a", margin: "0 0 20px 0", lineHeight: "1.14" }}>
               Tailored Mobile Applications by Business Vertical
             </h2>
-            <p style={{ fontSize: "15px", color: "#64748b", lineHeight: "1.65", margin: 0 }}>
+            <p style={{ fontSize: "16px", color: "#64748b", lineHeight: "1.65", margin: 0 }}>
               From biometric fintech wallets to HIPAA-compliant telemedicine and real-time geospatial dispatch systems, we engineer mission-critical mobile platforms.
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "24px" }}>
-            {industrySolutions.map((sol) => (
+          <div style={{ display: "flex", flexDirection: "column", gap: "100px", marginTop: "40px" }}>
+            {industrySolutions.map((sol, index) => (
               <div key={sol.id} style={{
-                background: "#ffffff",
-                border: "1px solid #e2e8f0",
-                borderRadius: "24px",
-                padding: "32px 26px",
                 display: "flex",
-                flexDirection: "column",
-                boxShadow: "0 4px 16px rgba(15,23,42,0.02)"
+                flexDirection: index % 2 === 0 ? "row" : "row-reverse",
+                gap: "80px",
+                alignItems: "center",
+                flexWrap: "wrap"
               }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-                  <span style={{ fontSize: "26px" }}>{sol.icon}</span>
-                  <span style={{ fontSize: "9.5px", fontWeight: "800", color: "#0284c7", background: "#e0f2fe", padding: "3px 8px", borderRadius: "6px", textTransform: "uppercase" }}>
-                    {sol.badge}
-                  </span>
-                </div>
+                {/* Left Side: Graphic with floating elements */}
+                <div style={{ flex: "1 1 400px", position: "relative", minHeight: "450px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                  
+                  {/* Big background shape */}
+                  <div style={{ 
+                    position: "absolute", 
+                    width: "320px", 
+                    height: "380px", 
+                    background: index % 2 === 0 ? "linear-gradient(135deg, #f472b6, #d946ef)" : "linear-gradient(135deg, #60a5fa, #3b82f6)", 
+                    borderRadius: "40px",
+                    zIndex: 0,
+                    left: index % 2 === 0 ? "10%" : "auto",
+                    right: index % 2 !== 0 ? "10%" : "auto",
+                    top: "5%"
+                  }}></div>
+                  
+                  {/* The actual image */}
+                  <img src={sol.image} alt={sol.title} style={{ 
+                    position: "relative", 
+                    zIndex: 10, 
+                    width: "300px", 
+                    height: "400px", 
+                    objectFit: "cover", 
+                    borderRadius: "32px",
+                    boxShadow: "0 25px 50px rgba(0,0,0,0.15)"
+                  }} />
 
-                <h3 style={{ fontSize: "18px", fontWeight: "800", color: "#0f172a", margin: "0 0 8px 0" }}>{sol.title}</h3>
-                <p style={{ fontSize: "13px", lineHeight: "1.6", color: "#64748b", margin: "0 0 16px 0" }}>{sol.desc}</p>
+                  {/* Top Floating Card (Badge) */}
+                  <div style={{ 
+                    position: "absolute", 
+                    top: "20px", 
+                    right: index % 2 === 0 ? "10%" : "auto", 
+                    left: index % 2 !== 0 ? "10%" : "auto", 
+                    background: "#ffffff", 
+                    padding: "14px 24px", 
+                    borderRadius: "99px", 
+                    boxShadow: "0 15px 35px rgba(0,0,0,0.1)", 
+                    zIndex: 20,
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "10px"
+                  }}>
+                    <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: "#ecfdf5", display: "flex", alignItems: "center", justifyContent: "center", color: "#10b981", fontSize: "14px" }}>★</div>
+                    <span style={{ fontSize: "14px", fontWeight: "800", color: "#1a1a2e" }}>{sol.badge}</span>
+                  </div>
 
-                <div style={{ fontSize: "11.5px", fontWeight: "700", color: "#0f172a", background: "#f8fafc", border: "1px solid #e2e8f0", padding: "6px 10px", borderRadius: "8px", marginBottom: "16px" }}>
-                  <span style={{ color: "#0284c7" }}>⚡ Benchmark:</span> {sol.stats}
-                </div>
-
-                <div style={{ display: "flex", flexDirection: "column", gap: "8px", marginTop: "auto", paddingTop: "14px", borderTop: "1px dashed #e2e8f0" }}>
-                  {sol.bullets.map((b, bi) => (
-                    <div key={bi} style={{ display: "flex", alignItems: "flex-start", gap: "8px", fontSize: "12px", fontWeight: "600", color: "#334155", lineHeight: "1.4" }}>
-                      <span style={{ color: "#10b981", fontWeight: "800" }}>✓</span>
-                      <span>{b}</span>
+                  {/* Bottom Floating Card (Stats) */}
+                  <div style={{ 
+                    position: "absolute", 
+                    bottom: "20px", 
+                    left: index % 2 === 0 ? "5%" : "auto",
+                    right: index % 2 !== 0 ? "5%" : "auto",
+                    background: "linear-gradient(135deg, #a084f5, #7b5ef0)", 
+                    padding: "24px", 
+                    borderRadius: "24px", 
+                    boxShadow: "0 20px 40px rgba(123,94,240,0.3)", 
+                    zIndex: 20,
+                    width: "240px"
+                  }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "20px" }}>
+                      <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "rgba(255,255,255,0.2)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "18px" }}>{sol.icon}</div>
+                      <span style={{ fontSize: "13px", fontWeight: "800", color: "#ffffff", lineHeight: "1.3" }}>{sol.stats}</span>
                     </div>
-                  ))}
+                    {/* Abstract list lines */}
+                    <div style={{ width: "100%", height: "6px", background: "rgba(255,255,255,0.2)", borderRadius: "3px", marginBottom: "10px" }}></div>
+                    <div style={{ width: "80%", height: "6px", background: "rgba(255,255,255,0.2)", borderRadius: "3px", marginBottom: "10px" }}></div>
+                    <div style={{ width: "60%", height: "6px", background: "rgba(255,255,255,0.2)", borderRadius: "3px" }}></div>
+                    
+                    {/* Avatars */}
+                    <div style={{ display: "flex", marginTop: "20px" }}>
+                      {[1,2,3].map(i => (
+                        <div key={i} style={{ width: "28px", height: "28px", borderRadius: "50%", background: "#e2e8f0", border: "2px solid #7b5ef0", marginLeft: i !== 1 ? "-10px" : "0", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "10px" }}>👤</div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Right Side: Content */}
+                <div style={{ flex: "1 1 400px", padding: "20px" }}>
+                  {/* Decorative Quote Icon */}
+                  <div style={{ fontSize: "72px", color: "#a084f5", lineHeight: "1", opacity: 0.5, marginBottom: "10px", fontFamily: "serif" }}>"</div>
+                  
+                  <h3 style={{ fontSize: "clamp(28px, 3.5vw, 36px)", fontWeight: "800", color: "#1a1a2e", margin: "0 0 24px 0", lineHeight: "1.25", letterSpacing: "-0.5px" }}>
+                    {sol.title}
+                  </h3>
+                  
+                  <p style={{ fontSize: "17px", lineHeight: "1.7", color: "#475569", margin: "0 0 32px 0" }}>
+                    {sol.desc}
+                  </p>
+
+                  <div style={{ display: "flex", flexDirection: "column", gap: "16px", borderTop: "2px solid #f1f5f9", paddingTop: "32px" }}>
+                    {sol.bullets.map((b, bi) => (
+                      <div key={bi} style={{ display: "flex", alignItems: "flex-start", gap: "14px", fontSize: "15px", fontWeight: "700", color: "#1a1a2e" }}>
+                        <div style={{ width: "22px", height: "22px", borderRadius: "50%", background: "#ecfdf5", display: "flex", alignItems: "center", justifyContent: "center", color: "#10b981", fontSize: "12px", marginTop: "2px", flexShrink: 0 }}>✓</div>
+                        {b}
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             ))}
@@ -1014,117 +1136,189 @@ export default function MobileAppsPageContent() {
       </section>
 
       {/* ── 5. LAYERED MOBILE STACK ARCHITECTURE ── */}
-      <section style={{ background: "#f8fafc", padding: "90px 24px", borderBottom: "1px solid #e2e8f0" }}>
+      <section style={{ background: "#ffffff", padding: "80px 24px", fontFamily: "Inter, sans-serif" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 48px" }}>
+          
+          <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 64px" }}>
             <div style={{
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
-              background: "#f1f5f9",
-              border: "1.5px solid #e2e8f0",
-              color: "#475569",
+              background: "#f8fafc",
+              border: "1px solid #e2e8f0",
+              color: "#7b5ef0",
               fontSize: "11px",
               fontWeight: "800",
-              letterSpacing: "1.2px",
-              padding: "6px 14px",
+              letterSpacing: "1.5px",
+              padding: "8px 16px",
               borderRadius: "9999px",
               textTransform: "uppercase",
-              marginBottom: "16px"
+              marginBottom: "24px",
+              boxShadow: "0 4px 12px rgba(123, 94, 240, 0.08)"
             }}>
-              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#0ea5e9" }} />
+              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#7b5ef0", boxShadow: "0 0 8px rgba(123, 94, 240, 0.5)" }} />
               LAYERED PIPELINE
             </div>
-            <h2 style={{ fontSize: "clamp(28px, 4vw, 42px)", fontWeight: "900", letterSpacing: "-1px", color: "#0f172a", margin: "0 0 16px 0" }}>
+            <h2 style={{ fontSize: "clamp(36px, 4vw, 54px)", fontWeight: "900", letterSpacing: "-0.03em", color: "#0f172a", margin: "0 0 24px 0", lineHeight: "1.1" }}>
               How We Layer Your Mobile Stack
             </h2>
-            <p style={{ fontSize: "15px", color: "#64748b", lineHeight: "1.65", margin: 0 }}>
+            <p style={{ fontSize: "17px", color: "#64748b", lineHeight: "1.7", margin: "0", maxWidth: "800px", marginLeft: "auto", marginRight: "auto" }}>
               A high-performance layered pipeline from GPU-accelerated interface to local SQLite persistence and cloud edge orchestration.
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "20px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 400px), 1fr))", gap: "32px" }}>
             {archLayers.map((layer, i) => (
               <div key={i} style={{
                 background: "#ffffff",
-                border: "1px solid #e2e8f0",
-                borderRadius: "20px",
-                padding: "28px 22px",
+                border: "1px solid #e5e7eb",
+                borderRadius: "32px",
+                padding: "32px",
                 display: "flex",
-                flexDirection: "column",
-                boxShadow: "0 4px 16px rgba(15,23,42,0.02)"
+                flexDirection: "row",
+                flexWrap: "wrap",
+                gap: "24px",
+                boxShadow: "0 15px 35px rgba(0, 0, 0, 0.03)",
+                transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                position: "relative",
+                overflow: "hidden"
               }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
-                  <span style={{ fontSize: "26px", fontWeight: "900", color: "#0f172a" }}>{layer.num}</span>
-                  <span style={{ fontSize: "20px" }}>{layer.icon}</span>
+                {/* Left Side: Content */}
+                <div style={{ flex: "1 1 240px", display: "flex", flexDirection: "column", zIndex: 10 }}>
+                  <div style={{ width: "64px", height: "64px", borderRadius: "20px", background: "#f8fafc", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "28px", flexShrink: 0, border: "1px solid #e2e8f0", boxShadow: "inset 0 2px 4px rgba(255,255,255,1)", marginBottom: "20px" }}>
+                    {layer.icon}
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
+                    <span style={{ fontSize: "10.5px", fontWeight: "800", color: "#0369a1", background: "#f0f9ff", border: "1px solid #e0f2fe", padding: "4px 10px", borderRadius: "8px", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+                      {layer.tag}
+                    </span>
+                  </div>
+                  <h3 style={{ fontSize: "22px", fontWeight: "800", color: "#0f172a", margin: "0 0 12px 0", letterSpacing: "-0.5px" }}>{layer.title}</h3>
+                  <p style={{ fontSize: "15px", lineHeight: "1.7", color: "#475569", margin: 0, paddingRight: "10px" }}>{layer.desc}</p>
                 </div>
-                <span style={{ fontSize: "9.5px", fontWeight: "800", color: "#94a3b8", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "6px" }}>
-                  {layer.tag}
+
+                {/* Right Side: Mini Phone Mockup */}
+                <div style={{ width: "140px", flexShrink: 0, position: "relative", zIndex: 10, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                   <div style={{ width: "120px", height: "240px", background: "#ffffff", borderRadius: "20px", border: "6px solid #e2e8f0", boxShadow: "0 10px 25px rgba(0,0,0,0.1)", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column" }}>
+                     
+                     {/* Dynamic Mockup Contents Based on Layer */}
+                     {layer.num === "01" && (
+                       <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "8px", height: "100%", background: "#f8fafc" }}>
+                         <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "4px" }}>
+                           <div style={{ width: "16px", height: "16px", borderRadius: "50%", background: "#a084f5" }}></div>
+                           <div style={{ flex: 1, height: "6px", borderRadius: "3px", background: "#cbd5e1" }}></div>
+                         </div>
+                         <div style={{ flex: 1, borderRadius: "8px", background: "linear-gradient(135deg, #a084f5, #7b5ef0)" }}></div>
+                         <div style={{ flex: 1, borderRadius: "8px", background: "#ffffff", border: "1px solid #e2e8f0" }}></div>
+                         <div style={{ height: "20px", borderRadius: "4px", background: "#e2e8f0", marginTop: "auto" }}></div>
+                       </div>
+                     )}
+
+                     {layer.num === "02" && (
+                       <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "6px", height: "100%", background: "#f0fdf4" }}>
+                         <div style={{ textAlign: "center", fontSize: "10px", color: "#16a34a", fontWeight: "800", marginBottom: "4px" }}>SYNCED ✓</div>
+                         {[1,2,3,4,5].map(j => (
+                           <div key={j} style={{ background: "#ffffff", borderRadius: "6px", padding: "6px", border: "1px solid #bbf7d0", display: "flex", alignItems: "center", gap: "6px" }}>
+                             <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#22c55e" }}></div>
+                             <div style={{ flex: 1, height: "4px", borderRadius: "2px", background: "#cbd5e1" }}></div>
+                           </div>
+                         ))}
+                       </div>
+                     )}
+
+                     {layer.num === "03" && (
+                       <div style={{ padding: "8px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100%", background: "#1e293b", color: "#ffffff" }}>
+                         <div style={{ fontSize: "28px", marginBottom: "16px", color: "#a084f5" }}>🔒</div>
+                         <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "rgba(160, 132, 245, 0.2)", border: "2px solid #a084f5", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px", marginBottom: "16px" }}>👤</div>
+                         <div style={{ fontSize: "8px", fontWeight: "700", letterSpacing: "1px", color: "#10b981", background: "rgba(16,185,129,0.2)", padding: "4px 8px", borderRadius: "8px" }}>SECURE ENCLAVE</div>
+                       </div>
+                     )}
+
+                     {layer.num === "04" && (
+                       <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "8px", height: "100%", background: "#f8fafc" }}>
+                         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                           <div style={{ fontSize: "12px" }}>☁️</div>
+                           <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#3b82f6", boxShadow: "0 0 8px #3b82f6" }}></div>
+                         </div>
+                         <div style={{ height: "40px", borderRadius: "8px", background: "#e0f2fe", border: "1px dashed #7dd3fc" }}></div>
+                         <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+                           <div style={{ fontSize: "6px", color: "#64748b" }}>GET /api/v1/sync</div>
+                           <div style={{ width: "100%", height: "2px", background: "#cbd5e1" }}><div style={{ width: "100%", height: "100%", background: "#3b82f6" }}></div></div>
+                           <div style={{ fontSize: "6px", color: "#64748b" }}>WSS connection live</div>
+                         </div>
+                       </div>
+                     )}
+                   </div>
+                </div>
+
+                {/* Huge faint number */}
+                <span style={{ fontSize: "160px", fontWeight: "900", color: "#f1f5f9", lineHeight: "1", position: "absolute", bottom: "-40px", left: "-20px", zIndex: 0, letterSpacing: "-8px", opacity: 0.6 }}>
+                  {layer.num}
                 </span>
-                <h3 style={{ fontSize: "16px", fontWeight: "800", color: "#0f172a", margin: "0 0 8px 0" }}>{layer.title}</h3>
-                <p style={{ fontSize: "12.5px", lineHeight: "1.55", color: "#64748b", margin: 0 }}>{layer.desc}</p>
               </div>
             ))}
           </div>
+          
         </div>
       </section>
 
       {/* ── 6. PERFORMANCE & DEVICE SLA BENCHMARK ── */}
-      <section style={{ background: "#ffffff", padding: "90px 24px", borderBottom: "1px solid #e2e8f0" }}>
+      <section style={{ background: "#ffffff", padding: "80px 24px" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "48px", alignItems: "center" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))", gap: "60px", alignItems: "center" }}>
             {/* Left Column */}
             <div>
               <div style={{
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "8px",
-                background: "#f5f3ff",
-                border: "1.5px solid #ede9fe",
-                color: "#7c3aed",
+                background: "#ffffff",
+                border: "1px solid #e0f2fe",
+                color: "#0284c7",
                 fontSize: "11px",
                 fontWeight: "800",
-                letterSpacing: "1.2px",
-                padding: "6px 14px",
+                letterSpacing: "1.5px",
+                padding: "6px 16px",
                 borderRadius: "9999px",
                 textTransform: "uppercase",
-                marginBottom: "16px"
+                marginBottom: "20px",
+                boxShadow: "0 4px 12px rgba(14, 165, 233, 0.08)"
               }}>
-                <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#7c3aed" }} />
+                <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#0ea5e9", boxShadow: "0 0 8px rgba(14, 165, 233, 0.5)" }} />
                 ZERO-LATENCY GUARANTEE
               </div>
-              <h2 style={{ fontSize: "clamp(26px, 3.8vw, 38px)", fontWeight: "900", color: "#0f172a", margin: "0 0 16px 0", letterSpacing: "-1px" }}>
+              <h2 style={{ fontSize: "clamp(30px, 3.8vw, 48px)", fontWeight: "900", color: "#0f172a", margin: "0 0 20px 0", letterSpacing: "-0.02em", lineHeight: "1.14" }}>
                 Engineered for 99.9% Crash-Free Production SLA
               </h2>
-              <p style={{ fontSize: "15px", color: "#64748b", lineHeight: "1.65", margin: "0 0 32px 0" }}>
+              <p style={{ fontSize: "16px", color: "#64748b", lineHeight: "1.65", margin: "0 0 40px 0" }}>
                 Our architecture guarantees sub-millisecond local query routing, sub-second cold starts, and uncompromised 120 FPS fluid motion under heavy production loads.
               </p>
 
-              <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "20px", padding: "20px 24px", display: "flex", alignItems: "center", gap: "20px" }}>
-                <div style={{ width: "64px", height: "64px", borderRadius: "50%", background: "#0ea5e9", display: "flex", alignItems: "center", justifyContent: "center", color: "#ffffff", fontWeight: "900", fontSize: "14px", flexShrink: 0 }}>
+              <div style={{ background: "#f4f5f7", border: "1px solid #e5e7eb", borderRadius: "24px", padding: "24px 28px", display: "flex", alignItems: "center", gap: "24px" }}>
+                <div style={{ width: "72px", height: "72px", borderRadius: "50%", background: "#0ea5e9", display: "flex", alignItems: "center", justifyContent: "center", color: "#ffffff", fontWeight: "900", fontSize: "16px", flexShrink: 0, boxShadow: "0 10px 20px rgba(14, 165, 233, 0.3)" }}>
                   120fps
                 </div>
                 <div>
-                  <div style={{ fontSize: "16px", fontWeight: "800", color: "#0f172a" }}>Fluidity &amp; Crash-Free SLA</div>
-                  <div style={{ fontSize: "12px", color: "#64748b", marginTop: "2px" }}>Production Device Benchmark</div>
+                  <div style={{ fontSize: "18px", fontWeight: "800", color: "#0f172a" }}>Fluidity &amp; Crash-Free SLA</div>
+                  <div style={{ fontSize: "14px", color: "#64748b", marginTop: "4px" }}>Production Device Benchmark</div>
                 </div>
               </div>
             </div>
 
             {/* Right Column Progress Rows */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
               {[
                 { name: "UI Rendering Smoothness (Metal/Fabric)", val: "60 / 120 FPS", fill: "98%", grad: "linear-gradient(90deg, #0ea5e9, #38bdf8)" },
                 { name: "App Cold Start Time (Hermes Bytecode)", val: "< 0.38s", fill: "94%", grad: "linear-gradient(90deg, #0f172a, #334155)" },
                 { name: "Local SQLite Query Latency", val: "< 4ms", fill: "96%", grad: "linear-gradient(90deg, #10b981, #34d399)" },
                 { name: "Base Memory Heap Footprint", val: "< 42MB", fill: "90%", grad: "linear-gradient(90deg, #7c3aed, #a855f7)" },
               ].map((m, idx) => (
-                <div key={idx} style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "16px", padding: "18px 20px" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
-                    <span style={{ fontSize: "13px", fontWeight: "700", color: "#0f172a" }}>{m.name}</span>
-                    <strong style={{ fontSize: "13px", color: "#0f172a" }}>{m.val}</strong>
+                <div key={idx} style={{ background: "#ffffff", border: "1px solid #e5e7eb", borderRadius: "20px", padding: "24px 28px", boxShadow: "0 10px 30px rgba(0,0,0,0.02)" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
+                    <span style={{ fontSize: "14px", fontWeight: "700", color: "#0f172a" }}>{m.name}</span>
+                    <strong style={{ fontSize: "14px", color: "#0f172a" }}>{m.val}</strong>
                   </div>
-                  <div style={{ width: "100%", height: "6px", background: "#e2e8f0", borderRadius: "99px", overflow: "hidden" }}>
+                  <div style={{ width: "100%", height: "8px", background: "#f1f5f9", borderRadius: "99px", overflow: "hidden" }}>
                     <div style={{ width: m.fill, height: "100%", background: m.grad, borderRadius: "99px" }} />
                   </div>
                 </div>
@@ -1135,122 +1329,192 @@ export default function MobileAppsPageContent() {
       </section>
 
       {/* ── 7. 4-STAGE DELIVERY PROCESS ── */}
-      <section style={{ background: "#f8fafc", padding: "90px 24px", borderBottom: "1px solid #e2e8f0" }}>
+      <section style={{ background: "#f8fafc", padding: "80px 24px", fontFamily: "Inter, sans-serif" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 48px" }}>
+          <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 80px" }}>
             <div style={{
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
-              background: "#f1f5f9",
-              border: "1.5px solid #e2e8f0",
-              color: "#475569",
+              background: "#ffffff",
+              border: "1px solid #e2e8f0",
+              color: "#0284c7",
               fontSize: "11px",
               fontWeight: "800",
-              letterSpacing: "1.2px",
-              padding: "6px 14px",
+              letterSpacing: "1.5px",
+              padding: "8px 16px",
               borderRadius: "9999px",
               textTransform: "uppercase",
-              marginBottom: "16px"
+              marginBottom: "24px",
+              boxShadow: "0 4px 12px rgba(14, 165, 233, 0.08)"
             }}>
-              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#0ea5e9" }} />
+              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#0ea5e9", boxShadow: "0 0 8px rgba(14, 165, 233, 0.5)" }} />
               AGILE POD LIFECYCLE
             </div>
-            <h2 style={{ fontSize: "clamp(28px, 4vw, 42px)", fontWeight: "900", letterSpacing: "-1px", color: "#0f172a", margin: "0 0 16px 0" }}>
+            <h2 style={{ fontSize: "clamp(36px, 4vw, 54px)", fontWeight: "900", letterSpacing: "-0.03em", color: "#0f172a", margin: "0 0 24px 0", lineHeight: "1.1" }}>
               4-Stage Mobile App Development Process
             </h2>
-            <p style={{ fontSize: "15px", color: "#64748b", lineHeight: "1.65", margin: 0 }}>
+            <p style={{ fontSize: "17px", color: "#64748b", lineHeight: "1.7", margin: "0 auto", maxWidth: "600px" }}>
               From interactive Figma wireframes to TestFlight beta testing and fast-track App Store approvals, our pods deliver production-grade mobile builds.
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))", gap: "20px" }}>
-            {deliverySteps.map((step, i) => (
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 400px), 1fr))", gap: "32px" }}>
+            {deliverySteps.map((step, i) => {
+              const colors = [
+                { hex: "#d946ef", grad: "linear-gradient(135deg, #f472b6, #d946ef)", shadow: "rgba(217,70,239,0.3)", bg: "rgba(217,70,239,0.08)" },
+                { hex: "#3b82f6", grad: "linear-gradient(135deg, #38bdf8, #3b82f6)", shadow: "rgba(59,130,246,0.3)", bg: "rgba(59,130,246,0.08)" },
+                { hex: "#10b981", grad: "linear-gradient(135deg, #34d399, #10b981)", shadow: "rgba(16,185,129,0.3)", bg: "rgba(16,185,129,0.08)" },
+                { hex: "#7b5ef0", grad: "linear-gradient(135deg, #a084f5, #7b5ef0)", shadow: "rgba(123,94,240,0.3)", bg: "rgba(123,94,240,0.08)" }
+              ];
+              const c = colors[i];
+              
+              return (
               <div key={i} style={{
                 background: "#ffffff",
-                border: "1px solid #e2e8f0",
-                borderRadius: "24px",
-                padding: "30px 22px",
+                border: "1px solid #e5e7eb",
+                borderRadius: "32px",
+                padding: "32px",
                 display: "flex",
-                flexDirection: "column",
-                boxShadow: "0 4px 16px rgba(15,23,42,0.02)"
+                flexDirection: "row",
+                flexWrap: "wrap",
+                gap: "24px",
+                boxShadow: "0 15px 35px rgba(0, 0, 0, 0.03)",
+                transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                position: "relative",
+                overflow: "hidden",
+                borderTop: `6px solid ${c.hex}`
               }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
-                  <span style={{ fontSize: "28px", fontWeight: "900", color: "#0f172a" }}>{step.num}</span>
-                  <span style={{ fontSize: "24px" }}>{step.icon}</span>
+                {/* Left Side: Content */}
+                <div style={{ flex: "1 1 240px", display: "flex", flexDirection: "column", zIndex: 10 }}>
+                  <div style={{ width: "56px", height: "56px", borderRadius: "16px", background: c.grad, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px", flexShrink: 0, boxShadow: `0 8px 16px ${c.shadow}`, marginBottom: "20px", color: "#fff" }}>
+                    {step.num}
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
+                    <span style={{ fontSize: "10.5px", fontWeight: "800", color: c.hex, background: c.bg, border: `1px solid ${c.hex}30`, padding: "4px 10px", borderRadius: "8px", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+                      {step.tag}
+                    </span>
+                  </div>
+                  <h3 style={{ fontSize: "22px", fontWeight: "800", color: "#0f172a", margin: "0 0 12px 0", letterSpacing: "-0.5px" }}>{step.title}</h3>
+                  <p style={{ fontSize: "15px", lineHeight: "1.7", color: "#475569", margin: 0, paddingRight: "10px" }}>{step.desc}</p>
                 </div>
-                <span style={{ fontFamily: "monospace", fontSize: "10px", fontWeight: "800", color: "#0284c7", background: "#e0f2fe", padding: "3px 8px", borderRadius: "6px", width: "fit-content", marginBottom: "10px" }}>
-                  {step.tag}
-                </span>
-                <h3 style={{ fontSize: "16px", fontWeight: "800", color: "#0f172a", margin: "0 0 8px 0" }}>{step.title}</h3>
-                <p style={{ fontSize: "13px", lineHeight: "1.6", color: "#64748b", margin: 0 }}>{step.desc}</p>
+
+                {/* Right Side: Mini Mockup */}
+                <div style={{ width: "140px", flexShrink: 0, position: "relative", zIndex: 10, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                   <div style={{ width: "120px", height: "160px", background: "#f8fafc", borderRadius: "20px", border: "4px solid #e2e8f0", boxShadow: "0 10px 25px rgba(0,0,0,0.05)", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column" }}>
+                     
+                     {step.num === "01" && (
+                       <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "6px", height: "100%" }}>
+                         <div style={{ width: "100%", height: "40px", background: "#e2e8f0", borderRadius: "8px" }}></div>
+                         <div style={{ display: "flex", gap: "6px" }}>
+                           <div style={{ width: "30%", height: "30px", background: "#e2e8f0", borderRadius: "6px" }}></div>
+                           <div style={{ width: "70%", height: "30px", background: "#e2e8f0", borderRadius: "6px" }}></div>
+                         </div>
+                         <div style={{ flex: 1, background: c.bg, borderRadius: "8px", border: `1px dashed ${c.hex}` }}></div>
+                       </div>
+                     )}
+
+                     {step.num === "02" && (
+                       <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "4px", height: "100%", background: "#1e293b" }}>
+                         <div style={{ width: "60%", height: "4px", background: "#38bdf8", borderRadius: "2px", marginBottom: "4px" }}></div>
+                         <div style={{ width: "80%", height: "4px", background: "#a084f5", borderRadius: "2px" }}></div>
+                         <div style={{ width: "40%", height: "4px", background: "#f472b6", borderRadius: "2px" }}></div>
+                         <div style={{ width: "90%", height: "4px", background: "#34d399", borderRadius: "2px" }}></div>
+                         <div style={{ width: "70%", height: "4px", background: "#f472b6", borderRadius: "2px", marginTop: "8px" }}></div>
+                         <div style={{ width: "50%", height: "4px", background: "#38bdf8", borderRadius: "2px" }}></div>
+                       </div>
+                     )}
+
+                     {step.num === "03" && (
+                       <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "6px", height: "100%", alignItems: "center", justifyContent: "center" }}>
+                         <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "#ecfdf5", border: "2px solid #10b981", display: "flex", alignItems: "center", justifyContent: "center", color: "#10b981", fontSize: "20px" }}>✓</div>
+                         <div style={{ width: "80%", height: "6px", background: "#e2e8f0", borderRadius: "3px", marginTop: "8px" }}><div style={{ width: "100%", height: "100%", background: "#10b981", borderRadius: "3px" }}></div></div>
+                         <div style={{ fontSize: "8px", color: "#64748b", fontWeight: "700" }}>TESTS PASSED</div>
+                       </div>
+                     )}
+
+                     {step.num === "04" && (
+                       <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "8px", height: "100%", background: "#f8fafc", alignItems: "center" }}>
+                         <div style={{ fontSize: "32px", marginTop: "10px" }}>🚀</div>
+                         <div style={{ width: "80%", height: "20px", background: "#0ea5e9", borderRadius: "10px", marginTop: "auto", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "8px", fontWeight: "800" }}>DEPLOY</div>
+                       </div>
+                     )}
+                   </div>
+                </div>
+
+                {/* Huge faded background icon */}
+                <div style={{ position: "absolute", bottom: "-20px", right: "-20px", fontSize: "160px", opacity: 0.03, zIndex: 0, transform: "rotate(-15deg)" }}>
+                  {step.icon}
+                </div>
               </div>
-            ))}
+            )})}
           </div>
         </div>
       </section>
 
       {/* ── 8. MOBILE ENGINEERING FAQS ── */}
-      <section style={{ background: "#ffffff", padding: "90px 24px", borderBottom: "1px solid #e2e8f0" }}>
+      <section style={{ background: "#ffffff", padding: "80px 24px" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 48px" }}>
+          <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 56px" }}>
             <div style={{
               display: "inline-flex",
               alignItems: "center",
               gap: "8px",
-              background: "#f1f5f9",
-              border: "1.5px solid #e2e8f0",
-              color: "#475569",
+              background: "#ffffff",
+              border: "1px solid #e0f2fe",
+              color: "#0284c7",
               fontSize: "11px",
               fontWeight: "800",
-              letterSpacing: "1.2px",
-              padding: "6px 14px",
+              letterSpacing: "1.5px",
+              padding: "6px 16px",
               borderRadius: "9999px",
               textTransform: "uppercase",
-              marginBottom: "16px"
+              marginBottom: "20px",
+              boxShadow: "0 4px 12px rgba(14, 165, 233, 0.08)"
             }}>
-              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#0ea5e9" }} />
+              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#0ea5e9", boxShadow: "0 0 8px rgba(14, 165, 233, 0.5)" }} />
               MOBILE ENGINEERING FAQS
             </div>
-            <h2 style={{ fontSize: "clamp(28px, 4vw, 42px)", fontWeight: "900", letterSpacing: "-1px", color: "#0f172a", margin: "0 0 16px 0" }}>
+            <h2 style={{ fontSize: "clamp(30px, 3.8vw, 48px)", fontWeight: "900", letterSpacing: "-0.02em", color: "#0f172a", margin: "0 0 20px 0", lineHeight: "1.14" }}>
               Frequently Asked Questions
             </h2>
-            <p style={{ fontSize: "15px", color: "#64748b", lineHeight: "1.65", margin: 0 }}>
+            <p style={{ fontSize: "16px", color: "#64748b", lineHeight: "1.65", margin: 0 }}>
               Everything you need to know about our native iOS/Android development, cross-platform stacks, offline sync, and App Store approval guarantees.
             </p>
           </div>
 
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "40px", alignItems: "start" }}>
             {/* Sidebar */}
-            <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "24px", padding: "36px 28px", display: "flex", flexDirection: "column", gap: "16px" }}>
-              <h3 style={{ fontSize: "22px", fontWeight: "900", color: "#0f172a", margin: 0 }}>Have a Custom Mobile App in Mind?</h3>
-              <p style={{ fontSize: "13.5px", lineHeight: "1.6", color: "#64748b", margin: 0 }}>
+            <div style={{ background: "#f4f5f7", border: "1px solid #e5e7eb", borderRadius: "32px", padding: "40px 32px", display: "flex", flexDirection: "column", gap: "20px", boxShadow: "0 10px 30px rgba(0, 0, 0, 0.03)" }}>
+              <h3 style={{ fontSize: "24px", fontWeight: "900", color: "#0f172a", margin: 0, letterSpacing: "-0.02em" }}>Have a Custom Mobile App in Mind?</h3>
+              <p style={{ fontSize: "15px", lineHeight: "1.65", color: "#64748b", margin: 0 }}>
                 Speak directly with our principal mobile architect to evaluate offline sync architectures, framework selection, and store approval timelines.
               </p>
               <Link href="/contact" style={{
                 background: "#0f172a",
                 color: "#ffffff",
-                padding: "12px 20px",
-                borderRadius: "12px",
-                fontSize: "13px",
+                padding: "16px 24px",
+                borderRadius: "9999px",
+                fontSize: "15px",
                 fontWeight: "800",
                 textDecoration: "none",
-                textAlign: "center"
+                textAlign: "center",
+                marginTop: "10px"
               }}>
                 Talk to a Mobile Architect →
               </Link>
-              <div style={{ background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "16px", padding: "16px", textAlign: "center", marginTop: "8px" }}>
-                <div style={{ fontSize: "26px", fontWeight: "900", color: "#0ea5e9" }}>6–8 Wks</div>
-                <div style={{ fontSize: "10.5px", color: "#64748b", fontWeight: "600", textTransform: "uppercase" }}>Average Mobile MVP Delivery Time</div>
+              <div style={{ background: "#ffffff", border: "1px solid #e5e7eb", borderRadius: "20px", padding: "24px", textAlign: "center", marginTop: "12px", boxShadow: "0 4px 16px rgba(0,0,0,0.02)" }}>
+                <div style={{ fontSize: "32px", fontWeight: "900", color: "#0ea5e9" }}>6–8 Wks</div>
+                <div style={{ fontSize: "11px", color: "#64748b", fontWeight: "700", textTransform: "uppercase", letterSpacing: "1px", marginTop: "4px" }}>Average MVP Delivery</div>
               </div>
             </div>
 
             {/* Accordion */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
               {faqs.map((f, i) => (
-                <details key={i} style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "16px", padding: "18px 22px", cursor: "pointer" }}>
-                  <summary style={{ fontWeight: "800", color: "#0f172a", fontSize: "15px", listStyle: "none" }}>{f.q}</summary>
-                  <p style={{ color: "#475569", marginTop: "12px", lineHeight: "1.65", fontSize: "13.5px" }}>{f.a}</p>
+                <details key={i} style={{ background: "#ffffff", border: "1px solid #e5e7eb", borderRadius: "24px", padding: "24px 28px", cursor: "pointer", boxShadow: "0 10px 30px rgba(0, 0, 0, 0.02)" }}>
+                  <summary style={{ fontWeight: "800", color: "#0f172a", fontSize: "16px", listStyle: "none" }}>{f.q}</summary>
+                  <p style={{ color: "#64748b", marginTop: "16px", lineHeight: "1.7", fontSize: "15px", marginBottom: 0 }}>{f.a}</p>
                 </details>
               ))}
             </div>
@@ -1259,7 +1523,7 @@ export default function MobileAppsPageContent() {
       </section>
 
       {/* ── 9. BOTTOM CTA BANNER ── */}
-      <section style={{ background: "#ffffff", padding: "80px 24px 100px" }}>
+      <section style={{ background: "#ffffff", padding: "60px 24px 100px" }}>
         <div style={{
           maxWidth: "1200px",
           margin: "0 auto",

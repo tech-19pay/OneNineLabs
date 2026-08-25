@@ -110,8 +110,174 @@ export default function SecurityServicePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800;900&family=Inter:wght@400;500;600;700;800&display=swap');
+        .sec-hero-grid { display:grid; grid-template-columns:1.1fr 1fr; gap:64px; align-items:center; max-width:1280px; margin:0 auto; }
+        .sec-mini-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; max-width:580px; margin-top:36px; }
+        .sec-mini-card { background:#f8fafc; border:1.5px solid #e8edf5; border-radius:14px; padding:16px 18px; }
+        @keyframes sec-blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+        @keyframes sec-scan { 0%{top:0} 100%{top:100%} }
+        @media(max-width:768px){ .sec-hero-grid{grid-template-columns:1fr!important;} .sec-hero-right{display:none!important;} }
+      `}</style>
+
       <main style={{ minHeight: "100vh", background: "#ffffff" }}>
-        <SecurityPageContent />
+
+        {/* ── PREMIUM HERO ── */}
+        <section style={{
+          background: "linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f0f4ff 100%)",
+          padding: "120px 24px 90px",
+          fontFamily: "'Inter', sans-serif",
+          position: "relative",
+          overflow: "hidden",
+          borderBottom: "1px solid #e8edf5",
+        }}>
+          {/* Soft accent blobs */}
+          <div style={{ position:"absolute", top:"-60px", right:"-60px", width:"440px", height:"440px", background:"radial-gradient(circle, rgba(239,68,68,0.06) 0%, transparent 70%)", pointerEvents:"none" }} />
+          <div style={{ position:"absolute", bottom:"-40px", left:"-40px", width:"320px", height:"320px", background:"radial-gradient(circle, rgba(99,102,241,0.05) 0%, transparent 70%)", pointerEvents:"none" }} />
+
+          <div className="sec-hero-grid">
+
+            {/* LEFT COLUMN */}
+            <div style={{ zIndex: 2 }}>
+              <div style={{ display:"inline-flex", alignItems:"center", gap:"8px", background:"rgba(239,68,68,0.08)", border:"1px solid rgba(239,68,68,0.18)", borderRadius:"100px", padding:"5px 16px", marginBottom:"20px" }}>
+                <span style={{ width:"6px", height:"6px", borderRadius:"50%", background:"#ef4444", display:"inline-block", animation:"sec-blink 1.6s ease-in-out infinite" }} />
+                <span style={{ fontSize:"11px", fontWeight:"700", color:"#ef4444", letterSpacing:"0.8px", textTransform:"uppercase" }}>Cloud &amp; Cyber Security</span>
+              </div>
+
+              <h1 style={{
+                fontFamily: "'Plus Jakarta Sans', sans-serif",
+                fontSize: "clamp(36px, 4.5vw, 56px)",
+                fontWeight: "800",
+                color: "#0f172a",
+                lineHeight: "1.1",
+                letterSpacing: "-1.5px",
+                margin: "0 0 22px 0",
+              }}>
+                Zero-Trust Security &{" "}
+                <span style={{ background:"linear-gradient(90deg, #ef4444, #f97316)", WebkitBackgroundClip:"text", WebkitTextFillColor:"transparent" }}>
+                  SOC 2 Compliance
+                </span>
+              </h1>
+
+              <p style={{ fontSize:"16px", color:"#475569", lineHeight:"1.75", marginBottom:"36px", maxWidth:"540px", fontWeight:"500" }}>
+                Enterprise cybersecurity audits, penetration testing, zero-trust cloud architecture, and SOC 2 Type II compliance — engineered to protect your infrastructure and accelerate enterprise sales.
+              </p>
+
+              <div style={{ display:"flex", gap:"16px", flexWrap:"wrap" }}>
+                <a href="/contact" style={{
+                  background: "linear-gradient(135deg, #ef4444 0%, #dc2626 100%)",
+                  color: "#ffffff", fontWeight:"700", borderRadius:"12px",
+                  padding:"14px 28px", fontSize:"15px", textDecoration:"none",
+                  boxShadow:"0 10px 25px rgba(239,68,68,0.28)", display:"inline-flex",
+                  alignItems:"center", gap:"8px", transition:"all 0.25s ease"
+                }}>
+                  Request Security Audit →
+                </a>
+                <a href="#security-modules" style={{
+                  background:"#ffffff", color:"#0f172a", fontWeight:"700",
+                  borderRadius:"12px", padding:"14px 28px", fontSize:"15px",
+                  textDecoration:"none", border:"1.5px solid #e2e8f0",
+                  boxShadow:"0 4px 12px rgba(0,0,0,0.03)", display:"inline-flex",
+                  alignItems:"center", transition:"all 0.25s ease"
+                }}>
+                  View Security Modules
+                </a>
+              </div>
+
+              {/* 2×2 Mini Feature Cards */}
+              <div className="sec-mini-grid">
+                {[
+                  { icon:"🛡️", title:"Penetration Testing", desc:"OWASP Top 10, black-box & white-box audits." },
+                  { icon:"📋", title:"SOC 2 / ISO 27001", desc:"6–8 week audit-ready compliance roadmap." },
+                  { icon:"🔒", title:"Zero-Trust Architecture", desc:"Identity-first, mTLS microsegmentation." },
+                  { icon:"📡", title:"24/7 SOC Monitoring", desc:"Sub-15 min incident response SLA." },
+                ].map((f, i) => (
+                  <div key={i} className="sec-mini-card">
+                    <div style={{ display:"flex", alignItems:"center", gap:"8px", marginBottom:"6px" }}>
+                      <span style={{ fontSize:"15px" }}>{f.icon}</span>
+                      <h4 style={{ fontSize:"13px", fontWeight:"800", color:"#0f172a", margin:0 }}>{f.title}</h4>
+                    </div>
+                    <p style={{ fontSize:"12px", color:"#64748b", margin:0, lineHeight:"1.5" }}>{f.desc}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* RIGHT COLUMN — Security threat dashboard mockup */}
+            <div className="sec-hero-right" style={{ display:"flex", justifyContent:"center", position:"relative", zIndex:2 }}>
+              {/* Glow behind card */}
+              <div style={{ position:"absolute", top:"50%", left:"50%", transform:"translate(-50%,-50%)", width:"380px", height:"380px", background:"radial-gradient(circle, rgba(239,68,68,0.1) 0%, transparent 60%)", filter:"blur(30px)", zIndex:0 }} />
+
+              <div style={{
+                background: "#ffffff",
+                border: "1px solid rgba(239,68,68,0.12)",
+                borderRadius: "24px",
+                padding: "24px",
+                width: "100%",
+                maxWidth: "480px",
+                boxShadow: "0 25px 50px -12px rgba(239,68,68,0.12), 0 0 0 1px rgba(239,68,68,0.04)",
+                position: "relative",
+                zIndex: 10,
+                fontFamily: "'Inter', sans-serif",
+              }}>
+                {/* Dashboard header */}
+                <div style={{ display:"flex", justifyContent:"space-between", alignItems:"center", marginBottom:"20px", paddingBottom:"16px", borderBottom:"1px solid #f1f5f9" }}>
+                  <div style={{ display:"flex", alignItems:"center", gap:"10px" }}>
+                    <div style={{ width:"32px", height:"32px", borderRadius:"8px", background:"rgba(239,68,68,0.1)", display:"flex", alignItems:"center", justifyContent:"center" }}>
+                      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#ef4444" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                    </div>
+                    <span style={{ fontSize:"14px", fontWeight:"800", color:"#0f172a" }}>Threat Monitor</span>
+                  </div>
+                  <span style={{ fontSize:"11px", fontWeight:"700", background:"#ecfdf5", color:"#10b981", padding:"4px 10px", borderRadius:"10px" }}>ALL CLEAR</span>
+                </div>
+
+                {/* Scan progress */}
+                <div style={{ marginBottom:"20px" }}>
+                  <div style={{ display:"flex", justifyContent:"space-between", fontSize:"11px", fontWeight:"700", color:"#64748b", marginBottom:"8px" }}>
+                    <span>ACTIVE SCAN — OWASP TOP 10</span>
+                    <span style={{ color:"#10b981" }}>94%</span>
+                  </div>
+                  <div style={{ background:"#f1f5f9", borderRadius:"99px", height:"6px", overflow:"hidden" }}>
+                    <div style={{ width:"94%", height:"100%", background:"linear-gradient(90deg, #10b981, #34d399)", borderRadius:"99px" }} />
+                  </div>
+                </div>
+
+                {/* Threat rows */}
+                {[
+                  { label:"SQL Injection", status:"SAFE", color:"#10b981", bg:"#ecfdf5" },
+                  { label:"XSS Vulnerability", status:"SAFE", color:"#10b981", bg:"#ecfdf5" },
+                  { label:"Auth Bypass", status:"PATCHED", color:"#f59e0b", bg:"#fefce8" },
+                  { label:"API Rate Limit", status:"ACTIVE", color:"#3b82f6", bg:"#eff6ff" },
+                ].map((t, i) => (
+                  <div key={i} style={{ display:"flex", justifyContent:"space-between", alignItems:"center", padding:"10px 14px", background:"#f8fafc", borderRadius:"10px", marginBottom:"8px", border:"1px solid #f1f5f9" }}>
+                    <div style={{ display:"flex", alignItems:"center", gap:"10px" }}>
+                      <div style={{ width:"7px", height:"7px", borderRadius:"50%", background:t.color }} />
+                      <span style={{ fontSize:"13px", fontWeight:"700", color:"#334155" }}>{t.label}</span>
+                    </div>
+                    <span style={{ fontSize:"11px", fontWeight:"800", color:t.color, background:t.bg, padding:"3px 10px", borderRadius:"6px" }}>{t.status}</span>
+                  </div>
+                ))}
+
+                {/* Stats */}
+                <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"12px", marginTop:"16px" }}>
+                  <div style={{ background:"#f1f5f9", padding:"14px 16px", borderRadius:"12px" }}>
+                    <div style={{ fontSize:"11px", color:"#64748b", fontWeight:"700", marginBottom:"4px" }}>VULNERABILITIES</div>
+                    <div style={{ fontSize:"22px", fontWeight:"900", color:"#10b981" }}>0 Critical</div>
+                  </div>
+                  <div style={{ background:"#f1f5f9", padding:"14px 16px", borderRadius:"12px" }}>
+                    <div style={{ fontSize:"11px", color:"#64748b", fontWeight:"700", marginBottom:"4px" }}>COMPLIANCE</div>
+                    <div style={{ fontSize:"22px", fontWeight:"900", color:"#3b82f6" }}>SOC 2 ✓</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </section>
+
+        <div id="security-modules">
+          <SecurityPageContent />
+        </div>
       </main>
 
       <Footer />
