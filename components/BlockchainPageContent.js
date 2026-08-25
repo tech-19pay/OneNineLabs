@@ -9,6 +9,7 @@ import BlockchainTrustedPlatform from "@/components/BlockchainTrustedPlatform";
 import BlockchainSaveSwap from "@/components/BlockchainSaveSwap";
 import BlockchainInvestingTrading from "@/components/BlockchainInvestingTrading";
 import BlockchainWalletBenefits from "@/components/BlockchainWalletBenefits";
+import BlockchainTokenDeploy from "@/components/BlockchainTokenDeploy";
 import BlockchainTechStack from "@/components/BlockchainTechStack";
 import BlockchainProcess from "@/components/BlockchainProcess";
 import BlockchainIndustries from "@/components/BlockchainIndustries";
@@ -27,6 +28,7 @@ export default function BlockchainPageContent() {
         <BlockchainSaveSwap />
         <BlockchainInvestingTrading />
         <BlockchainWalletBenefits />
+        <BlockchainTokenDeploy />
         <BlockchainTechStack />
         <BlockchainProcess />
         <BlockchainIndustries />

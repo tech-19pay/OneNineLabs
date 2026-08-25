@@ -89,6 +89,7 @@ export default function BlockchainServicePage() {
       itemListElement: [
         "Smart Contract Development",
         "Smart Contract Audits",
+        "Token Creation & Contract Deployment",
         "dApp Development",
         "DeFi Protocol Development",
         "DEX & Exchange Development",
