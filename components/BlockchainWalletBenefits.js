@@ -3,21 +3,21 @@ import React from 'react';
 
 export default function BlockchainWalletBenefits() {
   const benefits = [
-    { icon: "🎧", title: "Support", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
-    { icon: "📈", title: "Sales", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
-    { icon: "🚀", title: "Onboarding", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
-    { icon: "📦", title: "Product", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
-    { icon: "⭐", title: "Quality", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." },
-    { icon: "🎯", title: "Result", desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore." }
+    { icon: "🛡️", title: "Bank-Grade Security", desc: "MPC key management, multi-signature approvals, hardware-wallet pairing and built-in anti-phishing transaction simulation." },
+    { icon: "🌐", title: "Multi-Chain by Default", desc: "One clean portfolio across Ethereum, Solana, BNB Chain, Polygon and leading Layer 2s — no manual network switching." },
+    { icon: "⚡", title: "Gas-Optimized Transfers", desc: "Accurate gas estimation, transaction batching and smart L2 routing keep every transfer fast and cheap." },
+    { icon: "🚀", title: "Frictionless Onboarding", desc: "Passkey logins, social recovery and fiat on-ramps let new users go from signup to first transaction in minutes." },
+    { icon: "📊", title: "Portfolio Insights", desc: "Real-time valuation, P&L tracking, staking rewards and exportable tax reports built directly into the wallet." },
+    { icon: "✅", title: "Compliance Ready", desc: "Pluggable KYC/AML flows and travel-rule-ready architecture so your wallet scales with regulators, not against them." }
   ];
 
   return (
     <section className="bc-wallet-benefits">
       <div className="new-bc-container">
         <div className="bc-wb-header">
-          <h2 className="bc-section-title text-center">Benefits Of The New<br/>Crypto Wallet</h2>
+          <h2 className="bc-section-title text-center">Wallet Development,<br/>Done Right</h2>
           <p className="bc-section-desc text-center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore.
+            We design and build custodial, non-custodial and MPC wallets for exchanges, fintechs and Web3 products. Every wallet we ship delivers these six fundamentals.
           </p>
         </div>
         

@@ -6,24 +6,28 @@ export default function BlockchainFAQ() {
 
   const faqs = [
     {
-      q: "What is blockchain technology?",
-      a: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      q: "What blockchain development services do you offer?",
+      a: "We cover the full lifecycle: smart contract development and audits, dApp and Web3 integration, DeFi protocols, DEX and CEX exchange platforms, custodial and non-custodial wallets, NFT marketplaces, token creation and tokenomics, RWA tokenization, DAO tooling, Layer 1/Layer 2 protocol engineering and enterprise blockchain networks."
     },
     {
-      q: "What is Bitcoin?",
-      a: "Bitcoin is a decentralized digital currency, without a central bank or single administrator, that can be sent from user to user on the peer-to-peer bitcoin network."
+      q: "Which blockchains and frameworks do you build on?",
+      a: "We develop on Ethereum, Solana, Polygon, BNB Chain, Avalanche, Arbitrum, Optimism, Base and Hyperledger Fabric, using Solidity, Rust, Hardhat, Foundry, Ethers.js/Viem, The Graph, Chainlink and IPFS. We help you pick the chain that fits your cost, speed and compliance needs."
     },
     {
-      q: "What is cryptocurrency?",
-      a: "A cryptocurrency is a digital or virtual currency that is secured by cryptography, which makes it nearly impossible to counterfeit or double-spend."
+      q: "How long does it take to build a dApp or exchange?",
+      a: "A focused MVP — such as a staking dApp, token or single-marketplace — typically ships in 6–8 weeks. Full DeFi protocols, DEXs or exchange platforms with matching engines usually take 3–6 months depending on scope, integrations and audit depth."
     },
     {
-      q: "How does a cryptocurrency wallet work?",
-      a: "A cryptocurrency wallet is a software program or physical device that allows you to store your public and private keys and interact with various blockchains."
+      q: "Are your smart contracts audited?",
+      a: "Yes. Every contract goes through internal review, automated static analysis and gas optimization, followed by an independent third-party audit before mainnet. We fix all findings, re-verify and deliver the full audit report."
     },
     {
-      q: "How to create a crypto currency wallet?",
-      a: "You can create a wallet by downloading a reputable wallet app or purchasing a hardware wallet and following the setup instructions."
+      q: "How much does blockchain development cost?",
+      a: "Pricing depends on scope: standalone smart contracts and token launches start in the low four figures, while full platforms like exchanges or DeFi protocols are quoted per milestone. After a free discovery call we provide a fixed, itemized proposal — no hourly surprises."
+    },
+    {
+      q: "Do you provide support after launch?",
+      a: "Yes. We offer monitoring, incident response, contract upgrades via proxy patterns, dependency updates and feature iterations under an SLA — so your product stays secure as the ecosystem evolves."
     }
   ];
 
@@ -33,7 +37,7 @@ export default function BlockchainFAQ() {
         <div className="bc-faq-header">
           <h2 className="bc-section-title text-center">Frequently Asked<br/>Questions</h2>
           <p className="bc-section-desc text-center">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+            Everything founders and product teams usually ask us before starting a blockchain project.
           </p>
         </div>
         

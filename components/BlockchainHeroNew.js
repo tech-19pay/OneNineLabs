@@ -12,7 +12,7 @@ export default function BlockchainHeroNew() {
               <span style={{ whiteSpace: 'nowrap' }}>Build the Future of</span><br/><span className="text-gradient">Web3 & Blockchain</span>
             </h1>
             <p className="bc-hero-subtitle">
-              End-to-end blockchain development services. We build secure smart contracts, scalable decentralized applications, and high-performance crypto exchanges.
+              End-to-end blockchain development services. From audited smart contracts and dApps to DeFi protocols, NFT marketplaces, wallets, tokenization and high-performance crypto exchanges — we design, build, audit and launch it all.
             </p>
             <div className="bc-hero-features">
               <div className="hero-feature-item">
@@ -32,6 +32,9 @@ export default function BlockchainHeroNew() {
             <div className="bc-hero-actions">
               <Link href="#get-started" className="bc-hero-primary-btn">
                 Get Started <span className="btn-arrow">→</span>
+              </Link>
+              <Link href="/services/blockchain#services" className="bc-hero-secondary-btn">
+                Explore Services
               </Link>
             </div>
           </div>
@@ -155,7 +158,7 @@ export default function BlockchainHeroNew() {
                         <span className="label">Swap</span> <span className="val">0.5 BTC → USDT</span>
                       </div>
                       <div className="dp-mini-swap-row">
-                        <span className="label">Rate</span> <span className="val">1 BTC = 47,743 USDT</span>
+                        <span className="label">Rate</span> <span className="val">1 BTC = 79,106 USDT</span>
                       </div>
                     </div>
                   </div>
@@ -210,6 +213,27 @@ export default function BlockchainHeroNew() {
         }
         .bc-hero-actions {
           margin-top: 40px;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          flex-wrap: wrap;
+        }
+        .bc-hero-secondary-btn {
+          display: inline-flex;
+          align-items: center;
+          gap: 8px;
+          color: #111;
+          font-weight: 600;
+          padding: 16px 28px;
+          border-radius: 100px;
+          text-decoration: none;
+          border: 1px solid #e5e7eb;
+          background: #fff;
+          transition: all 0.2s;
+        }
+        .bc-hero-secondary-btn:hover {
+          border-color: #111;
+          transform: translateY(-2px);
         }
         .bc-hero-primary-btn {
           display: inline-flex;

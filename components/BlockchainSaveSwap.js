@@ -33,14 +33,14 @@ export default function BlockchainSaveSwap() {
                     <div className="bc-swap-box">
                       <div className="bc-swap-label">You receive</div>
                       <div className="bc-swap-input">
-                        <span className="bc-swap-amt pulse-anim">71,614.50</span>
+                        <span className="bc-swap-amt pulse-anim">118,659.75</span>
                         <span className="bc-swap-token"><span className="coin green">T</span> USDT ⌄</span>
                       </div>
                       <div className="bc-swap-bal">Balance: 0.00 USDT</div>
                     </div>
                     
                     <div className="bc-swap-details">
-                      <div className="bc-sd-row"><span>Rate</span><span>1 BTC = 47,743 USDT</span></div>
+                      <div className="bc-sd-row"><span>Rate</span><span>1 BTC = 79,106.50 USDT</span></div>
                       <div className="bc-sd-row"><span>Network Fee</span><span>$2.50</span></div>
                     </div>
                     

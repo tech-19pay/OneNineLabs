@@ -42,13 +42,13 @@ export default function BlockchainInvestingTrading() {
                       </div>
                       <div className="bc-ex-price-block">
                         <div className="lbl">Market Price</div>
-                        <div className="val">63,489.20</div>
-                        <div className="sub">$63,489.20 USD</div>
+                        <div className="val">79,106.77</div>
+                        <div className="sub">$79,106.77 USD</div>
                       </div>
                       <div className="bc-ex-buy-card">
                         <div className="bc-ex-tabs"><span className="active">Limit</span><span>Market</span></div>
-                        <div className="bc-ex-input"><span>Price</span> <span>581.78</span></div>
-                        <div className="bc-ex-input"><span>Total</span> <span>581.78</span></div>
+                        <div className="bc-ex-input"><span>Price</span> <span>79,106.77</span></div>
+                        <div className="bc-ex-input"><span>Total</span> <span>791.07</span></div>
                         <button className="bc-ex-buy-btn">Buy</button>
                       </div>
                     </div>
@@ -56,9 +56,9 @@ export default function BlockchainInvestingTrading() {
                     {/* Middle Section */}
                     <div className="bc-ex-mid">
                       <div className="bc-ex-stats">
-                        <div className="stat-col"><div className="stat-val green">6446.37 +0.92%</div><div className="stat-lbl">24h Change</div></div>
-                        <div className="stat-col"><div className="stat-val">65,435.23 +1.25%</div><div className="stat-lbl">24h High</div></div>
-                        <div className="stat-col"><div className="stat-val red">63,989.63 -1.08%</div><div className="stat-lbl">24h Low</div></div>
+                        <div className="stat-col"><div className="stat-val green">+2.08%</div><div className="stat-lbl">24h Change</div></div>
+                        <div className="stat-col"><div className="stat-val">80,214.55</div><div className="stat-lbl">24h High</div></div>
+                        <div className="stat-col"><div className="stat-val red">76,931.12</div><div className="stat-lbl">24h Low</div></div>
                       </div>
                       <div className="bc-ex-chart-area">
                         <div className="bc-ex-chart-header">
@@ -105,18 +105,18 @@ export default function BlockchainInvestingTrading() {
                     <div className="bc-ex-right">
                       <div className="ob-header"><span>Price (USDT)</span><span>Amount (BTC)</span></div>
                       <div className="ob-list ob-asks">
-                        <div className="ob-row"><span className="red">64,345.34</span><span>0.925602</span></div>
-                        <div className="ob-row"><span className="red">64,345.34</span><span>0.925602</span></div>
-                        <div className="ob-row"><span className="red">64,345.34</span><span>0.925602</span></div>
-                        <div className="ob-row"><span className="red">64,345.34</span><span>0.925602</span></div>
-                        <div className="ob-row"><span className="red">64,345.34</span><span>0.925602</span></div>
+                        <div className="ob-row"><span className="red">79,345.34</span><span>0.925602</span></div>
+                        <div className="ob-row"><span className="red">79,287.11</span><span>0.412833</span></div>
+                        <div className="ob-row"><span className="red">79,214.60</span><span>1.205197</span></div>
+                        <div className="ob-row"><span className="red">79,168.02</span><span>0.088544</span></div>
+                        <div className="ob-row"><span className="red">79,127.85</span><span>0.531276</span></div>
                       </div>
                       <div className="ob-list ob-bids">
-                        <div className="ob-row"><span className="green">64,345.34</span><span>0.925602</span></div>
-                        <div className="ob-row"><span className="green">64,345.34</span><span>0.925602</span></div>
-                        <div className="ob-row"><span className="green">64,345.34</span><span>0.925602</span></div>
-                        <div className="ob-row"><span className="green">64,345.34</span><span>0.925602</span></div>
-                        <div className="ob-row"><span className="green">64,345.34</span><span>0.925602</span></div>
+                        <div className="ob-row"><span className="green">79,094.20</span><span>0.744118</span></div>
+                        <div className="ob-row"><span className="green">79,051.77</span><span>0.196502</span></div>
+                        <div className="ob-row"><span className="green">78,998.43</span><span>1.058240</span></div>
+                        <div className="ob-row"><span className="green">78,940.12</span><span>0.367795</span></div>
+                        <div className="ob-row"><span className="green">78,902.65</span><span>0.622018</span></div>
                       </div>
                     </div>
                   </div>

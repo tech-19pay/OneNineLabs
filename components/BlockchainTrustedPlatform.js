@@ -8,7 +8,8 @@ export default function BlockchainTrustedPlatform() {
         
         {/* Header */}
         <div className="bc-bento-header">
-          <h2>Everything You Need.<br/>Nothing You Don't.</h2>
+          <h2>Everything You Need.<br/>Nothing You Don&apos;t.</h2>
+          <p className="bc-bento-sub">One team to design, build and secure your entire Web3 product — portfolio tooling, wallets, trading and on-chain UX.</p>
         </div>
 
         {/* Bento Grid */}
@@ -26,7 +27,7 @@ export default function BlockchainTrustedPlatform() {
               <div className="mock-withdraw-ui">
                 <div className="mw-header">
                   <h4>Withdraw</h4>
-                  <span>Securely Transfer Your Funds from Pastel Network</span>
+                  <span>Securely transfer funds from your portfolio</span>
                 </div>
                 <div className="mw-steps">
                   <div className="mw-step active"><span className="ic">↓</span><small>Withdraw</small></div>
@@ -116,7 +117,7 @@ export default function BlockchainTrustedPlatform() {
           <div className="bento-card col-span-2 row-bottom-right">
             <div className="bento-content-left">
               <h3>Built-in Security</h3>
-              <p>Military-grade encryption isn't just a feature; it's our baseline. Multi-signature support and cold-wallet linking come standard.</p>
+              <p>Military-grade encryption isn&apos;t just a feature; it&apos;s our baseline. Multi-signature support and cold-wallet linking come standard.</p>
               <button className="bento-btn-black mt-auto">Get Started ↗</button>
             </div>
             <div className="bento-mockup-right transparent">
@@ -125,7 +126,7 @@ export default function BlockchainTrustedPlatform() {
                 <div className="mswap-top">
                   <button className="mswap-selector"><span className="m-logo">⬡</span> ACT <span className="m-chev">v</span></button>
                   <div className="mswap-amt">$100</div>
-                  <div className="mswap-rate">You get ≈ 0 ACT TL</div>
+                  <div className="mswap-rate">You get ≈ 312.40 ACT</div>
                   
                   <div className="ms-slider-track mt">
                     <div className="ms-slider-fill w-30"></div>
@@ -179,6 +180,13 @@ export default function BlockchainTrustedPlatform() {
           line-height: 1.1;
           letter-spacing: -1px;
           margin: 0;
+        }
+        .bc-bento-sub {
+          margin: 20px auto 0;
+          max-width: 560px;
+          font-size: 16px;
+          color: #666;
+          line-height: 1.6;
         }
 
         .bc-bento-grid {
