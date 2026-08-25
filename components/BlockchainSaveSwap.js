@@ -33,14 +33,14 @@ export default function BlockchainSaveSwap() {
                     <div className="bc-swap-box">
                       <div className="bc-swap-label">You receive</div>
                       <div className="bc-swap-input">
-                        <span className="bc-swap-amt pulse-anim">71,614.50</span>
+                        <span className="bc-swap-amt pulse-anim">118,659.75</span>
                         <span className="bc-swap-token"><span className="coin green">T</span> USDT ⌄</span>
                       </div>
                       <div className="bc-swap-bal">Balance: 0.00 USDT</div>
                     </div>
                     
                     <div className="bc-swap-details">
-                      <div className="bc-sd-row"><span>Rate</span><span>1 BTC = 47,743 USDT</span></div>
+                      <div className="bc-sd-row"><span>Rate</span><span>1 BTC = 79,106.50 USDT</span></div>
                       <div className="bc-sd-row"><span>Network Fee</span><span>$2.50</span></div>
                     </div>
                     
@@ -52,6 +52,7 @@ export default function BlockchainSaveSwap() {
           </div>
           
           <div className="bc-ss-right">
+            <span className="bc-eyebrow">Service Spotlight 01</span>
             <h2 className="bc-section-title">
               DEX Development
             </h2>
@@ -69,8 +70,20 @@ export default function BlockchainSaveSwap() {
       
       <style>{`
         .bc-save-swap {
-          padding: 100px 0;
+          padding: 110px 0;
           background: #fdfdfd;
+        }
+        .bc-eyebrow {
+          display: inline-block;
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+          color: #2563eb;
+          background: rgba(37, 99, 235, 0.08);
+          padding: 6px 14px;
+          border-radius: 100px;
+          margin-bottom: 20px;
         }
         .bc-ss-content {
           display: grid;
@@ -87,6 +100,13 @@ export default function BlockchainSaveSwap() {
           position: relative;
           width: 400px;
           height: 500px;
+        }
+        .bc-phones-scene::before {
+          content: '';
+          position: absolute;
+          inset: -30px;
+          background: radial-gradient(closest-side, rgba(37, 99, 235, 0.14), transparent 72%);
+          pointer-events: none;
         }
         
         .bc-phone-frame {

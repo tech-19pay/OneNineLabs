@@ -1,5 +1,6 @@
 "use client";
 import React from 'react';
+import Link from 'next/link';
 
 export default function BlockchainTrustedPlatform() {
   return (
@@ -8,7 +9,8 @@ export default function BlockchainTrustedPlatform() {
         
         {/* Header */}
         <div className="bc-bento-header">
-          <h2>Everything You Need.<br/>Nothing You Don't.</h2>
+          <h2>Everything You Need.<br/>Nothing You Don&apos;t.</h2>
+          <p className="bc-bento-sub">Production-ready blockchain modules we design, build and secure for you — treasury systems, DeFi flows, trading engines and fiat on-ramps, tailored to your product.</p>
         </div>
 
         {/* Bento Grid */}
@@ -17,16 +19,16 @@ export default function BlockchainTrustedPlatform() {
           {/* Top Left Card (2 Columns) */}
           <div className="bento-card col-span-2 row-top-left">
             <div className="bento-content-left">
-              <h3>Smart Asset Management</h3>
-              <p>Auto-organize your portfolio across 20+ chains with real-time valuation and tax-loss harvesting insights.</p>
-              <button className="bento-btn-black">Get Started ↗</button>
+              <h3>Treasury & Withdrawal Systems</h3>
+              <p>Policy-driven withdrawal flows, multi-sig approvals and real-time balances across 20+ chains — the custody and payout infrastructure exchanges and fintechs run on.</p>
+              <Link href="/contact" className="bento-btn-black">Get Started ↗</Link>
             </div>
             <div className="bento-mockup-right pad-mockup">
               {/* Withdraw UI */}
               <div className="mock-withdraw-ui">
                 <div className="mw-header">
                   <h4>Withdraw</h4>
-                  <span>Securely Transfer Your Funds from Pastel Network</span>
+                  <span>Policy-checked transfers with multi-sig approval</span>
                 </div>
                 <div className="mw-steps">
                   <div className="mw-step active"><span className="ic">↓</span><small>Withdraw</small></div>
@@ -52,7 +54,7 @@ export default function BlockchainTrustedPlatform() {
                   </div>
                 </div>
                 <div className="mw-footer">
-                  <span className="info-ic">i</span> Set up your wallet to make your first withdrawal.
+                  <span className="info-ic">i</span> Withdrawal limits, allowlists and review steps — all configurable.
                 </div>
                 <button className="mw-btn-black">Continue</button>
               </div>
@@ -62,8 +64,8 @@ export default function BlockchainTrustedPlatform() {
           {/* Top Right Card (1 Column) */}
           <div className="bento-card col-span-1 row-top-right">
             <div className="bento-content-top">
-              <h3>Seamless Web3 Access</h3>
-              <p>Native dApp browser with injected security filters to block malicious contracts before you connect.</p>
+              <h3>DeFi Staking & Savings Flows</h3>
+              <p>Staking, savings and yield products with frictionless amount controls, lock periods and live APY previews — engineered on-chain for your users.</p>
             </div>
             <div className="bento-mockup-bottom">
               {/* Slider UI */}
@@ -107,17 +109,17 @@ export default function BlockchainTrustedPlatform() {
               </div>
             </div>
             <div className="bento-content-bottom">
-              <h3>Elevated NFT Experience</h3>
-              <p>High-resolution gallery view with floor price tracking and rarity scoring built directly into the ledger.</p>
+              <h3>Spot Trading Modules</h3>
+              <p>Production-ready trading UIs wired to matching engines and live order books — pair switching, price feeds and wallet views included.</p>
             </div>
           </div>
 
           {/* Bottom Right Card (2 Columns) */}
           <div className="bento-card col-span-2 row-bottom-right">
             <div className="bento-content-left">
-              <h3>Built-in Security</h3>
-              <p>Military-grade encryption isn't just a feature; it's our baseline. Multi-signature support and cold-wallet linking come standard.</p>
-              <button className="bento-btn-black mt-auto">Get Started ↗</button>
+              <h3>Fiat On-Ramps & Swap Infrastructure</h3>
+              <p>Fiat-to-crypto purchases and in-app swaps with transparent fee engines — Ramp, card processors and DEX aggregators integrated. Multi-sig and cold-wallet security come standard.</p>
+              <Link href="/contact" className="bento-btn-black mt-auto">Get Started ↗</Link>
             </div>
             <div className="bento-mockup-right transparent">
               {/* Swap/Fees UI */}
@@ -125,7 +127,7 @@ export default function BlockchainTrustedPlatform() {
                 <div className="mswap-top">
                   <button className="mswap-selector"><span className="m-logo">⬡</span> ACT <span className="m-chev">v</span></button>
                   <div className="mswap-amt">$100</div>
-                  <div className="mswap-rate">You get ≈ 0 ACT TL</div>
+                  <div className="mswap-rate">You get ≈ 312.40 ACT</div>
                   
                   <div className="ms-slider-track mt">
                     <div className="ms-slider-fill w-30"></div>
@@ -180,6 +182,13 @@ export default function BlockchainTrustedPlatform() {
           letter-spacing: -1px;
           margin: 0;
         }
+        .bc-bento-sub {
+          margin: 20px auto 0;
+          max-width: 560px;
+          font-size: 16px;
+          color: #666;
+          line-height: 1.6;
+        }
 
         .bc-bento-grid {
           display: grid;
@@ -232,6 +241,8 @@ export default function BlockchainTrustedPlatform() {
           font-weight: 500;
           cursor: pointer;
           transition: background 0.2s;
+          text-decoration: none;
+          display: inline-block;
         }
         .bento-btn-black:hover {
           background: #000;
