@@ -40,7 +40,13 @@ export default function ContactPage() {
         }),
       });
 
-      const data = await res.json();
+      const resText = await res.text();
+      let data = {};
+      try {
+        data = resText ? JSON.parse(resText) : {};
+      } catch (e) {
+        console.error("Contact page JSON parse error:", e);
+      }
 
       if (res.ok && data.success) {
         setSubmitted(true);

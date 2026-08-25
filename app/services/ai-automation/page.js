@@ -96,201 +96,177 @@ export default function AiAutomationServicePage() {
       <style>{servicePageStyles(PRIMARY, GRAD_FROM, GRAD_TO, GLOW)}</style>
 
       <div className="vd-wrap">
-
-
-        {/* ── PREMIUM WHITE THEME HERO ── */}
+        {/* ── REDESIGNED AI HERO SECTION ── */}
         <section style={{
           position: "relative",
-          background: "radial-gradient(circle at top right, #fbfbfd 0%, #f4f7fb 100%)",
-          padding: "160px 24px 100px",
+          background: "linear-gradient(135deg, #f0ebfa 0%, #e8e1f5 50%, #dfd5f0 100%)",
+          padding: "120px 24px 80px",
           overflow: "hidden",
           color: "#0f172a",
           display: "flex",
-          alignItems: "center"
+          flexDirection: "column",
+          alignItems: "center",
+          fontFamily: "'Inter', sans-serif"
         }}>
-          <div style={{
-            maxWidth: "1280px",
-            margin: "0 auto",
-            width: "100%",
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            justifyContent: "space-between",
-            gap: "60px",
+          {/* Background Concentric Circles */}
+          <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -10%)", width: "1200px", height: "1200px", border: "1px solid rgba(255,255,255,0.4)", borderRadius: "50%", zIndex: 0 }} />
+          <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -10%)", width: "900px", height: "900px", border: "1px solid rgba(255,255,255,0.5)", borderRadius: "50%", zIndex: 0 }} />
+          <div style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%, -10%)", width: "600px", height: "600px", border: "1px solid rgba(255,255,255,0.6)", background: "rgba(255,255,255,0.2)", borderRadius: "50%", zIndex: 0 }} />
+
+          {/* Top Text Content */}
+          <div style={{ position: "relative", zIndex: 10, textAlign: "center", maxWidth: "800px", marginBottom: "60px" }}>
+            <div style={{
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              background: "#ffffff",
+              border: "1.5px solid #e2e8f0",
+              padding: "6px 16px",
+              borderRadius: "100px",
+              fontSize: "11.5px",
+              fontWeight: "800",
+              color: "#0f172a",
+              letterSpacing: "1.2px",
+              marginBottom: "20px",
+              boxShadow: "0 4px 12px rgba(124,58,237,0.05)"
+            }}>
+              <div style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#7c3aed", boxShadow: "0 0 8px #7c3aed" }} />
+              AI ENGINEERING & AUTOMATION
+            </div>
+
+            <h1 style={{
+              fontFamily: "'Plus Jakarta Sans', sans-serif",
+              fontSize: "clamp(36px, 4.5vw, 56px)",
+              fontWeight: "850",
+              color: "#0f172a",
+              lineHeight: "1.1",
+              letterSpacing: "-1px",
+              margin: "0 0 24px 0"
+            }}>
+              Autonomous AI Workflows & <span style={{ color: "#7c3aed" }}>LLM Pipelines</span>
+            </h1>
+            
+            <p style={{
+              fontSize: "17px",
+              color: "#475569",
+              lineHeight: "1.6",
+              margin: "0 auto",
+              maxWidth: "680px"
+            }}>
+              Enterprise AI solutions built with OpenAI GPT-4, Claude 3.5, and LlamaIndex. We deploy autonomous AI agents, semantic RAG vector search, and intelligent workflow automation that reduces operational costs by up to 60%.
+            </p>
+          </div>
+
+          {/* Central Interactive Layout */}
+          <div className="hero-interactive-container" style={{
             position: "relative",
+            width: "100%",
+            maxWidth: "1100px",
+            minHeight: "500px",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "flex-end",
             zIndex: 10
           }}>
-            {/* Left Column: Text & CTA */}
-            <div style={{ flex: "1 1 500px", maxWidth: "600px" }}>
-              <div style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                background: "#f1f5f9",
-                border: "1.5px solid #e2e8f0",
-                padding: "6px 16px",
+            {/* Robot Image */}
+            <div style={{
+              width: "350px",
+              position: "relative",
+              zIndex: 5,
+              display: "flex",
+              justifyContent: "center",
+              marginTop: "40px"
+            }}>
+              <img src="/ai_robot_mascot.jpg" alt="AI Agent Mascot" style={{ width: "100%", objectFit: "contain", mixBlendMode: "multiply" }} />
+            </div>
+
+            {/* Left Floating Elements */}
+            <div className="hero-left-elements" style={{ position: "absolute", left: "0", top: "20%", display: "flex", flexDirection: "column", gap: "16px", zIndex: 6, alignItems: "flex-end" }}>
+              <div style={{ background: "rgba(255,255,255,0.9)", backdropFilter: "blur(10px)", padding: "14px 20px", borderRadius: "16px 16px 0 16px", fontSize: "14px", color: "#334155", boxShadow: "0 10px 25px rgba(0,0,0,0.05)", fontWeight: "500" }}>
+                Extract invoice data from 5,000 PDFs?
+              </div>
+              <div style={{ background: "rgba(255,255,255,0.9)", backdropFilter: "blur(10px)", padding: "14px 20px", borderRadius: "16px 16px 0 16px", fontSize: "14px", color: "#334155", boxShadow: "0 10px 25px rgba(0,0,0,0.05)", fontWeight: "500", alignSelf: "center", marginRight: "20px" }}>
+                Draft a Q3 compliance report?
+              </div>
+              <div style={{ background: "rgba(255,255,255,0.9)", backdropFilter: "blur(10px)", padding: "14px 20px", borderRadius: "16px 16px 0 16px", fontSize: "14px", color: "#334155", boxShadow: "0 10px 25px rgba(0,0,0,0.05)", fontWeight: "500" }}>
+                Automate Level 1 Customer Support?
+              </div>
+
+              {/* Rating Card */}
+              <div style={{ background: "rgba(255,255,255,0.95)", backdropFilter: "blur(10px)", padding: "16px", borderRadius: "16px", boxShadow: "0 15px 30px rgba(0,0,0,0.05)", marginTop: "24px", display: "flex", flexDirection: "column", gap: "12px", alignSelf: "center", width: "100%", maxWidth: "220px" }}>
+                <div style={{ fontSize: "13px", fontWeight: "700", color: "#0f172a", textAlign: "center" }}>Rated 4.9 ★ by enterprise teams</div>
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <div style={{ display: "flex", marginLeft: "10px" }}>
+                    <div style={{ width: "28px", height: "28px", borderRadius: "50%", background: "#e2e8f0", border: "2px solid #fff", marginLeft: "-10px", zIndex: 4 }}></div>
+                    <div style={{ width: "28px", height: "28px", borderRadius: "50%", background: "#cbd5e1", border: "2px solid #fff", marginLeft: "-10px", zIndex: 3 }}></div>
+                    <div style={{ width: "28px", height: "28px", borderRadius: "50%", background: "#94a3b8", border: "2px solid #fff", marginLeft: "-10px", zIndex: 2 }}></div>
+                  </div>
+                  <span style={{ fontSize: "11px", color: "#64748b", fontWeight: "600", marginLeft: "8px" }}>More...</span>
+                </div>
+              </div>
+
+              <Link href="/contact" style={{
+                background: "linear-gradient(135deg, #7c3aed 0%, #5b21b6 100%)",
+                color: "#ffffff",
+                padding: "16px 32px",
                 borderRadius: "100px",
-                fontSize: "11.5px",
-                fontWeight: "800",
-                color: "#0f172a",
-                letterSpacing: "1.2px",
-                marginBottom: "20px"
+                fontSize: "15px",
+                fontWeight: "700",
+                textDecoration: "none",
+                boxShadow: "0 10px 25px rgba(124, 58, 237, 0.4)",
+                transition: "transform 0.2s ease",
+                marginTop: "16px",
+                alignSelf: "center"
               }}>
-                <div style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#7c3aed", boxShadow: "0 0 8px #7c3aed" }} />
-                AI ENGINEERING & AUTOMATION
-              </div>
-
-              <h1 style={{
-                fontFamily: "'Plus Jakarta Sans', sans-serif",
-                fontSize: "clamp(40px, 5vw, 64px)",
-                fontWeight: "850",
-                color: "#0f172a",
-                lineHeight: "1.05",
-                letterSpacing: "-1.5px",
-                margin: "0 0 24px 0"
-              }}>
-                Autonomous AI Workflows & <span style={{ background: "linear-gradient(90deg, #7c3aed, #00e5ff)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>LLM Pipelines</span>
-              </h1>
-              
-              <p style={{
-                fontSize: "17px",
-                color: "#475569",
-                lineHeight: "1.7",
-                marginBottom: "40px",
-                maxWidth: "540px"
-              }}>
-                Enterprise AI solutions built with OpenAI GPT-4, Claude 3.5, and LlamaIndex. We deploy autonomous AI agents, semantic RAG vector search, and intelligent workflow automation that reduces operational costs by up to 60%.
-              </p>
-
-              <div style={{ display: "flex", gap: "16px", flexWrap: "wrap" }}>
-                <Link href="/contact" style={{
-                  background: "linear-gradient(135deg, #7c3aed 0%, #6d28d9 100%)",
-                  color: "#ffffff",
-                  padding: "14px 28px",
-                  borderRadius: "12px",
-                  fontSize: "15px",
-                  fontWeight: "700",
-                  textDecoration: "none",
-                  boxShadow: "0 10px 25px rgba(124, 58, 237, 0.3)",
-                  transition: "all 0.2s ease"
-                }}>
-                  Deploy AI Agents →
-                </Link>
-                <Link href="#capabilities" style={{
-                  background: "#ffffff",
-                  color: "#0f172a",
-                  border: "1.5px solid #e2e8f0",
-                  padding: "14px 28px",
-                  borderRadius: "12px",
-                  fontSize: "15px",
-                  fontWeight: "700",
-                  textDecoration: "none",
-                  boxShadow: "0 4px 12px rgba(15, 23, 42, 0.03)",
-                  transition: "all 0.2s ease"
-                }}>
-                  View Tech Stack
-                </Link>
-              </div>
-
-              {/* 2×2 Mini Feature Highlight Cards */}
-              <div style={{ display:"grid", gridTemplateColumns:"1fr 1fr", gap:"14px", maxWidth:"580px", marginTop:"36px" }}>
-                {[
-                  { icon:"🤖", title:"Autonomous Agents", desc:"AutoGen & CrewAI multi-agent pipelines." },
-                  { icon:"🔍", title:"RAG Vector Search", desc:"Pinecone, Qdrant & pgvector semantic RAG." },
-                  { icon:"🧠", title:"Fine-Tuned Models", desc:"Private Llama 3 & Mistral on GPU clouds." },
-                  { icon:"💸", title:"LLM Cost Routing", desc:"Smart model router — 60% API cost savings." },
-                ].map((f, i) => (
-                  <div key={i} style={{ background:"#f8fafc", border:"1.5px solid #ede9fe", borderRadius:"14px", padding:"16px 18px" }}>
-                    <div style={{ display:"flex", alignItems:"center", gap:"8px", marginBottom:"6px" }}>
-                      <span style={{ fontSize:"15px" }}>{f.icon}</span>
-                      <h4 style={{ fontSize:"13px", fontWeight:"800", color:"#0f172a", margin:0 }}>{f.title}</h4>
-                    </div>
-                    <p style={{ fontSize:"12px", color:"#64748b", margin:0, lineHeight:"1.5" }}>{f.desc}</p>
-                  </div>
-                ))}
-              </div>
+                Start Free Trial
+              </Link>
             </div>
 
-            {/* Right Column: AI Mesh Dashboard UI Mockup */}
-            <div style={{ flex: "1 1 500px", display: "flex", justifyContent: "center", position: "relative" }}>
-              <div style={{
-                position: "absolute",
-                top: "50%",
-                left: "50%",
-                transform: "translate(-50%, -50%)",
-                width: "450px",
-                height: "450px",
-                background: "radial-gradient(circle, rgba(124,58,237,0.15) 0%, transparent 60%)",
-                filter: "blur(40px)",
-                zIndex: 0
-              }} />
+            {/* Right Chat Panel */}
+            <div className="hero-right-elements" style={{ position: "absolute", right: "0", top: "10%", width: "380px", background: "rgba(255,255,255,0.7)", backdropFilter: "blur(20px)", borderRadius: "24px", border: "1px solid rgba(255,255,255,0.8)", padding: "24px", boxShadow: "0 30px 60px rgba(0,0,0,0.05)", zIndex: 6, display: "flex", flexDirection: "column", gap: "16px" }}>
+              <div style={{ background: "rgba(241, 245, 249, 0.8)", padding: "16px", borderRadius: "16px 16px 16px 0", fontSize: "14px", color: "#334155", lineHeight: "1.6" }}>
+                I've connected to your Salesforce CRM and Stripe billing API. I found 14 accounts with expiring subscriptions next month. Should I draft personalized renewal emails based on their usage metrics?
+              </div>
+              <div style={{ alignSelf: "flex-end", background: "#ffffff", border: "1px solid #e2e8f0", padding: "12px 16px", borderRadius: "16px 16px 0 16px", fontSize: "14px", color: "#0f172a", fontWeight: "600", boxShadow: "0 4px 12px rgba(0,0,0,0.03)" }}>
+                Yes, please draft them and show me a preview of the top 3.
+              </div>
+              <div style={{ background: "rgba(241, 245, 249, 0.8)", padding: "16px", borderRadius: "16px 16px 16px 0", fontSize: "14px", color: "#334155", lineHeight: "1.6" }}>
+                Drafting emails using the Enterprise Tone template. Gathering usage data for Acme Corp, Globex, and Initech...
+              </div>
 
-              {/* The Dashboard Card */}
-              <div style={{
-                background: "#ffffff",
-                border: "1px solid rgba(124, 58, 237, 0.15)",
-                borderRadius: "24px",
-                padding: "24px",
-                width: "100%",
-                maxWidth: "500px",
-                boxShadow: "0 25px 50px -12px rgba(124, 58, 237, 0.15), 0 0 0 1px rgba(124,58,237,0.05)",
-                position: "relative",
-                zIndex: 10
-              }}>
-                {/* Header */}
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px", paddingBottom: "16px", borderBottom: "1px solid #f1f5f9" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                    <div style={{ width: "32px", height: "32px", borderRadius: "8px", background: "rgba(124,58,237,0.1)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
-                    </div>
-                    <span style={{ fontSize: "14px", fontWeight: "800", color: "#0f172a" }}>Agent Orchestrator</span>
-                  </div>
-                  <span style={{ fontSize: "11px", fontWeight: "700", background: "#ecfdf5", color: "#10b981", padding: "4px 8px", borderRadius: "10px" }}>ONLINE</span>
-                </div>
-
-                {/* Workflow Nodes */}
-                <div style={{ display: "flex", flexDirection: "column", gap: "12px", marginBottom: "24px" }}>
-                  <div style={{ background: "#f8fafc", borderRadius: "12px", padding: "12px 16px", display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #f1f5f9" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                      <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#3b82f6" }} />
-                      <span style={{ fontSize: "13px", fontWeight: "700", color: "#334155" }}>Ingest Pipeline (Vector)</span>
-                    </div>
-                    <span style={{ fontSize: "12px", color: "#64748b", fontFamily: "monospace" }}>42ms</span>
-                  </div>
-                  <div style={{ width: "2px", height: "16px", background: "#e2e8f0", margin: "-8px 0 -8px 24px" }} />
-                  <div style={{ background: "#f8fafc", borderRadius: "12px", padding: "12px 16px", display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid rgba(124,58,237,0.2)", boxShadow: "0 4px 12px rgba(124,58,237,0.05)" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                      <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#7c3aed", boxShadow: "0 0 8px #7c3aed" }} />
-                      <span style={{ fontSize: "13px", fontWeight: "800", color: "#0f172a" }}>LLM Router (GPT-4o)</span>
-                    </div>
-                    <span style={{ fontSize: "11px", fontWeight: "800", color: "#7c3aed", background: "rgba(124,58,237,0.1)", padding: "4px 8px", borderRadius: "6px" }}>ACTIVE</span>
-                  </div>
-                  <div style={{ width: "2px", height: "16px", background: "#e2e8f0", margin: "-8px 0 -8px 24px" }} />
-                  <div style={{ background: "#f8fafc", borderRadius: "12px", padding: "12px 16px", display: "flex", justifyContent: "space-between", alignItems: "center", border: "1px solid #f1f5f9" }}>
-                    <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                      <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#10b981" }} />
-                      <span style={{ fontSize: "13px", fontWeight: "700", color: "#334155" }}>Action Execution</span>
-                    </div>
-                    <span style={{ fontSize: "12px", color: "#10b981", fontWeight: "700" }}>Success</span>
-                  </div>
-                </div>
-
-                {/* Metrics */}
-                <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
-                  <div style={{ background: "#f1f5f9", padding: "16px", borderRadius: "12px" }}>
-                    <span style={{ fontSize: "11px", color: "#64748b", fontWeight: "700", display: "block", marginBottom: "4px" }}>TOKENS / SEC</span>
-                    <span style={{ fontSize: "20px", fontWeight: "850", color: "#0f172a" }}>8,420</span>
-                  </div>
-                  <div style={{ background: "#f1f5f9", padding: "16px", borderRadius: "12px" }}>
-                    <span style={{ fontSize: "11px", color: "#64748b", fontWeight: "700", display: "block", marginBottom: "4px" }}>COST SAVINGS</span>
-                    <span style={{ fontSize: "20px", fontWeight: "850", color: "#00e5ff" }}>64.2%</span>
-                  </div>
+              <div style={{ background: "#ffffff", padding: "8px 16px", borderRadius: "100px", fontSize: "13px", color: "#64748b", display: "inline-flex", alignItems: "center", gap: "8px", alignSelf: "center", marginTop: "16px", boxShadow: "0 4px 12px rgba(0,0,0,0.05)", border: "1px solid #e2e8f0", cursor: "pointer" }}>
+                Stop generating...
+                <div style={{ width: "16px", height: "16px", background: "#cbd5e1", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <div style={{ width: "6px", height: "6px", background: "#ffffff", borderRadius: "1px" }}></div>
                 </div>
               </div>
             </div>
-
           </div>
         </section>
+
+        {/* ── RESPONSIVE HERO STYLES ── */}
+        <style dangerouslySetInnerHTML={{
+          __html: `
+          @media (max-width: 1024px) {
+            .hero-interactive-container {
+              flex-direction: column !important;
+              align-items: center !important;
+              gap: 40px;
+              min-height: auto !important;
+            }
+            .hero-left-elements, .hero-right-elements {
+              position: relative !important;
+              left: auto !important;
+              right: auto !important;
+              top: auto !important;
+              width: 100% !important;
+              align-items: center !important;
+            }
+            .hero-right-elements {
+              max-width: 100% !important;
+            }
+          }
+        `}} />
 
         {/* ── PREMIUM CAPABILITIES GRID ── */}
         <section id="capabilities" style={{
@@ -381,7 +357,7 @@ export default function AiAutomationServicePage() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "24px" }}>
               {/* Card 1 */}
               <div style={{ background: "#ffffff", borderRadius: "24px", padding: "40px 32px", border: "1.5px solid #f1f5f9", boxShadow: "0 10px 30px rgba(0,0,0,0.03)", position: "relative", overflow: "hidden" }}>
-                <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "4px", background: "linear-gradient(90deg, #7c3aed, #6d28d9)" }} />
+                <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "4px", background: "linear-gradient(90deg, #7c3aed, #00e5ff)" }} />
                 <div style={{ fontSize: "11px", color: "#7c3aed", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "16px", fontWeight: "800" }}>
                   DIMENSION 01
                 </div>
@@ -403,8 +379,8 @@ export default function AiAutomationServicePage() {
 
               {/* Card 2 */}
               <div style={{ background: "#ffffff", borderRadius: "24px", padding: "40px 32px", border: "1.5px solid #f1f5f9", boxShadow: "0 10px 30px rgba(0,0,0,0.03)", position: "relative", overflow: "hidden" }}>
-                <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "4px", background: "linear-gradient(90deg, #3b82f6, #06b6d4)" }} />
-                <div style={{ fontSize: "11px", color: "#3b82f6", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "16px", fontWeight: "800" }}>
+                <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "4px", background: "linear-gradient(90deg, #00e5ff, #3b82f6)" }} />
+                <div style={{ fontSize: "11px", color: "#00e5ff", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "16px", fontWeight: "800" }}>
                   DIMENSION 02
                 </div>
                 <h3 style={{ fontSize: "22px", fontWeight: "800", margin: "0 0 24px 0", color: "#0f172a" }}>
@@ -425,8 +401,8 @@ export default function AiAutomationServicePage() {
 
               {/* Card 3 */}
               <div style={{ background: "#ffffff", borderRadius: "24px", padding: "40px 32px", border: "1.5px solid #f1f5f9", boxShadow: "0 10px 30px rgba(0,0,0,0.03)", position: "relative", overflow: "hidden" }}>
-                <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "4px", background: "linear-gradient(90deg, #10b981, #06b6d4)" }} />
-                <div style={{ fontSize: "11px", color: "#10b981", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "16px", fontWeight: "800" }}>
+                <div style={{ position: "absolute", top: 0, left: 0, width: "100%", height: "4px", background: "linear-gradient(90deg, #3b82f6, #8b5cf6)" }} />
+                <div style={{ fontSize: "11px", color: "#3b82f6", letterSpacing: "2px", textTransform: "uppercase", marginBottom: "16px", fontWeight: "800" }}>
                   DIMENSION 03
                 </div>
                 <h3 style={{ fontSize: "22px", fontWeight: "800", margin: "0 0 24px 0", color: "#0f172a" }}>

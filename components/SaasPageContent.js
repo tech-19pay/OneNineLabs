@@ -8,6 +8,70 @@ export default function SaasPageContent() {
   const [activeRoleHover, setActiveRoleHover] = useState(null);
   const [activeArchTab, setActiveArchTab] = useState("rls");
   const [copiedCode, setCopiedCode] = useState(false);
+  const [selectedLayerIndex, setSelectedLayerIndex] = useState(0);
+
+  const stackLayersDetail = [
+    {
+      id: "frontend",
+      num: "01",
+      name: "Next.js 15 & React 19 Frontend",
+      tech: "Edge SSR & Subdomain Routing",
+      badge: "Sub-Second LCP",
+      icon: "⚡",
+      badgeBg: "#ecfdf5",
+      badgeColor: "#059669",
+      desc: "Sub-second LCP with Next.js 15 server components, Cloudflare Edge middleware, and dynamic tenant subdomain routing.",
+      specs: ["React Server Components (RSC)", "Custom CNAME Subdomain Resolver", "Vercel / Cloudflare Edge CDN Cache"]
+    },
+    {
+      id: "auth",
+      num: "02",
+      name: "Edge Auth & Tenant Middleware",
+      tech: "SAML 2.0, OAuth & SCIM Directory",
+      badge: "Edge Auth Guard",
+      icon: "🔑",
+      badgeBg: "#eff6ff",
+      badgeColor: "#2563eb",
+      desc: "Cloudflare Edge middleware validating tenant JWT tokens, injecting tenant context, and syncing Okta/Azure AD SAML SSO.",
+      specs: ["Okta, Google & Azure AD SAML SSO", "SCIM Directory User Sync", "Cryptographic JWT Session Cookies"]
+    },
+    {
+      id: "api",
+      num: "03",
+      name: "Core API & Microservices",
+      tech: "Type-Safe gRPC & REST Engine",
+      badge: "10k req/sec",
+      icon: "⚙️",
+      badgeBg: "#f5f3ff",
+      badgeColor: "#7c3aed",
+      desc: "High-concurrency NestJS and FastAPI microservices communicating over gRPC with Redis sliding-window rate limiters.",
+      specs: ["gRPC & OpenAPI Schema Validation", "Redis Sliding-Window Rate Limiter", "Sub-2ms API Response Caching"]
+    },
+    {
+      id: "db",
+      num: "04",
+      name: "PostgreSQL Database with RLS",
+      tech: "PostgreSQL Row-Level Isolation",
+      badge: "100% Zero-Leak Isolation",
+      icon: "🛡️",
+      badgeBg: "#f0fdf4",
+      badgeColor: "#16a34a",
+      desc: "Zero cross-tenant data leaks guaranteed. Database-level policy isolation ensuring every query is bound to tenant_id.",
+      specs: ["PostgreSQL Row-Level Security (RLS)", "Automated Schema Migrations", "SOC 2 Type II Cryptographic Audit"]
+    },
+    {
+      id: "billing",
+      num: "05",
+      name: "Stripe Recurring & Metered Billing",
+      tech: "Automated Invoicing Engine",
+      badge: "Automated Billing",
+      icon: "💳",
+      badgeBg: "#fff7ed",
+      badgeColor: "#ea580c",
+      desc: "Full-lifecycle subscription management with Stripe webhooks: seat tiers, usage counters, proration, and dunning automation.",
+      specs: ["Seat-Based & Metered Usage Tiering", "Automated Invoice PDF & Webhooks", "Dunning Retry & Failed Card Recovery"]
+    }
+  ];
 
   const tabs = [
     "Role-based clarity",
@@ -70,127 +134,73 @@ export default function SaasPageContent() {
       title: "PostgreSQL Row-Level Security (RLS)",
       badge: "Zero Cross-Tenant Leaks",
       desc: "We enforce strict database-level isolation. Every query is filtered by tenant_id through PostgreSQL RLS policies, ensuring complete multi-tenant safety even if application logic is bypassed.",
-      file: "tenant_rls_policy.sql",
-      lang: "SQL (PostgreSQL 16+)",
-      code: `-- Enforce Row-Level Security (RLS) per Tenant
-ALTER TABLE public.organizations ENABLE ROW LEVEL SECURITY;
-ALTER TABLE public.subscriptions ENABLE ROW LEVEL SECURITY;
-ALTER TABLE public.documents ENABLE ROW LEVEL SECURITY;
-
--- Tenant Isolation Policy for Documents Table
-CREATE POLICY tenant_isolation_policy ON public.documents
-  FOR ALL
-  USING (tenant_id = NULLIF(current_setting('app.current_tenant_id', true), '')::uuid)
-  WITH CHECK (tenant_id = NULLIF(current_setting('app.current_tenant_id', true), '')::uuid);
-
--- Automated Trigger to Verify Current Active Tenant
-CREATE OR REPLACE FUNCTION set_tenant_context(user_tenant_id uuid)
-RETURNS void AS $$
-BEGIN
-  PERFORM set_config('app.current_tenant_id', user_tenant_id::text, false);
-END;
-$$ LANGUAGE plpgsql SECURITY DEFINER;`
+      statusPill: "100% RLS Isolated",
+      metric1Label: "Active Tenant Schemas",
+      metric1Value: "2,481",
+      metric1Trend: "↑ 14% this month",
+      metric2Label: "Avg Query Latency",
+      metric2Value: "1.2ms",
+      metric2Trend: "0 Leaks Detected",
+      logsTitle: "Database RLS Enforcement Stream",
+      logs: [
+        { text: "tenant_isolation_policy applied to app.documents", time: "Just now", badge: "RLS ACTIVE" },
+        { text: "set_config('app.current_tenant_id', 'tenant_a_uuid')", time: "12s ago", badge: "PASSED" },
+        { text: "Cross-tenant query attempt blocked (403)", time: "1m ago", badge: "BLOCKED" }
+      ]
     },
     billing: {
       title: "Stripe Recurring & Metered Billing",
       badge: "Automated Invoicing & Dunning",
       desc: "Full-lifecycle subscription management with Stripe webhooks. Supports seat-based tiers, metered usage-based billing, automated proration, and dunning retry logic.",
-      file: "stripe_webhook_handler.ts",
-      lang: "TypeScript / Node.js",
-      code: `// Stripe Webhook Event Dispatcher for B2B Subscriptions
-import Stripe from 'stripe';
-import { db } from '@/lib/db';
-
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
-
-export async function handleStripeWebhook(payload: string, signature: string) {
-  const event = stripe.webhooks.constructEvent(payload, signature, process.env.STRIPE_WEBHOOK_SECRET!);
-
-  switch (event.type) {
-    case 'customer.subscription.updated':
-    case 'customer.subscription.created': {
-      const sub = event.data.object as Stripe.Subscription;
-      await db.subscription.upsert({
-        where: { stripeSubscriptionId: sub.id },
-        update: {
-          status: sub.status,
-          currentPeriodEnd: new Date(sub.current_period_end * 1000),
-          seatCount: sub.items.data[0]?.quantity || 1
-        },
-        create: {
-          tenantId: sub.metadata.tenantId,
-          stripeSubscriptionId: sub.id,
-          planId: sub.items.data[0]?.price.id,
-          status: sub.status,
-          currentPeriodEnd: new Date(sub.current_period_end * 1000)
-        }
-      });
-      break;
-    }
-  }
-}`
+      statusPill: "Stripe Webhooks Active",
+      metric1Label: "Monthly Recurring (MRR)",
+      metric1Value: "$142,850",
+      metric1Trend: "↑ 22% YoY Growth",
+      metric2Label: "Webhook Sync Latency",
+      metric2Value: "18ms",
+      metric2Trend: "99.99% Reliability",
+      logsTitle: "Stripe Revenue Event Stream",
+      logs: [
+        { text: "customer.subscription.updated (Enterprise Tier)", time: "Just now", badge: "SYNCED" },
+        { text: "invoice.payment_succeeded ($1,200.00)", time: "28s ago", badge: "PAID" },
+        { text: "seat_count updated (+5 seats allocated)", time: "3m ago", badge: "UPDATED" }
+      ]
     },
     sso: {
       title: "Enterprise SAML SSO & SCIM Directory",
       badge: "Okta, Google & Azure AD Ready",
       desc: "Turnkey enterprise single sign-on (SSO) integrated via WorkOS and Clerk. Supports SAML 2.0, OpenID Connect, and automated SCIM user provisioning and deprovisioning.",
-      file: "saml_sso_middleware.ts",
-      lang: "TypeScript / Next.js Edge",
-      code: `// SAML SSO & Granular RBAC Role Verification Middleware
-import { NextRequest, NextResponse } from 'next/server';
-import { verifyJwtSession } from '@/lib/auth';
-
-export async function ssoAuthMiddleware(req: NextRequest) {
-  const session = await verifyJwtSession(req);
-  if (!session || !session.tenantId) {
-    return NextResponse.redirect(new URL('/login', req.url));
-  }
-
-  // Enforce enterprise RBAC permissions
-  const userRole = session.role; // 'admin' | 'editor' | 'viewer'
-  const isProtectedAdminRoute = req.nextUrl.pathname.startsWith('/admin');
-
-  if (isProtectedAdminRoute && userRole !== 'admin') {
-    return new NextResponse('Forbidden: Insufficient Tenant Permissions', { status: 403 });
-  }
-
-  // Inject active tenant ID into downstream headers
-  const requestHeaders = new Headers(req.headers);
-  requestHeaders.set('x-tenant-id', session.tenantId);
-  return NextResponse.next({ request: { headers: requestHeaders } });
-}`
+      statusPill: "IdP Directory Synced",
+      metric1Label: "Enterprise Connections",
+      metric1Value: "184 Orgs",
+      metric1Trend: "Okta / Azure AD",
+      metric2Label: "SAML Auth Success Rate",
+      metric2Value: "99.98%",
+      metric2Trend: "Zero Fallback Errors",
+      logsTitle: "SAML SSO & SCIM User Stream",
+      logs: [
+        { text: "Okta SAML 2.0 Auth Assertion: user@acme-corp.com", time: "Just now", badge: "AUTH OK" },
+        { text: "SCIM Sync: 12 Users auto-provisioned", time: "45s ago", badge: "PROVISIONED" },
+        { text: "RBAC Middleware: Admin Role Verified", time: "2m ago", badge: "VERIFIED" }
+      ]
     },
     audit: {
       title: "Audit Logging & Usage Telemetry",
       badge: "SOC 2 Type II Ready",
       desc: "Immutable cryptographic audit logs for every tenant transaction. Track user sessions, privilege escalations, billing alterations, and document exports with zero overhead.",
-      file: "tenant_audit_logger.ts",
-      lang: "TypeScript / Cryptographic Hash",
-      code: `// Immutable Cryptographic Audit Log Generator
-import crypto from 'crypto';
-import { db } from '@/lib/db';
-
-export async function logTenantAuditEvent(
-  tenantId: string,
-  actorId: string,
-  action: 'SEAT_ADDED' | 'ROLE_CHANGED' | 'SSO_ENABLED' | 'DATA_EXPORTED',
-  details: Record<string, any>
-) {
-  const timestamp = new Date().toISOString();
-  const rawPayload = JSON.stringify({ tenantId, actorId, action, details, timestamp });
-  const cryptographicHash = crypto.createHash('sha256').update(rawPayload).digest('hex');
-
-  await db.auditLog.create({
-    data: {
-      tenantId,
-      actorId,
-      action,
-      details,
-      signatureHash: cryptographicHash,
-      createdAt: new Date()
-    }
-  });
-}`
+      statusPill: "Cryptographically Signed",
+      metric1Label: "Total Audit Hash Log",
+      metric1Value: "1.85M",
+      metric1Trend: "SHA-256 Verified",
+      metric2Label: "Tamper Detection",
+      metric2Value: "0 Anomalies",
+      metric2Trend: "Immutable Chain",
+      logsTitle: "SOC 2 Telemetry & Audit Stream",
+      logs: [
+        { text: "ROLE_CHANGED: User promoted to Tenant Admin", time: "Just now", badge: "SIGNED" },
+        { text: "DATA_EXPORTED: Bulk CSV export initiated", time: "18s ago", badge: "AUDITED" },
+        { text: "IP_CHANGE_DETECTED: Session re-verified", time: "4m ago", badge: "SECURED" }
+      ]
     }
   };
 
@@ -327,31 +337,43 @@ export async function logTenantAuditEvent(
   const deliverySteps = [
     {
       num: "01",
-      title: "Tenant Data Modeling & Architecture",
+      category: "STAGE 01 • ARCHITECTURE",
+      title: "Tenant Data Modeling & RLS Architecture",
       desc: "We define PostgreSQL Row-Level Security (RLS) schemas, auth flows (SAML/OAuth), and subscription pricing models in Stripe.",
       tag: "Architecture Blueprint",
-      icon: "📐"
+      link: "Read Full Resource",
+      bgGradient: "linear-gradient(135deg, #7c3aed 0%, #a855f7 100%)",
+      mockupType: "strategy"
     },
     {
       num: "02",
+      category: "STAGE 02 • MVP SPRINTS",
       title: "Rapid MVP Pod Build (6–8 Weeks)",
       desc: "Our senior SaaS pod builds your production MVP: Next.js 15 frontend, backend APIs, Stripe billing, and user management.",
       tag: "Production Sprints",
-      icon: "⚡"
+      link: "Read Full Resource",
+      bgGradient: "linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%)",
+      mockupType: "sprint"
     },
     {
       num: "03",
+      category: "STAGE 03 • SECURITY VERIFICATION",
       title: "Security Hardening & Penetration Testing",
       desc: "We conduct exhaustive multi-tenant penetration tests, eliminate cross-tenant leak vectors, and configure SOC 2 audit logging.",
       tag: "Zero-Leak Verification",
-      icon: "🔒"
+      link: "Read Full Resource",
+      bgGradient: "linear-gradient(135deg, #06b6d4 0%, #0891b2 100%)",
+      mockupType: "security"
     },
     {
       num: "04",
+      category: "STAGE 04 • LAUNCH & SCALE",
       title: "Production Launch & Scale Retainer",
       desc: "We deploy to AWS/Vercel with CI/CD automation, configure 24/7 endpoint monitoring, and provide SLA-backed maintenance.",
       tag: "Launch & Operate",
-      icon: "🚀"
+      link: "Read Full Resource",
+      bgGradient: "linear-gradient(135deg, #3b82f6 0%, #60a5fa 100%)",
+      mockupType: "launch"
     }
   ];
 
@@ -384,512 +406,840 @@ export async function logTenantAuditEvent(
 
   return (
     <div className="saas-page-root">
-      {/* ── 1. HERO SECTION WITH NODE GRAPH NETWORK ── */}
-      <div className="saas-hero-wrapper">
-        <section className="saas-hero">
-          {/* Left Column: Interactive Role Graph Hub */}
-          <div className="node-network-wrapper">
-            <div className="network-ambient-glow" />
+      {/* ── 1. HERO SECTION (SAME-TO-SAME AS REFERENCE IMAGE WITH WHITE CREAM THEME) ── */}
+      <section className="saas-landing-hero" style={{ background: "#fdfbf7", padding: "120px 24px 80px", position: "relative", overflow: "hidden" }}>
+        
+        {/* Subtle Background Glow Shapes */}
+        <div style={{ position: "absolute", top: "-100px", right: "-100px", width: "600px", height: "600px", background: "radial-gradient(circle, rgba(167,243,208,0.3) 0%, rgba(254,249,195,0.2) 50%, rgba(253,251,247,0) 70%)", pointerEvents: "none" }} />
 
-            {/* Central Diamond Logo Hub */}
-            <div className="central-hub-container">
-              <div className="central-hub-outer-ring" />
-              <div className="central-hub" title="OneNineLabs Core Engine">
-                <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="#34d399" strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round">
-                  <polygon points="12 2 2 7 12 12 22 7 12 2" />
-                  <polyline points="2 17 12 22 22 17" />
-                  <polyline points="2 12 12 17 22 12" />
-                </svg>
-              </div>
-            </div>
-
-            {/* Floating Role Node 1: HR Manager */}
-            <div
-              className={`node-card node-pos-1 ${activeRoleHover === "hr" ? "node-active" : ""}`}
-              onMouseEnter={() => setActiveRoleHover("hr")}
-              onMouseLeave={() => setActiveRoleHover(null)}
-            >
-              <div className="node-avatar-circle" style={{ background: "linear-gradient(135deg, #10b981, #059669)" }}>
-                HR
-              </div>
-              <div>
-                <div className="node-title-text">HR &amp; People Lead</div>
-                <div className="node-subtitle-text">Role-based policies</div>
-              </div>
-            </div>
-
-            {/* Floating Role Node 2: Operations Lead */}
-            <div
-              className={`node-card node-pos-2 ${activeRoleHover === "ops" ? "node-active" : ""}`}
-              onMouseEnter={() => setActiveRoleHover("ops")}
-              onMouseLeave={() => setActiveRoleHover(null)}
-            >
-              <div className="node-avatar-circle" style={{ background: "linear-gradient(135deg, #0284c7, #0369a1)" }}>
-                OP
-              </div>
-              <div>
-                <div className="node-title-text">Operations Manager</div>
-                <div className="node-subtitle-text">Multi-org structure</div>
-              </div>
-            </div>
-
-            {/* Floating Role Node 3: Finance / CFO */}
-            <div
-              className={`node-card node-pos-3 ${activeRoleHover === "fin" ? "node-active" : ""}`}
-              onMouseEnter={() => setActiveRoleHover("fin")}
-              onMouseLeave={() => setActiveRoleHover(null)}
-            >
-              <div className="node-avatar-circle" style={{ background: "linear-gradient(135deg, #ca8a04, #a16207)" }}>
-                FN
-              </div>
-              <div>
-                <div className="node-title-text">Finance &amp; Billing</div>
-                <div className="node-subtitle-text">Stripe MRR engine</div>
-              </div>
-            </div>
-
-            {/* Floating Role Node 4: Executive Admin */}
-            <div
-              className={`node-card node-pos-4 ${activeRoleHover === "exec" ? "node-active" : ""}`}
-              onMouseEnter={() => setActiveRoleHover("exec")}
-              onMouseLeave={() => setActiveRoleHover(null)}
-            >
-              <div className="node-avatar-circle" style={{ background: "linear-gradient(135deg, #7c3aed, #6d28d9)" }}>
-                EX
-              </div>
-              <div>
-                <div className="node-title-text">Executive Admin</div>
-                <div className="node-subtitle-text">Real-time audit log</div>
-              </div>
-            </div>
-
-            {/* Floating Role Node 5: IT / Security Lead */}
-            <div
-              className={`node-card node-pos-5 ${activeRoleHover === "it" ? "node-active" : ""}`}
-              onMouseEnter={() => setActiveRoleHover("it")}
-              onMouseLeave={() => setActiveRoleHover(null)}
-            >
-              <div className="node-avatar-circle" style={{ background: "linear-gradient(135deg, #e11d48, #be123c)" }}>
-                IT
-              </div>
-              <div>
-                <div className="node-title-text">Security Architect</div>
-                <div className="node-subtitle-text">SAML SSO &amp; RLS</div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Hero Heading & CTAs */}
-          <div className="saas-hero-right">
-            <div className="saas-badge-pill">
-              <span className="saas-badge-dot" />
-              MULTI-TENANT SAAS ENGINEERING
-            </div>
-
-            <h1 className="saas-hero-title">
-              Engineering High-Scale <span className="saas-highlight-text">B2B SaaS Platforms</span>
+        <div className="saas-landing-hero-container" style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", alignItems: "center", gap: "50px", position: "relative", zIndex: 10 }}>
+          
+          {/* Left Column: Text & Checkmark List */}
+          <div className="saas-landing-hero-content" style={{ flex: 1, paddingRight: "10px" }}>
+            
+            {/* Main Serific Headline */}
+            <h1 style={{ fontFamily: "Georgia, 'Playfair Display', serif", fontSize: "clamp(36px, 4.2vw, 54px)", fontWeight: "800", color: "#0f172a", lineHeight: "1.15", letterSpacing: "-0.5px", marginBottom: "22px" }}>
+              Elevate Your Enterprise with Next-Gen SaaS Architecture
             </h1>
 
-            <p className="saas-hero-subtitle">
-              We architect multi-tenant SaaS platforms on Next.js 15, PostgreSQL Row-Level Security, Stripe recurring billing, and enterprise SAML SSO.
+            {/* Paragraph Description */}
+            <p style={{ fontSize: "16px", color: "#475569", lineHeight: "1.7", marginBottom: "28px", maxWidth: "520px" }}>
+              Scale your B2B platform with 100% database isolation via PostgreSQL RLS, automated Stripe revenue pipelines, and Okta/SAML SSO out of the box.
             </p>
 
-            <div className="saas-hero-actions">
-              <Link href="/contact" className="saas-btn-primary">
-                <span>Start SaaS Project</span>
-                <span className="saas-btn-arrow">→</span>
-              </Link>
-              <a href="#architecture" className="saas-btn-ghost">
-                Explore Architecture
+            {/* Primary CTA Button */}
+            <div style={{ marginBottom: "28px" }}>
+              <a href="/contact" style={{ background: "#00bba7", color: "#ffffff", padding: "15px 34px", borderRadius: "8px", fontWeight: "700", fontSize: "15px", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "8px", boxShadow: "0 10px 25px rgba(0, 187, 167, 0.25)" }}>
+                <span>Get Started</span>
               </a>
             </div>
 
-            {/* Quick Hero Key Stats */}
-            <div className="saas-hero-stats">
-              <div className="saas-hstat-item">
-                <span className="saas-hstat-num">100%</span>
-                <span className="saas-hstat-lbl">Tenant Isolation (RLS)</span>
-              </div>
-              <div className="saas-hstat-div" />
-              <div className="saas-hstat-item">
-                <span className="saas-hstat-num" style={{ color: "#059669" }}>Stripe</span>
-                <span className="saas-hstat-lbl">Billing Engine</span>
-              </div>
-              <div className="saas-hstat-div" />
-              <div className="saas-hstat-item">
-                <span className="saas-hstat-num" style={{ color: "#0284c7" }}>SAML SSO</span>
-                <span className="saas-hstat-lbl">Okta &amp; Google Ready</span>
-              </div>
-              <div className="saas-hstat-div" />
-              <div className="saas-hstat-item">
-                <span className="saas-hstat-num" style={{ color: "#0f172a" }}>6–8 Wks</span>
-                <span className="saas-hstat-lbl">Production MVP</span>
+            {/* Checkmark Bullet Points */}
+            <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
+
+              <div style={{ display: "flex", alignItems: "center", gap: "10px", color: "#475569", fontSize: "14px", fontWeight: "600" }}>
+                <span style={{ width: "20px", height: "20px", borderRadius: "50%", background: "#00bba7", color: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "11px", fontWeight: "900" }}>✓</span>
+                <span>100% PostgreSQL RLS Multi-Tenant Security SLA</span>
               </div>
             </div>
           </div>
-        </section>
-      </div>
 
-      {/* ── 2. 4 CORE PILLARS SECTION ── */}
-      <section className="saas-pillars-section">
-        <div className="saas-pillars-container">
-          <div className="saas-pillars-grid">
-            {pillarCards.map((pillar) => (
-              <div key={pillar.id} className="saas-pillar-card">
-                <div className="saas-pillar-icon-box">{pillar.icon}</div>
-                <h3 className="saas-pillar-title">{pillar.title}</h3>
-                <p className="saas-pillar-desc">{pillar.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 3. INTERACTIVE MULTI-TENANT ARCHITECTURE & CODE INSPECTOR ── */}
-      <section className="saas-arch-section" id="architecture">
-        <div className="saas-arch-container">
-          <div className="saas-sec-header">
-            <div className="saas-badge-pill" style={{ background: "#ecfdf5", color: "#059669", borderColor: "#a7f3d0" }}>
-              <span className="saas-badge-dot" style={{ background: "#059669" }} />
-              DATA ISOLATION &amp; BILLING
-            </div>
-            <h2 className="saas-sec-title">Enterprise Multi-Tenant SaaS Architecture</h2>
-            <p className="saas-sec-desc">
-              We design modular SaaS systems with zero cross-tenant data leaks, automated Stripe revenue pipelines, and enterprise SAML single sign-on.
-            </p>
-          </div>
-
-          {/* Architecture Switcher Tabs */}
-          <div className="saas-arch-tabs">
-            <button
-              type="button"
-              onClick={() => setActiveArchTab("rls")}
-              className={`saas-arch-tab-btn ${activeArchTab === "rls" ? "active" : ""}`}
-            >
-              <span>🔒 PostgreSQL RLS Isolation</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveArchTab("billing")}
-              className={`saas-arch-tab-btn ${activeArchTab === "billing" ? "active" : ""}`}
-            >
-              <span>💳 Stripe Billing &amp; Webhooks</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveArchTab("sso")}
-              className={`saas-arch-tab-btn ${activeArchTab === "sso" ? "active" : ""}`}
-            >
-              <span>🔑 SAML SSO &amp; RBAC</span>
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveArchTab("audit")}
-              className={`saas-arch-tab-btn ${activeArchTab === "audit" ? "active" : ""}`}
-            >
-              <span>📊 Audit Logs &amp; Telemetry</span>
-            </button>
-          </div>
-
-          {/* Architecture Showcase Card */}
-          <div className="saas-arch-canvas">
-            <div className="saas-arch-left">
-              <div className="saas-atag-row">
-                <span className="saas-abadge">{currentArchTab.badge}</span>
-              </div>
-
-              <h3 className="saas-atitle">{currentArchTab.title}</h3>
-              <p className="saas-adesc">{currentArchTab.desc}</p>
-
-              <div className="saas-aaction-row">
-                <Link href="/contact" className="saas-btn-primary">
-                  <span>Build with {currentArchTab.title.split(" ")[0]}</span>
-                  <span className="saas-btn-arrow">→</span>
-                </Link>
-                <Link href="/contact" className="saas-btn-ghost">
-                  Request Architecture Call
-                </Link>
-              </div>
-            </div>
-
-            {/* Code Window Box */}
-            <div className="saas-arch-right">
-              <div className="saas-acode-top">
-                <div className="saas-acode-dots">
-                  <span style={{ background: "#ef4444" }} />
-                  <span style={{ background: "#f59e0b" }} />
-                  <span style={{ background: "#10b981" }} />
-                </div>
-                <span className="saas-acode-file">{currentArchTab.file}</span>
-                <button type="button" onClick={handleCopyCode} className="saas-acopy-btn">
-                  {copiedCode ? "✓ Copied" : "📋 Copy Code"}
-                </button>
-              </div>
-              <pre className="saas-acode-pre">
-                <code>{currentArchTab.code}</code>
-              </pre>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ── 4. SAAS SOLUTIONS BY BUSINESS MODEL (6 CARDS) ── */}
-      <section className="saas-solutions-section">
-        <div className="saas-solutions-container">
-          <div className="saas-sec-header">
-            <div className="saas-badge-pill" style={{ background: "#eff6ff", color: "#2563eb", borderColor: "#bfdbfe" }}>
-              <span className="saas-badge-dot" style={{ background: "#2563eb" }} />
-              SAAS DISCIPLINES
-            </div>
-            <h2 className="saas-sec-title">Tailored SaaS Platforms by Business Model</h2>
-            <p className="saas-sec-desc">
-              Whether building a high-velocity self-serve PLG application or a complex B2B enterprise platform with SAML SSO, we engineer for compounding growth.
-            </p>
-          </div>
-
-          <div className="saas-solutions-grid">
-            {saasSolutions.map((sol, i) => (
-              <div key={i} className="saas-sol-card">
-                <div className="saas-sol-top">
-                  <div className="saas-sol-icon-box">{sol.icon}</div>
-                  <span className="saas-sol-badge">{sol.badge}</span>
-                </div>
-
-                <h3 className="saas-sol-title">{sol.title}</h3>
-                <p className="saas-sol-desc">{sol.desc}</p>
-
-                <div className="saas-sol-bullets">
-                  {sol.bullets.map((b, bi) => (
-                    <div key={bi} className="saas-sol-bullet-item">
-                      <span className="saas-sol-check">✓</span>
-                      <span>{b}</span>
+          {/* Right Column: Same-to-Same White-Cream Dashboard Graphic */}
+          <div className="saas-landing-hero-image" style={{ flex: 1.1, display: "flex", justifyContent: "flex-end", marginTop: "60px" }}>
+            <div style={{
+              width: "100%",
+              maxWidth: "560px",
+              background: "linear-gradient(145deg, #a7f3d0 0%, #ecfdf5 40%, #fef9c3 100%)",
+              borderRadius: "28px",
+              padding: "24px",
+              boxShadow: "0 25px 60px rgba(0, 187, 167, 0.12)",
+              display: "flex",
+              flexDirection: "column",
+              gap: "16px"
+            }}>
+              
+              {/* Top Row: 2 Stat Cards Side-by-Side */}
+              <div className="saas-hero-mockup-stats" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px" }}>
+                
+                {/* Net Salary / Revenue Card */}
+                <div style={{ background: "#ffffff", borderRadius: "18px", padding: "18px", boxShadow: "0 4px 15px rgba(0,0,0,0.03)" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" }}>
+                    <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: "#00bba7", color: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "14px" }}>
+                      👤
                     </div>
-                  ))}
+                    <div>
+                      <div style={{ fontSize: "11px", color: "#64748b", fontWeight: "700" }}>Net Revenue</div>
+                      <div style={{ fontSize: "19px", fontWeight: "800", color: "#0f172a" }}>$12,928.10</div>
+                    </div>
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: "10px", color: "#94a3b8", fontWeight: "700", marginBottom: "4px" }}>
+                    <span>Target</span>
+                    <span style={{ color: "#00bba7" }}>65%</span>
+                  </div>
+                  <div style={{ width: "100%", height: "5px", background: "#f1f5f9", borderRadius: "100px", overflow: "hidden", marginBottom: "8px" }}>
+                    <div style={{ width: "65%", height: "100%", background: "#00bba7", borderRadius: "100px" }} />
+                  </div>
+                  <div style={{ fontSize: "10px", color: "#94a3b8", fontWeight: "600" }}>📅 Per February 2026</div>
+                </div>
+
+                {/* Gross Salary / ARR Card */}
+                <div style={{ background: "#ffffff", borderRadius: "18px", padding: "18px", boxShadow: "0 4px 15px rgba(0,0,0,0.03)" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "8px" }}>
+                    <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: "#f97316", color: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "14px" }}>
+                      💰
+                    </div>
+                    <div>
+                      <div style={{ fontSize: "11px", color: "#64748b", fontWeight: "700" }}>Gross ARR</div>
+                      <div style={{ fontSize: "19px", fontWeight: "800", color: "#0f172a" }}>$48,250.00</div>
+                    </div>
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: "10px", color: "#94a3b8", fontWeight: "700", marginBottom: "4px" }}>
+                    <span>Target</span>
+                    <span style={{ color: "#f97316" }}>70%</span>
+                  </div>
+                  <div style={{ width: "100%", height: "5px", background: "#f1f5f9", borderRadius: "100px", overflow: "hidden", marginBottom: "8px" }}>
+                    <div style={{ width: "70%", height: "100%", background: "#f97316", borderRadius: "100px" }} />
+                  </div>
+                  <div style={{ fontSize: "10px", color: "#94a3b8", fontWeight: "600" }}>📅 Per February 2026</div>
+                </div>
+
+              </div>
+
+              {/* Middle Row: Large Analytics Bar Chart Card */}
+              <div style={{ background: "#ffffff", borderRadius: "20px", padding: "20px", boxShadow: "0 4px 15px rgba(0,0,0,0.03)", position: "relative" }}>
+                <div style={{ fontSize: "14px", fontWeight: "800", color: "#0f172a", marginBottom: "12px" }}>
+                  Platform Payroll Summary
+                </div>
+                
+                {/* Platform Metric Badges */}
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "16px", marginBottom: "20px", fontSize: "11px", color: "#64748b" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                    <span style={{ background: "#ecfdf5", padding: "3px 6px", borderRadius: "6px" }}>🛍️</span>
+                    <span>Shopify <strong>200.98k View</strong></span>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                    <span style={{ background: "#fef2f2", padding: "3px 6px", borderRadius: "6px" }}>❤️</span>
+                    <span>Next.js <strong>340.50k View</strong></span>
+                  </div>
+                  <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
+                    <span style={{ background: "#f8fafc", padding: "3px 6px", borderRadius: "6px" }}>📦</span>
+                    <span>Stripe <strong>180.20k View</strong></span>
+                  </div>
+                </div>
+
+                {/* Stacked Bar Chart Columns Visual */}
+                <div style={{ position: "relative", paddingTop: "10px" }}>
+                  {/* Floating Tooltip Bubble */}
+                  <div style={{
+                    position: "absolute",
+                    top: "-14px",
+                    left: "48%",
+                    transform: "translateX(-50%)",
+                    background: "#ffffff",
+                    border: "1px solid #e2e8f0",
+                    borderRadius: "10px",
+                    padding: "6px 12px",
+                    boxShadow: "0 8px 20px rgba(0,0,0,0.08)",
+                    fontSize: "10px",
+                    color: "#64748b",
+                    fontWeight: "600",
+                    display: "flex",
+                    gap: "10px",
+                    zIndex: 10
+                  }}>
+                    <div><span style={{ color: "#00bba7" }}>●</span> Shopify <strong>45.5%</strong></div>
+                    <div><span style={{ color: "#f97316" }}>●</span> Next.js <strong>45.5%</strong></div>
+                    <div><span style={{ color: "#6366f1" }}>●</span> Stripe <strong>45.5%</strong></div>
+                  </div>
+
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", height: "110px", borderBottom: "1px solid #f1f5f9", paddingBottom: "6px" }}>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "4px", width: "38px" }}>
+                      <div style={{ height: "30px", background: "#00bba7", borderRadius: "6px" }} />
+                      <div style={{ height: "25px", background: "#34d399", borderRadius: "6px" }} />
+                      <div style={{ height: "20px", background: "#a7f3d0", borderRadius: "6px" }} />
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "4px", width: "38px" }}>
+                      <div style={{ height: "35px", background: "#00bba7", borderRadius: "6px" }} />
+                      <div style={{ height: "20px", background: "#34d399", borderRadius: "6px" }} />
+                      <div style={{ height: "25px", background: "#a7f3d0", borderRadius: "6px" }} />
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "4px", width: "38px" }}>
+                      <div style={{ height: "40px", background: "#00bba7", borderRadius: "6px" }} />
+                      <div style={{ height: "30px", background: "#34d399", borderRadius: "6px" }} />
+                      <div style={{ height: "15px", background: "#a7f3d0", borderRadius: "6px" }} />
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "4px", width: "38px" }}>
+                      <div style={{ height: "25px", background: "#00bba7", borderRadius: "6px" }} />
+                      <div style={{ height: "45px", background: "#34d399", borderRadius: "6px" }} />
+                      <div style={{ height: "20px", background: "#a7f3d0", borderRadius: "6px" }} />
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "4px", width: "38px" }}>
+                      <div style={{ height: "35px", background: "#00bba7", borderRadius: "6px" }} />
+                      <div style={{ height: "25px", background: "#34d399", borderRadius: "6px" }} />
+                      <div style={{ height: "30px", background: "#a7f3d0", borderRadius: "6px" }} />
+                    </div>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "4px", width: "38px" }}>
+                      <div style={{ height: "50px", background: "#00bba7", borderRadius: "6px" }} />
+                      <div style={{ height: "20px", background: "#34d399", borderRadius: "6px" }} />
+                      <div style={{ height: "15px", background: "#a7f3d0", borderRadius: "6px" }} />
+                    </div>
+                  </div>
                 </div>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* ── 5. LAYERED 6-TIER SAAS STACK ARCHITECTURE ── */}
-      <section className="saas-layer-section">
-        <div className="saas-layer-container">
-          <div className="saas-sec-header">
-            <div className="saas-badge-pill">
-              <span className="saas-badge-dot" />
-              LAYERED SAAS PIPELINE
-            </div>
-            <h2 className="saas-sec-title">How We Layer Your SaaS Stack</h2>
-            <p className="saas-sec-desc">
-              A high-performance pipeline from Edge SSR interface to PostgreSQL Row-Level Security, Stripe billing, and real-time telemetry.
-            </p>
-          </div>
-
-          <div className="saas-layer-grid">
-            {archLayers.map((layer, i) => (
-              <div key={i} className="saas-layer-card">
-                <div className="saas-layer-top">
-                  <span className="saas-layer-num">{layer.num}</span>
-                  <span className="saas-layer-icon">{layer.icon}</span>
+              {/* Bottom Row: Status Goal Bar Card */}
+              <div style={{ background: "#ffffff", borderRadius: "16px", padding: "14px 18px", boxShadow: "0 4px 15px rgba(0,0,0,0.03)", display: "flex", alignItems: "center", gap: "12px" }}>
+                <div style={{ width: "30px", height: "30px", borderRadius: "50%", background: "#ccfbf1", color: "#0d9488", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "14px", fontWeight: "900" }}>
+                  ☻
                 </div>
-                <span className="saas-layer-tag">{layer.tag}</span>
-                <h3 className="saas-layer-title">{layer.title}</h3>
-                <p className="saas-layer-desc">{layer.desc}</p>
-                <div className="saas-layer-indicator" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── 6. PERFORMANCE & SCALABILITY BENCHMARK SHOWCASE ── */}
-      <section className="saas-perf-section">
-        <div className="saas-perf-container">
-          <div className="saas-perf-grid">
-            {/* Left: Heading + Gauge */}
-            <div className="saas-perf-left">
-              <div className="saas-badge-pill" style={{ background: "#ecfdf5", color: "#059669", borderColor: "#a7f3d0" }}>
-                <span className="saas-badge-dot" style={{ background: "#059669" }} />
-                PRODUCTION SLA
-              </div>
-              <h2 className="saas-sec-title" style={{ textAlign: "left", margin: "16px 0" }}>
-                Engineered for 99.99% Multi-Tenant Uptime SLA
-              </h2>
-              <p className="saas-sec-desc" style={{ textAlign: "left", margin: "0 0 32px 0" }}>
-                Our architecture guarantees sub-millisecond database query routing, sub-second cold starts, and zero cross-tenant interference under peak enterprise traffic.
-              </p>
-
-              <div className="saas-gauge-card">
-                <svg width="84" height="84" viewBox="0 0 36 36" className="saas-gauge-svg">
-                  <circle cx="18" cy="18" r="15.915" fill="none" stroke="#e2e8f0" strokeWidth="3" />
-                  <circle
-                    className="saas-gauge-circle"
-                    cx="18"
-                    cy="18"
-                    r="15.915"
-                    fill="none"
-                    stroke="#10b981"
-                    strokeWidth="3"
-                    strokeDasharray="99.99 100"
-                    strokeDashoffset="100"
-                    strokeLinecap="round"
-                    style={{ transform: "rotate(-90deg)", transformOrigin: "50% 50%" }}
-                  />
-                  <text x="18" y="20.5" fontFamily="monospace" fontSize="6.5" fontWeight="bold" textAnchor="middle" fill="#0f172a">
-                    99.99%
-                  </text>
-                </svg>
                 <div>
-                  <div className="saas-gauge-title">Multi-Tenant Uptime SLA</div>
-                  <div className="saas-gauge-sub">Production Performance Benchmark</div>
+                  <div style={{ fontSize: "12.5px", fontWeight: "800", color: "#0f172a" }}>You are doing good!</div>
+                  <div style={{ fontSize: "11px", color: "#64748b" }}>You're close to reaching your target goal of 99.99% multi-tenant SLA.</div>
                 </div>
               </div>
+
             </div>
+          </div>
 
-            {/* Right: Metric Progress Rows */}
-            <div className="saas-perf-right">
-              <div className="saas-metric-row">
-                <div className="saas-metric-header">
-                  <span className="saas-metric-name">PostgreSQL RLS Query Isolation Latency</span>
-                  <span className="saas-metric-val" style={{ color: "#059669" }}>&lt; 5ms</span>
-                </div>
-                <div className="saas-metric-bar-bg">
-                  <div className="saas-metric-bar-fill fill-1" style={{ width: "98%", background: "linear-gradient(90deg, #059669, #10b981)" }} />
-                </div>
-              </div>
+        </div>
+      </section>
 
-              <div className="saas-metric-row">
-                <div className="saas-metric-header">
-                  <span className="saas-metric-name">Next.js 15 Edge SSR Cold Start</span>
-                  <span className="saas-metric-val" style={{ color: "#0f172a" }}>0.38s</span>
-                </div>
-                <div className="saas-metric-bar-bg">
-                  <div className="saas-metric-bar-fill fill-2" style={{ width: "92%", background: "linear-gradient(90deg, #0f172a, #334155)" }} />
-                </div>
-              </div>
-
-              <div className="saas-metric-row">
-                <div className="saas-metric-header">
-                  <span className="saas-metric-name">Stripe Webhook Event Sync Response</span>
-                  <span className="saas-metric-val" style={{ color: "#2563eb" }}>12ms</span>
-                </div>
-                <div className="saas-metric-bar-bg">
-                  <div className="saas-metric-bar-fill fill-3" style={{ width: "95%", background: "linear-gradient(90deg, #2563eb, #38bdf8)" }} />
-                </div>
-              </div>
-
-              <div className="saas-metric-row">
-                <div className="saas-metric-header">
-                  <span className="saas-metric-name">Multi-Tenant Hosting Spend Reduction</span>
-                  <span className="saas-metric-val" style={{ color: "#059669" }}>-35% Cloud Cost</span>
-                </div>
-                <div className="saas-metric-bar-bg">
-                  <div className="saas-metric-bar-fill fill-4" style={{ width: "90%", background: "linear-gradient(90deg, #059669, #10b981)" }} />
-                </div>
-              </div>
-            </div>
+      {/* ── 2. ABOUT US SECTION (SHIFTED UP TOWARDS HERO) ── */}
+      <section className="saas-landing-about" style={{ paddingTop: "0px", marginTop: "-70px", paddingBottom: "20px", position: "relative", zIndex: 12 }}>
+        <div className="saas-landing-about-container-flex" style={{ display: "flex", gap: "40px", alignItems: "center" }}>
+          <div className="saas-landing-about-image">
+            <img src="/assets/about_img.jpg" alt="Dashboard Illustration" />
+          </div>
+          <div className="saas-landing-about-content">
+            <h2>Zero Cross-Tenant Data Leaks Guaranteed</h2>
+            <p>We build robust multi-tenant systems using PostgreSQL Row-Level Security (RLS) to guarantee complete data isolation between organizations. Our architectures are designed to pass rigorous SOC 2 Type II and HIPAA compliance audits out of the box, ensuring your enterprise clients trust your platform with their most sensitive data.</p>
           </div>
         </div>
       </section>
 
-      {/* ── 7. 4-STAGE SAAS DELIVERY PROCESS ── */}
-      <section className="saas-process-section">
-        <div className="saas-process-container">
-          <div className="saas-sec-header">
-            <div className="saas-badge-pill">
-              <span className="saas-badge-dot" />
-              AGILE POD LIFECYCLE
+      {/* ── 3. HIGH-PERFORMANCE MULTI-TENANT ARCHITECTURE (5-CARD BENTO GRID MATCHING REFERENCE DESIGN) ── */}
+      <section className="saas-arch-section" id="architecture" style={{ background: "#ffffff", paddingTop: "0px", marginTop: "-30px", paddingBottom: "80px", paddingLeft: "24px", paddingRight: "24px", position: "relative", zIndex: 11 }}>
+        
+        <div className="saas-arch-container" style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          
+
+
+          {/* 5-Card Bento Grid Layout (2 Top Cards + 3 Bottom Cards) */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+            
+            {/* Top Row: 2 Large Equal Bento Cards Side-by-Side */}
+            <div className="saas-arch-top-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
+              
+              {/* Top Left Card (Card 1: PostgreSQL RLS Data Isolation) */}
+              <div style={{
+                background: "#ffffff",
+                border: "1px solid #f1f5f9",
+                borderRadius: "24px",
+                padding: "28px",
+                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.03)",
+                display: "flex",
+                flexDirection: "column",
+                justify: "space-between",
+                minHeight: "360px"
+              }}>
+                {/* Top UI Visual: Horizontal Gantt/Progress Bar Timeline */}
+                <div style={{ background: "#f8fafc", borderRadius: "18px", padding: "20px", border: "1px solid #e2e8f0", marginBottom: "24px", position: "relative" }}>
+                  {/* Floating Cursor Badge */}
+                  <div style={{ position: "absolute", top: "10px", right: "20px", display: "flex", flexDirection: "column", alignItems: "center", zIndex: 10 }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="#00bba7" xmlns="http://www.w3.org/2000/svg" style={{ transform: "rotate(-20deg)", marginBottom: "-2px" }}>
+                      <path d="M4.148 2.352l16.148 10.765c1.114.743.642 2.502-.686 2.502h-6.26l-3.327 7.072c-.52 1.107-2.13.93-2.38-.28l-3.95-18.983c-.244-1.17 1.053-2.023 2.055-1.076z" />
+                    </svg>
+                    <div style={{ background: "#00bba7", color: "#ffffff", fontSize: "9px", fontWeight: "800", padding: "2px 8px", borderRadius: "100px", boxShadow: "0 4px 10px rgba(0,187,167,0.3)" }}>Tenant 1</div>
+                  </div>
+
+                  <div style={{ display: "flex", flexDirection: "column", gap: "14px" }}>
+                    <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                      <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: "#00bba7", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <span style={{ color: "#ffffff", fontSize: "11px", fontWeight: "800" }}>A</span>
+                      </div>
+                      <div style={{ flex: 1, height: "10px", background: "#e2e8f0", borderRadius: "100px", display: "flex" }}>
+                        <div style={{ width: "100%", height: "100%", background: "linear-gradient(90deg, #00bba7 0%, #34d399 100%)", borderRadius: "100px", position: "relative" }}>
+                          <span style={{ position: "absolute", right: "0", top: "-18px", fontSize: "10px", fontWeight: "800", color: "#00bba7" }}>90%</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                      <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: "#6366f1", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <span style={{ color: "#ffffff", fontSize: "11px", fontWeight: "800" }}>B</span>
+                      </div>
+                      <div style={{ flex: 1, height: "10px", background: "#e2e8f0", borderRadius: "100px", display: "flex" }}>
+                        <div style={{ width: "75%", height: "100%", background: "linear-gradient(90deg, #6366f1 0%, #818cf8 100%)", borderRadius: "100px" }} />
+                      </div>
+                    </div>
+                    <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                      <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: "#f97316", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <span style={{ color: "#ffffff", fontSize: "11px", fontWeight: "800" }}>C</span>
+                      </div>
+                      <div style={{ flex: 1, height: "10px", background: "#e2e8f0", borderRadius: "100px", display: "flex" }}>
+                        <div style={{ width: "60%", height: "100%", background: "linear-gradient(90deg, #f97316 0%, #fb923c 100%)", borderRadius: "100px" }} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom Centered Text */}
+                <div style={{ textAlign: "center" }}>
+                  <h3 style={{ fontSize: "20px", fontWeight: "800", color: "#0f172a", marginBottom: "8px" }}>
+                    PostgreSQL Row-Level Security (RLS)
+                  </h3>
+                  <p style={{ fontSize: "14px", color: "#64748b", lineHeight: "1.6", margin: 0 }}>
+                    We enforce strict database-level isolation. Every query is filtered by <code>tenant_id</code> through PostgreSQL RLS policies.
+                  </p>
+                </div>
+              </div>
+
+              {/* Top Right Card (Card 2: Stripe Recurring & Metered Billing) */}
+              <div style={{
+                background: "#ffffff",
+                border: "1px solid #f1f5f9",
+                borderRadius: "24px",
+                padding: "28px",
+                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.03)",
+                display: "flex",
+                flexDirection: "column",
+                justify: "space-between",
+                minHeight: "360px"
+              }}>
+                {/* Top UI Visual: Clean Stage & Task Table Mockup */}
+                <div style={{ background: "#f8fafc", borderRadius: "18px", padding: "16px", border: "1px solid #e2e8f0", marginBottom: "24px" }}>
+                  <div style={{ display: "grid", gridTemplateColumns: "2fr 1.5fr 1fr", fontSize: "10.5px", fontWeight: "800", color: "#94a3b8", textTransform: "uppercase", paddingBottom: "8px", borderBottom: "1px solid #e2e8f0" }}>
+                    <span>Pipeline Task</span>
+                    <span>Stage</span>
+                    <span>Status</span>
+                  </div>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "8px", paddingTop: "8px" }}>
+                    <div style={{ display: "grid", gridTemplateColumns: "2fr 1.5fr 1fr", fontSize: "11.5px", alignItems: "center" }}>
+                      <span style={{ color: "#0f172a", fontWeight: "700" }}>PostgreSQL RLS</span>
+                      <span style={{ background: "#e2e8f0", color: "#475569", padding: "2px 8px", borderRadius: "100px", fontSize: "10px", fontWeight: "700", width: "fit-content" }}>BACKLOG</span>
+                      <span style={{ color: "#059669", fontWeight: "800" }}>✓ PASS</span>
+                    </div>
+                    <div style={{ display: "grid", gridTemplateColumns: "2fr 1.5fr 1fr", fontSize: "11.5px", alignItems: "center" }}>
+                      <span style={{ color: "#0f172a", fontWeight: "700" }}>Stripe Webhook</span>
+                      <span style={{ background: "#e0f2fe", color: "#0284c7", padding: "2px 8px", borderRadius: "100px", fontSize: "10px", fontWeight: "700", width: "fit-content" }}>IN PROGRESS</span>
+                      <span style={{ color: "#0284c7", fontWeight: "800" }}>● SYNC</span>
+                    </div>
+                    <div style={{ display: "grid", gridTemplateColumns: "2fr 1.5fr 1fr", fontSize: "11.5px", alignItems: "center" }}>
+                      <span style={{ color: "#0f172a", fontWeight: "700" }}>Okta SAML SSO</span>
+                      <span style={{ background: "#ecfdf5", color: "#059669", padding: "2px 8px", borderRadius: "100px", fontSize: "10px", fontWeight: "700", width: "fit-content" }}>COMPLETED</span>
+                      <span style={{ color: "#059669", fontWeight: "800" }}>✓ DONE</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom Centered Text */}
+                <div style={{ textAlign: "center" }}>
+                  <h3 style={{ fontSize: "20px", fontWeight: "800", color: "#0f172a", marginBottom: "8px" }}>
+                    Stripe Recurring & Metered Billing
+                  </h3>
+                  <p style={{ fontSize: "14px", color: "#64748b", lineHeight: "1.6", margin: 0 }}>
+                    Full-lifecycle subscription management with Stripe webhooks, seat-based tiers, metered usage counters, and dunning retry logic.
+                  </p>
+                </div>
+              </div>
+
             </div>
-            <h2 className="saas-sec-title">4-Stage SaaS Delivery Process</h2>
-            <p className="saas-sec-desc">
+
+            {/* Bottom Row: 3 Equal Bento Cards Side-by-Side */}
+            <div className="saas-bento-bottom-grid" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "24px" }}>
+              
+              {/* Bottom Card 1 (Card 3: Enterprise SAML SSO & SCIM) */}
+              <div style={{
+                background: "#ffffff",
+                border: "1px solid #f1f5f9",
+                borderRadius: "24px",
+                padding: "24px",
+                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.03)",
+                display: "flex",
+                flexDirection: "column",
+                justify: "space-between",
+                minHeight: "340px"
+              }}>
+                {/* Top UI Visual: Schedule & Meeting Timeline */}
+                <div style={{ background: "#f8fafc", borderRadius: "16px", padding: "14px", border: "1px solid #e2e8f0", marginBottom: "20px", position: "relative" }}>
+                  <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                    <div style={{ background: "#ffffff", padding: "10px", borderRadius: "10px", border: "1px solid #e2e8f0" }}>
+                      <span style={{ fontSize: "10px", color: "#94a3b8", fontWeight: "700" }}>09:00 AM</span>
+                      <div style={{ fontSize: "12px", fontWeight: "700", color: "#0f172a" }}>Okta SAML 2.0 Auth</div>
+                    </div>
+                    <div style={{ background: "#eff6ff", padding: "10px", borderRadius: "10px", border: "1px solid #bfdbfe", position: "relative" }}>
+                      <span style={{ fontSize: "10px", color: "#2563eb", fontWeight: "700" }}>10:00 AM</span>
+                      <div style={{ fontSize: "12px", fontWeight: "700", color: "#1d4ed8" }}>SCIM Directory Sync</div>
+                      
+                      {/* Floating Name Badge */}
+                      <div style={{ position: "absolute", top: "-15px", right: "-10px", display: "flex", flexDirection: "column", alignItems: "center", zIndex: 10 }}>
+                        <div style={{ background: "#8b5cf6", color: "#ffffff", fontSize: "9px", fontWeight: "800", padding: "4px 8px", borderRadius: "100px", boxShadow: "0 4px 10px rgba(139,92,246,0.3)" }}>Albert</div>
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="#8b5cf6" xmlns="http://www.w3.org/2000/svg" style={{ transform: "rotate(20deg)", marginTop: "-2px" }}>
+                          <path d="M4.148 2.352l16.148 10.765c1.114.743.642 2.502-.686 2.502h-6.26l-3.327 7.072c-.52 1.107-2.13.93-2.38-.28l-3.95-18.983c-.244-1.17 1.053-2.023 2.055-1.076z" />
+                        </svg>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom Centered Text */}
+                <div style={{ textAlign: "center" }}>
+                  <h3 style={{ fontSize: "18px", fontWeight: "800", color: "#0f172a", marginBottom: "6px" }}>
+                    Enterprise SAML SSO
+                  </h3>
+                  <p style={{ fontSize: "13.5px", color: "#64748b", lineHeight: "1.5", margin: 0 }}>
+                    Turnkey enterprise single sign-on via WorkOS, Okta, and Azure AD directory syncing.
+                  </p>
+                </div>
+              </div>
+
+              {/* Bottom Card 2 (Card 4: Concentric Orbit Integrations) */}
+              <div style={{
+                background: "#ffffff",
+                border: "1px solid #f1f5f9",
+                borderRadius: "24px",
+                padding: "24px",
+                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.03)",
+                display: "flex",
+                flexDirection: "column",
+                justify: "space-between",
+                minHeight: "340px"
+              }}>
+                {/* Top Centered Text */}
+                <div style={{ textAlign: "center", marginBottom: "20px" }}>
+                  <h3 style={{ fontSize: "18px", fontWeight: "800", color: "#0f172a", marginBottom: "6px" }}>
+                    Seamless Integrations
+                  </h3>
+                  <p style={{ fontSize: "13.5px", color: "#64748b", lineHeight: "1.5", margin: 0 }}>
+                    Connect with Stripe, Redis rate-limiters, Cloudflare edge, and WorkOS out of the box.
+                  </p>
+                </div>
+
+                {/* Bottom UI Visual: Concentric Orbit Integrations Graphic */}
+                <div style={{ background: "#f8fafc", borderRadius: "16px", padding: "16px", border: "1px solid #e2e8f0", display: "flex", justifyContent: "center", alignItems: "center", minHeight: "130px", flex: 1 }}>
+                  <div style={{ position: "relative", width: "100px", height: "100px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                    <div style={{ position: "absolute", width: "100px", height: "100px", borderRadius: "50%", border: "1px dashed #cbd5e1" }} />
+                    <div style={{ position: "absolute", width: "65px", height: "65px", borderRadius: "50%", border: "1px dashed #cbd5e1" }} />
+                    <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "#3b82f6", color: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "16px", zIndex: 5, boxShadow: "0 4px 12px rgba(59,130,246,0.3)" }}>
+                      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+                    </div>
+                    {/* Orbiting App Icons */}
+                    <div style={{ position: "absolute", top: "-5px", left: "40%", width: "24px", height: "24px", background: "#ffffff", borderRadius: "50%", boxShadow: "0 2px 6px rgba(0,0,0,0.1)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px" }}>💳</div>
+                    <div style={{ position: "absolute", bottom: "5px", right: "-5px", width: "24px", height: "24px", background: "#ffffff", borderRadius: "50%", boxShadow: "0 2px 6px rgba(0,0,0,0.1)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px" }}>🔑</div>
+                    <div style={{ position: "absolute", bottom: "5px", left: "-5px", width: "24px", height: "24px", background: "#ffffff", borderRadius: "50%", boxShadow: "0 2px 6px rgba(0,0,0,0.1)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px" }}>💾</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Bottom Card 3 (Card 5: Audit Logging & Telemetry) */}
+              <div style={{
+                background: "#ffffff",
+                border: "1px solid #f1f5f9",
+                borderRadius: "24px",
+                padding: "24px",
+                boxShadow: "0 10px 30px rgba(0, 0, 0, 0.03)",
+                display: "flex",
+                flexDirection: "column",
+                justify: "space-between",
+                minHeight: "340px"
+              }}>
+                {/* Top UI Visual: Drag & Drop Security Task Box */}
+                <div style={{ background: "#f8fafc radial-gradient(#cbd5e1 1px, transparent 1px)", backgroundSize: "12px 12px", borderRadius: "16px", padding: "14px", border: "1px solid #e2e8f0", marginBottom: "20px", minHeight: "130px", display: "flex", alignItems: "center", justifyContent: "center", position: "relative" }}>
+                  
+                  {/* Floating Name Badge */}
+                  <div style={{ position: "absolute", top: "10px", left: "10px", background: "#0f172a", color: "#ffffff", fontSize: "9px", fontWeight: "800", padding: "4px 8px", borderRadius: "100px", display: "flex", alignItems: "center", gap: "4px", zIndex: 10 }}>
+                    <span style={{ width: "6px", height: "6px", background: "#38bdf8", borderRadius: "50%" }}></span>
+                    System Auth
+                  </div>
+
+                  <div style={{ background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "12px", padding: "12px", boxShadow: "0 10px 25px rgba(0,0,0,0.05)", width: "100%", position: "relative", zIndex: 5 }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px" }}>
+                      <span style={{ fontSize: "10px", color: "#ec4899", fontWeight: "800", background: "#fdf2f8", padding: "3px 8px", borderRadius: "100px" }}>• High</span>
+                      <span style={{ fontSize: "10px", color: "#94a3b8", fontWeight: "600" }}>2/4</span>
+                    </div>
+                    <div style={{ fontSize: "13px", fontWeight: "800", color: "#0f172a", marginBottom: "12px" }}>Audit Trail Sealed</div>
+                    
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                      <div style={{ fontSize: "10px", color: "#94a3b8", fontWeight: "600" }}>Jan 23 2026</div>
+                      <div style={{ display: "flex", marginLeft: "-4px" }}>
+                        <div style={{ width: "20px", height: "20px", borderRadius: "50%", background: "#0284c7", border: "2px solid #fff", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "9px", fontWeight: "800" }}>U</div>
+                        <div style={{ width: "20px", height: "20px", borderRadius: "50%", background: "#6366f1", border: "2px solid #fff", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "9px", fontWeight: "800", marginLeft: "-6px" }}>P</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Bottom Centered Text */}
+                <div style={{ textAlign: "center" }}>
+                  <h3 style={{ fontSize: "18px", fontWeight: "800", color: "#0f172a", marginBottom: "6px" }}>
+                    Audit Logging Telemetry
+                  </h3>
+                  <p style={{ fontSize: "13.5px", color: "#64748b", lineHeight: "1.5", margin: 0 }}>
+                    Immutable cryptographic audit logs for every tenant transaction with zero overhead.
+                  </p>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+      {/* ── 5. WORK THE WAY YOU WANT (CUSTOM UI) ── */}
+      <section id="work-the-way" style={{ background: "#ffffff", padding: "0 24px 80px" }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          
+
+
+          {/* Cards */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "30px" }}>
+            
+            {/* Card 1 */}
+            <div className="saas-custom-card" style={{ display: "flex", alignItems: "stretch", background: "#ffffff", borderRadius: "24px", overflow: "hidden", boxShadow: "0 4px 20px rgba(15, 23, 42, 0.02)" }}>
+              <div className="saas-custom-card-text" style={{ flex: 1, padding: "40px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+
+                <h3 style={{ fontSize: "32px", fontWeight: "800", color: "#0f172a", lineHeight: "1.25", marginBottom: "20px", maxWidth: "380px" }}>
+                  Effortless Task Flow Management
+                </h3>
+                <p style={{ fontSize: "16px", color: "#64748b", lineHeight: "1.7", marginBottom: "36px", maxWidth: "440px" }}>
+                  Move tasks seamlessly between stages with an intuitive drag-and-drop system.
+                </p>
+
+              </div>
+              <div className="saas-custom-card-img right-img" style={{ flex: 1.1, background: "#f8fafc", padding: "24px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                {/* Kanban Mockup */}
+                <div style={{ width: "100%", background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "16px", padding: "20px", boxShadow: "0 10px 25px rgba(0,0,0,0.03)" }}>
+                  <div className="saas-mockup-grid-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "16px" }}>
+                    <div style={{ background: "#f8fafc", borderRadius: "12px", padding: "16px", minHeight: "200px" }}>
+                      <div style={{ fontSize: "12px", fontWeight: "800", marginBottom: "12px", color: "#475569" }}>Backlog</div>
+                      <div style={{ background: "#ffffff", padding: "12px", borderRadius: "8px", boxShadow: "0 2px 4px rgba(0,0,0,0.02)", border: "1px solid #e2e8f0", marginBottom: "8px" }}>
+                        <div style={{ fontSize: "10px", color: "#ef4444", background: "#fee2e2", display: "inline-block", padding: "2px 6px", borderRadius: "4px", marginBottom: "6px" }}>High</div>
+                        <div style={{ fontSize: "13px", fontWeight: "700", color: "#0f172a" }}>CRM Feature List</div>
+                        <div style={{ fontSize: "11px", color: "#64748b", marginTop: "4px" }}>Define core modules...</div>
+                      </div>
+                    </div>
+                    <div style={{ background: "#f8fafc", borderRadius: "12px", padding: "16px", minHeight: "200px" }}>
+                      <div style={{ fontSize: "12px", fontWeight: "800", marginBottom: "12px", color: "#475569" }}>In Progress</div>
+                      <div style={{ background: "#ffffff", padding: "12px", borderRadius: "8px", boxShadow: "0 2px 4px rgba(0,0,0,0.02)", border: "1px solid #e2e8f0" }}>
+                        <div style={{ width: "100%", height: "4px", background: "#e2e8f0", borderRadius: "2px", marginBottom: "8px" }}><div style={{ width: "60%", height: "100%", background: "#0ea5e9", borderRadius: "2px" }}></div></div>
+                        <div style={{ fontSize: "13px", fontWeight: "700", color: "#0f172a" }}>API Integration</div>
+                      </div>
+                    </div>
+                    <div style={{ background: "#f8fafc", borderRadius: "12px", padding: "16px", minHeight: "200px" }}>
+                      <div style={{ fontSize: "12px", fontWeight: "800", marginBottom: "12px", color: "#475569" }}>Review</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="saas-custom-card reverse" style={{ display: "flex", flexDirection: "row-reverse", alignItems: "stretch", background: "#ffffff", borderRadius: "24px", overflow: "hidden", boxShadow: "0 4px 20px rgba(15, 23, 42, 0.02)" }}>
+              <div className="saas-custom-card-text" style={{ flex: 1, padding: "40px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+
+                <h3 style={{ fontSize: "32px", fontWeight: "800", color: "#0f172a", lineHeight: "1.25", marginBottom: "20px", maxWidth: "380px" }}>
+                  Stay Organized with Calendar View
+                </h3>
+                <p style={{ fontSize: "16px", color: "#64748b", lineHeight: "1.7", marginBottom: "36px", maxWidth: "440px" }}>
+                  Plan ahead, set deadlines, and never miss an important task with a clear timeline view.
+                </p>
+
+              </div>
+              <div className="saas-custom-card-img left-img" style={{ flex: 1.1, background: "#f8fafc", padding: "24px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                {/* Calendar Mockup */}
+                <div style={{ width: "100%", background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "16px", padding: "20px", boxShadow: "0 10px 25px rgba(0,0,0,0.03)" }}>
+                  <div style={{ display: "grid", gridTemplateColumns: "40px repeat(3, 1fr)", gap: "1px", background: "#e2e8f0", border: "1px solid #e2e8f0", borderRadius: "8px", overflow: "hidden" }}>
+                    <div style={{ background: "#ffffff", padding: "10px", fontSize: "10px", color: "#94a3b8", textAlign: "center" }}>Time</div>
+                    <div style={{ background: "#ffffff", padding: "10px", fontSize: "11px", fontWeight: "700", textAlign: "center" }}>Mon</div>
+                    <div style={{ background: "#ffffff", padding: "10px", fontSize: "11px", fontWeight: "700", textAlign: "center" }}>Tue</div>
+                    <div style={{ background: "#ffffff", padding: "10px", fontSize: "11px", fontWeight: "700", textAlign: "center" }}>Wed</div>
+                    
+                    <div style={{ background: "#ffffff", padding: "10px", fontSize: "10px", color: "#94a3b8", textAlign: "center" }}>09:00</div>
+                    <div style={{ background: "#ffffff", padding: "4px" }}>
+                      <div style={{ background: "#e0f2fe", borderLeft: "3px solid #0ea5e9", padding: "6px", borderRadius: "4px", fontSize: "10px", color: "#0284c7" }}>Internal meeting</div>
+                    </div>
+                    <div style={{ background: "#ffffff" }}></div>
+                    <div style={{ background: "#ffffff" }}></div>
+
+                    <div style={{ background: "#ffffff", padding: "10px", fontSize: "10px", color: "#94a3b8", textAlign: "center" }}>11:00</div>
+                    <div style={{ background: "#ffffff" }}></div>
+                    <div style={{ background: "#ffffff", padding: "4px" }}>
+                      <div style={{ background: "#f3e8ff", borderLeft: "3px solid #a855f7", padding: "6px", borderRadius: "4px", fontSize: "10px", color: "#7e22ce" }}>Kick Off Project</div>
+                    </div>
+                    <div style={{ background: "#ffffff" }}></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="saas-custom-card" style={{ display: "flex", alignItems: "stretch", background: "#ffffff", borderRadius: "24px", overflow: "hidden", boxShadow: "0 4px 20px rgba(15, 23, 42, 0.02)" }}>
+              <div className="saas-custom-card-text" style={{ flex: 1, padding: "40px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
+
+                <h3 style={{ fontSize: "32px", fontWeight: "800", color: "#0f172a", lineHeight: "1.25", marginBottom: "20px", maxWidth: "380px" }}>
+                  Gain Clarity with Project Overview
+                </h3>
+                <p style={{ fontSize: "16px", color: "#64748b", lineHeight: "1.7", marginBottom: "36px", maxWidth: "440px" }}>
+                  Track progress, team workload, and key milestones—all in one comprehensive dashboard.
+                </p>
+
+              </div>
+              <div className="saas-custom-card-img right-img" style={{ flex: 1.1, background: "#f8fafc", padding: "24px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                {/* Overview Mockup */}
+                <div style={{ width: "100%", background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "16px", padding: "20px", boxShadow: "0 10px 25px rgba(0,0,0,0.03)" }}>
+                  <div className="saas-mockup-grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
+                    <div style={{ border: "1px solid #e2e8f0", borderRadius: "12px", padding: "16px" }}>
+                      <div style={{ fontSize: "12px", fontWeight: "700", color: "#475569", marginBottom: "16px" }}>Total Task</div>
+                      {/* Fake Area Chart */}
+                      <div style={{ height: "80px", background: "linear-gradient(180deg, #e0e7ff 0%, #ffffff 100%)", borderRadius: "8px", position: "relative", overflow: "hidden" }}>
+                         <svg viewBox="0 0 100 100" preserveAspectRatio="none" style={{ position: "absolute", bottom: 0, left: 0, width: "100%", height: "100%" }}>
+                           <path d="M0,100 L0,60 Q25,30 50,70 T100,20 L100,100 Z" fill="#c7d2fe" />
+                           <path d="M0,100 L0,80 Q25,60 50,90 T100,40 L100,100 Z" fill="#818cf8" opacity="0.8" />
+                         </svg>
+                      </div>
+                    </div>
+                    <div style={{ border: "1px solid #e2e8f0", borderRadius: "12px", padding: "16px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center" }}>
+                    <div style={{ fontSize: "12px", fontWeight: "700", color: "#475569", alignSelf: "flex-start", marginBottom: "16px", width: "100%" }}>Workload</div>
+                      {/* Fake Donut Chart */}
+                      <div style={{ width: "90px", height: "90px", borderRadius: "50%", border: "12px solid #e2e8f0", borderTopColor: "#3b82f6", borderRightColor: "#818cf8", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                        <div style={{ fontSize: "18px", fontWeight: "800", color: "#0f172a" }}>290</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* ── 7. 4-STAGE SAAS DELIVERY PROCESS (BENTO GRID MATCHING REFERENCE DESIGN) ── */}
+      <section className="saas-process-section" style={{ padding: "0 24px 80px", background: "#ffffff", position: "relative", zIndex: 11 }}>
+        <div className="saas-process-container" style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          
+          {/* Header */}
+          <div className="saas-sec-header" style={{ maxWidth: "800px", margin: "0 auto 50px", textAlign: "center" }}>
+
+            <h2 className="saas-sec-title-dark" style={{ fontSize: "clamp(34px, 4vw, 48px)", fontWeight: "800", color: "#475569", lineHeight: "1.18", letterSpacing: "-1px", marginBottom: "16px" }}>
+              4-Stage SaaS Delivery Process
+            </h2>
+            <p className="saas-sec-desc-dark" style={{ fontSize: "16.5px", color: "#718096", lineHeight: "1.7", maxWidth: "660px", margin: "0 auto" }}>
               From data modeling and Stripe billing integration to penetration testing and 6–8 week MVP production rollout.
             </p>
           </div>
 
-          <div className="saas-process-grid">
-            {deliverySteps.map((step, i) => (
-              <div key={i} className="saas-process-card">
-                <div className="saas-proc-num-row">
-                  <span className="saas-proc-num">{step.num}</span>
-                  <span className="saas-proc-icon">{step.icon}</span>
+          {/* Bento Grid Container */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
+            
+            {/* Top Row: 2 Large Bento Cards Side-by-Side */}
+            <div className="saas-process-grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
+              
+              {/* Top Left Bento Card (Stage 01: Tenant Data Modeling & RLS) */}
+              <div style={{
+                background: "#f8fafc",
+                border: "1px solid #e2e8f0",
+                borderRadius: "28px",
+                padding: "36px 36px 0 36px",
+                display: "flex",
+                flexDirection: "column",
+                justify: "space-between",
+                overflow: "hidden",
+                boxShadow: "0 10px 30px rgba(15, 23, 42, 0.03)"
+              }}>
+                <div style={{ marginBottom: "24px" }}>
+                  <h3 style={{ fontSize: "24px", fontWeight: "800", color: "#0f172a", marginBottom: "12px", lineHeight: "1.3" }}>
+                    {deliverySteps[0].title}
+                  </h3>
+                  <p style={{ fontSize: "15px", color: "#475569", lineHeight: "1.6" }}>
+                    {deliverySteps[0].desc}
+                  </p>
                 </div>
-                <span className="saas-proc-tag">{step.tag}</span>
-                <h3 className="saas-proc-title">{step.title}</h3>
-                <p className="saas-proc-desc">{step.desc}</p>
+
+                {/* Overlapping Dual Code & Contract Window Mockup */}
+                <div style={{ display: "flex", gap: "14px", transform: "translateY(10px)" }}>
+                  <div style={{ flex: 1, background: "#0f172a", borderRadius: "14px 14px 0 0", padding: "14px", fontFamily: "monospace", fontSize: "10.5px", color: "#e2e8f0" }}>
+                    <div style={{ color: "#94a3b8", marginBottom: "4px" }}>dataset: tenant_catalog</div>
+                    <div style={{ color: "#38bdf8" }}>checks:</div>
+                    <div style={{ color: "#4ade80", paddingLeft: "10px" }}>- schema: PostgreSQL RLS</div>
+                    <div style={{ color: "#cbd5e1", paddingLeft: "10px" }}>- tenant_id filter: REQUIRED</div>
+                  </div>
+                  <div style={{ flex: 1.3, background: "#ffffff", borderRadius: "14px 14px 0 0", padding: "14px", boxShadow: "0 -8px 25px rgba(0,0,0,0.08)" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", fontSize: "11px", fontWeight: "800", color: "#0f172a", marginBottom: "8px" }}>
+                      <span>RLS Contract</span>
+                      <span style={{ color: "#00bba7" }}>● Active</span>
+                    </div>
+                    <div style={{ fontSize: "10px", color: "#64748b", marginBottom: "6px" }}>Filter: tenant_id = app.current_tenant</div>
+                    <div style={{ background: "#ecfdf5", color: "#059669", fontSize: "10px", padding: "4px 8px", borderRadius: "6px", fontWeight: "700" }}>✓ Zero-Leak Schema Enforced</div>
+                  </div>
+                </div>
               </div>
-            ))}
+
+              {/* Top Right Bento Card (Stage 02: Rapid MVP Pod Build 6-8 Weeks) */}
+              <div style={{
+                background: "#f8fafc",
+                border: "1px solid #e2e8f0",
+                borderRadius: "28px",
+                padding: "36px",
+                display: "flex",
+                flexDirection: "column",
+                justify: "space-between",
+                boxShadow: "0 10px 30px rgba(15, 23, 42, 0.03)"
+              }}>
+                <div>
+                  <h3 style={{ fontSize: "24px", fontWeight: "800", color: "#0f172a", marginBottom: "12px", lineHeight: "1.3" }}>
+                    {deliverySteps[1].title}
+                  </h3>
+                  <p style={{ fontSize: "15px", color: "#475569", lineHeight: "1.6" }}>
+                    {deliverySteps[1].desc}
+                  </p>
+                </div>
+
+                {/* Node Flowchart Diagram Visual (Exact match with reference image) */}
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "30px", position: "relative" }}>
+                  
+                  {/* Left Alert Node Pills */}
+                  <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                    <span style={{ background: "#fef2f2", color: "#ef4444", border: "1px solid #fecaca", padding: "6px 12px", borderRadius: "100px", fontSize: "11px", fontWeight: "700" }}>
+                      ✕ Missing Isolation
+                    </span>
+                    <span style={{ background: "#fefce8", color: "#eab308", border: "1px solid #fef08a", padding: "6px 12px", borderRadius: "100px", fontSize: "11px", fontWeight: "700" }}>
+                      ⚠ Duplicated Keys
+                    </span>
+                    <span style={{ background: "#fef2f2", color: "#ef4444", border: "1px solid #fecaca", padding: "6px 12px", borderRadius: "100px", fontSize: "11px", fontWeight: "700" }}>
+                      ✕ Invalid Session
+                    </span>
+                  </div>
+
+                  {/* Center Glowing Node Pill */}
+                  <div style={{ width: "48px", height: "48px", borderRadius: "16px", background: "#00bba7", color: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "22px", boxShadow: "0 10px 25px rgba(0, 187, 167, 0.4)" }}>
+                    ⚡
+                  </div>
+
+                  {/* Right Verified Node Pills */}
+                  <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
+                    <span style={{ background: "#ecfdf5", color: "#059669", border: "1px solid #a7f3d0", padding: "6px 12px", borderRadius: "100px", fontSize: "11px", fontWeight: "700" }}>
+                      ✓ Customer records
+                    </span>
+                    <span style={{ background: "#ecfdf5", color: "#059669", border: "1px solid #a7f3d0", padding: "6px 12px", borderRadius: "100px", fontSize: "11px", fontWeight: "700" }}>
+                      ✓ Sales records
+                    </span>
+                    <span style={{ background: "#ecfdf5", color: "#059669", border: "1px solid #a7f3d0", padding: "6px 12px", borderRadius: "100px", fontSize: "11px", fontWeight: "700" }}>
+                      ✓ Transactional records
+                    </span>
+                  </div>
+
+                </div>
+              </div>
+
+            </div>
+
+            {/* Bottom Row: Full-Width Bento Card (Stage 03 & 04: Security Verification & Launch) */}
+            <div className="saas-process-flex-col" style={{
+              background: "#f8fafc",
+              border: "1px solid #e2e8f0",
+              borderRadius: "28px",
+              padding: "40px",
+              display: "flex",
+              alignItems: "center",
+              gap: "40px",
+              boxShadow: "0 10px 30px rgba(15, 23, 42, 0.03)"
+            }}>
+              
+              {/* Left Column: Text & Pill Action Link */}
+              <div style={{ flex: 1 }}>
+                <div style={{ fontSize: "11.5px", fontWeight: "800", color: "#7c3aed", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "12px" }}>
+                  STAGE 03 & 04 • SECURITY AUDIT & LAUNCH
+                </div>
+                <h3 style={{ fontSize: "28px", fontWeight: "800", color: "#0f172a", marginBottom: "14px", lineHeight: "1.25" }}>
+                  Security Hardening, Penetration Testing & Production Launch
+                </h3>
+                <p style={{ fontSize: "15.5px", color: "#475569", lineHeight: "1.7", marginBottom: "28px" }}>
+                  We conduct exhaustive multi-tenant penetration tests, eliminate cross-tenant leak vectors, configure SOC 2 audit logging, and deploy with CI/CD automation for 99.99% SLA-backed maintenance.
+                </p>
+                <a href="/contact" style={{ background: "#ffffff", color: "#0f172a", padding: "12px 24px", borderRadius: "100px", fontWeight: "700", fontSize: "14px", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "8px", boxShadow: "0 4px 15px rgba(0,0,0,0.06)", border: "1px solid #e2e8f0" }}>
+                  <span>Learn more</span>
+                  <span>›</span>
+                </a>
+              </div>
+
+              {/* Right Column: Large Browser Window UI Visual */}
+              <div style={{ flex: 1.2, width: "100%" }}>
+                <div style={{ background: "#ffffff", borderRadius: "20px", overflow: "hidden", boxShadow: "0 15px 35px rgba(0,0,0,0.08)", border: "1px solid #e2e8f0" }}>
+                  {/* Chrome Bar */}
+                  <div style={{ display: "flex", alignItems: "center", padding: "10px 16px", background: "#f8fafc", borderBottom: "1px solid #e2e8f0", gap: "6px" }}>
+                    <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#ef4444" }} />
+                    <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#eab308" }} />
+                    <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#22c55e" }} />
+                    <span style={{ marginLeft: "10px", fontSize: "10.5px", color: "#64748b", fontFamily: "monospace" }}>audit.saas-platform.com</span>
+                  </div>
+
+                  {/* Window Content Split */}
+                  <div className="saas-process-flex-col" style={{ display: "flex", minHeight: "180px" }}>
+                    {/* Dark Copilot Panel */}
+                    <div style={{ width: "40%", background: "#0f172a", padding: "16px", color: "#ffffff", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }}>
+                      <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "linear-gradient(135deg, #a855f7, #6366f1)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "18px", marginBottom: "10px" }}>
+                        🔮
+                      </div>
+                      <div style={{ fontSize: "12px", fontWeight: "700", color: "#ffffff", marginBottom: "4px" }}>Audit Copilot</div>
+                      <div style={{ fontSize: "10px", color: "#94a3b8" }}>0 Leak Vectors Detected</div>
+                    </div>
+
+                    {/* White Workspace Panel */}
+                    <div style={{ width: "60%", padding: "16px", background: "#ffffff" }}>
+                      <div style={{ fontSize: "12px", fontWeight: "800", color: "#0f172a", marginBottom: "8px" }}>Contract Verification</div>
+                      <div style={{ display: "flex", flexDirection: "column", gap: "6px", fontSize: "10.5px", color: "#64748b" }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", background: "#f8fafc", padding: "6px 8px", borderRadius: "6px" }}>
+                          <span>PostgreSQL RLS</span>
+                          <span style={{ color: "#059669", fontWeight: "700" }}>VERIFIED</span>
+                        </div>
+                        <div style={{ display: "flex", justifyContent: "space-between", background: "#f8fafc", padding: "6px 8px", borderRadius: "6px" }}>
+                          <span>Stripe Webhooks</span>
+                          <span style={{ color: "#059669", fontWeight: "700" }}>VERIFIED</span>
+                        </div>
+                        <div style={{ display: "flex", justifyContent: "space-between", background: "#f8fafc", padding: "6px 8px", borderRadius: "6px" }}>
+                          <span>SAML 2.0 Auth</span>
+                          <span style={{ color: "#059669", fontWeight: "700" }}>VERIFIED</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
           </div>
+
         </div>
       </section>
 
-      {/* ── 8. SAAS ENGINEERING FAQS (WITH STICKY SIDEBAR) ── */}
-      <section className="saas-faq-section">
+      {/* ── 8. SAAS ENGINEERING FAQS (MODERN CENTERED DESIGN) ── */}
+      <section className="saas-faq-section" style={{ paddingTop: "20px", marginTop: "-40px", paddingBottom: "20px", position: "relative", zIndex: 12 }}>
         <div className="saas-faq-container">
-          <div className="saas-sec-header">
-            <div className="saas-badge-pill">
-              <span className="saas-badge-dot" />
-              SAAS ENGINEERING FAQS
-            </div>
+          <div className="saas-sec-header" style={{ marginBottom: "60px" }}>
             <h2 className="saas-sec-title">Frequently Asked Questions</h2>
             <p className="saas-sec-desc">Everything you need to know about our multi-tenant SaaS architecture, billing integrations, and MVP timelines.</p>
           </div>
 
-          <div className="saas-faq-layout">
-            <div className="saas-faq-sidebar">
-              <h3>Have a Custom SaaS Platform in Mind?</h3>
-              <p>Speak directly with our principal SaaS architect to evaluate multi-tenant data modeling, Stripe billing structures, and launch timelines.</p>
-              <Link href="/contact" className="saas-faq-contact-btn">
-                Talk to a SaaS Architect →
-              </Link>
-              <div className="saas-faq-stat-box">
-                <div className="saas-faq-stat-num">6–8 Wks</div>
-                <div className="saas-faq-stat-lbl">Average Multi-Tenant MVP Delivery Time</div>
-              </div>
-            </div>
-
-            <div className="saas-faq-accordion">
-              {faqs.map((f, i) => (
-                <details key={i} className="saas-faq-item">
-                  <summary>
-                    <span className="saas-faq-idx">{String(i + 1).padStart(2, "0")}</span>
-                    <span className="saas-faq-q">{f.q}</span>
-                    <span className="saas-faq-toggle">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
-                        <path d="M6 9l6 6 6-6" stroke="#64748b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                      </svg>
-                    </span>
-                  </summary>
-                  <div className="saas-faq-a">{f.a}</div>
-                </details>
-              ))}
-            </div>
+          <div className="saas-faq-accordion">
+            {faqs.map((f, i) => (
+              <details key={i} className="saas-faq-item">
+                <summary>
+                  <span className="saas-faq-q">{f.q}</span>
+                  <span className="saas-faq-toggle">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
+                      <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </span>
+                </summary>
+                <div className="saas-faq-a">{f.a}</div>
+              </details>
+            ))}
           </div>
-        </div>
-      </section>
 
-      {/* ── 9. HIGH-CONVERTING BOTTOM CTA BANNER ── */}
-      <section className="saas-cta-banner-section">
-        <div className="saas-cta-banner-card">
-          <div className="saas-cta-glow-orb" />
-          <div className="saas-cta-inner">
-            <div className="saas-badge-pill" style={{ background: "rgba(255,255,255,0.15)", color: "#fff", borderColor: "rgba(255,255,255,0.25)" }}>
-              <span className="saas-badge-dot" style={{ background: "#34d399" }} />
-              READY TO BUILD &amp; SCALE
-            </div>
-            <h2 className="saas-cta-title">Build &amp; Scale Your B2B SaaS Platform With OneNineLabs</h2>
-            <p className="saas-cta-desc">
-              Receive a comprehensive multi-tenant architecture proposal, Stripe billing blueprint, and 6–8 week MVP roadmap from our principal engineers within 48 hours.
-            </p>
-            <div className="saas-cta-actions">
-              <Link href="/contact" className="saas-cta-btn-primary">
-                Book Free Architecture Review →
-              </Link>
-              <Link href="/services" className="saas-cta-btn-ghost">
-                Explore All Services
-              </Link>
-            </div>
-          </div>
+
         </div>
       </section>
 
@@ -1165,9 +1515,9 @@ export async function logTenantAuditEvent(
           background: #e2e8f0;
         }
 
-        /* Pillars Section */
+        /* Pillars Section - White Theme */
         .saas-pillars-section {
-          padding: 60px 24px 40px;
+          padding: 40px 24px 60px;
           background: #ffffff;
         }
         .saas-pillars-container {
@@ -1177,42 +1527,53 @@ export async function logTenantAuditEvent(
         .saas-pillars-grid {
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          gap: 20px;
+          gap: 24px;
+        }
+        @media (max-width: 992px) {
+          .saas-pillars-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+        }
+        @media (max-width: 576px) {
+          .saas-pillars-grid {
+            grid-template-columns: 1fr;
+          }
         }
         .saas-pillar-card {
-          background: #f8fafc;
-          border: 1.5px solid #e2e8f0;
-          border-radius: 20px;
-          padding: 24px;
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
+          border-radius: 16px;
+          padding: 28px 24px;
           display: flex;
           flex-direction: column;
-          gap: 8px;
-          transition: all 0.25s ease;
+          gap: 12px;
+          box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+          transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
         }
         .saas-pillar-card:hover {
-          transform: translateY(-4px);
+          transform: translateY(-5px);
           border-color: #cbd5e1;
-          box-shadow: 0 14px 30px rgba(15, 23, 42, 0.05);
+          box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
         }
         .saas-pillar-icon-box {
-          width: 44px;
-          height: 44px;
+          width: 48px;
+          height: 48px;
           border-radius: 12px;
-          background: #ecfdf5;
-          border: 1px solid #a7f3d0;
+          background: #f0fdf4;
+          border: 1px solid #bbf7d0;
           display: flex;
           align-items: center;
           justify-content: center;
-          margin-bottom: 6px;
+          margin-bottom: 4px;
         }
         .saas-pillar-title {
-          font-size: 17px;
-          font-weight: 800;
+          font-size: 18px;
+          font-weight: 700;
           color: #0f172a;
           margin: 0;
         }
         .saas-pillar-desc {
-          font-size: 13px;
+          font-size: 14px;
           color: #64748b;
           line-height: 1.6;
           margin: 0;
@@ -1936,6 +2297,1052 @@ export async function logTenantAuditEvent(
           .saas-cta-banner-card {
             padding: 44px 20px;
             border-radius: 24px;
+          }
+        }
+      
+
+        
+        /* SAAS SAAS-LANDING STYLES */
+        :root {
+          --saas-landing-pink: #ff3366;
+          --saas-landing-pink-hover: #e62050;
+          --saas-landing-purple: #6a1b9a;
+          --saas-landing-dark: #2d3748;
+          --saas-landing-gray: #718096;
+          --saas-landing-bg-pink: #fff0f5;
+        }
+
+        /* Background Shapes */
+        .saas-landing-shape {
+          position: absolute;
+          z-index: 0;
+        }
+        .shape-large-bg {
+          top: -100px;
+          right: -5%;
+          width: 55%;
+          height: 120%;
+          background: #f8f6fb; /* Very light purple/gray */
+          border-radius: 40% 0 0 50%;
+          transform: rotate(-10deg);
+        }
+        .shape-triangle-1 {
+          top: 15%;
+          left: 12%;
+          width: 0; 
+          height: 0; 
+          border-left: 8px solid transparent;
+          border-right: 8px solid transparent;
+          border-bottom: 14px solid #f6e05e; /* Yellow */
+          transform: rotate(20deg);
+        }
+        .shape-circle-outline-1 {
+          top: 10%;
+          left: 20%;
+          width: 24px;
+          height: 24px;
+          border: 3px solid #f8f6fb;
+          border-radius: 50%;
+        }
+        .shape-circle-outline-2 {
+          bottom: 15%;
+          left: 25%;
+          width: 120px;
+          height: 120px;
+          border: 15px solid #f8f6fb;
+          border-radius: 50%;
+        }
+        .shape-triangle-2 {
+          bottom: 12%;
+          left: 22%;
+          width: 0; 
+          height: 0; 
+          border-left: 12px solid transparent;
+          border-right: 12px solid transparent;
+          border-bottom: 20px solid #e2e8f0; /* Light gray/yellowish */
+          transform: rotate(-15deg);
+        }
+
+        /* Buttons */
+        .saas-landing-btn-solid {
+          background: #ff3366;
+          color: #ffffff;
+          border: none;
+          padding: 10px 24px;
+          border-radius: 100px;
+          font-weight: 700;
+          font-size: 14px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          box-shadow: 0 8px 20px rgba(255, 51, 102, 0.25);
+        }
+        .saas-landing-btn-solid:hover {
+          background: #e62050;
+          transform: translateY(-2px);
+        }
+        .saas-landing-btn-large {
+          padding: 14px 34px;
+          font-size: 16px;
+        }
+        .saas-landing-btn-ghost {
+          background: #fff0f5;
+          color: #ff3366;
+          border: 1px solid #ff3366;
+          padding: 9px 23px;
+          border-radius: 100px;
+          font-weight: 700;
+          font-size: 14px;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+        .saas-landing-btn-ghost:hover {
+          background: transparent;
+        }
+
+        /* Tag */
+        .saas-landing-tag {
+          color: #ff3366;
+          font-weight: 700;
+          font-size: 15px;
+          margin-bottom: 12px;
+          display: block;
+        }
+
+        /* Navbar */
+        .saas-landing-nav {
+          width: 100%;
+          padding: 30px 0;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 100;
+        }
+        .saas-landing-nav-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 0 24px;
+        }
+        .saas-landing-logo {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 24px;
+          font-weight: 900;
+          color: #ff3366;
+        }
+        .saas-landing-nav-links {
+          display: flex;
+          gap: 36px;
+        }
+        .saas-landing-nav-links a {
+          text-decoration: none;
+          color: #2d3748;
+          font-weight: 600;
+          font-size: 14px;
+          transition: color 0.2s;
+        }
+        .saas-landing-nav-links a:hover {
+          color: #ff3366;
+        }
+        .saas-landing-nav-actions {
+          display: flex;
+          gap: 16px;
+        }
+
+        /* Hero */
+        .saas-landing-hero {
+          position: relative;
+          padding: 60px 24px 120px;
+          overflow: hidden;
+          background: #ffffff; /* Explicit White Theme */
+        }
+        .saas-landing-hero-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          align-items: center;
+          gap: 40px;
+          position: relative;
+          z-index: 10;
+        }
+        .saas-landing-hero-content {
+          flex: 1;
+          padding-right: 40px;
+        }
+        .saas-landing-hero-content h1 {
+          font-size: clamp(36px, 4vw, 48px);
+          font-weight: 800;
+          color: #2d3748;
+          line-height: 1.2;
+          margin-bottom: 20px;
+          letter-spacing: -1px;
+        }
+        .saas-landing-hero-content p {
+          font-size: 16px;
+          color: #718096;
+          line-height: 1.8;
+          margin-bottom: 36px;
+          max-width: 440px;
+        }
+        .saas-landing-hero-image {
+          flex: 1;
+          display: flex;
+          justify-content: flex-end;
+          position: relative;
+        }
+        .saas-landing-hero-image img {
+          max-width: 100%;
+          height: auto;
+          position: relative;
+          z-index: 2;
+          animation: float 6s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+          0% { transform: translateY(0px); }
+          50% { transform: translateY(-15px); }
+          100% { transform: translateY(0px); }
+        }
+/* About Us */
+        .saas-landing-about {\n          padding: 40px 24px;
+        }
+        .saas-landing-about-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: flex;
+          align-items: center;
+          gap: 80px;
+        }
+        .saas-landing-about-image {
+          flex: 1;
+        }
+        .saas-landing-about-image img {
+          width: 100%;
+          height: auto;
+          border-radius: 20px;
+        }
+        .saas-landing-about-content {
+          flex: 1;
+        }
+        .saas-landing-about-content h2 {
+          font-size: clamp(32px, 4vw, 44px);
+          font-weight: 800;
+          color: #0f172a;
+          line-height: 1.2;
+          margin-bottom: 24px;
+        }
+        .saas-landing-about-content p {
+          font-size: 16px;
+          color: #64748b;
+          line-height: 1.7;
+          margin-bottom: 40px;
+        }
+
+        /* Services Grid */
+        .saas-landing-services {\n          padding: 40px 24px 80px;
+          background: #fafcff;
+        }
+        .saas-landing-services-container {
+          max-width: 1200px;
+          margin: 0 auto;
+        }
+        .saas-landing-section-header {
+          text-align: center;
+          max-width: 700px;
+          margin: 0 auto 60px;
+        }
+        .saas-landing-section-header h2 {
+          font-size: clamp(32px, 4vw, 44px);
+          font-weight: 800;
+          color: #0f172a;
+          line-height: 1.2;
+          margin-bottom: 20px;
+        }
+        .saas-landing-section-header p {
+          font-size: 16px;
+          color: #64748b;
+          line-height: 1.7;
+        }
+        .saas-landing-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 30px;
+        }
+        .saas-landing-card {
+          background: #ffffff;
+          border: 1px solid #f1f5f9;
+          border-radius: 16px;
+          padding: 40px 24px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-align: center;
+          transition: all 0.3s ease;
+          box-shadow: 0 10px 40px rgba(0,0,0,0.02);
+        }
+        .saas-landing-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+          border-color: rgba(106, 27, 154, 0.1);
+        }
+        .saas-landing-card-icon {
+          width: 70px;
+          height: 70px;
+          border-radius: 16px;
+          background: #faf5ff;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          margin-bottom: 24px;
+          color: #6a1b9a;
+        }
+        .saas-landing-card-title {
+          font-size: 18px;
+          font-weight: 800;
+          color: #0f172a;
+          margin-bottom: 12px;
+          line-height: 1.3;
+        }
+        .saas-landing-card-desc {
+          font-size: 14px;
+          color: #64748b;
+          line-height: 1.6;
+          margin-bottom: 30px;
+          flex-grow: 1;
+        }
+        .saas-landing-card-link {
+          font-size: 14px;
+          font-weight: 700;
+          color: #ff3366;
+          text-decoration: none;
+          transition: all 0.2s ease;
+          opacity: 0.8;
+        }
+        .saas-landing-card:hover .saas-landing-card-link {
+          opacity: 1;
+        }
+
+        @media (max-width: 1024px) {
+          .saas-landing-hero-container, .saas-landing-about-container {
+            flex-direction: column;
+            text-align: center;
+            gap: 40px;
+          }
+          .saas-landing-hero-content p {
+            margin: 0 auto 40px;
+          }
+          .saas-landing-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
+          .saas-landing-nav-links {
+            display: none;
+          }
+        }
+        /* Architecture Section - White Theme */
+        .saas-arch-section {
+          padding: 30px 24px;
+          background: #ffffff;
+          position: relative;
+          overflow: hidden;
+        }
+        .saas-arch-glow-bg {
+          position: absolute;
+          width: 800px;
+          height: 800px;
+          background: radial-gradient(circle, rgba(59,130,246,0.06) 0%, rgba(255,255,255,0) 70%);
+          top: -200px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 0;
+          pointer-events: none;
+        }
+        .saas-arch-container {
+          max-width: 1200px;
+          margin: 0 auto;
+          position: relative;
+          z-index: 10;
+        }
+        .saas-arch-header-center {
+          text-align: center;
+          margin-bottom: 25px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        .saas-badge-glass {
+          background: #f0fdf4;
+          border: 1px solid #bbf7d0;
+          color: #16a34a;
+          padding: 8px 16px;
+          border-radius: 100px;
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 1px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 20px;
+        }
+        .saas-badge-dot-cyan {
+          width: 8px;
+          height: 8px;
+          background: #16a34a;
+          border-radius: 50%;
+          box-shadow: 0 0 8px rgba(22, 163, 74, 0.4);
+        }
+        .saas-sec-title-dark {
+          font-size: clamp(32px, 3.8vw, 44px);
+          font-weight: 800;
+          color: #0f172a;
+          margin-bottom: 16px;
+          line-height: 1.2;
+        }
+        .saas-sec-desc-dark {
+          font-size: 17px;
+          color: #64748b;
+          max-width: 620px;
+          line-height: 1.7;
+        }
+
+        /* White Theme Tabs */
+        .saas-arch-tabs-glass {
+          display: flex;
+          justify-content: center;
+          gap: 12px;
+          margin-bottom: 36px;
+          flex-wrap: wrap;
+        }
+        .saas-tab-glass {
+          background: #f8fafc;
+          border: 1.5px solid #e2e8f0;
+          color: #475569;
+          padding: 12px 24px;
+          border-radius: 100px;
+          font-size: 14px;
+          font-weight: 700;
+          cursor: pointer;
+          transition: all 0.25s ease;
+        }
+        .saas-tab-glass:hover {
+          background: #ffffff;
+          color: #0f172a;
+          border-color: #cbd5e1;
+          transform: translateY(-2px);
+        }
+        .saas-tab-glass.active {
+          background: #0f172a;
+          border-color: #0f172a;
+          color: #ffffff;
+          box-shadow: 0 10px 24px rgba(15, 23, 42, 0.15);
+        }
+
+        /* White Theme Showcase Card - No Border */
+        .saas-arch-glass-canvas {
+          background: #ffffff;
+          border: none;
+          border-radius: 28px;
+          display: flex;
+          gap: 30px;
+          padding: 28px 32px;
+          align-items: center;
+          box-shadow: 0 16px 45px rgba(15, 23, 42, 0.06);
+        }
+        .saas-arch-glass-canvas.saas-arch-reverse {
+          flex-direction: row-reverse;
+        }
+        @media (max-width: 992px) {
+          .saas-arch-glass-canvas,
+          .saas-arch-glass-canvas.saas-arch-reverse {
+            flex-direction: column;
+          }
+        }
+        
+        .saas-arch-glass-left {
+          flex: 1;
+        }
+        .saas-glass-badge-cyan {
+          color: #0284c7;
+          background: #e0f2fe;
+          border: none;
+          font-weight: 700;
+          font-size: 12px;
+          padding: 4px 12px;
+          border-radius: 100px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          margin-bottom: 16px;
+          display: inline-block;
+        }
+        .saas-glass-title {
+          font-size: 30px;
+          font-weight: 800;
+          color: #0f172a;
+          margin-bottom: 16px;
+          line-height: 1.3;
+        }
+        .saas-glass-desc {
+          font-size: 15.5px;
+          color: #64748b;
+          line-height: 1.7;
+          margin-bottom: 28px;
+        }
+        .saas-glass-action-row {
+          display: flex;
+          gap: 16px;
+        }
+        .saas-btn-cyan-glow {
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          background: #0f172a;
+          color: #ffffff;
+          padding: 14px 28px;
+          border-radius: 100px;
+          font-weight: 700;
+          text-decoration: none;
+          transition: all 0.25s ease;
+          box-shadow: 0 10px 24px rgba(15, 23, 42, 0.15);
+        }
+        .saas-btn-cyan-glow:hover {
+          background: #1e293b;
+          transform: translateY(-2px);
+          box-shadow: 0 14px 30px rgba(15, 23, 42, 0.22);
+        }
+
+        /* Right Dashboard Panel (White Theme) - No Border */
+        .saas-arch-glass-right {
+          flex: 1.2;
+          background: #f8fafc;
+          border: none;
+          border-radius: 20px;
+          padding: 28px;
+          width: 100%;
+          box-shadow: 0 8px 24px rgba(15, 23, 42, 0.03);
+        }
+        .saas-dash-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          border-bottom: 1px solid #f1f5f9;
+          padding-bottom: 16px;
+          margin-bottom: 20px;
+        }
+        .saas-dash-title {
+          font-size: 17px;
+          color: #0f172a;
+          font-weight: 700;
+          margin: 0;
+        }
+        .saas-status-pill {
+          background: #ecfdf5;
+          border: none;
+          color: #059669;
+          padding: 5px 12px;
+          border-radius: 100px;
+          font-size: 12px;
+          font-weight: 700;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+        .pulse-dot {
+          width: 8px;
+          height: 8px;
+          background: #10b981;
+          border-radius: 50%;
+          animation: pulse-green 2s infinite;
+        }
+        @keyframes pulse-green {
+          0% { box-shadow: 0 0 0 0 rgba(16,185,129,0.7); }
+          70% { box-shadow: 0 0 0 8px rgba(16,185,129,0); }
+          100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+        }
+
+        .saas-dash-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+          margin-bottom: 20px;
+        }
+        .saas-dash-metric-card {
+          background: #ffffff;
+          border: none;
+          padding: 18px;
+          border-radius: 14px;
+          box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03);
+        }
+        .saas-metric-label {
+          display: block;
+          font-size: 11.5px;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          font-weight: 700;
+          margin-bottom: 6px;
+        }
+        .saas-metric-value {
+          display: block;
+          font-size: 28px;
+          font-weight: 800;
+          color: #0f172a;
+        }
+        .saas-metric-trend {
+          display: block;
+          font-size: 12px;
+          color: #059669;
+          margin-top: 4px;
+          font-weight: 600;
+        }
+
+        .saas-dash-log-card {
+          background: #ffffff;
+          border: none;
+          padding: 20px;
+          border-radius: 14px;
+          box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03);
+        }
+        .saas-log-title {
+          font-size: 13.5px;
+          color: #0f172a;
+          font-weight: 700;
+          margin: 0 0 14px 0;
+        }
+        .saas-log-list {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+        .saas-log-item {
+          display: flex;
+          justify-content: space-between;
+          font-size: 13px;
+          border-bottom: 1px solid #f1f5f9;
+          padding-bottom: 10px;
+        }
+        .saas-log-item:last-child {
+          border-bottom: none;
+          padding-bottom: 0;
+        }
+        .saas-log-text {
+          color: #334155;
+          font-weight: 500;
+        }
+        .saas-log-time {
+          color: #94a3b8;
+          font-size: 12px;
+        }
+        /* ── FAQ STYLING ── */
+        .saas-faq-container {
+          max-width: 800px;
+          margin: 0 auto;
+          padding: 0 24px 40px;
+        }
+        .saas-faq-accordion {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+        .saas-faq-item {
+          background: #ffffff;
+          border: 1px solid #e2e8f0;
+          border-radius: 16px;
+          overflow: hidden;
+          box-shadow: 0 4px 12px rgba(15, 23, 42, 0.02);
+          transition: all 0.2s;
+        }
+        .saas-faq-item:hover {
+          border-color: #cbd5e1;
+        }
+        .saas-faq-item[open] {
+          border-color: #00bba7;
+          box-shadow: 0 8px 24px rgba(0, 187, 167, 0.08);
+        }
+        .saas-faq-item summary {
+          display: flex;
+          align-items: center;
+          padding: 24px;
+          cursor: pointer;
+          list-style: none;
+          font-size: 18px;
+          font-weight: 700;
+          color: #0f172a;
+        }
+        .saas-faq-item summary::-webkit-details-marker {
+          display: none;
+        }
+        .saas-faq-q {
+          flex: 1;
+          padding-right: 20px;
+          line-height: 1.4;
+        }
+        .saas-faq-toggle {
+          width: 32px;
+          height: 32px;
+          border-radius: 50%;
+          background: #f8fafc;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          flex-shrink: 0;
+          transition: transform 0.3s;
+        }
+        .saas-faq-item[open] .saas-faq-toggle {
+          transform: rotate(180deg);
+          background: #e0f2fe;
+        }
+        .saas-faq-item[open] .saas-faq-toggle svg path {
+          stroke: #0284c7;
+        }
+        .saas-faq-a {
+          padding: 0 24px 24px 24px;
+          font-size: 15.5px;
+          color: #475569;
+          line-height: 1.7;
+        }
+
+        /* ── RESPONSIVE GRID & MEDIA QUERIES (PC, TAB, MOBILE) ── */
+        .saas-stack-split-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 50px;
+          align-items: center;
+        }
+
+        @media (max-width: 1024px) {
+          .saas-stack-split-grid {
+            grid-template-columns: 1fr;
+            gap: 36px;
+          }
+          .saas-landing-hero-container {
+            flex-direction: column !important;
+            text-align: center;
+            gap: 36px !important;
+          }
+          .saas-landing-hero-content {
+            max-width: 100% !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .saas-landing-hero-content p {
+            margin: 0 auto 30px !important;
+          }
+          .saas-landing-hero-image {
+            width: 100% !important;
+            justify-content: center !important;
+          }
+          .saas-arch-glass-canvas,
+          .saas-arch-glass-canvas.saas-arch-reverse {
+            flex-direction: column !important;
+            padding: 24px 20px !important;
+          }
+          .saas-arch-glass-left,
+          .saas-arch-glass-right {
+            width: 100% !important;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .saas-page-root {
+            overflow-x: hidden;
+          }
+          .saas-landing-hero {
+            padding: 40px 16px !important;
+          }
+          .saas-landing-hero-content h1 {
+            font-size: clamp(26px, 7vw, 36px) !important;
+          }
+          .saas-landing-hero-content p {
+            font-size: 15px !important;
+          }
+          .saas-sec-title-dark {
+            font-size: clamp(24px, 6vw, 32px) !important;
+          }
+          .saas-sec-desc-dark {
+            font-size: 14.5px !important;
+          }
+          .saas-landing-btn-large {
+            width: 100% !important;
+            justify-content: center;
+          }
+          .saas-dash-grid {
+            grid-template-columns: 1fr !important;
+            gap: 12px !important;
+          }
+          .saas-landing-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .saas-arch-tabs-glass {
+            gap: 8px !important;
+          }
+          .saas-tab-glass {
+            padding: 8px 16px !important;
+            font-size: 12.5px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .saas-landing-hero {
+            padding: 28px 12px !important;
+          }
+          .saas-glass-title {
+          border-bottom: 1px solid #f1f5f9;
+          padding-bottom: 16px;
+          margin-bottom: 20px;
+        }
+        .saas-dash-title {
+          font-size: 17px;
+          color: #0f172a;
+          font-weight: 700;
+          margin: 0;
+        }
+        .saas-status-pill {
+          background: #ecfdf5;
+          border: none;
+          color: #059669;
+          padding: 5px 12px;
+          border-radius: 100px;
+          font-size: 12px;
+          font-weight: 700;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+        .pulse-dot {
+          width: 8px;
+          height: 8px;
+          background: #10b981;
+          border-radius: 50%;
+          animation: pulse-green 2s infinite;
+        }
+        @keyframes pulse-green {
+          0% { box-shadow: 0 0 0 0 rgba(16,185,129,0.7); }
+          70% { box-shadow: 0 0 0 8px rgba(16,185,129,0); }
+          100% { box-shadow: 0 0 0 0 rgba(16,185,129,0); }
+        }
+
+        .saas-dash-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 16px;
+          margin-bottom: 20px;
+        }
+        .saas-dash-metric-card {
+          background: #ffffff;
+          border: none;
+          padding: 18px;
+          border-radius: 14px;
+          box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03);
+        }
+        .saas-metric-label {
+          display: block;
+          font-size: 11.5px;
+          color: #64748b;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
+          font-weight: 700;
+          margin-bottom: 6px;
+        }
+        .saas-metric-value {
+          display: block;
+          font-size: 28px;
+          font-weight: 800;
+          color: #0f172a;
+        }
+        .saas-metric-trend {
+          display: block;
+          font-size: 12px;
+          color: #059669;
+          margin-top: 4px;
+          font-weight: 600;
+        }
+
+        .saas-dash-log-card {
+          background: #ffffff;
+          border: none;
+          padding: 20px;
+          border-radius: 14px;
+          box-shadow: 0 4px 14px rgba(15, 23, 42, 0.03);
+        }
+        .saas-log-title {
+          font-size: 13.5px;
+          color: #0f172a;
+          font-weight: 700;
+          margin: 0 0 14px 0;
+        }
+        .saas-log-list {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+        .saas-log-item {
+          display: flex;
+          justify-content: space-between;
+          font-size: 13px;
+          border-bottom: 1px solid #f1f5f9;
+          padding-bottom: 10px;
+        }
+        .saas-log-item:last-child {
+          border-bottom: none;
+          padding-bottom: 0;
+        }
+        .saas-log-text {
+          color: #334155;
+          font-weight: 500;
+        }
+        .saas-log-time {
+          color: #94a3b8;
+          font-size: 12px;
+        }
+
+        /* ── RESPONSIVE GRID & MEDIA QUERIES (PC, TAB, MOBILE) ── */
+        .saas-stack-split-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 50px;
+          align-items: center;
+        }
+
+        @media (max-width: 1024px) {
+          .saas-layer-card-alt,
+          .saas-layer-card-alt.saas-card-reverse {
+            flex-direction: column !important;
+            padding: 24px 20px !important;
+            gap: 24px !important;
+          }
+          .saas-stack-split-grid {
+            grid-template-columns: 1fr;
+            gap: 36px;
+          }
+          .saas-faq-layout {
+            grid-template-columns: 1fr !important;
+            gap: 32px !important;
+          }
+          .saas-faq-sidebar {
+            position: relative !important;
+            top: 0 !important;
+          }
+          .saas-landing-hero-container {
+            flex-direction: column !important;
+            text-align: center;
+            gap: 36px !important;
+          }
+          .saas-landing-hero-content {
+            max-width: 100% !important;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+          .saas-landing-hero-content h1 {
+            font-size: clamp(34px, 5vw, 46px) !important;
+            line-height: 1.2 !important;
+          }
+          .saas-landing-hero-content p {
+            margin: 0 auto 30px !important;
+          }
+          .saas-landing-hero-image {
+            width: 100% !important;
+            justify-content: center !important;
+          }
+          .saas-arch-glass-canvas,
+          .saas-arch-glass-canvas.saas-arch-reverse {
+            flex-direction: column !important;
+            padding: 24px 20px !important;
+          }
+          .saas-arch-glass-left,
+          .saas-arch-glass-right {
+            width: 100% !important;
+          }
+          .saas-custom-card {
+            flex-direction: column !important;
+          }
+          .saas-custom-card-text {
+            padding: 40px 24px !important;
+            align-items: center !important;
+            text-align: center !important;
+          }
+          .saas-custom-card-text button,
+          .saas-custom-card-text div {
+            align-self: center !important;
+          }
+          .saas-custom-card-img.right-img,
+          .saas-custom-card-img.left-img {
+            border: none !important;
+            padding: 24px !important;
+          }
+          .saas-bento-bottom-grid,
+          .saas-mockup-grid-3,
+          .saas-mockup-grid-2,
+          .saas-process-grid-2,
+          .saas-arch-top-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .saas-landing-about-container-flex {
+            flex-direction: column !important;
+            text-align: center;
+          }
+          .saas-process-flex-col {
+            flex-direction: column !important;
+          }
+          .saas-process-flex-col > div {
+            width: 100% !important;
+          }
+        }
+
+        @media (max-width: 768px) {
+          .saas-page-root {
+            overflow-x: hidden;
+          }
+          .saas-landing-hero {
+            padding: 120px 16px 40px !important;
+          }
+          .saas-landing-hero-content h1 {
+            font-size: clamp(26px, 7vw, 36px) !important;
+          }
+          .saas-landing-hero-content p {
+            font-size: 15px !important;
+          }
+          .saas-sec-title-dark {
+            font-size: clamp(24px, 6vw, 32px) !important;
+          }
+          .saas-sec-desc-dark {
+            font-size: 14.5px !important;
+          }
+          .saas-landing-btn-large {
+            width: 100% !important;
+            justify-content: center;
+          }
+          .saas-hero-mockup-stats {
+            grid-template-columns: 1fr !important;
+          }
+          .saas-dash-grid {
+            grid-template-columns: 1fr !important;
+            gap: 12px !important;
+          }
+          .saas-landing-grid {
+            grid-template-columns: 1fr !important;
+          }
+          .saas-arch-tabs-glass {
+            gap: 8px !important;
+          }
+          .saas-tab-glass {
+            padding: 8px 16px !important;
+            font-size: 12.5px !important;
+          }
+        }
+
+        @media (max-width: 480px) {
+          .saas-landing-hero {
+            padding: 100px 12px 30px !important;
+          }
+          .saas-glass-title {
+            font-size: 22px !important;
+          }
+          .saas-metric-value {
+            font-size: 22px !important;
           }
         }
       `}</style>

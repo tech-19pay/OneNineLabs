@@ -28,7 +28,13 @@ export default function Footer({ accentColor = "#10b981" }) {
         }),
       });
 
-      const data = await res.json();
+      const resText = await res.text();
+      let data = {};
+      try {
+        data = resText ? JSON.parse(resText) : {};
+      } catch (e) {
+        console.error("Footer JSON parse error:", e);
+      }
 
       if (res.ok && data.success) {
         setFooterSubmitted(true);
