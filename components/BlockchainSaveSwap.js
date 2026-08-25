@@ -52,6 +52,7 @@ export default function BlockchainSaveSwap() {
           </div>
           
           <div className="bc-ss-right">
+            <span className="bc-eyebrow">Service Spotlight 01</span>
             <h2 className="bc-section-title">
               DEX Development
             </h2>
@@ -69,8 +70,20 @@ export default function BlockchainSaveSwap() {
       
       <style>{`
         .bc-save-swap {
-          padding: 100px 0;
+          padding: 110px 0;
           background: #fdfdfd;
+        }
+        .bc-eyebrow {
+          display: inline-block;
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+          color: #2563eb;
+          background: rgba(37, 99, 235, 0.08);
+          padding: 6px 14px;
+          border-radius: 100px;
+          margin-bottom: 20px;
         }
         .bc-ss-content {
           display: grid;
@@ -87,6 +100,13 @@ export default function BlockchainSaveSwap() {
           position: relative;
           width: 400px;
           height: 500px;
+        }
+        .bc-phones-scene::before {
+          content: '';
+          position: absolute;
+          inset: -30px;
+          background: radial-gradient(closest-side, rgba(37, 99, 235, 0.14), transparent 72%);
+          pointer-events: none;
         }
         
         .bc-phone-frame {

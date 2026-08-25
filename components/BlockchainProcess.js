@@ -39,18 +39,23 @@ export default function BlockchainProcess() {
     <section className="bc-process-section">
       <div className="new-bc-container">
         <div className="bc-process-header">
-          <h2 className="bc-section-title text-center">How We Ship<br/>Blockchain Products</h2>
-          <p className="bc-process-sub text-center">
+          <span className="bc-eyebrow">Delivery Process</span>
+          <h2 className="bc-section-title">How We Ship<br/>Blockchain Products</h2>
+          <p className="bc-process-sub">
             A battle-tested delivery process that takes you from idea to audited mainnet — with fixed milestones and zero surprises.
           </p>
         </div>
 
-        <div className="bc-process-grid">
-          {steps.map((s) => (
-            <div key={s.n} className="bc-process-card">
-              <div className="bc-process-n">{s.n}</div>
-              <h3 className="bc-process-title">{s.title}</h3>
-              <p className="bc-process-desc">{s.desc}</p>
+        <div className="bc-pr-timeline">
+          {steps.map((s, i) => (
+            <div key={s.n} className={`bc-pr-row ${i % 2 === 0 ? "is-left" : "is-right"}`}>
+              <div className="bc-pr-card">
+                <span className="bc-pr-step-tag">Step {s.n}</span>
+                <h3 className="bc-pr-title">{s.title}</h3>
+                <p className="bc-pr-desc">{s.desc}</p>
+              </div>
+              <div className="bc-pr-node"><span>{s.n}</span></div>
+              <div className="bc-pr-empty"></div>
             </div>
           ))}
         </div>
@@ -58,12 +63,25 @@ export default function BlockchainProcess() {
 
       <style>{`
         .bc-process-section {
-          padding: 100px 0;
+          padding: 110px 0;
           background: #fff;
+        }
+        .bc-eyebrow {
+          display: inline-block;
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+          color: #2563eb;
+          background: rgba(37, 99, 235, 0.08);
+          padding: 6px 14px;
+          border-radius: 100px;
+          margin-bottom: 20px;
         }
         .bc-process-header {
           max-width: 640px;
-          margin: 0 auto 60px;
+          margin: 0 auto 80px;
+          text-align: center;
         }
         .bc-process-sub {
           font-size: 16px;
@@ -71,50 +89,119 @@ export default function BlockchainProcess() {
           line-height: 1.6;
           margin-top: 20px;
         }
-        .bc-process-grid {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 24px;
-        }
-        .bc-process-card {
-          background: #f9fafb;
-          border: 1px solid #f3f4f6;
-          border-radius: 20px;
-          padding: 32px;
+
+        /* Timeline */
+        .bc-pr-timeline {
           position: relative;
+          max-width: 980px;
+          margin: 0 auto;
+        }
+        .bc-pr-timeline::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 50%;
+          width: 2px;
+          transform: translateX(-50%);
+          background: linear-gradient(180deg, #bfdbfe, #e5e7eb 30%, #e5e7eb 70%, #bfdbfe);
+        }
+        .bc-pr-row {
+          display: grid;
+          grid-template-columns: 1fr 64px 1fr;
+          column-gap: 40px;
+          align-items: center;
+          margin-bottom: 40px;
+        }
+        .bc-pr-row:last-child {
+          margin-bottom: 0;
+        }
+        .bc-pr-node {
+          grid-column: 2;
+          grid-row: 1;
+          width: 56px;
+          height: 56px;
+          margin: 0 auto;
+          border-radius: 50%;
+          background: linear-gradient(135deg, #1e3a8a, #2563eb);
+          color: #fff;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-weight: 800;
+          font-size: 15px;
+          box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+          border: 5px solid #fff;
+          z-index: 1;
+        }
+        .is-left .bc-pr-card {
+          grid-column: 1;
+          grid-row: 1;
+        }
+        .is-right .bc-pr-card {
+          grid-column: 3;
+          grid-row: 1;
+        }
+        .bc-pr-card {
+          position: relative;
+          background: #f9fafb;
+          border: 1px solid #eef0f3;
+          border-radius: 18px;
+          padding: 28px;
           transition: all 0.3s ease;
         }
-        .bc-process-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 16px 40px rgba(0, 0, 0, 0.06);
+        .bc-pr-card:hover {
           background: #fff;
+          transform: translateY(-3px);
+          box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+          border-color: #dbeafe;
         }
-        .bc-process-n {
-          font-size: 14px;
-          font-weight: 800;
-          color: #2563eb;
-          background: rgba(37, 99, 235, 0.08);
-          border-radius: 8px;
-          padding: 6px 10px;
+        .bc-pr-step-tag {
           display: inline-block;
-          margin-bottom: 18px;
-        }
-        .bc-process-title {
-          font-size: 17px;
-          font-weight: 700;
-          color: #111;
+          font-size: 11px;
+          font-weight: 800;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          color: #2563eb;
           margin-bottom: 10px;
         }
-        .bc-process-desc {
+        .bc-pr-title {
+          font-size: 18px;
+          font-weight: 700;
+          color: #111;
+          margin-bottom: 8px;
+        }
+        .bc-pr-desc {
           font-size: 13.5px;
           color: #666;
           line-height: 1.65;
         }
-        @media (max-width: 1024px) {
-          .bc-process-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 640px) {
-          .bc-process-grid { grid-template-columns: 1fr; }
+
+        @media (max-width: 900px) {
+          .bc-pr-timeline::before {
+            left: 27px;
+            transform: none;
+          }
+          .bc-pr-row {
+            grid-template-columns: 56px 1fr;
+            column-gap: 24px;
+            margin-bottom: 28px;
+          }
+          .bc-pr-node {
+            grid-column: 1 !important;
+            grid-row: 1 !important;
+            width: 48px;
+            height: 48px;
+            margin: 0;
+            font-size: 13px;
+          }
+          .bc-pr-card {
+            grid-column: 2 !important;
+            grid-row: 1 !important;
+          }
+          .bc-pr-empty {
+            display: none;
+          }
         }
       `}</style>
     </section>

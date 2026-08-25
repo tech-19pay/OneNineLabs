@@ -37,6 +37,13 @@ export default function BlockchainHeroNew() {
                 Explore Services
               </Link>
             </div>
+
+            <div className="bc-hero-chains">
+              <span className="hc-label">We build on</span>
+              {["Ethereum", "Solana", "Polygon", "BNB Chain", "Arbitrum", "Base"].map((c) => (
+                <span key={c} className="hc-chip">{c}</span>
+              ))}
+            </div>
           </div>
           
           <div className="bc-hero-right">
@@ -234,6 +241,36 @@ export default function BlockchainHeroNew() {
         .bc-hero-secondary-btn:hover {
           border-color: #111;
           transform: translateY(-2px);
+        }
+        .bc-hero-chains {
+          margin-top: 32px;
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+        .hc-label {
+          font-size: 12px;
+          font-weight: 700;
+          color: #94a3b8;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          margin-right: 6px;
+        }
+        .hc-chip {
+          font-size: 12.5px;
+          font-weight: 600;
+          color: #334155;
+          background: #f3f4f6;
+          border: 1px solid #e5e7eb;
+          padding: 6px 13px;
+          border-radius: 100px;
+          transition: all 0.2s;
+        }
+        .hc-chip:hover {
+          border-color: #2563eb;
+          color: #2563eb;
+          background: #eff6ff;
         }
         .bc-hero-primary-btn {
           display: inline-flex;

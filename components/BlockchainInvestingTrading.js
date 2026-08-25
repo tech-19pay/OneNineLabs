@@ -126,6 +126,7 @@ export default function BlockchainInvestingTrading() {
           </div>
           
           <div className="bc-it-right">
+            <span className="bc-eyebrow">Service Spotlight 02</span>
             <h2 className="bc-section-title">Exchange Development</h2>
             <div className="bc-it-list">
               {items.map((item, idx) => (
@@ -144,15 +145,30 @@ export default function BlockchainInvestingTrading() {
       
       <style>{`
         .bc-invest-trade {
-          padding: 100px 0;
-          background: #fdfdfd;
+          padding: 110px 0;
+          background: #ffffff;
+        }
+        .bc-eyebrow {
+          display: inline-block;
+          font-size: 12px;
+          font-weight: 700;
+          letter-spacing: 1.5px;
+          text-transform: uppercase;
+          color: #2563eb;
+          background: rgba(37, 99, 235, 0.08);
+          padding: 6px 14px;
+          border-radius: 100px;
+          margin-bottom: 20px;
         }
         .bc-it-content {
           display: grid;
-          grid-template-columns: 1fr 1fr;
+          grid-template-columns: 1fr 1.15fr;
           gap: 60px;
           align-items: center;
         }
+        /* Flipped layout: copy left, exchange mockup right */
+        .bc-it-left { order: 2; }
+        .bc-it-right { order: 1; }
         
         .bc-it-left {
           display: flex;
@@ -166,6 +182,14 @@ export default function BlockchainInvestingTrading() {
           display: flex;
           justify-content: center;
           align-items: center;
+        }
+        .bc-it-mockup::before {
+          content: '';
+          position: absolute;
+          inset: -34px;
+          background: radial-gradient(closest-side, rgba(37, 99, 235, 0.13), transparent 72%);
+          pointer-events: none;
+          z-index: 0;
         }
         
         /* Desktop Exchange Mockup */
@@ -573,6 +597,8 @@ export default function BlockchainInvestingTrading() {
         
         @media (max-width: 900px) {
           .bc-it-content { grid-template-columns: 1fr; }
+          .bc-it-left { order: 1; }
+          .bc-it-right { order: 2; }
         }
       `}</style>
     </section>
