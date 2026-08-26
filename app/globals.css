@@ -27,6 +27,23 @@
   --glass-shadow: rgba(0, 0, 0, 0.25);
 }
 
+.skip-to-content {
+  position: absolute;
+  left: 12px;
+  top: -80px;
+  z-index: 10000;
+  background: #0f172a;
+  color: #ffffff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 13px;
+  text-decoration: none;
+}
+.skip-to-content:focus {
+  top: 12px;
+}
+
 /* Reset */
 * {
   margin: 0;

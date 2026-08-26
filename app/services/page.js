@@ -160,6 +160,25 @@ const servicesList = [
     ],
     widget: "📈 +340% Organic • 4.8x Campaign ROAS",
   },
+  {
+    id: "security",
+    title: "Cloud & Cyber Security",
+    role: "Zero-Trust, Pentests & SOC 2",
+    category: "Security",
+    href: "/services/security",
+    icon: "🛡️",
+    gradient: "linear-gradient(135deg, #059669, #047857)",
+    accent: "#059669",
+    accentLight: "#ecfdf5",
+    accentBorder: "#a7f3d0",
+    bullets: [
+      "Penetration testing for web, mobile, APIs and cloud",
+      "Zero-Trust architecture — ZTNA, IAM, mTLS",
+      "SOC 2 Type II and ISO 27001 readiness in 6–8 weeks",
+      "24/7 SIEM / SOC with a 15-minute incident SLA",
+    ],
+    widget: "🛡️ 0 Criticals • 15m IR SLA",
+  },
 ];
 
 const faqs = [
@@ -315,8 +334,8 @@ const cfg = {
     badge: "Contact Us",
     title: "Keep In Touch",
     desc: "Tell us about your project and we'll reply within one business day.",
-    location: "Gurugram, HR, India",
-    email: "ankush019pay@gmail.com",
+    location: "Lucknow, UP, India",
+    email: "19@oneninelabs.com",
     phone: "+91 85888 07039",
     hours: "Mon - Fri: 9AM - 8PM",
     formPlaceholder: "Tell us about your project...",

@@ -11,7 +11,7 @@ export const metadata = {
   title: "Custom Web Development & High-Performance UIs | OneNineLabs",
   description: "Enterprise web applications built on modern UI stacks, React, Vue, Vite & Edge APIs. Blazing-fast edge delivery, headless CMS, and sub-second LCP page loads.",
   keywords: ["web development company", "custom web applications", "UI design system", "React Vue agency", "Node.js APIs", "headless CMS integration", "Lighthouse speed optimization"],
-  alternates: { canonical: "/services/web-development", languages: { "en-US": "/services/web-development", en: "/services/web-development", "x-default": "/services/web-development" } },
+  alternates: { canonical: "/services/web-development", languages: { "en-US": "/services/web-development", en: "/services/web-development", "hi-IN": "/services/web-development", "x-default": "/services/web-development" } },
   openGraph: { title: "Custom Web Development & Modern UI Apps | OneNineLabs", description: "Blazing-fast custom web applications engineered for speed, security & scale.", url: "https://oneninelabs.com/services/web-development", type: "website", images: [{ url: "/services/web_dev_preview.png", width: 1200, height: 630, alt: "Custom Web Development by OneNineLabs" }] },
   twitter: { card: "summary_large_image", title: "Custom Web Development & Modern UI Apps | OneNineLabs", description: "Blazing-fast custom web applications engineered for speed, security & scale.", images: ["/services/web_dev_preview.png"] },
   robots: { index: true, follow: true },

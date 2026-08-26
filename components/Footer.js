@@ -115,9 +115,9 @@ export default function Footer({ accentColor = "#10b981" }) {
                 Premium custom software engineering and systems design consulting. We transform enterprise architecture and scale digital products.
               </p>
               <div style={{ display: "flex", gap: "14px", marginTop: "10px" }}>
-                <a href="https://github.com" target="_blank" rel="noreferrer" style={{ color: "#64748b", textDecoration: "none", fontSize: "13px" }}>GitHub</a>
-                <a href="https://linkedin.com" target="_blank" rel="noreferrer" style={{ color: "#64748b", textDecoration: "none", fontSize: "13px" }}>LinkedIn</a>
-                <a href="https://twitter.com" target="_blank" rel="noreferrer" style={{ color: "#64748b", textDecoration: "none", fontSize: "13px" }}>Twitter</a>
+                <a href="https://github.com/tech-19pay" target="_blank" rel="noopener noreferrer" style={{ color: "#64748b", textDecoration: "none", fontSize: "13px" }}>GitHub</a>
+                <a href="https://linkedin.com/company/oneninelabs" target="_blank" rel="noopener noreferrer" style={{ color: "#64748b", textDecoration: "none", fontSize: "13px" }}>LinkedIn</a>
+                <a href="https://twitter.com/oneninelabs" target="_blank" rel="noopener noreferrer" style={{ color: "#64748b", textDecoration: "none", fontSize: "13px" }}>Twitter</a>
               </div>
             </div>
 
@@ -143,6 +143,7 @@ export default function Footer({ accentColor = "#10b981" }) {
                 <li><Link href="/why-us" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "13px" }}>Why Us</Link></li>
                 <li><Link href="/contact" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "13px" }}>Contact Us</Link></li>
                 <li><Link href="/services" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "13px" }}>All Services</Link></li>
+                <li><Link href="/languages" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "13px" }}>Tech Stack</Link></li>
               </ul>
             </div>
 
@@ -150,10 +151,10 @@ export default function Footer({ accentColor = "#10b981" }) {
             <div>
               <h4 style={{ fontSize: "13px", fontWeight: "700", color: "#fff", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "20px" }}>Trust &amp; Audits</h4>
               <ul style={{ listStyle: "none", padding: "0", margin: "0", display: "flex", flexDirection: "column", gap: "12px" }}>
-                <li><a href="#" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "13px" }}>Zero-Trust Architecture</a></li>
-                <li><a href="#" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "13px" }}>SOC 2 Compliance</a></li>
-                <li><a href="#" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "13px" }}>Penetration Auditing</a></li>
-                <li><a href="#" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "13px" }}>High Uptime SLA</a></li>
+                <li><Link href="/services/security" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "13px" }}>Zero-Trust Architecture</Link></li>
+                <li><Link href="/services/security" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "13px" }}>SOC 2 Compliance</Link></li>
+                <li><Link href="/services/security" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "13px" }}>Penetration Testing</Link></li>
+                <li><Link href="/why-us" style={{ color: "#94a3b8", textDecoration: "none", fontSize: "13px" }}>Uptime SLA</Link></li>
               </ul>
             </div>
 
@@ -175,9 +176,9 @@ export default function Footer({ accentColor = "#10b981" }) {
               &copy; {new Date().getFullYear()} oneninelabs. All rights reserved.
             </p>
             <div style={{ display: "flex", gap: "20px" }}>
-              <a href="#" style={{ fontSize: "12px", color: "#64748b", textDecoration: "none" }}>Privacy Policy</a>
-              <a href="#" style={{ fontSize: "12px", color: "#64748b", textDecoration: "none" }}>Terms of Service</a>
-              <a href="#" style={{ fontSize: "12px", color: "#64748b", textDecoration: "none" }}>GDPR &amp; SOC 2</a>
+              <Link href="/privacy" style={{ fontSize: "12px", color: "#64748b", textDecoration: "none" }}>Privacy Policy</Link>
+              <Link href="/terms" style={{ fontSize: "12px", color: "#64748b", textDecoration: "none" }}>Terms of Service</Link>
+              <Link href="/services/security" style={{ fontSize: "12px", color: "#64748b", textDecoration: "none" }}>GDPR and SOC 2</Link>
             </div>
           </div>
         </div>

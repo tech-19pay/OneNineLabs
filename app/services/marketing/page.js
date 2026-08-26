@@ -170,6 +170,18 @@ export default function MarketingServicePage() {
     provider: { "@type": "Organization", name: "OneNineLabs", url: siteUrl },
     areaServed: { "@type": "Country", name: "Worldwide" },
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD", availability: "https://schema.org/InStock" },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Growth Marketing Services",
+      itemListElement: [
+        "Technical SEO and Schema",
+        "Google and LinkedIn PPC",
+        "CRO and Conversion Funnels",
+        "Programmatic Content",
+        "Server-Side Analytics",
+        "Web3 Growth",
+      ].map((name) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name } })),
+    },
   };
   const faqLd = {
     "@context": "https://schema.org",

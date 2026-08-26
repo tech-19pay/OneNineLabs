@@ -93,6 +93,17 @@ export default function MobileAppsServicePage() {
     provider: { "@type": "Organization", name: "OneNineLabs", url: siteUrl },
     areaServed: { "@type": "Country", name: "Worldwide" },
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD", availability: "https://schema.org/InStock" },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Mobile App Development Services",
+      itemListElement: [
+        "React Native Apps",
+        "Flutter Apps",
+        "Native iOS and Android",
+        "App Store and Play Store Launch",
+        "Offline-First Sync",
+      ].map((name) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name } })),
+    },
   };
 
   const faqLd = {
