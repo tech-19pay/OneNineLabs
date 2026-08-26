@@ -3,6 +3,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import { servicePageStyles } from "@/lib/servicePageStyles";
 import ServiceContactForm from "@/components/ServiceContactForm";
+import WebDevMoreSections from "@/components/WebDevMoreSections";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://oneninelabs.com";
 
@@ -526,7 +527,7 @@ export default function WebDevelopmentServicePage() {
           `}</style>
         </section>
 
-        <section className="vd-services-section" style={{
+        <section id="capabilities" className="vd-services-section" style={{
           background: "#f8fafc",
           padding: "64px 24px 24px 24px",
           display: "flex",
@@ -989,6 +990,8 @@ export default function WebDevelopmentServicePage() {
           `}</style>
         </section>
 
+        <WebDevMoreSections />
+
         {/* ─── 3. FAQ SECTION ─── */}
         <section style={{ background: "#f8fafc", padding: "80px 24px" }}>
           <div style={{ maxWidth: "860px", margin: "0 auto" }}>
@@ -1006,18 +1009,17 @@ export default function WebDevelopmentServicePage() {
           </div>
         </section>
 
-        {/* ─── 4. CTA BANNER ─── */}
-        <section style={{ background: "#ffffff", padding: "80px 24px", textAlign: "center", borderTop: "1px solid #e2e8f0" }}>
-          <div style={{ maxWidth: "700px", margin: "0 auto" }}>
-            <h2 style={{ fontSize: "36px", fontWeight: "900", color: "#0f172a", marginBottom: "16px" }}>
-              Ready to Build Your Next Web Platform?
-            </h2>
-            <p style={{ color: "#64748b", fontSize: "16px", marginBottom: "32px" }}>
-              Talk with our principal web architect and receive a technical architecture proposal within 48 hours.
+        <section className="vd-cta-section" id="get-started">
+          <div className="vd-cta-inner">
+            <div className="vd-badge-tag" style={{ marginLeft: "auto", marginRight: "auto" }}>Free Architecture Call</div>
+            <div className="vd-cta-title">Have a site or product UI? <span>Let&apos;s scope it.</span></div>
+            <p className="vd-cta-desc">
+              Tell us what you need to ship — a marketing site, a dashboard or a CMS rebuild. Within 48 hours you will get a stack recommendation and a fixed, itemized proposal.
             </p>
-            <Link href="/contact" style={{ background: "#334155", color: "#ffffff", padding: "15px 32px", borderRadius: "99px", fontWeight: "700", textDecoration: "none", display: "inline-block" }}>
-              Book Free Architecture Call →
-            </Link>
+            <div className="vd-cta-btns">
+              <Link href="/contact" className="vd-btn-primary">Start Your Project →</Link>
+              <Link href="/services" className="vd-btn-ghost">View All Services</Link>
+            </div>
           </div>
         </section>
 
