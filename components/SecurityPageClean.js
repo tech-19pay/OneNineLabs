@@ -14,12 +14,6 @@ const marqueeItems = [
   "OWASP", "SOC 2", "ISO 27001", "NIST", "Vanta", "Drata", "Wiz", "CrowdStrike",
 ];
 
-const stats = [
-  { num: "15m", label: "Incident Triage SLA" },
-  { num: "6–8w", label: "SOC 2 Readiness" },
-  { num: "0", label: "Criticals at Launch" },
-];
-
 const services = [
   { icon: "🎯", title: "Penetration Testing", desc: "Black-box and white-box assessments of web, mobile, APIs and cloud — OWASP Top 10, auth bypass, privilege escalation and business-logic flaws, plus a free re-test.", tags: ["Web / API", "Cloud", "Re-test"] },
   { icon: "🛡️", title: "Zero-Trust Architecture", desc: "Replace legacy VPNs with identity-aware ZTNA, least-privilege IAM, mTLS microsegmentation and hardware-backed KMS encryption across every workload.", tags: ["ZTNA", "IAM", "mTLS"] },
@@ -135,7 +129,7 @@ export default function SecurityPageClean() {
 
       <section style={{
         background: "linear-gradient(135deg, #f8fafc 0%, #ffffff 45%, #ecfdf5 100%)",
-        padding: "115px 24px 140px 24px",
+        padding: "115px 24px 80px 24px",
         borderBottom: "1px solid #f1f5f9",
         position: "relative",
         overflow: "hidden",
@@ -223,16 +217,7 @@ export default function SecurityPageClean() {
         </div>
       </section>
 
-      <div className="vd-hero-stats-bar" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
-        {stats.map((s) => (
-          <div className="vd-stat-item" key={s.label}>
-            <div className="num">{s.num}</div>
-            <div className="lbl">{s.label}</div>
-          </div>
-        ))}
-      </div>
-
-      <section className="vd-marquee-section" style={{ marginTop: "56px" }}>
+      <section className="vd-marquee-section">
         <div className="vd-marquee-track">
           {[...marqueeItems, ...marqueeItems].map((item, i) => (
             <span className="vd-marquee-item" key={`${item}-${i}`}><span className="sep">◆</span>{item}</span>

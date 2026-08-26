@@ -17,12 +17,6 @@ const marqueeItems = [
   "Pinecone", "Qdrant", "pgvector"
 ];
 
-const stats = [
-  { num: "80+", label: "Products Shipped" },
-  { num: "99.4%", label: "RAG Accuracy SLA" },
-  { num: "60%", label: "Avg. Cost Reduction" }
-];
-
 const services = [
   { icon: "🤖", title: "Autonomous AI Agents", desc: "Multi-agent orchestration with LangGraph, AutoGen & CrewAI for customer support, lead routing, research and code synthesis workflows.", tags: ["LangGraph", "CrewAI", "Tool Use"] },
   { icon: "🔎", title: "RAG & Vector Search", desc: "Hybrid keyword + semantic retrieval over enterprise documents with Pinecone, Qdrant or pgvector — grounded answers with citations.", tags: ["Pinecone", "Qdrant", "pgvector"] },
@@ -149,7 +143,7 @@ export default function AiAutomationPageClean() {
       {/* ═══ 1. HERO ═══ */}
       <section style={{
         background: "linear-gradient(135deg, #f8fafc 0%, #f5f3ff 50%, #ede9fe 100%)",
-        padding: "115px 24px 140px 24px",
+        padding: "115px 24px 80px 24px",
         borderBottom: "1px solid #f1f5f9",
         position: "relative",
         overflow: "hidden"
@@ -224,18 +218,8 @@ export default function AiAutomationPageClean() {
         </div>
       </section>
 
-      {/* ═══ 2. GLASS STATS BAR ═══ */}
-      <div className="vd-hero-stats-bar" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
-        {stats.map((s, i) => (
-          <div className="vd-stat-item" key={i}>
-            <div className="num">{s.num}</div>
-            <div className="lbl">{s.label}</div>
-          </div>
-        ))}
-      </div>
-
       {/* ═══ 3. TECH MARQUEE ═══ */}
-      <section className="vd-marquee-section" style={{ marginTop: "56px" }}>
+      <section className="vd-marquee-section">
         <div className="vd-marquee-track">
           {[...marqueeItems, ...marqueeItems].map((item, i) => (
             <span className="vd-marquee-item" key={i}><span className="sep">◆</span>{item}</span>

@@ -16,7 +16,7 @@ import { servicePageStyles } from "@/lib/servicePageStyles";
  * See app/services/web-development/page.js for a full example.
  */
 export default function ServicePageShell({ cfg }) {
-  const { theme, hero, stats, marquee, welcome, services, usecases, process, results, pricing, testimonial, faqs, cta } = cfg;
+  const { theme, hero, marquee, welcome, services, usecases, process, results, pricing, testimonial, faqs, cta } = cfg;
 
   const renderStepCard = (idx) => {
     switch (idx) {
@@ -143,18 +143,6 @@ export default function ServicePageShell({ cfg }) {
       <div className="vd-wrap">
         {/* ─── 1. HERO SECTION (MODERN AI & ENGINEERING HERO UI) ─── */}
         {cfg.customHeroContent ? cfg.customHeroContent : <ServicesHero cfg={cfg} />}
-
-        {/* ─── 1b. GLASS STATS BAR ─── */}
-        {stats && stats.length > 0 && (
-          <div className="vd-hero-stats-bar">
-            {stats.map((s, i) => (
-              <div className="vd-stat-item" key={i} style={{ animation: `scaleIn 0.6s cubic-bezier(0.16,1,0.3,1) ${0.2 + i * 0.1}s both` }}>
-                <div className="num">{s.num}</div>
-                <div className="lbl">{s.label}</div>
-              </div>
-            ))}
-          </div>
-        )}
 
         {/* ─── 1c. TECH MARQUEE ─── */}
         {marquee?.length > 0 && (

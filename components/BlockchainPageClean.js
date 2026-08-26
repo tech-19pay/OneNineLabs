@@ -17,12 +17,6 @@ const marqueeItems = [
   "Optimism", "Base", "Hyperledger", "Cosmos", "Solidity", "Rust", "Foundry", "Chainlink"
 ];
 
-const stats = [
-  { num: "80+", label: "Products Shipped" },
-  { num: "10+", label: "Blockchain Networks" },
-  { num: "100%", label: "Audited Pre-Launch" }
-];
-
 const services = [
   { icon: "📜", title: "Smart Contract Development", desc: "Secure, gas-optimized contracts in Solidity & Rust — ERC-20/721/1155/4337 tokens, upgradeable proxies, staking, vesting and custom protocol logic.", tags: ["Solidity", "Rust", "Proxies"] },
   { icon: "🔍", title: "Smart Contract Audits", desc: "Manual line-by-line review, automated static analysis and reentrancy/economic attack modeling — with a full report, fixes and re-verification.", tags: ["Security Review", "Static Analysis"] },
@@ -141,7 +135,7 @@ export default function BlockchainPageClean() {
       {/* ═══ 1. HERO ═══ */}
       <section style={{
         background: "linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f3f4f6 100%)",
-        padding: "115px 24px 140px 24px",
+        padding: "115px 24px 80px 24px",
         borderBottom: "1px solid #f1f5f9",
         position: "relative",
         overflow: "hidden"
@@ -245,18 +239,8 @@ export default function BlockchainPageClean() {
         </div>
       </section>
 
-      {/* ═══ 2. GLASS STATS BAR ═══ */}
-      <div className="vd-hero-stats-bar" style={{ gridTemplateColumns: "repeat(3, 1fr)" }}>
-        {stats.map((s, i) => (
-          <div className="vd-stat-item" key={i}>
-            <div className="num">{s.num}</div>
-            <div className="lbl">{s.label}</div>
-          </div>
-        ))}
-      </div>
-
       {/* ═══ 3. TECH MARQUEE ═══ */}
-      <section className="vd-marquee-section" style={{ marginTop: "56px" }}>
+      <section className="vd-marquee-section">
         <div className="vd-marquee-track">
           {[...marqueeItems, ...marqueeItems].map((item, i) => (
             <span className="vd-marquee-item" key={i}><span className="sep">◆</span>{item}</span>
