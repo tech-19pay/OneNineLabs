@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BlockchainSpotlights from "@/components/BlockchainSpotlights";
 
 const PRIMARY = "#2563eb";
 
@@ -28,7 +29,8 @@ const services = [
   { icon: "🖥️", title: "dApp Development", desc: "End-to-end decentralized applications: React/Next.js and React Native frontends, wallet connection, on-chain indexing and real-time event pipelines.", tags: ["Next.js", "WalletConnect"] },
   { icon: "🏦", title: "DeFi Protocol Development", desc: "Lending & borrowing markets, liquid staking, yield vaults, AMMs, derivatives and stablecoin systems engineered for capital efficiency and safety.", tags: ["Lending", "Staking", "AMM"] },
   { icon: "🔁", title: "DEX & Exchange Development", desc: "AMM and orderbook DEXs, plus centralized exchanges with high-throughput matching engines, custody, KYC flows and liquidity integrations.", tags: ["Orderbook", "Matching Engine"] },
-  { icon: "👛", title: "Wallet Development", desc: "Custodial, non-custodial and MPC wallets for web, mobile and browser extensions — with multi-sig, social recovery and fiat on/off ramps.", tags: ["MPC", "Multi-Sig"] },
+  { icon: "👛", title: "Web3 Wallet Development", desc: "Custodial, non-custodial and MPC wallets for web and mobile — multi-sig, social recovery, passkeys and fiat on/off ramps.", tags: ["MPC", "Multi-Sig", "Passkeys"] },
+  { icon: "🧩", title: "Web3 Wallet Extension Development", desc: "Chrome, Firefox, Brave and Edge MV3 extensions with dApp injection, WalletConnect, transaction simulation and hardware-wallet pairing.", tags: ["MV3", "EIP-1193", "WalletConnect"] },
   { icon: "🖼️", title: "NFT Marketplace Development", desc: "Minting, auctions, royalties, launchpads and creator tooling on EVM chains and Solana — from digital art to tickets, gaming assets and RWAs.", tags: ["ERC-721/1155", "Royalties"] },
   { icon: "🪙", title: "Token Development & Tokenomics", desc: "Token design, supply and vesting schedules, governance models and launch support — utility tokens, governance tokens and compliant security tokens.", tags: ["ERC-20", "SPL", "Vesting"] },
   { icon: "⛓️", title: "Layer 1 / Layer 2 & Protocols", desc: "Custom chains and rollups: OP Stack app-chains, Cosmos SDK zones, consensus tuning, validator infrastructure and protocol-level engineering.", tags: ["Rollups", "App-Chains"] },
@@ -94,7 +96,7 @@ const processSteps = [
 ];
 
 const faqs = [
-  { q: "What blockchain development services do you offer?", a: "We cover the full lifecycle: smart contract development and audits, dApp and Web3 integration, DeFi protocols, DEX and CEX exchange platforms, custodial and non-custodial wallets, NFT marketplaces, token creation and tokenomics, RWA tokenization, DAO tooling, Layer 1/Layer 2 protocol engineering and enterprise blockchain networks." },
+  { q: "What blockchain development services do you offer?", a: "We cover the full lifecycle: smart contract development and audits, dApp and Web3 integration, DeFi protocols, DEX and CEX exchange platforms, custodial and non-custodial Web3 wallets, Chrome/Firefox/Brave wallet extensions, NFT marketplaces, token creation and tokenomics, RWA tokenization, DAO tooling, Layer 1/Layer 2 protocol engineering and enterprise blockchain networks." },
   { q: "Which blockchains and frameworks do you build on?", a: "We develop on Ethereum, Solana, Polygon, BNB Chain, Avalanche, Arbitrum, Optimism, Base and Hyperledger Fabric, using Solidity, Rust, Hardhat, Foundry, Ethers.js/Viem, The Graph, Chainlink and IPFS. We help you pick the chain that fits your cost, speed and compliance needs." },
   { q: "How long does it take to build a dApp or exchange?", a: "A focused MVP — such as a staking dApp, token or single-marketplace — typically ships in 6–8 weeks. Full DeFi protocols, DEXs or exchange platforms with matching engines usually take 3–6 months depending on scope, integrations and audit depth." },
   { q: "Are your smart contracts audited?", a: "Yes. Every contract goes through internal review, automated static analysis and gas optimization, followed by an independent third-party audit before mainnet. We fix all findings, re-verify and deliver the full audit report." },
@@ -303,7 +305,7 @@ export default function BlockchainPageClean() {
               AMM &amp; orderbook DEXs plus CEX matching engines with custody, KYC flows and deep liquidity integration.
             </p>
             <div className="card-buttons">
-              <Link href="#services" className="btn-details">View details</Link>
+              <Link href="#exchange" className="btn-details">View details</Link>
               <Link href="/contact" className="btn-preview">Scope an exchange</Link>
             </div>
           </div>
@@ -316,12 +318,12 @@ export default function BlockchainPageClean() {
               <span style={{ color: "#4ade80" }}>✓ Withdrawal policy engine active</span><br />
               <span style={{ color: "#38bdf8" }}>wallet</span>.<span style={{ color: "#facc15" }}>setPolicy</span>(&#123; dailyLimit &#125;);
             </MockTerminal>
-            <h3 className="card-title">Wallet &amp; Custody Systems</h3>
+            <h3 className="card-title">Wallets &amp; Browser Extensions</h3>
             <p style={{ fontSize: "13.5px", color: "#64748b", lineHeight: "1.6", margin: "0 0 18px 0" }}>
-              Custodial, non-custodial and MPC wallets with multi-sig approvals, social recovery and fiat on/off ramps.
+              Custodial, non-custodial and MPC wallets for web, mobile and Chrome/Firefox/Brave extensions.
             </p>
             <div className="card-buttons">
-              <Link href="#services" className="btn-details">View details</Link>
+              <Link href="#wallet" className="btn-details">View details</Link>
               <Link href="/contact" className="btn-preview">Scope a wallet</Link>
             </div>
           </div>
@@ -354,6 +356,8 @@ export default function BlockchainPageClean() {
           ))}
         </div>
       </section>
+
+      <BlockchainSpotlights />
 
       {/* ═══ 6. TOKEN & CONTRACT DEPLOYMENT ═══ */}
       <section style={{ background: "#f8fafc", padding: "96px 24px", borderTop: "1px solid #f1f5f9" }}>

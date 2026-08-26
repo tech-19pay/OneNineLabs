@@ -1,6 +1,12 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import SecurityPageContent from "@/components/SecurityPageContent";
+import SecurityPageClean from "@/components/SecurityPageClean";
+import { servicePageStyles } from "@/lib/servicePageStyles";
+
+const PRIMARY = "#059669";
+const GRAD_FROM = "#065f46";
+const GRAD_TO = "#059669";
+const GLOW = "rgba(5,150,105,0.15)";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://oneninelabs.com";
 
@@ -64,7 +70,7 @@ const faqs = [
     a: "We specialize in securing Amazon Web Services (AWS), Google Cloud Platform (GCP), Microsoft Azure, Cloudflare, and on-premise Kubernetes clusters using automated Terraform and OpenTofu Infrastructure as Code."
   },
   {
-    q: "How do you prove compliance to our enterprise enterprise customers and auditors?",
+    q: "How do you prove compliance to our enterprise customers and auditors?",
     a: "We generate audit-ready SOC 2 / ISO 27001 evidence packages, cryptographic audit trails, executive security summaries, and official penetration test verification letters that you can share with enterprise prospects to accelerate sales deals."
   }
 ];
@@ -91,6 +97,21 @@ export default function SecurityServicePage() {
     provider: { "@type": "Organization", name: "OneNineLabs", url: siteUrl },
     areaServed: { "@type": "Country", name: "Worldwide" },
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD", availability: "https://schema.org/InStock" },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Cloud & Cyber Security Services",
+      itemListElement: [
+        "Penetration Testing",
+        "Zero-Trust Architecture",
+        "SOC 2 Type II Readiness",
+        "ISO 27001 Readiness",
+        "24/7 SOC & SIEM",
+        "Cloud Security Posture",
+        "Identity & Access Management",
+        "Vulnerability Management",
+        "Incident Response",
+      ].map((name) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name } })),
+    },
   };
 
   const faqLd = {
@@ -109,9 +130,10 @@ export default function SecurityServicePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
+      <style>{servicePageStyles(PRIMARY, GRAD_FROM, GRAD_TO, GLOW)}</style>
 
       <main style={{ minHeight: "100vh", background: "#ffffff" }}>
-        <SecurityPageContent />
+        <SecurityPageClean />
       </main>
 
       <Footer />
