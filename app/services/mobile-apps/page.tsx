@@ -1,10 +1,11 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import MobileAppsPageContent from "@/components/MobileAppsPageContent";
+import { Metadata } from "next";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://oneninelabs.com";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Custom Mobile App Development — iOS, Android & React Native | OneNineLabs",
   description: "High-performance native and cross-platform mobile apps engineered for 60/120 FPS fluid motion, offline-first SQLite sync, and rapid App Store & Google Play launch.",
   keywords: [
@@ -92,6 +93,17 @@ export default function MobileAppsServicePage() {
     provider: { "@type": "Organization", name: "OneNineLabs", url: siteUrl },
     areaServed: { "@type": "Country", name: "Worldwide" },
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD", availability: "https://schema.org/InStock" },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "Mobile App Development Services",
+      itemListElement: [
+        "React Native Apps",
+        "Flutter Apps",
+        "Native iOS and Android",
+        "App Store and Play Store Launch",
+        "Offline-First Sync",
+      ].map((name) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name } })),
+    },
   };
 
   const faqLd = {

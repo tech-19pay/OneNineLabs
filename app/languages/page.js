@@ -127,7 +127,7 @@ const languages = [
       "Native mobile for when performance is non-negotiable: SwiftUI & Jetpack Compose, offline sync, push, and biometric auth. We also bridge to Flutter/React Native where speed matters.",
     useCases: ["Native iOS/Android", "Offline-first apps", "Push & biometrics", "App Store launches"],
     stats: "Flutter 3.19.3 • Xcode 15.2",
-    href: "/services/web-development",
+    href: "/services/mobile-apps",
   },
   {
     id: "rn",

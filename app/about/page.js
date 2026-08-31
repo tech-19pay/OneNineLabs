@@ -32,6 +32,12 @@ export const metadata = {
     type: "website",
     images: [{ url: "/tech_banner.png", width: 1200, height: 630, alt: "About OneNineLabs" }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "About OneNineLabs — Lucknow Software Company",
+    description: "High-performance engineering for startups to enterprises — 80+ shipped, 99.9% SLA.",
+    images: ["/tech_banner.png"],
+  },
   robots: { index: true, follow: true },
 };
 

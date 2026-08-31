@@ -15,7 +15,6 @@ export const metadata = {
   metadataBase: new URL(siteUrl),
   title: {
     default: defaultTitle,
-    template: "%s | OneNineLabs",
   },
   description: defaultDescription,
   keywords: [
@@ -100,11 +99,6 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
-  },
   manifest: "/manifest.json",
   verification: {
     // Add your verification codes here when available
@@ -128,20 +122,39 @@ export const viewport = {
 function JsonLd() {
   const organizationSchema = {
     "@context": "https://schema.org",
-    "@type": "Organization",
+    "@type": ["Organization", "ProfessionalService", "LocalBusiness"],
     "@id": `${siteUrl}/#organization`,
     name: "OneNineLabs",
+    legalName: "OneNineLabs",
     url: siteUrl,
-    logo: `${siteUrl}/tech_banner.png`,
+    logo: { "@type": "ImageObject", url: `${siteUrl}/tech_banner.png`, width: 1200, height: 630 },
+    image: `${siteUrl}/tech_banner.png`,
     description: defaultDescription,
     foundingDate: "2020",
     founders: [{ "@type": "Person", name: "OneNineLabs Team" }],
+    email: "19@oneninelabs.com",
+    telephone: "+91-8588807039",
+    priceRange: "$$",
+    currenciesAccepted: "INR, USD",
+    paymentAccepted: "Bank Transfer, UPI, Card",
     address: {
       "@type": "PostalAddress",
       addressCountry: "IN",
       addressLocality: "Lucknow",
       addressRegion: "Uttar Pradesh",
+      postalCode: "226001",
     },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: 26.8467,
+      longitude: 80.9462,
+    },
+    openingHoursSpecification: [{
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      opens: "09:00",
+      closes: "20:00",
+    }],
     contactPoint: [
       {
         "@type": "ContactPoint",
@@ -152,7 +165,11 @@ function JsonLd() {
         areaServed: ["IN", "Worldwide"],
       },
     ],
-    sameAs: ["https://github.com/oneninelabs", "https://linkedin.com/company/oneninelabs", "https://twitter.com/oneninelabs"],
+    sameAs: [
+      "https://github.com/tech-19pay",
+      "https://linkedin.com/company/oneninelabs",
+      "https://twitter.com/oneninelabs",
+    ],
     knowsAbout: [
       "Custom Software Development",
       "Web Development",
@@ -178,7 +195,7 @@ function JsonLd() {
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Multi-Tenant SaaS Platforms", url: `${siteUrl}/services/saas` } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Blockchain and Web3 Solutions", url: `${siteUrl}/services/blockchain` } },
         { "@type": "Offer", itemOffered: { "@type": "Service", name: "Growth Marketing, SEO and PPC", url: `${siteUrl}/services/marketing` } },
-        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Cloud & Cyber Security", url: `${siteUrl}/services/security` } },
+        { "@type": "Offer", itemOffered: { "@type": "Service", name: "Cloud and Cyber Security", url: `${siteUrl}/services/security` } },
       ],
     },
     areaServed: {

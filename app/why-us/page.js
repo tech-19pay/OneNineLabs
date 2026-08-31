@@ -26,6 +26,12 @@ export const metadata = {
     type: "website",
     images: [{ url: "/tech_banner.png", width: 1200, height: 630, alt: "Why OneNineLabs" }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Why Enterprise Leaders Partner With OneNineLabs",
+    description: "6–8 week MVPs, SOC 2-ready, 99.9% SLA. Lucknow and worldwide.",
+    images: ["/tech_banner.png"],
+  },
   robots: { index: true, follow: true },
 };
 

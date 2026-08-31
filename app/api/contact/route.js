@@ -4,8 +4,13 @@ import Contact from "@/models/Contact";
 
 export async function POST(request) {
   try {
-    const body = await request.json();
-    const { email, company, name, message, sourcePage } = body;
+    let body;
+    try {
+      body = await request.json();
+    } catch (err) {
+      return NextResponse.json({ success: false, error: "Invalid or empty JSON request body" }, { status: 400 });
+    }
+    const { email, company, name, message, sourcePage } = body || {};
 
     if (!email || !email.trim()) {
       return NextResponse.json({ success: false, error: "Email is required" }, { status: 400 });

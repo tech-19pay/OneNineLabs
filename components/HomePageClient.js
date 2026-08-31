@@ -38,7 +38,13 @@ export default function Home() {
           sourcePage: "homepage_beta_modal",
         }),
       });
-      const data = await res.json();
+      const resText = await res.text();
+      let data = {};
+      try {
+        data = resText ? JSON.parse(resText) : {};
+      } catch (e) {
+        console.error("HomePage JSON parse error:", e);
+      }
       if (res.ok && data.success) {
         setModalSubmitted(true);
         addToast("Successfully requested consultation!");
@@ -547,7 +553,7 @@ export default function Home() {
   return (
     <>
       {/* Header Navigation Component */}
-      <Header />
+      <Header variant="light" />
 
       {/* Hero Section */}
       <main className={`hero hero-bg-${activeTab}`}>
@@ -558,7 +564,7 @@ export default function Home() {
             <h1 key={activeTab} className="hero-title" style={{ fontSize: "clamp(30px, 4.2vw, 48px)", lineHeight: 1.08, letterSpacing: "-1.2px" }}>
               {heroContent[activeTab]?.title || <>Custom software,<br />AI agents,<br />&amp; Web3 apps</>}
             </h1>
-            <p key={`${activeTab}-sub`} className="hero-subtitle" style={{ fontSize: "16px", lineHeight: 1.55, fontWeight: 500, color: "rgba(255,255,255,0.92)" }}>
+            <p key={`${activeTab}-sub`} className="hero-subtitle" style={{ fontSize: "16px", lineHeight: 1.55, fontWeight: 500 }}>
               {heroContent[activeTab]?.subtitle || "We build scalable custom applications, AI automation, SaaS platforms, blockchain dApps and growth systems — engineered for speed, security & scale."}
             </p>
 
@@ -568,35 +574,6 @@ export default function Home() {
               onClick={() => {
                 const readableTab = activeTab === "website" ? "Web Development" : activeTab === "ai_automation" ? "AI & Automation" : activeTab === "mobile" ? "Mobile Apps" : activeTab === "blockchain" ? "Blockchain Solutions" : activeTab === "custom_software" ? "Custom Software" : "Growth & Marketing";
                 addToast(`Opening ${readableTab} — OneNineLabs`, "success");
-              }}
-              style={{
-                marginTop: "8px",
-                background: "rgba(255, 255, 255, 0.08)",
-                border: "1px solid rgba(255, 255, 255, 0.2)",
-                color: "#ffffff",
-                padding: "10px 22px",
-                borderRadius: "30px",
-                fontFamily: "var(--font-sans)",
-                fontSize: "12px",
-                fontWeight: "700",
-                cursor: "pointer",
-                transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "8px",
-                width: "fit-content",
-                backdropFilter: "blur(8px)",
-                boxShadow: "0 4px 12px rgba(0, 0, 0, 0.05)"
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.background = "#ffffff";
-                e.currentTarget.style.color = "#0f172a";
-                e.currentTarget.style.transform = "scale(1.05)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.background = "rgba(255, 255, 255, 0.08)";
-                e.currentTarget.style.color = "#ffffff";
-                e.currentTarget.style.transform = "scale(1)";
               }}
             >
               View More &rarr;
@@ -628,7 +605,7 @@ export default function Home() {
                   <div className="card-inner">
                     <div className="dashboard-content">
                       <div className="mockup-scroll-container">
-                        <img src="/services/web_dev_preview.png" alt="Custom Web Development — Next.js 15 & React 19 — OneNineLabs" className="mockup-scroll-image" />
+                        <img src="/services/new_web_mockup.jpg" alt="Web Development Mockup" className="mockup-scroll-image" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '15px' }} />
                       </div>
                       <div className="mockup-floating-actions">
                         <button className="action-btn-secondary" onClick={() => addToast("Custom glassmorphism theme designer opened!", "info")}>Edit design</button>
@@ -654,7 +631,7 @@ export default function Home() {
                   <div className="card-inner">
                     <div className="dashboard-content">
                       <div className="mockup-scroll-container">
-                        <img src="/services/ai_automation_preview.png" alt="AI & Intelligent Automation — LLM Agents & RAG Vector Search — OneNineLabs" className="mockup-scroll-image" />
+                        <img src="/services/new_ai_mockup.jpg" alt="AI Mockup" className="mockup-scroll-image" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '15px' }} />
                       </div>
                       <div className="mockup-floating-actions">
                         <button
@@ -685,7 +662,7 @@ export default function Home() {
                   <div className="card-inner">
                     <div className="dashboard-content">
                       <div className="mockup-scroll-container">
-                        <img src="/services/mobile_app_preview.png" alt="Mobile App Development — React Native & Flutter — OneNineLabs" className="mockup-scroll-image" />
+                        <img src="/services/new_mobile_mockup.jpg" alt="Mobile Mockup" className="mockup-scroll-image" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '15px' }} />
                       </div>
                       <div className="mockup-floating-actions">
                         <button className="action-btn-secondary" onClick={() => addToast("Configuring iOS/Android push certificates...", "info")}>Config Push</button>
@@ -710,7 +687,7 @@ export default function Home() {
                   <div className="card-inner">
                     <div className="dashboard-content">
                       <div className="mockup-scroll-container">
-                        <img src="/services/blockchain_preview.png" alt="Blockchain & Web3 Solutions — Solidity Smart Contracts — OneNineLabs" className="mockup-scroll-image" />
+                        <img src="/services/new_blockchain_mockup.jpg" alt="Blockchain Mockup" className="mockup-scroll-image" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '15px' }} />
                       </div>
                       <div className="mockup-floating-actions">
                         <button
@@ -740,7 +717,7 @@ export default function Home() {
                   <div className="card-inner">
                     <div className="dashboard-content">
                       <div className="mockup-scroll-container">
-                        <img src="/services/custom_software_service.png" alt="Enterprise Custom Software & Microservices — OneNineLabs" className="mockup-scroll-image" />
+                        <img src="/services/new_software_mockup.jpg" alt="Software Mockup" className="mockup-scroll-image" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '15px' }} />
                       </div>
                       <div className="mockup-floating-actions">
                         <button className="action-btn-secondary" onClick={() => addToast("Opening Kubernetes deployment logs...", "info")}>View Logs</button>
@@ -765,7 +742,7 @@ export default function Home() {
                   <div className="card-inner">
                     <div className="dashboard-content">
                       <div className="mockup-scroll-container">
-                        <img src="/dashboard_seo_preview.png" alt="Growth Marketing — SEO, PPC & CRO — OneNineLabs" className="mockup-scroll-image" />
+                        <img src="/services/new_marketing_mockup.jpg" alt="Marketing Mockup" className="mockup-scroll-image" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '15px' }} />
                       </div>
                       <div className="mockup-floating-actions">
                         <button className="action-btn-secondary" onClick={() => addToast("Analyzing target demographic & keyword gaps...", "info")}>Optimize SEO</button>
@@ -786,49 +763,7 @@ export default function Home() {
         </div>
       </main>
 
-      {/* Partners Banner -> Replaced with Marketing Services Banner */}
-      <section className="partners-banner">
-        <div className="partners-container" style={{ justifyContent: "space-around" }}>
-          <div className="partners-label">
-            <span style={{
-              display: "inline-block",
-              padding: "10px 24px",
-              fontSize: "16px",
-              fontWeight: "900",
-              color: "#ffffff",
-              textTransform: "uppercase",
-              letterSpacing: "2px",
-              background: "linear-gradient(135deg, #a855f7, #7c3aed)",
-              borderRadius: "999px",
-              boxShadow: "0 0 20px rgba(168, 85, 247, 0.45), 0 4px 12px rgba(0,0,0,0.2)",
-              border: "1px solid rgba(168, 85, 247, 0.4)",
-              cursor: "pointer"
-            }}>
-              🚀 Marketing
-            </span>
-          </div>
 
-          <div className="marketing-banner-item">
-            <span className="marketing-banner-num" style={{ color: "#10b981" }}>{mktRoas}x Avg ROAS</span>
-            <span className="marketing-banner-label">Paid Ads (PPC)</span>
-          </div>
-
-          <div className="marketing-banner-item">
-            <span className="marketing-banner-num" style={{ color: "#0ea5e9" }}>+{mktTraffic}% Traffic</span>
-            <span className="marketing-banner-label">SEO Optimization</span>
-          </div>
-
-          <div className="marketing-banner-item">
-            <span className="marketing-banner-num" style={{ color: "#facc15" }}>{mktConversions}x Conversions</span>
-            <span className="marketing-banner-label">Lead Generation</span>
-          </div>
-
-          <div className="marketing-banner-item">
-            <span className="marketing-banner-num" style={{ color: "#a855f7" }}>{mktClicks.toLocaleString()} Clicks</span>
-            <span className="marketing-banner-label">Real-time Leads</span>
-          </div>
-        </div>
-      </section>
 
       {/* ── Marketing Section ── */}
       <section id="marketing-section" className="gmo-section">

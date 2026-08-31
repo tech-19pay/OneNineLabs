@@ -9,7 +9,19 @@ export const metadata = {
   description: "B2B SaaS engineering on Next.js 15 & Node.js microservices. Multi-tenant database isolation, Stripe recurring billing, team RBAC, and telemetry analytics.",
   keywords: ["SaaS development company", "multi-tenant architecture", "Stripe billing integration", "Next.js SaaS template", "B2B SaaS agency", "SaaS MVP builder"],
   alternates: { canonical: "/services/saas", languages: { "en-US": "/services/saas", en: "/services/saas", "hi-IN": "/services/saas", "x-default": "/services/saas" } },
-  openGraph: { title: "SaaS Platform Development | OneNineLabs", description: "Scale B2B SaaS platforms with multi-tenant isolation & automated billing.", url: "https://oneninelabs.com/services/saas", type: "website" },
+  openGraph: {
+    title: "SaaS Platform Development | OneNineLabs",
+    description: "Scale B2B SaaS platforms with multi-tenant isolation and automated Stripe billing.",
+    url: "https://oneninelabs.com/services/saas",
+    type: "website",
+    images: [{ url: "/services/saas_preview.png", width: 1200, height: 630, alt: "SaaS Development by OneNineLabs" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "SaaS Platform Development | OneNineLabs",
+    description: "Multi-tenant SaaS with Stripe billing, SSO and SOC 2-ready logs.",
+    images: ["/services/saas_preview.png"],
+  },
   robots: { index: true, follow: true },
 };
 
@@ -43,6 +55,16 @@ export default function SaasServicePage() {
     provider: { "@type": "Organization", name: "OneNineLabs", url: siteUrl },
     areaServed: { "@type": "Country", name: "Worldwide" },
     offers: { "@type": "Offer", price: "0", priceCurrency: "USD", availability: "https://schema.org/InStock" },
+    hasOfferCatalog: {
+      "@type": "OfferCatalog",
+      name: "SaaS Development Services",
+      itemListElement: [
+        "Multi-Tenant Architecture",
+        "Stripe Billing",
+        "SAML SSO and RBAC",
+        "SOC 2 Ready Telemetry",
+      ].map((name) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name } })),
+    },
   };
   const faqLd = {
     "@context": "https://schema.org",

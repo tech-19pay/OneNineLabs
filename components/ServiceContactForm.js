@@ -24,7 +24,13 @@ export default function ServiceContactForm({ placeholder = "Tell us about your p
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ name, email, company, message, sourcePage }),
       });
-      const data = await res.json();
+      const resText = await res.text();
+      let data = {};
+      try {
+        data = resText ? JSON.parse(resText) : {};
+      } catch (e) {
+        console.error("JSON parse error:", e);
+      }
       if (res.ok && data.success) {
         setStatus("success");
         setName("");
