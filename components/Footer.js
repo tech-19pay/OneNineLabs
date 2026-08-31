@@ -108,8 +108,8 @@ export default function Footer({ accentColor = "#10b981" }) {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "40px", marginBottom: "60px" }}>
             {/* Branding Column */}
             <div style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
-              <div style={{ fontSize: "22px", fontWeight: "900", color: "#fff", letterSpacing: "-0.5px" }}>
-                onenine<span style={{ color: accentColor }}>labs</span>
+              <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                <img src="/logos/One.png" alt="OneNineLabs Logo" style={{ height: '48px', width: 'auto', objectFit: 'contain', filter: 'brightness(0) invert(1)' }} />
               </div>
               <p style={{ fontSize: "13px", color: "#94a3b8", lineHeight: "1.6", margin: "0" }}>
                 Premium custom software engineering and systems design consulting. We transform enterprise architecture and scale digital products.

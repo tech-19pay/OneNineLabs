@@ -237,7 +237,7 @@ function Spotlight({ id, eyebrow, title, lead, points, flip, cta, visual }) {
     <section id={id} className={`bc-spot ${flip ? "flip" : ""}`}>
       <div className="bc-spot-inner">
         <div className="bc-spot-copy">
-          <span className="bc-spot-eye">{eyebrow}</span>
+          {eyebrow && <span className="bc-spot-eye">{eyebrow}</span>}
           <h2>{title}</h2>
           <p>{lead}</p>
           <ul>
@@ -266,7 +266,6 @@ export default function BlockchainSpotlights() {
     <>
       <Spotlight
         id="exchange"
-        eyebrow="Service Spotlight · Exchange Development"
         title="Crypto Exchange Development"
         lead="We design and ship centralized and decentralized exchanges — matching engines, custody, KYC, liquidity and a trading UI your users will actually trust."
         points={exchangePoints}

@@ -99,11 +99,6 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: "/favicon.ico",
-  },
   manifest: "/manifest.json",
   verification: {
     // Add your verification codes here when available

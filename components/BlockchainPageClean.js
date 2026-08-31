@@ -316,29 +316,149 @@ export default function BlockchainPageClean() {
 
       {/* ═══ 5. COMPLETE SERVICES GRID ═══ */}
       <section id="services" style={{ background: "#ffffff", padding: "104px 24px", borderBottom: "1px solid #f1f5f9", textAlign: "center" }}>
-        <div className="vd-badge-tag" style={{ marginLeft: "auto", marginRight: "auto", color: PRIMARY, background: "rgba(37,99,235,0.1)", borderColor: "rgba(37,99,235,0.25)" }}>Full-Stack Web3</div>
         <h2 className="vd-section-h2">Complete Blockchain Development Services</h2>
-        <p className="vd-section-p" style={{ maxWidth: "640px", marginLeft: "auto", marginRight: "auto" }}>
+        <p className="vd-section-p" style={{ maxWidth: "640px", marginLeft: "auto", marginRight: "auto", marginBottom: "64px" }}>
           Every layer of the Web3 stack, covered by one senior team — from protocol design and smart contracts to polished product UX and post-launch operations.
         </p>
 
-        <div className="vd-results-grid">
-          {services.map((s, i) => (
-            <div className="vd-result-card" key={i} style={{ textAlign: "left" }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-                <div className="vd-result-num" style={{ marginBottom: 0 }}>{String(i + 1).padStart(2, "0")}</div>
-                <div style={{ fontSize: "22px" }}>{s.icon}</div>
+        <div className="bento-grid" style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr 1fr",
+          gridTemplateRows: "auto auto",
+          gap: "24px",
+          maxWidth: "1150px",
+          margin: "0 auto",
+          textAlign: "left"
+        }}>
+          {/* Card 1: Left */}
+          <div className="bento-card" style={{
+            gridColumn: "1 / 2", gridRow: "1 / 3", background: "#f8fafc", borderRadius: "24px", padding: "32px", display: "flex", flexDirection: "column", position: "relative", overflow: "hidden", border: "1px solid #e2e8f0"
+          }}>
+            <div style={{ fontSize: "72px", fontWeight: "400", fontFamily: "Georgia, serif", color: "#0f172a", lineHeight: "1" }}>82%</div>
+            <h3 style={{ fontSize: "24px", fontWeight: "600", color: "#0f172a", margin: "12px 0" }}>Felt More in Control</h3>
+            <p style={{ fontSize: "15px", color: "#64748b", lineHeight: "1.6", marginBottom: "40px" }}>
+              Reported improved confidence managing their brain health after using the dashboard.
+            </p>
+            <div style={{ background: "#ffffff", borderRadius: "16px", padding: "20px", boxShadow: "0 10px 30px rgba(0,0,0,0.05)", border: "1px solid #e2e8f0", zIndex: 2, marginTop: "auto" }}>
+              <div style={{ fontSize: "14px", fontWeight: "700", marginBottom: "16px" }}>Suggested Next Steps</div>
+              <div style={{ display: "flex", gap: "12px", marginBottom: "16px" }}>
+                <div style={{ width: "24px", height: "24px", background: "#f1f5f9", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px" }}>🩺</div>
+                <div>
+                  <div style={{ fontSize: "12px", fontWeight: "600", color: "#0f172a" }}>Diagnostic <span style={{ color: "#94a3b8", fontWeight: "400", marginLeft: "8px" }}>May - June</span></div>
+                  <ul style={{ paddingLeft: "16px", margin: "4px 0 0", fontSize: "11px", color: "#64748b", lineHeight: "1.5" }}>
+                    <li>Repeat MRI in 3-4 months</li>
+                    <li>Cognitive test recommended</li>
+                  </ul>
+                </div>
               </div>
-              <div className="vd-result-label">{s.title}</div>
-              <div className="vd-result-desc">
-                {s.desc}
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "16px", paddingTop: "16px", borderTop: "1px dashed #e2e8f0" }}>
-                  {s.tags.map((t, ti) => <span key={ti} style={pill}>{t}</span>)}
+              <div style={{ display: "flex", gap: "12px" }}>
+                <div style={{ width: "24px", height: "24px", background: "#f1f5f9", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px" }}>👨‍⚕️</div>
+                <div>
+                  <div style={{ fontSize: "12px", fontWeight: "600", color: "#0f172a" }}>Specialist <span style={{ color: "#94a3b8", fontWeight: "400", marginLeft: "8px" }}>July</span></div>
+                  <ul style={{ paddingLeft: "16px", margin: "4px 0 0", fontSize: "11px", color: "#64748b", lineHeight: "1.5" }}>
+                    <li>Consult a neurologist (early risk detected)</li>
+                  </ul>
                 </div>
               </div>
             </div>
-          ))}
+            {/* Background shadow shapes for mockup */}
+            <div style={{ position: "absolute", bottom: "-20px", left: "10%", right: "10%", height: "100px", background: "#ffffff", borderRadius: "16px", opacity: 0.5, zIndex: 1, transform: "scale(0.9)" }}></div>
+          </div>
+
+          {/* Card 2: Top Mid */}
+          <div className="bento-card" style={{
+            gridColumn: "2 / 3", gridRow: "1 / 2", background: "#f8fafc", borderRadius: "24px", padding: "32px", border: "1px solid #e2e8f0", display: "flex", flexDirection: "column"
+          }}>
+            <div style={{ fontSize: "48px", fontWeight: "400", fontFamily: "Georgia, serif", color: "#0f172a", lineHeight: "1" }}>68%</div>
+            <h3 style={{ fontSize: "20px", fontWeight: "600", color: "#0f172a", margin: "12px 0" }}>Risk Reduction</h3>
+            <p style={{ fontSize: "14px", color: "#64748b", lineHeight: "1.5", marginBottom: "32px" }}>
+              Users who followed AI-guided lifestyle suggestions reduced key risk markers.
+            </p>
+            <div style={{ marginTop: "auto", position: "relative", height: "100px", overflow: "hidden", display: "flex", justifyContent: "center" }}>
+              {/* Semi-circle gauge */}
+              <svg width="200" height="100" viewBox="0 0 200 100" style={{ position: "absolute", bottom: 0 }}>
+                <path d="M 20 100 A 80 80 0 0 1 180 100" fill="none" stroke="#e2e8f0" strokeWidth="16" strokeLinecap="round" />
+                <path d="M 20 100 A 80 80 0 0 1 150 40" fill="none" stroke="#4ade80" strokeWidth="16" strokeLinecap="round" />
+                <circle cx="150" cy="40" r="8" fill="#4ade80" stroke="#ffffff" strokeWidth="4" />
+              </svg>
+            </div>
+          </div>
+
+          {/* Card 3: Top Right */}
+          <div className="bento-card" style={{
+            gridColumn: "3 / 4", gridRow: "1 / 2", background: "#f8fafc", borderRadius: "24px", padding: "32px", border: "1px solid #e2e8f0", display: "flex", flexDirection: "column"
+          }}>
+            <div style={{ fontSize: "48px", fontWeight: "400", fontFamily: "Georgia, serif", color: "#0f172a", lineHeight: "1" }}>76%</div>
+            <h3 style={{ fontSize: "20px", fontWeight: "600", color: "#0f172a", margin: "12px 0" }}>Detected Early</h3>
+            <p style={{ fontSize: "14px", color: "#64748b", lineHeight: "1.5", marginBottom: "32px" }}>
+              Early-stage neurodegenerative conditions identified before clinical symptoms appeared.
+            </p>
+            <div style={{ marginTop: "auto" }}>
+              <div style={{ marginBottom: "16px" }}>
+                <div style={{ display: "flex", justifyContent: "space-between", fontSize: "11px", fontWeight: "600", marginBottom: "6px" }}>
+                  <span style={{ color: "#64748b" }}>Symptoms Appeared</span>
+                  <span style={{ color: "#0f172a" }}>May 2025</span>
+                </div>
+                <div style={{ height: "12px", background: "#ffedd5", borderRadius: "6px", width: "100%", position: "relative" }}>
+                  <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "85%", background: "#fdba74", borderRadius: "6px" }}></div>
+                </div>
+              </div>
+              <div>
+                <div style={{ display: "flex", justifyContent: "space-between", fontSize: "11px", fontWeight: "600", marginBottom: "6px" }}>
+                  <span style={{ color: "#64748b" }}>Condition Detected</span>
+                  <span style={{ color: "#0f172a" }}>June 2024</span>
+                </div>
+                <div style={{ height: "12px", background: "#ffedd5", borderRadius: "6px", width: "100%", position: "relative" }}>
+                  <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "65%", background: "#f97316", borderRadius: "6px" }}></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Card 4: Bottom Right */}
+          <div className="bento-card" style={{
+            gridColumn: "2 / 4", gridRow: "2 / 3", background: "#f8fafc", borderRadius: "24px", padding: "32px", border: "1px solid #e2e8f0", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: "24px"
+          }}>
+            <div style={{ flex: 1 }}>
+              <div style={{ fontSize: "48px", fontWeight: "400", fontFamily: "Georgia, serif", color: "#0f172a", lineHeight: "1" }}>12k</div>
+              <p style={{ fontSize: "15px", color: "#64748b", lineHeight: "1.6", margin: "16px 0 24px" }}>
+                Individuals already tracking their brain health with our platform.
+              </p>
+              <button style={{ background: "#0f172a", color: "#ffffff", padding: "10px 24px", borderRadius: "99px", fontSize: "14px", fontWeight: "600", border: "none", cursor: "pointer" }}>Join Us</button>
+            </div>
+            <div style={{ width: "200px", height: "160px", display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr", gap: "8px" }}>
+              <div style={{ background: "#e2e8f0", borderRadius: "12px", overflow: "hidden" }}>
+                <img src="https://i.pravatar.cc/150?img=1" alt="User 1" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              </div>
+              <div style={{ background: "#e2e8f0", borderRadius: "12px", overflow: "hidden" }}>
+                <img src="https://i.pravatar.cc/150?img=2" alt="User 2" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              </div>
+              <div style={{ background: "#e2e8f0", borderRadius: "12px", overflow: "hidden" }}>
+                <img src="https://i.pravatar.cc/150?img=3" alt="User 3" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              </div>
+              <div style={{ background: "#e2e8f0", borderRadius: "12px", overflow: "hidden" }}>
+                <img src="https://i.pravatar.cc/150?img=4" alt="User 4" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+              </div>
+            </div>
+          </div>
         </div>
+
+        {/* CSS for responsiveness */}
+        <style dangerouslySetInnerHTML={{__html: `
+          @media (max-width: 900px) {
+            .bento-grid { grid-template-columns: 1fr 1fr !important; }
+            .bento-grid > div:nth-child(1) { grid-column: 1 / 3 !important; grid-row: 1 / 2 !important; }
+            .bento-grid > div:nth-child(2) { grid-column: 1 / 2 !important; grid-row: 2 / 3 !important; }
+            .bento-grid > div:nth-child(3) { grid-column: 2 / 3 !important; grid-row: 2 / 3 !important; }
+            .bento-grid > div:nth-child(4) { grid-column: 1 / 3 !important; grid-row: 3 / 4 !important; }
+          }
+          @media (max-width: 600px) {
+            .bento-grid { grid-template-columns: 1fr !important; }
+            .bento-grid > div { grid-column: 1 / 2 !important; grid-row: auto !important; }
+            .bento-grid > div:nth-child(4) { flex-direction: column !important; text-align: center !important; }
+            .bento-grid > div:nth-child(4) > div:nth-child(2) { width: 100% !important; height: auto !important; aspect-ratio: 4/3; }
+          }
+        `}} />
       </section>
 
       <BlockchainSpotlights />

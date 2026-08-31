@@ -4,6 +4,7 @@ import Footer from "@/components/Footer";
 import { servicePageStyles } from "@/lib/servicePageStyles";
 import ServiceContactForm from "@/components/ServiceContactForm";
 import WebDevMoreSections from "@/components/WebDevMoreSections";
+import WebDevStackZigzag from "@/components/WebDevStackZigzag";
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://oneninelabs.com";
 
@@ -528,7 +529,7 @@ export default function WebDevelopmentServicePage() {
         </section>
 
         <section id="capabilities" className="vd-services-section" style={{
-          background: "#f8fafc",
+          background: "#ffffff",
           padding: "64px 24px 24px 24px",
           display: "flex",
           flexDirection: "column",
@@ -541,7 +542,7 @@ export default function WebDevelopmentServicePage() {
               fontWeight: "900",
               letterSpacing: "2.5px",
               textTransform: "uppercase",
-              color: "#0f172a",
+              color: "#ff5a1f",
               display: "block",
               marginBottom: "12px"
             }}>
@@ -806,121 +807,9 @@ export default function WebDevelopmentServicePage() {
           `}</style>
         </section>
 
-        {/* ─── 2b. FULL-STACK ARCHITECTURE EXPLORER SECTION (MATCHES RESULTS/OUTCOMES CARD THEME) ─── */}
-        <section className="vd-results-section" style={{ borderTop: "none", paddingTop: "24px", paddingBottom: "24px" }}>
-          <h2 className="vd-section-h2">How We Layer Your Frontend Web Stack</h2>
-          <p className="vd-section-p">
-            A modular, high-performance architecture engineered for sub-second page loads and enterprise reliability.
-          </p>
+        <WebDevStackZigzag />
 
-          <div className="vd-results-grid">
-            
-            {/* CARD 1: FRONTEND LAYER */}
-            <div className="vd-result-card">
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-                <div className="vd-result-num" style={{ marginBottom: 0 }}>01</div>
-                <div style={{ fontSize: "22px" }}>🎨</div>
-              </div>
-              <div className="vd-result-label">Frontend Layer</div>
-              <div className="vd-result-desc">
-                Modular Design Systems, custom React/Vue/Svelte code, responsive styling &amp; micro-interactions.
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "16px", paddingTop: "16px", borderTop: "1px dashed #e2e8f0" }}>
-                  {["React / Vue", "UI Engine", "Tailwind", "CSS Grid"].map((pill, i) => (
-                    <span key={i} style={{ background: "#f8fafc", color: "#475569", border: "1px solid #e2e8f0", padding: "3px 9px", borderRadius: "99px", fontSize: "11px", fontWeight: "700" }}>{pill}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* CARD 2: BACKEND API LAYER */}
-            <div className="vd-result-card">
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-                <div className="vd-result-num" style={{ marginBottom: 0 }}>02</div>
-                <div style={{ fontSize: "22px" }}>⚙️</div>
-              </div>
-              <div className="vd-result-label">Backend API Layer</div>
-              <div className="vd-result-desc">
-                NestJS, Express &amp; FastAPI microservices with GraphQL DataLoaders and REST endpoint routing.
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "16px", paddingTop: "16px", borderTop: "1px dashed #e2e8f0" }}>
-                  {["NestJS", "FastAPI", "GraphQL", "REST"].map((pill, i) => (
-                    <span key={i} style={{ background: "#f8fafc", color: "#475569", border: "1px solid #e2e8f0", padding: "3px 9px", borderRadius: "99px", fontSize: "11px", fontWeight: "700" }}>{pill}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* CARD 3: DATABASE & CACHE */}
-            <div className="vd-result-card">
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-                <div className="vd-result-num" style={{ marginBottom: 0 }}>03</div>
-                <div style={{ fontSize: "22px" }}>🗄️</div>
-              </div>
-              <div className="vd-result-label">Database &amp; Cache</div>
-              <div className="vd-result-desc">
-                PostgreSQL with Prisma ORM, Supabase, and Redis edge caching for sub-millisecond lookups.
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "16px", paddingTop: "16px", borderTop: "1px dashed #e2e8f0" }}>
-                  {["Postgres", "Prisma", "Supabase", "Redis"].map((pill, i) => (
-                    <span key={i} style={{ background: "#f8fafc", color: "#475569", border: "1px solid #e2e8f0", padding: "3px 9px", borderRadius: "99px", fontSize: "11px", fontWeight: "700" }}>{pill}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* CARD 4: EDGE CDN DELIVERY */}
-            <div className="vd-result-card">
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-                <div className="vd-result-num" style={{ marginBottom: 0 }}>04</div>
-                <div style={{ fontSize: "22px" }}>☁️</div>
-              </div>
-              <div className="vd-result-label">Edge CDN Delivery</div>
-              <div className="vd-result-desc">
-                Global Vercel Edge Network &amp; Cloudflare CDN asset delivery with automated CI/CD pipelines.
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "16px", paddingTop: "16px", borderTop: "1px dashed #e2e8f0" }}>
-                  {["Vercel Edge", "Cloudflare", "Docker", "CI/CD"].map((pill, i) => (
-                    <span key={i} style={{ background: "#f8fafc", color: "#475569", border: "1px solid #e2e8f0", padding: "3px 9px", borderRadius: "99px", fontSize: "11px", fontWeight: "700" }}>{pill}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* CARD 5: TESTING & QA SUITE */}
-            <div className="vd-result-card">
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-                <div className="vd-result-num" style={{ marginBottom: 0 }}>05</div>
-                <div style={{ fontSize: "22px" }}>🧪</div>
-              </div>
-              <div className="vd-result-label">Testing &amp; QA Suite</div>
-              <div className="vd-result-desc">
-                Automated end-to-end testing, visual regression tools, and unit test suites for bulletproof reliability.
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "16px", paddingTop: "16px", borderTop: "1px dashed #e2e8f0" }}>
-                  {["Playwright", "Vitest", "CI Tests", "Linting"].map((pill, i) => (
-                    <span key={i} style={{ background: "#f8fafc", color: "#475569", border: "1px solid #e2e8f0", padding: "3px 9px", borderRadius: "99px", fontSize: "11px", fontWeight: "700" }}>{pill}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-            {/* CARD 6: OBSERVABILITY & MONITORING */}
-            <div className="vd-result-card">
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-                <div className="vd-result-num" style={{ marginBottom: 0 }}>06</div>
-                <div style={{ fontSize: "22px" }}>📈</div>
-              </div>
-              <div className="vd-result-label">Observability &amp; Metrics</div>
-              <div className="vd-result-desc">
-                Real-time error tracking, serverless logs instrumentation, and automated Core Web Vitals reports.
-                <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", marginTop: "16px", paddingTop: "16px", borderTop: "1px dashed #e2e8f0" }}>
-                  {["Sentry", "Vercel Logs", "Analytics", "Core Vitals"].map((pill, i) => (
-                    <span key={i} style={{ background: "#f8fafc", color: "#475569", border: "1px solid #e2e8f0", padding: "3px 9px", borderRadius: "99px", fontSize: "11px", fontWeight: "700" }}>{pill}</span>
-                  ))}
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </section>
-
-        {/* ─── 2c. CORE WEB VITALS & LIGHTHOUSE PERFORMANCE SHOWCASE ─── */}
+                {/* ─── 2c. CORE WEB VITALS & LIGHTHOUSE PERFORMANCE SHOWCASE ─── */}
         <section style={{ background: "#f8fafc", padding: "48px 24px 80px 24px", borderTop: "none" }}>
           <div className="perf-section-grid" style={{ 
             display: "grid", 
@@ -1012,7 +901,7 @@ export default function WebDevelopmentServicePage() {
         <section className="vd-cta-section" id="get-started">
           <div className="vd-cta-inner">
             <div className="vd-badge-tag" style={{ marginLeft: "auto", marginRight: "auto" }}>Free Architecture Call</div>
-            <div className="vd-cta-title">Have a site or product UI? <span>Let&apos;s scope it.</span></div>
+
             <p className="vd-cta-desc">
               Tell us what you need to ship — a marketing site, a dashboard or a CMS rebuild. Within 48 hours you will get a stack recommendation and a fixed, itemized proposal.
             </p>

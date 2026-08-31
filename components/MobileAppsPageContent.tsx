@@ -1246,7 +1246,40 @@ export default function MobileAppsPageContent() {
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 400px), 1fr))", gap: "32px" }}>
+          {/* Responsive Bento Grid Styles */}
+          <style dangerouslySetInnerHTML={{ __html: `
+            .mobile-bento-grid {
+              display: grid;
+              gap: 24px;
+              grid-auto-flow: dense;
+              grid-template-columns: 1fr;
+            }
+            .mobile-bento-item {
+              background: #ffffff;
+              border: 1px solid #e5e7eb;
+              border-radius: 32px;
+              padding: 40px;
+              display: flex;
+              flex-direction: column;
+              position: relative;
+              overflow: hidden;
+              box-shadow: 0 15px 35px rgba(0, 0, 0, 0.03);
+            }
+            @media (min-width: 768px) {
+              .mobile-bento-grid { grid-template-columns: repeat(2, 1fr); }
+              .mb-tall { grid-column: span 1; grid-row: span 2; }
+              .mb-wide { grid-column: span 2; grid-row: span 1; }
+              .mb-normal { grid-column: span 1; grid-row: span 1; }
+            }
+            @media (min-width: 1024px) {
+              .mobile-bento-grid { grid-template-columns: repeat(3, 1fr); }
+            }
+            @media (max-width: 767px) {
+              .mobile-bento-item { padding: 24px; }
+            }
+          `}} />
+
+          <div className="mobile-bento-grid">
             {deliverySteps.map((step, i) => {
               const colors = [
                 { hex: "#d946ef", grad: "linear-gradient(135deg, #f472b6, #d946ef)", shadow: "rgba(217,70,239,0.3)", bg: "rgba(217,70,239,0.08)" },
@@ -1256,24 +1289,19 @@ export default function MobileAppsPageContent() {
               ];
               const c = colors[i];
 
+              let gridClass = "mb-normal";
+              if (i === 0) gridClass = "mb-tall";
+              if (i === 3) gridClass = "mb-wide";
+              const isWide = i === 3;
+
               return (
-                <div key={i} style={{
-                  background: "#ffffff",
-                  border: "1px solid #e5e7eb",
-                  borderRadius: "32px",
-                  padding: "32px",
-                  display: "flex",
-                  flexDirection: "row",
-                  flexWrap: "wrap",
-                  gap: "24px",
-                  boxShadow: "0 15px 35px rgba(0, 0, 0, 0.03)",
-                  transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                  position: "relative",
-                  overflow: "hidden",
-                  borderTop: `6px solid ${c.hex}`
-                }}>
-                  {/* Left Side: Content */}
-                  <div style={{ flex: "1 1 240px", display: "flex", flexDirection: "column", zIndex: 10 }}>
+                <div key={i} className={`mobile-bento-item ${gridClass}`} style={{ borderTop: `6px solid ${c.hex}` }}>
+                  
+                  {/* Content Container */}
+                  <div style={{ display: "flex", flexDirection: isWide ? "row" : "column", gap: "24px", height: "100%", zIndex: 10, flexWrap: "wrap" }}>
+                    
+                    {/* Left Side: Text */}
+                    <div style={{ flex: isWide ? "1 1 240px" : "1", display: "flex", flexDirection: "column" }}>
                     <div style={{ width: "56px", height: "56px", borderRadius: "16px", background: c.grad, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px", flexShrink: 0, boxShadow: `0 8px 16px ${c.shadow}`, marginBottom: "20px", color: "#fff" }}>
                       {step.num}
                     </div>
@@ -1287,7 +1315,7 @@ export default function MobileAppsPageContent() {
                   </div>
 
                   {/* Right Side: Mini Mockup */}
-                  <div style={{ width: "140px", flexShrink: 0, position: "relative", zIndex: 10, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <div style={{ flexShrink: 0, width: isWide ? "140px" : "100%", display: "flex", alignItems: isWide ? "center" : "flex-end", justifyContent: isWide ? "center" : "flex-start", marginTop: isWide ? 0 : "auto", paddingTop: "24px" }}>
                     <div style={{ width: "120px", height: "160px", background: "#f8fafc", borderRadius: "20px", border: "4px solid #e2e8f0", boxShadow: "0 10px 25px rgba(0,0,0,0.05)", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column" }}>
 
                       {step.num === "01" && (
@@ -1327,6 +1355,8 @@ export default function MobileAppsPageContent() {
                         </div>
                       )}
                     </div>
+                  </div>
+
                   </div>
 
                   {/* Huge faded background icon */}
