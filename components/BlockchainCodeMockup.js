@@ -14,7 +14,7 @@ const mockups = [
         <span style={{ color: "#c678dd" }}>contract</span> <span style={{ color: "#e5c07b" }}>Vault</span> {'{\n'}
         {'  '}mapping(address =<span style={{ color: "#56b6c2" }}>&gt;</span> uint256) <span style={{ color: "#c678dd" }}>public</span> balances;\n\n
         {'  '}<span style={{ color: "#c678dd" }}>function</span> <span style={{ color: "#61afef" }}>deposit</span>() <span style={{ color: "#c678dd" }}>external payable</span> {'{\n'}
-        {'    '}<span style={{ color: "#56b6c2" }}>require</span>(msg.value <span style={{ color: "#56b6c2" }}>&gt;</span> <span style={{ color: "#d19a66" }}>0</span>, <span style={{ color: "#98c379" }}>"Zero deposit"</span>);\n
+        {'    '}<span style={{ color: "#56b6c2" }}>require</span>(msg.value <span style={{ color: "#56b6c2" }}>&gt;</span> <span style={{ color: "#d19a66" }}>0</span>, <span style={{ color: "#98c379" }}>&quot;Zero deposit&quot;</span>);\n
         {'    '}balances[msg.sender] += msg.value;\n
         {'  '}{'}\n'}
         {'}'}
@@ -50,7 +50,7 @@ const mockups = [
       <>
         <span style={{ color: "#c678dd" }}>pragma</span> <span style={{ color: "#56b6c2" }}>solidity</span> ^0.8.0;\n\n
         <span style={{ color: "#c678dd" }}>contract</span> <span style={{ color: "#e5c07b" }}>TronToken</span> {'{\n'}
-        {'  '}<span style={{ color: "#c678dd" }}>string public</span> name = <span style={{ color: "#98c379" }}>"Tronix"</span>;\n
+        {'  '}<span style={{ color: "#c678dd" }}>string public</span> name = <span style={{ color: "#98c379" }}>&quot;Tronix&quot;</span>;\n
         {'  '}<span style={{ color: "#c678dd" }}>function</span> <span style={{ color: "#61afef" }}>transfer</span>(address to, uint256 amount) <span style={{ color: "#c678dd" }}>public returns</span> (<span style={{ color: "#e5c07b" }}>bool</span>) {'{\n'}
         {'    '}<span style={{ color: "#7f848e" }}>// TVM implementation</span>\n
         {'    '}<span style={{ color: "#c678dd" }}>return true</span>;\n

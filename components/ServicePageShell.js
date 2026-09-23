@@ -5,6 +5,7 @@ import ServiceContactForm from "@/components/ServiceContactForm";
 import ServicesHero from "@/components/ServicesHero";
 import WelcomeSection from "@/components/WelcomeSection";
 import ServicesAlternatingSection from "@/components/ServicesAlternatingSection";
+import HowCustomSoftwarePowersSection from "@/components/HowCustomSoftwarePowersSection";
 import { servicePageStyles } from "@/lib/servicePageStyles";
 
 /**
@@ -192,6 +193,9 @@ export default function ServicePageShell({ cfg }) {
 
         {/* ─── 3. OUR ENGINEERING SERVICES (ALTERNATING ARCH-CARD PILL ROWS UI) ─── */}
         <ServicesAlternatingSection services={services} theme={theme} />
+
+        {/* ─── 3b. HOW CUSTOM SOFTWARE POWERS YOUR OPERATION ─── */}
+        <HowCustomSoftwarePowersSection theme={theme} />
 
         {/* ─── 4. PROCESS TIMELINE ─── */}
         <section className="vd-process-section">

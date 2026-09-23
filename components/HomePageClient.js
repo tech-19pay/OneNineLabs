@@ -4,6 +4,13 @@ import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import BlockchainDashboardMockup from "@/components/BlockchainDashboardMockup";
+import EnterpriseDashboardMockup from "@/components/EnterpriseDashboardMockup";
+import MarketingDashboardMockup from "@/components/MarketingDashboardMockup";
+import AIAgentMockup from "@/components/AIAgentMockup";
+import WebMockup from "@/components/WebMockup";
+import BlockchainMockup from "@/components/BlockchainMockup";
+import MobileAppMockup from "@/components/MobileAppMockup";
 
 export default function Home() {
   // --- Toast Notification System ---
@@ -114,6 +121,7 @@ export default function Home() {
   // --- Working Languages & Interactive Compiler State ---
   const [langFilter, setLangFilter] = useState("all");
   const [selectedLangId, setSelectedLangId] = useState("ts");
+  const [showAllLangs, setShowAllLangs] = useState(false);
 
   const languagesList = [
     {
@@ -375,33 +383,6 @@ export default function Home() {
     }
   ];
 
-  const heroContent = {
-    website: {
-      title: <>High-performance<br />web applications</>,
-      subtitle: "We craft blazing-fast Next.js portals, headless commerce architectures, and responsive SaaS products optimized for performance, security, and global edge delivery."
-    },
-    ai_automation: {
-      title: <>Autonomous<br />AI agents &amp; ML</>,
-      subtitle: "We train deep neural networks, build intelligent multi-agent workflows, deploy semantic vector search, and automate repetitive backend processes to maximize leverage."
-    },
-    mobile: {
-      title: <>Native &amp; hybrid<br />mobile apps</>,
-      subtitle: "We engineer beautiful, high-performance native iOS & Android mobile applications using Swift, Kotlin, React Native, and Flutter, with full app store launch support."
-    },
-    blockchain: {
-      title: <>Decentralized<br />Web3 &amp; ledgers</>,
-      subtitle: "We design secure EVM smart contracts, optimize gas fees, build cross-chain bridge integrations, and deploy custom Layer-2 rollups for high-throughput trust networks."
-    },
-    custom_software: {
-      title: <>Enterprise<br />custom software</>,
-      subtitle: "We architect, audit, and deploy microservices pipelines, Kubernetes clusters, zero-trust SSO authorization policies, and high-performance relational databases."
-    },
-    marketing: {
-      title: <>Growth &amp;<br />SEO marketing</>,
-      subtitle: "We run data-driven paid advertising (PPC) campaigns, perform search engine optimization (SEO), design conversion pipelines, and scale organic brand reach."
-    }
-  };
-
   // --- Wall of Love Engagement States ---
   const [xLikes, setXLikes] = useState(2);
   const [xLiked, setXLiked] = useState(false);
@@ -420,349 +401,415 @@ export default function Home() {
 
   useEffect(() => {
     const interval = setInterval(() => {
-      // Oscillate ROAS between 4.70 and 4.95
       setMktRoas(prev => {
         const delta = (Math.random() - 0.5) * 0.1;
         const val = prev + delta;
         return parseFloat(Math.max(4.70, Math.min(4.95, val)).toFixed(2));
       });
 
-      // Oscillate traffic between 338 and 345
       setMktTraffic(prev => {
-        const delta = Math.floor(Math.random() * 3) - 1; // -1, 0, 1
+        const delta = Math.floor(Math.random() * 3) - 1;
         const val = prev + delta;
         return Math.max(338, Math.min(345, val));
       });
 
-      // Oscillate conversions between 3.15 and 3.30
       setMktConversions(prev => {
         const delta = (Math.random() - 0.5) * 0.05;
         const val = prev + delta;
         return parseFloat(Math.max(3.15, Math.min(3.30, val)).toFixed(2));
       });
 
-      // Increment clicks periodically
       setMktClicks(prev => prev + Math.floor(Math.random() * 2) + 1);
     }, 2500);
 
     return () => clearInterval(interval);
   }, []);
 
-  // --- Autonomous Website Builder Animation State ---
-  const [wbGenerating, setWbGenerating] = useState(false);
-  const [wbText, setWbText] = useState("");
+  // --- Multi-Service Hero State & Data Mapping (White Theme Design) ---
+  const heroServices = [
+    {
+      id: "website",
+      number: "01",
+      badge: "Cloud-Native Edge",
+      eyebrow: "LET'S BUILD YOUR HIGH-SPEED DIGITAL PLATFORM",
+      title: "Next-Generation Web Architectures",
+      titlePart1: "Next-Generation",
+      titlePart2: "Web Architectures",
+      subtitle: "Build Faster, Scale Farther with Cloud-Native Edge, Serverless & API-First Infrastructure.",
+      cardTitle: "Architecture Design",
+      cardDesc: "Headless commerce architectures & sub-second performance.",
+      mockup: "/services/web_dev_preview.png",
+      altText: "Next-Generation Web Architectures & Cloud-Native Edge — OneNineLabs",
+      href: "/services/web-development",
+      btnText: "Get Started Now",
+      primaryBtnText: "Get Started Now",
+      action: handlePublishSite,
+      actionStatus: isPublishing ? "Deploying..." : isPublished ? "Architecture Live! ✓" : "Get Started Now",
+      floatingLabel: "Edge Verified • 99.999% Uptime"
+    },
+    {
+      id: "mobile",
+      number: "02",
+      badge: "iOS & Android Ecosystems",
+      eyebrow: "SEAMLESS NATIVE & CROSS-PLATFORM APPS",
+      title: "Award-Winning Mobile Experiences",
+      subtitle: "We engineer beautiful native iOS & Android applications using Swift, Kotlin, React Native, and Flutter with offline-first synchronization and instant store deployment.",
+      cardTitle: "Mobile Apps",
+      cardDesc: "Native iOS & Android, React Native & Flutter with rapid App Store launch.",
+      mockup: "/services/mobile_app_preview.png",
+      altText: "Mobile App Development iOS and Android — OneNineLabs",
+      href: "/services/mobile-apps",
+      btnText: "Launch App",
+      action: handleLaunchCampaign,
+      actionStatus: campaignLaunched ? "App Active ✓" : "Launch App",
+      floatingLabel: "Store Deploy • Native Ready"
+    },
+    {
+      id: "blockchain",
+      number: "03",
+      badge: "EVM & Smart Contracts",
+      eyebrow: "DECENTRALIZED ARCHITECTURES & WEB3",
+      title: "Secure Web3 & Blockchain Engineering",
+      subtitle: "We design secure EVM smart contracts, gas-optimized dApps, DeFi protocols, cross-chain bridges, and audited Layer-2 rollups for high-throughput trust networks.",
+      cardTitle: "Blockchain & Web3",
+      cardDesc: "Solidity smart contracts, DeFi protocols, dApps & Foundry audits.",
+      mockup: "/services/nextgen_web_isometric_3d.jpg",
+      altText: "Blockchain & Web3 Solutions — OneNineLabs",
+      href: "/services/blockchain",
+      btnText: "Deploy Contract",
+      action: () => addToast("Smart contract deployed to mainnet!", "success"),
+      actionStatus: "Deploy Contract",
+      floatingLabel: "EVM Verified • Foundry Audited"
+    },
+    {
+      id: "custom_software",
+      number: "04",
+      badge: "SOC 2 & Microservices",
+      eyebrow: "ENTERPRISE RESILIENCE & CLOUD SCALE",
+      title: "Enterprise-Grade Custom Software",
+      subtitle: "We architect scalable microservices, multi-tenant databases, Kubernetes clusters, and zero-trust SSO authorization policies engineered for 99.99% uptime.",
+      cardTitle: "Custom Software",
+      cardDesc: "Multi-tenant SaaS, Kubernetes microservices, SOC 2 compliance & cloud scale.",
+      mockup: "/services/custom_software_service.png",
+      altText: "Enterprise Custom Software & Microservices — OneNineLabs",
+      href: "/services/saas",
+      btnText: "Build System",
+      action: () => addToast("CI/CD pipeline triggered for microservices!", "success"),
+      actionStatus: "Build System",
+      floatingLabel: "SOC 2 Ready • Microservices"
+    },
+    {
+      id: "marketing",
+      number: "05",
+      badge: "PPC & Technical SEO",
+      eyebrow: "DATA-DRIVEN REVENUE & SEO ACCELERATION",
+      title: "Data-Driven Growth & SEO Scaling",
+      subtitle: "We run high-converting PPC campaigns, technical SEO audits, conversion rate optimization (CRO), and growth pipelines that scale organic pipeline and maximize ROI.",
+      cardTitle: "Growth & SEO",
+      cardDesc: "Technical SEO, Google/Meta PPC ads, conversion optimization & 4.8x ROAS.",
+      mockup: "/dashboard_seo_preview_new.png",
+      altText: "Growth Marketing PPC and SEO — OneNineLabs",
+      href: "/services/marketing",
+      btnText: "Run PPC Audit",
+      action: () => addToast("Launching paid campaign audit pipeline...", "success"),
+      actionStatus: "Run PPC Audit",
+      floatingLabel: "4.8x ROAS • +340% Traffic"
+    },
+    {
+      id: "ai_automation",
+      number: "06",
+      badge: "Autonomous Agents & RAG",
+      eyebrow: "AUTONOMOUS INTELLIGENCE & MACHINE LEARNING",
+      title: "Intelligent AI & Autonomous Systems",
+      subtitle: "We train custom neural models, build autonomous multi-agent LLM systems, deploy RAG vector search, and streamline complex business operations with high leverage.",
+      cardTitle: "AI & Automation",
+      cardDesc: "Autonomous LLM agents, LangChain, RAG vector intelligence & cognitive workflows.",
+      mockup: "/services/ai_automation_preview.png",
+      altText: "AI & Intelligent Automation LLM Agents — OneNineLabs",
+      href: "/services/ai-automation",
+      btnText: "Run AI Audit",
+      action: handleRunAudit,
+      actionStatus: isAuditing ? "Auditing..." : "Run AI Audit",
+      floatingLabel: "LLM Pipeline • 100% Health"
+    }
+  ];
 
-  const handleCreateSite = () => {
-    if (wbGenerating) return;
-    setWbGenerating(true);
-    setWbText("");
-    addToast("AI generating website layout & assets...", "info");
-
-    const textToType = "Generating wellness-supplement-shop/index.html... Success!\nCustom Stripe checkout config... Done!\nDeploying to edge CDN...";
-    let index = 0;
-    const interval = setInterval(() => {
-      if (index < textToType.length) {
-        setWbText(prev => prev + textToType.charAt(index));
-        index++;
-      } else {
-        clearInterval(interval);
-        setWbGenerating(false);
-        addToast("Wellness supplement website is live!");
-      }
-    }, 30);
-  };
-
-  // --- 1. Scroll-induced Navbar Glassmorphism ---
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true);
-      } else {
-        setScrolled(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // --- 2. Interactive Card Stack State ---
-  const heroTabs = ["website", "ai_automation", "mobile", "blockchain", "custom_software", "marketing"];
   const [activeTab, setActiveTab] = useState("website");
-  const [isHoveringStack, setIsHoveringStack] = useState(false);
+  const [cardStartIndex, setCardStartIndex] = useState(0);
+  const [isHoveringHero, setIsHoveringHero] = useState(false);
+  const heroRef = useRef(null);
+  const [isHeroVisible, setIsHeroVisible] = useState(true);
+  const [isDocumentVisible, setIsDocumentVisible] = useState(true);
 
-  // Pick a random starting card on mount
   useEffect(() => {
-    const randomIndex = Math.floor(Math.random() * heroTabs.length);
-    setActiveTab(heroTabs[randomIndex]);
+    const heroElement = heroRef.current;
+    if (!heroElement) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setIsHeroVisible(entry.isIntersecting),
+      { threshold: 0.1 }
+    );
+
+    observer.observe(heroElement);
+    return () => observer.disconnect();
   }, []);
 
-  // Auto-rotate cards every 4 seconds
   useEffect(() => {
-    if (isHoveringStack) return;
+    const handleVisibilityChange = () => setIsDocumentVisible(!document.hidden);
+    document.addEventListener("visibilitychange", handleVisibilityChange);
+    return () => document.removeEventListener("visibilitychange", handleVisibilityChange);
+  }, []);
+
+  // Auto-rotate only while the hero is visible and the user is not interacting with it.
+  useEffect(() => {
+    if (isHoveringHero || !isHeroVisible || !isDocumentVisible) return;
+
     const interval = setInterval(() => {
       setActiveTab((current) => {
-        const nextIndex = (heroTabs.indexOf(current) + 1) % heroTabs.length;
-        return heroTabs[nextIndex];
+        const currentIndex = heroServices.findIndex(s => s.id === current);
+        const nextIndex = (currentIndex + 1) % heroServices.length;
+        return heroServices[nextIndex].id;
       });
-    }, 4000);
+    }, 5000);
     return () => clearInterval(interval);
-  }, [isHoveringStack]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isHoveringHero, isHeroVisible, isDocumentVisible, heroServices.length]);
 
-  const getStackClass = (cardKey) => {
-    const tabs = ["website", "ai_automation", "mobile", "blockchain", "custom_software", "marketing"];
-    const cardIndex = tabs.indexOf(cardKey);
-    const activeIndex = tabs.indexOf(activeTab);
-    if (cardIndex === -1 || activeIndex === -1) return "";
+  // Adjust visible card window so active card is visible
+  useEffect(() => {
+    const activeIdx = heroServices.findIndex(s => s.id === activeTab);
+    if (activeIdx !== -1) {
+      if (activeIdx < cardStartIndex || activeIdx >= cardStartIndex + 4) {
+        // eslint-disable-next-line
+        setCardStartIndex(Math.min(activeIdx, Math.max(0, heroServices.length - 4)));
+      }
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeTab, cardStartIndex, heroServices.length]);
 
-    const diff = (cardIndex - activeIndex + tabs.length) % tabs.length;
-
-    if (diff === 0) return "active-stack";
-    if (diff === 1) return "middle-stack";
-    if (diff === 2) return "back-stack";
-    return "hidden-stack";
+  const handleNextCards = () => {
+    setCardStartIndex((prev) => (prev + 1) % (heroServices.length - 3 || 1));
+    const nextIdx = (heroServices.findIndex(s => s.id === activeTab) + 1) % heroServices.length;
+    setActiveTab(heroServices[nextIdx].id);
   };
 
-  // --- 3. 3D Tilt Effect using Ref ---
-  const stackRef = useRef(null);
-
-
-  const handleMouseMove = (e) => {
-    const container = stackRef.current;
-    if (!container) return;
-    const rect = container.getBoundingClientRect();
-    const x = e.clientX - rect.left - rect.width / 2;
-    const y = e.clientY - rect.top - rect.height / 2;
-
-    const rotateX = -(y / rect.height) * 15;
-    const rotateY = (x / rect.width) * 15;
-
-    container.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-    container.style.transition = "transform 0.1s ease";
+  const handlePrevCards = () => {
+    setCardStartIndex((prev) => (prev - 1 + (heroServices.length - 3 || 1)) % (heroServices.length - 3 || 1));
+    const prevIdx = (heroServices.findIndex(s => s.id === activeTab) - 1 + heroServices.length) % heroServices.length;
+    setActiveTab(heroServices[prevIdx].id);
   };
 
-  const handleMouseLeave = () => {
-    const container = stackRef.current;
-    if (!container) return;
-    container.style.transform = "perspective(1000px) rotateX(0deg) rotateY(0deg)";
-    container.style.transition = "transform 0.5s ease-out";
-  };
+  const currentActiveService = heroServices.find((s) => s.id === activeTab) || heroServices[0];
+  const activeServiceIndex = heroServices.findIndex((s) => s.id === activeTab);
+  const visibleCards = heroServices.slice(cardStartIndex, cardStartIndex + 4);
 
   return (
     <>
-      {/* Header Navigation Component */}
+      {/* Header Navigation Component in Light Theme */}
       <Header variant="light" />
 
-      {/* Hero Section */}
-      <main className={`hero hero-bg-${activeTab}`}>
+      {/* Hero Section — White Theme & Reference Multi-Service Layout */}
+      <main
+        id="hero"
+        className="hero"
+        ref={heroRef}
+        onMouseEnter={() => setIsHoveringHero(true)}
+        onMouseLeave={() => setIsHoveringHero(false)}
+      >
         <div className="hero-container">
 
-          {/* Left Column: Typography — dynamic with slide, SEO + reduced size */}
-          <div className="hero-left">
-            <h1 key={activeTab} className="hero-title" style={{ fontSize: "clamp(30px, 4.2vw, 48px)", lineHeight: 1.08, letterSpacing: "-1.2px" }}>
-              {heroContent[activeTab]?.title || <>Custom software,<br />AI agents,<br />&amp; Web3 apps</>}
-            </h1>
-            <p key={`${activeTab}-sub`} className="hero-subtitle" style={{ fontSize: "16px", lineHeight: 1.55, fontWeight: 500 }}>
-              {heroContent[activeTab]?.subtitle || "We build scalable custom applications, AI automation, SaaS platforms, blockchain dApps and growth systems — engineered for speed, security & scale."}
-            </p>
-
-            <Link
-              href={activeTab === "website" ? "/services/web-development" : activeTab === "ai_automation" ? "/services/ai-automation" : activeTab === "mobile" ? "/services/saas" : activeTab === "blockchain" ? "/services/blockchain" : activeTab === "custom_software" ? "/services/security" : "/services/marketing"}
-              className="hero-view-more-btn"
-              onClick={() => {
-                const readableTab = activeTab === "website" ? "Web Development" : activeTab === "ai_automation" ? "AI & Automation" : activeTab === "mobile" ? "Mobile Apps" : activeTab === "blockchain" ? "Blockchain Solutions" : activeTab === "custom_software" ? "Custom Software" : "Growth & Marketing";
-                addToast(`Opening ${readableTab} — OneNineLabs`, "success");
-              }}
-            >
-              View More &rarr;
-            </Link>
-          </div>
-
-          {/* Right Column: Stack of Cards */}
-          <div className="hero-right">
-            <div
-              className="stable-stack-wrapper"
-              onMouseEnter={() => setIsHoveringStack(true)}
-              onMouseLeave={() => setIsHoveringStack(false)}
-              style={{ position: "relative" }}
-            >
-              <div
-                className="cards-stack-container"
-                ref={stackRef}
-                onMouseMove={handleMouseMove}
-                onMouseLeave={handleMouseLeave}
-              >
-
-                {/* Card 1: Web Development */}
-                <div
-                  className={`dashboard-card card-website ${getStackClass("website")}`}
-                  onClick={() => activeTab !== "website" && setActiveTab("website")}
-                >
-
-
-                  <div className="card-inner">
-                    <div className="dashboard-content">
-                      <div className="mockup-scroll-container">
-                        <img src="/services/new_web_mockup.jpg" alt="Web Development Mockup" className="mockup-scroll-image" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '15px' }} />
-                      </div>
-                      <div className="mockup-floating-actions">
-                        <button className="action-btn-secondary" onClick={() => addToast("Custom glassmorphism theme designer opened!", "info")}>Edit design</button>
-                        <button
-                          className="action-btn-primary"
-                          onClick={handlePublishSite}
-                          disabled={isPublishing}
-                        >
-                          {isPublishing ? "Publishing..." : isPublished ? "Site Live! ✓" : "Publish site"}
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card 2: AI & Automation */}
-                <div
-                  className={`dashboard-card card-ai_automation ${getStackClass("ai_automation")}`}
-                  onClick={() => activeTab !== "ai_automation" && setActiveTab("ai_automation")}
-                >
-
-
-                  <div className="card-inner">
-                    <div className="dashboard-content">
-                      <div className="mockup-scroll-container">
-                        <img src="/services/new_ai_mockup.jpg" alt="AI Mockup" className="mockup-scroll-image" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '15px' }} />
-                      </div>
-                      <div className="mockup-floating-actions">
-                        <button
-                          className="action-btn-secondary"
-                          onClick={handleOptimizeKeywords}
-                        >
-                          Optimize ML
-                        </button>
-                        <button
-                          className="action-btn-primary"
-                          onClick={handleRunAudit}
-                          disabled={isAuditing}
-                        >
-                          {isAuditing ? "Auditing..." : "Run AI Audit"}
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card 3: Mobile Apps */}
-                <div
-                  className={`dashboard-card card-mobile ${getStackClass("mobile")}`}
-                  onClick={() => activeTab !== "mobile" && setActiveTab("mobile")}
-                >
-
-
-                  <div className="card-inner">
-                    <div className="dashboard-content">
-                      <div className="mockup-scroll-container">
-                        <img src="/services/new_mobile_mockup.jpg" alt="Mobile Mockup" className="mockup-scroll-image" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '15px' }} />
-                      </div>
-                      <div className="mockup-floating-actions">
-                        <button className="action-btn-secondary" onClick={() => addToast("Configuring iOS/Android push certificates...", "info")}>Config Push</button>
-                        <button
-                          className="action-btn-primary"
-                          onClick={handleLaunchCampaign}
-                        >
-                          {campaignLaunched ? "App Active ✓" : "Launch App"}
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card 4: Blockchain Solutions */}
-                <div
-                  className={`dashboard-card card-blockchain ${getStackClass("blockchain")}`}
-                  onClick={() => activeTab !== "blockchain" && setActiveTab("blockchain")}
-                >
-
-
-                  <div className="card-inner">
-                    <div className="dashboard-content">
-                      <div className="mockup-scroll-container">
-                        <img src="/services/new_blockchain_mockup.jpg" alt="Blockchain Mockup" className="mockup-scroll-image" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '15px' }} />
-                      </div>
-                      <div className="mockup-floating-actions">
-                        <button
-                          className="action-btn-secondary"
-                          onClick={() => addToast("Opening Solidity compiler...", "info")}
-                        >
-                          View Contract
-                        </button>
-                        <button
-                          className="action-btn-primary"
-                          onClick={() => addToast("Smart contract deployed to mainnet!", "success")}
-                        >
-                          Deploy Contract
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card 5: Custom Software */}
-                <div
-                  className={`dashboard-card card-custom_software ${getStackClass("custom_software")}`}
-                  onClick={() => activeTab !== "custom_software" && setActiveTab("custom_software")}
-                >
-
-
-                  <div className="card-inner">
-                    <div className="dashboard-content">
-                      <div className="mockup-scroll-container">
-                        <img src="/services/new_software_mockup.jpg" alt="Software Mockup" className="mockup-scroll-image" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '15px' }} />
-                      </div>
-                      <div className="mockup-floating-actions">
-                        <button className="action-btn-secondary" onClick={() => addToast("Opening Kubernetes deployment logs...", "info")}>View Logs</button>
-                        <button
-                          className="action-btn-primary"
-                          onClick={() => addToast("CI/CD pipeline triggered for microservices!", "success")}
-                        >
-                          Build System
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Card 6: Growth & Marketing */}
-                <div
-                  className={`dashboard-card card-marketing ${getStackClass("marketing")}`}
-                  onClick={() => activeTab !== "marketing" && setActiveTab("marketing")}
-                >
-
-
-                  <div className="card-inner">
-                    <div className="dashboard-content">
-                      <div className="mockup-scroll-container">
-                        <img src="/services/new_marketing_mockup.jpg" alt="Marketing Mockup" className="mockup-scroll-image" style={{ width: '100%', height: '100%', objectFit: 'cover', borderRadius: '15px' }} />
-                      </div>
-                      <div className="mockup-floating-actions">
-                        <button className="action-btn-secondary" onClick={() => addToast("Analyzing target demographic & keyword gaps...", "info")}>Optimize SEO</button>
-                        <button
-                          className="action-btn-primary"
-                          onClick={() => addToast("Launching paid campaign audit pipeline...", "success")}
-                        >
-                          Run PPC Audit
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
+          {/* Top Row: Typography Column + Right Angled Mockup Frame */}
+          <div className="hero-main-split">
+            {/* Left Column */}
+            <div className="hero-left-wrapper">
+              {/* Vertical Rail Step Indicators */}
+              <div className="hero-rail-dots">
+                {heroServices.map((service, idx) => (
+                  <div
+                    key={service.id}
+                    className={`hero-rail-dot ${activeTab === service.id ? "active" : ""}`}
+                    onClick={() => setActiveTab(service.id)}
+                    title={service.cardTitle}
+                  />
+                ))}
               </div>
+
+              {/* Main Text Content */}
+              <div className="hero-content-block">
+                <div className="hero-eyebrow-tag" key={`${activeTab}-eyebrow`}>
+                  <span>{currentActiveService.eyebrow}</span>
+                  {currentActiveService.badge && (
+                    <span className="badge-pill">{currentActiveService.badge}</span>
+                  )}
+                </div>
+
+                <h1
+                  key={`${activeTab}-title`}
+                  className="hero-title"
+                >
+                  {currentActiveService.titlePart1 ? (
+                    <>
+                      <span>{currentActiveService.titlePart1} </span>
+                      <span
+                        style={{
+                          background: "linear-gradient(135deg, #0284c7 0%, #38bdf8 100%)",
+                          WebkitBackgroundClip: "text",
+                          WebkitTextFillColor: "transparent",
+                          display: "inline-block",
+                        }}
+                      >
+                        {currentActiveService.titlePart2}
+                      </span>
+                    </>
+                  ) : (
+                    currentActiveService.title
+                  )}
+                </h1>
+
+                <p
+                  key={`${activeTab}-sub`}
+                  className="hero-subtitle"
+                >
+                  {currentActiveService.subtitle}
+                </p>
+
+                <div className="hero-actions-row">
+                  <Link
+                    href={currentActiveService.href}
+                    className="hero-primary-cta"
+                    onClick={() => addToast(`Opening ${currentActiveService.cardTitle} — OneNineLabs`, "success")}
+                  >
+                    <span>{currentActiveService.primaryBtnText || "Explore Service"}</span>
+                    <span>&rarr;</span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+
+            <div className="hero-right-angled-wrapper">
+              {/* Form Factor 1: Mobile App -> Realistic Smartphone / iPhone Device Mockup */}
+              {activeTab === "mobile" && (
+                <div style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: "860px", display: "flex", justifyContent: "center" }}>
+                  <MobileAppMockup onAction={handleLaunchCampaign} />
+                </div>
+              )}
+
+              {/* Form Factor 2: Web Development -> Next-Gen Web Architecture Bento Grid Mockup */}
+              {activeTab === "website" && (
+                <div style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: "680px", display: "flex", justifyContent: "center" }}>
+                  <WebMockup onAction={() => addToast("Opening Web Development — OneNineLabs", "success")} />
+                </div>
+              )}
+
+              {/* Form Factor 3: AI & Automation -> AI Agent Diagram */}
+              {activeTab === "ai_automation" && (
+                <div style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: "900px", zoom: 0.60, display: "flex", justifyContent: "center" }}>
+                  <AIAgentMockup />
+                </div>
+              )}
+
+              {/* Form Factor 4: Blockchain & Web3 -> Web3 3D Architecture Mockup */}
+              {activeTab === "blockchain" && (
+                <div style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: "860px", display: "flex", justifyContent: "center" }}>
+                  <BlockchainMockup onAction={() => addToast("Opening Blockchain & Web3 — OneNineLabs", "success")} />
+                </div>
+              )}
+
+              {/* Form Factor 5: Custom Software -> Enterprise Multi-Tenant SaaS Dashboard */}
+              {activeTab === "custom_software" && (
+                <div style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: "900px", zoom: 0.6, display: "flex", justifyContent: "center" }}>
+                  <EnterpriseDashboardMockup />
+                </div>
+              )}
+
+              {/* Form Factor 6: Growth & Marketing -> SEO & Analytics Dashboard */}
+              {activeTab === "marketing" && (
+                <div style={{ position: "relative", zIndex: 10, width: "100%", maxWidth: "900px", zoom: 0.52, display: "flex", justifyContent: "center" }}>
+                  <MarketingDashboardMockup />
+                </div>
+              )}
             </div>
           </div>
         </div>
-      </main>
 
+          {/* Bottom Row: Numbered Service Cards Grid (01, 02, 03, 04...) & Gallery Navigation */}
+          <div className="hero-cards-section">
+            {/* --- DESKTOP VIEW (Paginated Tabs) --- */}
+            <div className="hero-cards-grid desktop-cards">
+              {visibleCards.map((service) => {
+                const isActive = activeTab === service.id;
+                return (
+                  <div
+                    key={service.id}
+                    className={`service-nav-card ${isActive ? "active-service" : ""}`}
+                    onClick={() => setActiveTab(service.id)}
+                  >
+                    <div className="card-number">{service.number}</div>
+                    <h3 className="card-title">{service.cardTitle}</h3>
+                    <p className="card-desc">{service.cardDesc}</p>
+                    <div className="card-footer-link">
+                      <span className="card-link-text">
+                        Learn More {isActive ? "→" : ""}
+                      </span>
+                      <div className="card-accent-bar"></div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* --- MOBILE VIEW (Native Horizontal Scroll Carousel) --- */}
+            <div className="mobile-cards-carousel">
+              {heroServices.map((service) => (
+                <Link
+                  href={service.href}
+                  key={service.id}
+                  className="service-nav-card mobile-card"
+                  style={{ textDecoration: 'none' }}
+                >
+                  <div className="card-number">{service.number}</div>
+                  <h3 className="card-title">{service.cardTitle}</h3>
+                  <p className="card-desc">{service.cardDesc}</p>
+                  <div className="card-footer-link">
+                    <span className="card-link-text">
+                      Explore Service →
+                    </span>
+                    <div className="card-accent-bar" style={{ width: '100%', opacity: 1 }}></div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+
+            {/* Gallery / Swipe Right Controls (Desktop Only) */}
+            <div className="hero-gallery-control desktop-cards">
+              <p className="gallery-sub-label">EXPLORE SERVICES</p>
+              <h4 className="gallery-main-label">VIEW ALL CAPABILITIES</h4>
+              <div className="gallery-nav-buttons">
+                <button
+                  className="gallery-nav-btn"
+                  onClick={handlePrevCards}
+                  title="Previous service"
+                  aria-label="Previous service"
+                >
+                  &#8592;
+                </button>
+                <button
+                  className="gallery-nav-btn"
+                  onClick={handleNextCards}
+                  title="Next service"
+                  aria-label="Next service"
+                >
+                  &#8594;
+                </button>
+              </div>
+            </div>
+            
+            {/* Mobile Scroll Indicator */}
+            <div className="mobile-swipe-indicator">
+              <span>← Swipe to explore services →</span>
+            </div>
+          </div>
+      </main>
 
 
       {/* ── Marketing Section ── */}
@@ -991,7 +1038,7 @@ export default function Home() {
 
         <style>{`
           .gmo-section {
-            background-color: #f5f5f7;
+            background-color: transparent;
             padding: 90px 24px;
             color: #0f172a;
             overflow: hidden;
@@ -1098,8 +1145,14 @@ export default function Home() {
             position: relative;
             width: 100%;
             height: 320px;
-            background: #ffffff;
-            border: 1px solid rgba(15, 23, 42, 0.08);
+            background-color: #f8fbfe;
+            background-image:
+              radial-gradient(circle at 10% 12%, rgba(186, 230, 253, 0.42) 0%, transparent 42%),
+              radial-gradient(circle at 88% 18%, rgba(224, 231, 255, 0.45) 0%, transparent 45%),
+              linear-gradient(to right, rgba(2, 132, 199, 0.04) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(2, 132, 199, 0.04) 1px, transparent 1px);
+            background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+            border: none;
             border-radius: 24px;
             box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.04);
             padding: 10px;
@@ -1233,7 +1286,7 @@ export default function Home() {
           }
 
           .gmo-mock-ui {
-            background: #f8fafc;
+            background: #ffffff;
             border: 1px solid #f1f5f9;
             border-radius: 16px;
             padding: 16px;
@@ -1359,21 +1412,43 @@ export default function Home() {
             }
             .gmo-content-col {
               text-align: center;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
             }
             .gmo-sub {
               margin-left: auto;
               margin-right: auto;
+              text-align: center;
             }
             .gmo-highlights {
+              display: flex;
+              flex-direction: column;
               align-items: flex-start;
-              display: inline-flex;
+              text-align: left;
+              width: 100%;
+            }
+            .gmo-highlight-item {
+              align-items: flex-start;
               text-align: left;
             }
+            .gmo-check-icon {
+              margin-top: 2px;
+            }
             .gmo-action-row {
+              justify-content: center;
+              width: 100%;
+            }
+            .gmo-primary-btn {
+              width: 100%;
               justify-content: center;
             }
             .gmo-map-container {
               height: 280px;
+            }
+            .gmo-nodes {
+              transform: scale(0.75);
+              transform-origin: center;
             }
             .gmo-map-lines {
               display: block;
@@ -1383,10 +1458,285 @@ export default function Home() {
               gap: 20px;
             }
             .gmo-card {
-              min-height: 440px;
+              min-height: auto;
+              padding: 20px;
+            }
+            .gmo-h2 {
+              font-size: 28px;
+              word-wrap: break-word;
             }
           }
         `}</style>
+      </section>
+
+      {/* Everything You Need Section — Shifted up right after Marketing */}
+      <section className="everything-section" id="everything-section">
+        <div className="everything-container">
+          <div className="everything-header-wrap">
+            <div className="everything-eyebrow-pill">
+              <span className="eyebrow-sparkle">✦</span>
+              <span>END-TO-END SOFTWARE LIFECYCLE</span>
+            </div>
+            <h2 className="everything-title">
+              Everything You Need to Build,<br />
+              <span className="everything-title-gradient">Secure &amp; Scale</span> Custom Software.
+            </h2>
+            <p className="everything-subtext">
+              A complete, battle-tested engineering stack designed for rapid release velocity, sub-second latency, zero-trust security, and automated cloud resilience.
+            </p>
+          </div>
+
+          <div className="everything-grid">
+            {/* Column 1: Deploy */}
+            <div className="everything-card everything-card-deploy">
+              <div className="ec-top-row">
+                <div className="ec-icon-box ec-icon-green">🚀</div>
+                <span className="ec-tag ec-tag-green">99.99% UPTIME</span>
+              </div>
+              <h4 className="everything-col-title">Deploy &amp; Orchestrate</h4>
+              <p className="ec-desc">Automated edge containers, serverless deployments and zero-downtime rollouts.</p>
+
+              <div className="everything-list">
+                <div className="everything-item">
+                  <span className="ei-icon ei-green">✓</span>
+                  <div className="ei-content">
+                    <span className="ei-text">Kubernetes orchestration</span>
+                    <span className="ei-sub">Auto-scaling production clusters</span>
+                  </div>
+                </div>
+                <div className="everything-item">
+                  <span className="ei-icon ei-green">✓</span>
+                  <div className="ei-content">
+                    <span className="ei-text">CI/CD automated pipelines</span>
+                    <span className="ei-sub">GitHub Actions &amp; preview builds</span>
+                  </div>
+                </div>
+                <div className="everything-item">
+                  <span className="ei-icon ei-green">✓</span>
+                  <div className="ei-content">
+                    <span className="ei-text">Docker container clustering</span>
+                    <span className="ei-sub">Zero-downtime rolling deploys</span>
+                  </div>
+                </div>
+                <div className="everything-item">
+                  <span className="ei-icon ei-green">✓</span>
+                  <div className="ei-content">
+                    <span className="ei-text">Serverless edge hosting</span>
+                    <span className="ei-sub">Global Vercel &amp; Cloudflare CDN</span>
+                  </div>
+                </div>
+                <div className="everything-item">
+                  <span className="ei-icon ei-green">✓</span>
+                  <div className="ei-content">
+                    <span className="ei-text">Automatic cache CDNs</span>
+                    <span className="ei-sub">Sub-30ms global edge TTFB</span>
+                  </div>
+                </div>
+                <div className="everything-item">
+                  <span className="ei-icon ei-green">✓</span>
+                  <div className="ei-content">
+                    <span className="ei-text">Load balancing configuration</span>
+                    <span className="ei-sub">Dynamic multi-region routing</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="ec-footer-tags">
+                <span>EKS</span>
+                <span>GKE</span>
+                <span>Docker</span>
+                <span>Vercel</span>
+              </div>
+            </div>
+
+            {/* Column 2: Build */}
+            <div className="everything-card everything-card-build">
+              <div className="ec-top-row">
+                <div className="ec-icon-box ec-icon-purple">⚡</div>
+                <span className="ec-tag ec-tag-purple">TYPE-SAFE</span>
+              </div>
+              <h4 className="everything-col-title">Build &amp; Architect</h4>
+              <p className="ec-desc">Modern web apps, mobile systems, DeFi contracts and multi-tenant architectures.</p>
+
+              <div className="everything-list">
+                <div className="everything-item">
+                  <span className="ei-icon ei-purple">✦</span>
+                  <div className="ei-content">
+                    <span className="ei-text">Custom React &amp; Next.js</span>
+                    <span className="ei-sub">App Router, SSR/SSG &amp; RSC</span>
+                  </div>
+                </div>
+                <div className="everything-item">
+                  <span className="ei-icon ei-purple">✦</span>
+                  <div className="ei-content">
+                    <span className="ei-text">Flutter mobile applications</span>
+                    <span className="ei-sub">iOS &amp; Android native performance</span>
+                  </div>
+                </div>
+                <div className="everything-item">
+                  <span className="ei-icon ei-purple">✦</span>
+                  <div className="ei-content">
+                    <span className="ei-text">Solidity blockchain contracts</span>
+                    <span className="ei-sub">EVM, Foundry audited smart protocols</span>
+                  </div>
+                </div>
+                <div className="everything-item">
+                  <span className="ei-icon ei-purple">✦</span>
+                  <div className="ei-content">
+                    <span className="ei-text">Multi-tenant SaaS backends</span>
+                    <span className="ei-sub">PostgreSQL RLS &amp; tenant isolation</span>
+                  </div>
+                </div>
+                <div className="everything-item">
+                  <span className="ei-icon ei-purple">✦</span>
+                  <div className="ei-content">
+                    <span className="ei-text">Python AI model workflows</span>
+                    <span className="ei-sub">FastAPI, LangChain &amp; RAG vector</span>
+                  </div>
+                </div>
+                <div className="everything-item">
+                  <span className="ei-icon ei-purple">✦</span>
+                  <div className="ei-content">
+                    <span className="ei-text">GraphQL &amp; REST API layers</span>
+                    <span className="ei-sub">tRPC, gRPC &amp; microservices</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="ec-footer-tags">
+                <span>Next.js 15</span>
+                <span>Python</span>
+                <span>Solidity</span>
+                <span>Flutter</span>
+              </div>
+            </div>
+
+            {/* Column 3: Secure */}
+            <div className="everything-card everything-card-secure">
+              <div className="ec-top-row">
+                <div className="ec-icon-box ec-icon-amber">🛡️</div>
+                <span className="ec-tag ec-tag-amber">ZERO-TRUST</span>
+              </div>
+              <h4 className="everything-col-title">Secure &amp; Comply</h4>
+              <p className="ec-desc">Bank-grade encryption, pen-testing, least-privilege IAM and SOC 2 readiness.</p>
+
+              <div className="everything-list">
+                <div className="everything-item">
+                  <span className="ei-icon ei-amber">⚡</span>
+                  <div className="ei-content">
+                    <span className="ei-text">Vulnerability pen testing</span>
+                    <span className="ei-sub">Automated nightly SAST/DAST audits</span>
+                  </div>
+                </div>
+                <div className="everything-item">
+                  <span className="ei-icon ei-amber">⚡</span>
+                  <div className="ei-content">
+                    <span className="ei-text">Zero-trust user gateways</span>
+                    <span className="ei-sub">mTLS &amp; least-privilege IAM roles</span>
+                  </div>
+                </div>
+                <div className="everything-item">
+                  <span className="ei-icon ei-amber">⚡</span>
+                  <div className="ei-content">
+                    <span className="ei-text">Database isolation rules</span>
+                    <span className="ei-sub">AES-256 encryption at rest &amp; transit</span>
+                  </div>
+                </div>
+                <div className="everything-item">
+                  <span className="ei-icon ei-amber">⚡</span>
+                  <div className="ei-content">
+                    <span className="ei-text">SSL/TLS HTTPS protocols</span>
+                    <span className="ei-sub">Automated TLS 1.3 certificates</span>
+                  </div>
+                </div>
+                <div className="everything-item">
+                  <span className="ei-icon ei-amber">⚡</span>
+                  <div className="ei-content">
+                    <span className="ei-text">Strict CORS whitelist policies</span>
+                    <span className="ei-sub">Anti-XSS &amp; injection protections</span>
+                  </div>
+                </div>
+                <div className="everything-item">
+                  <span className="ei-icon ei-amber">⚡</span>
+                  <div className="ei-content">
+                    <span className="ei-text">SOC 2 compliance auditing</span>
+                    <span className="ei-sub">60+ mapped security controls</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="ec-footer-tags">
+                <span>OAuth 2.0</span>
+                <span>mTLS</span>
+                <span>AES-256</span>
+                <span>SOC 2</span>
+              </div>
+            </div>
+
+            {/* Column 4: Monitor */}
+            <div className="everything-card everything-card-monitor">
+              <div className="ec-top-row">
+                <div className="ec-icon-box ec-icon-cyan">📊</div>
+                <span className="ec-tag ec-tag-cyan">24/7 OPS</span>
+              </div>
+              <h4 className="everything-col-title">Monitor &amp; Scale</h4>
+              <p className="ec-desc">Live cluster telemetry, incident alerting, APM profiling and rate limit mitigation.</p>
+
+              <div className="everything-list">
+                <div className="everything-item">
+                  <span className="ei-icon ei-cyan">◎</span>
+                  <div className="ei-content">
+                    <span className="ei-text">Real-time cloud logs tracing</span>
+                    <span className="ei-sub">Distributed microservices tracing</span>
+                  </div>
+                </div>
+                <div className="everything-item">
+                  <span className="ei-icon ei-cyan">◎</span>
+                  <div className="ei-content">
+                    <span className="ei-text">Slack system incident alerts</span>
+                    <span className="ei-sub">Instant automated DevOps notifications</span>
+                  </div>
+                </div>
+                <div className="everything-item">
+                  <span className="ei-icon ei-cyan">◎</span>
+                  <div className="ei-content">
+                    <span className="ei-text">Grafana metrics dashboards</span>
+                    <span className="ei-sub">CPU, memory &amp; container graphs</span>
+                  </div>
+                </div>
+                <div className="everything-item">
+                  <span className="ei-icon ei-cyan">◎</span>
+                  <div className="ei-content">
+                    <span className="ei-text">Database load analytics</span>
+                    <span className="ei-sub">Slow query profiling &amp; indexing</span>
+                  </div>
+                </div>
+                <div className="everything-item">
+                  <span className="ei-icon ei-cyan">◎</span>
+                  <div className="ei-content">
+                    <span className="ei-text">Response latency profiling</span>
+                    <span className="ei-sub">Sub-15ms backend response SLA</span>
+                  </div>
+                </div>
+                <div className="everything-item">
+                  <span className="ei-icon ei-cyan">◎</span>
+                  <div className="ei-content">
+                    <span className="ei-text">API rate-limit statistics</span>
+                    <span className="ei-sub">DDoS mitigation &amp; quota controls</span>
+                  </div>
+                </div>
+              </div>
+
+              <div className="ec-footer-tags">
+                <span>Grafana</span>
+                <span>Datadog</span>
+                <span>Prometheus</span>
+                <span>Slack</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </section>
 
       {/* Platforms & ChatGPT Ads Integration Section */}
@@ -1507,8 +1857,10 @@ export default function Home() {
               </button>
             </div>
 
-            <div className="languages-grid">
-              {(langFilter === "all" ? languagesList.slice(0, 6) : languagesList.filter(l => l.category === langFilter))
+            <div className={`languages-grid ${showAllLangs || langFilter !== 'all' ? 'show-all' : ''}`}>
+              {(langFilter === "all" 
+                ? (showAllLangs ? languagesList : languagesList.slice(0, 6)) 
+                : languagesList.filter(l => l.category === langFilter))
                 .map((l) => (
                   <div
                     key={l.id}
@@ -1532,6 +1884,30 @@ export default function Home() {
                   </div>
                 ))}
             </div>
+
+            {langFilter === "all" && languagesList.length > 6 && (
+              <div style={{ display: "flex", justifyContent: "center", marginTop: "24px" }}>
+                <button
+                  type="button"
+                  style={{
+                    background: "#0f172a",
+                    color: "#ffffff",
+                    border: "none",
+                    padding: "10px 24px",
+                    borderRadius: "8px",
+                    fontSize: "14px",
+                    fontWeight: "600",
+                    cursor: "pointer",
+                    transition: "all 0.2s"
+                  }}
+                  onMouseOver={(e) => e.currentTarget.style.background = "#1e293b"}
+                  onMouseOut={(e) => e.currentTarget.style.background = "#0f172a"}
+                  onClick={() => setShowAllLangs(!showAllLangs)}
+                >
+                  {showAllLangs ? "Show Less" : "View More"}
+                </button>
+              </div>
+            )}
 
 
             {selectedLangId && (() => {
@@ -1710,8 +2086,11 @@ export default function Home() {
 
         <style>{`
           .es-section {
-            background: #f8fafc;
-            padding: 40px 24px 80px;
+            background: #fcfcfd;
+            border-top: none;
+            border-bottom: 1px solid #f1f5f9;
+            padding: 20px 24px 70px;
+            margin-top: -30px;
             overflow: hidden;
             position: relative;
           }
@@ -1784,7 +2163,7 @@ export default function Home() {
           .es-card:hover .es-card-link::after { transform: translateX(3px); }
 
           /* Mini mockup windows */
-          .es-win { background: #f8fafc; border: 1px solid #eef2f7; border-radius: 10px; overflow: hidden; }
+          .es-win { background: #ffffff; border: 1px solid #eef2f7; border-radius: 10px; overflow: hidden; }
           .es-win-top { display: flex; align-items: center; gap: 4px; padding: 7px 9px; background: #ffffff; border-bottom: 1px solid #f1f5f9; }
           .d { width: 6px; height: 6px; border-radius: 50%; display: inline-block; }
           .d1 { background: #f87171; } .d2 { background: #fbbf24; } .d3 { background: #34d399; }
@@ -1834,6 +2213,18 @@ export default function Home() {
           @media (max-width: 640px) {
             .es-section { padding: 80px 20px 90px; }
             .es-radial { grid-template-columns: 1fr; }
+          }
+
+          @media (max-width: 576px) {
+            .gmo-section { padding: 50px 16px; }
+            .gmo-nodes { transform: scale(0.55); }
+            .gmo-map-container { height: 220px; }
+            .gmo-center-pill { padding: 10px 20px; font-size: 13px; white-space: nowrap; }
+            .gmo-float-card { position: relative !important; top: 0 !important; left: 0 !important; right: 0 !important; width: 100% !important; margin-bottom: 8px; }
+            .gmo-card .gmo-mock-ui > div[style*="position: relative"] { height: auto !important; display: flex; flex-direction: column; gap: 8px; }
+            .gmo-h2 { font-size: 24px; }
+            .gmo-card { padding: 16px; min-height: auto; }
+            .gmo-card-header h3 { font-size: 15px; }
           }
         `}</style>
       </section>
@@ -1914,7 +2305,7 @@ export default function Home() {
                   </div>
                   <ul className="audit-bullets">
                     <li>TLS 1.3 protocol enforced globally for low latency handshake.</li>
-                    <li>Automated certificate renewals validated via Let's Encrypt.</li>
+                    <li>Automated certificate renewals validated via Let&apos;s Encrypt.</li>
                   </ul>
                 </div>
                 <div className="audit-row">
@@ -2239,146 +2630,6 @@ export default function Home() {
               <span className="why-icon why-icon-meta-sm" title="AWS">∞</span>
               <span className="why-icon why-icon-tiktok-sm" title="Kubernetes">k</span>
               <span className="why-icon why-icon-linkedin-sm" title="Docker">d</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Everything You Need Section */}
-      <section className="everything-section" id="everything-section">
-        <div className="everything-container">
-          <h2 className="everything-title">
-            <em>Everything You Need to Build,<br />Secure & Scale Custom Software.</em>
-          </h2>
-
-          <div className="everything-grid">
-            {/* Optimize Column -> Deploy */}
-            <div className="everything-column">
-              <h4 className="everything-col-title">Deploy</h4>
-              <div className="everything-list">
-                <div className="everything-item">
-                  <span className="ei-icon ei-green">✓</span>
-                  <span className="ei-text">Kubernetes orchestration</span>
-                </div>
-                <div className="everything-item">
-                  <span className="ei-icon ei-green">✓</span>
-                  <span className="ei-text">CI/CD automated pipelines</span>
-                </div>
-                <div className="everything-item">
-                  <span className="ei-icon ei-green">✓</span>
-                  <span className="ei-text">Docker container clustering</span>
-                </div>
-                <div className="everything-item">
-                  <span className="ei-icon ei-green">✓</span>
-                  <span className="ei-text">Serverless edge hosting</span>
-                </div>
-                <div className="everything-item">
-                  <span className="ei-icon ei-green">✓</span>
-                  <span className="ei-text">Automatic cache CDNs</span>
-                </div>
-                <div className="everything-item">
-                  <span className="ei-icon ei-green">✓</span>
-                  <span className="ei-text">Load balancing configuration</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Create Column -> Build */}
-            <div className="everything-column">
-              <h4 className="everything-col-title">Build</h4>
-              <div className="everything-list">
-                <div className="everything-item">
-                  <span className="ei-icon ei-purple">✦</span>
-                  <span className="ei-text">Custom React web platforms</span>
-                </div>
-                <div className="everything-item">
-                  <span className="ei-icon ei-purple">✦</span>
-                  <span className="ei-text">Flutter mobile applications</span>
-                </div>
-                <div className="everything-item">
-                  <span className="ei-icon ei-purple">✦</span>
-                  <span className="ei-text">Solidity blockchain contracts</span>
-                </div>
-                <div className="everything-item">
-                  <span className="ei-icon ei-purple">✦</span>
-                  <span className="ei-text">Multi-tenant SaaS backends</span>
-                </div>
-                <div className="everything-item">
-                  <span className="ei-icon ei-purple">✦</span>
-                  <span className="ei-text">Python AI model workflows</span>
-                </div>
-                <div className="everything-item">
-                  <span className="ei-icon ei-purple">✦</span>
-                  <span className="ei-text">GraphQL &amp; REST API layers</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Audit Column -> Secure */}
-            <div className="everything-column">
-              <h4 className="everything-col-title">Secure</h4>
-              <div className="everything-list">
-                <div className="everything-item">
-                  <span className="ei-icon ei-amber">⚡</span>
-                  <span className="ei-text">Vulnerability pen testing</span>
-                </div>
-                <div className="everything-item">
-                  <span className="ei-icon ei-amber">⚡</span>
-                  <span className="ei-text">Zero-trust user gateways</span>
-                </div>
-                <div className="everything-item">
-                  <span className="ei-icon ei-amber">⚡</span>
-                  <span className="ei-text">Database isolation rules</span>
-                </div>
-                <div className="everything-item">
-                  <span className="ei-icon ei-amber">⚡</span>
-                  <span className="ei-text">SSL/TLS HTTPS configurations</span>
-                </div>
-                <div className="everything-item">
-                  <span className="ei-icon ei-amber">⚡</span>
-                  <span className="ei-text">Strict CORS whitelist policies</span>
-                </div>
-                <div className="everything-item">
-                  <span className="ei-icon ei-amber">⚡</span>
-                  <span className="ei-text">SOC2 compliance auditing</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Report Column -> Monitor */}
-            <div className="everything-column">
-              <h4 className="everything-col-title">Monitor</h4>
-              <div className="everything-list">
-                <div className="everything-item">
-                  <span className="ei-icon ei-cyan">◎</span>
-                  <span className="ei-text">Real-time cloud logs tracing</span>
-                </div>
-                <div className="everything-item">
-                  <span className="ei-icon ei-cyan">◎</span>
-                  <span className="ei-text">Slack system incident alerts</span>
-                </div>
-                <div className="everything-item">
-                  <span className="ei-icon ei-cyan">◎</span>
-                  <span className="ei-text">Grafana metrics dashboards</span>
-                </div>
-                <div className="everything-item">
-                  <span className="ei-icon ei-cyan">◎</span>
-                  <span className="ei-text">Database load analytics</span>
-                </div>
-                <div className="everything-item">
-                  <span className="ei-icon ei-cyan">◎</span>
-                  <span className="ei-text">Response latency profiling</span>
-                </div>
-                <div className="everything-item">
-                  <span className="ei-icon ei-cyan">◎</span>
-                  <span className="ei-text">API rate-limit statistics</span>
-                  <span className="ei-text">Competitor benchmarking</span>
-                </div>
-                <div className="everything-item">
-                  <span className="ei-icon ei-cyan">◎</span>
-                  <span className="ei-text">Weekly AI summaries</span>
-                </div>
-              </div>
             </div>
           </div>
         </div>

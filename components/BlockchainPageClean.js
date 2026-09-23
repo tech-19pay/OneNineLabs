@@ -150,18 +150,18 @@ export default function BlockchainPageClean() {
               fontSize: "clamp(32px, 4.2vw, 48px)", fontWeight: "800", color: "#1e1b4b",
               lineHeight: "1.12", letterSpacing: "-1.5px", marginBottom: "20px"
             }}>
-              Build the future of <span className="bclean-highlight">Web3 &amp; Blockchain</span> with one senior team
+              Build the future of <span className="bclean-highlight">Web3 &amp; Blockchain</span>
             </h1>
             <p style={{ fontSize: "16px", color: "#475569", lineHeight: "1.7", marginBottom: "36px", maxWidth: "560px", fontWeight: "500" }}>
               From audited smart contracts and dApps to DeFi protocols, NFT marketplaces, wallets, tokenization and high-performance crypto exchanges — we design, build, audit and launch it all.
             </p>
 
-            <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", marginBottom: "48px" }}>
+            <div className="bclean-hero-btns" style={{ display: "flex", gap: "16px", flexWrap: "wrap", marginBottom: "48px" }}>
               <Link href="/contact" className="bclean-btn-dark">Start Blockchain Project →</Link>
               <a href="#capabilities" className="bclean-btn-ghost">Explore Capabilities</a>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", maxWidth: "600px" }}>
+            <div className="bclean-checks-grid">
               {heroChecks.map((item, i) => (
                 <div key={i} className="bclean-check-card">
                   <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "6px" }}>
@@ -174,67 +174,75 @@ export default function BlockchainPageClean() {
             </div>
           </div>
 
-          {/* RIGHT — WALLET PHONE MOCKUP */}
-          <div style={{ display: "flex", justifyContent: "center", position: "relative", zIndex: 2 }}>
-            <div className="bclean-phone-wrapper" style={{ background: "#ffffff", borderRadius: "36px", padding: "16px", boxShadow: "0 25px 60px rgba(15, 23, 42, 0.08)", maxWidth: "340px", width: "100%" }}>
-              <div style={{ background: "#0f172a", borderRadius: "28px", padding: "16px", color: "#ffffff", position: "relative", overflow: "hidden", height: "470px", display: "flex", flexDirection: "column", border: "1px solid #1e293b", textAlign: "left" }}>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "18px" }}>
-                  <div>
-                    <div style={{ fontSize: "13px", fontWeight: "800" }}>Hi Arima 👋</div>
-                    <div style={{ fontSize: "9.5px", color: "#94a3b8" }}>Manage your portfolio</div>
-                  </div>
-                  <span style={{ fontSize: "9px", background: "#1e293b", padding: "5px 10px", borderRadius: "99px", color: "#94a3b8", fontWeight: "700" }}>Web3 Wallet</span>
-                </div>
-
-                <div style={{ background: "linear-gradient(135deg, #1e3a8a, #2563eb)", borderRadius: "18px", padding: "18px", marginBottom: "14px", position: "relative", overflow: "hidden" }}>
-                  <div style={{ fontSize: "9.5px", color: "#bfdbfe", fontWeight: "700", marginBottom: "6px" }}>Total Balance</div>
-                  <div style={{ fontSize: "26px", fontWeight: "900", letterSpacing: "-0.5px", marginBottom: "10px" }}>$12,480.35</div>
-                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: "9px" }}>
-                    <span style={{ background: "rgba(255,255,255,0.16)", padding: "4px 8px", borderRadius: "6px", fontWeight: "800" }}>▲ 8.2% this month</span>
-                    <span style={{ color: "#bfdbfe", fontWeight: "700", padding: "4px 0" }}>BTC · ETH · USDT</span>
-                  </div>
-                </div>
-
-                <div style={{ display: "flex", gap: "8px", marginBottom: "14px" }}>
-                  {["↗ Send", "↙ Receive", "⇅ Swap"].map((b) => (
-                    <div key={b} style={{ flex: 1, textAlign: "center", background: "#1e293b", border: "1px solid #334155", borderRadius: "10px", padding: "9px 0", fontSize: "10px", fontWeight: "800", color: "#e2e8f0" }}>{b}</div>
-                  ))}
-                </div>
-
-                <div style={{ background: "#1e293b", borderRadius: "14px", padding: "12px", border: "1px solid #334155", marginBottom: "14px" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: "9.5px", marginBottom: "6px" }}>
-                    <span style={{ color: "#94a3b8" }}>Swap</span><span style={{ fontWeight: "800" }}>0.5 BTC → 39,553 USDT</span>
-                  </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: "9.5px" }}>
-                    <span style={{ color: "#94a3b8" }}>Rate</span><span style={{ fontWeight: "800", color: "#34d399" }}>1 BTC = 79,106 USDT</span>
-                  </div>
-                </div>
-
-                <div style={{ fontSize: "9.5px", fontWeight: "800", color: "#94a3b8", marginBottom: "8px" }}>RECENT ACTIVITY</div>
-                {[
-                  { ic: "Ξ", name: "Receive ETH", date: "25 Aug • 09:12", amt: "+2.40 ETH", up: true },
-                  { ic: "₮", name: "Send USDT", date: "24 Aug • 18:40", amt: "−850.00 USDT", up: false }
-                ].map((t) => (
-                  <div key={t.name} style={{ display: "flex", alignItems: "center", gap: "10px", background: "#111827", border: "1px solid #1f2937", borderRadius: "12px", padding: "9px 10px", marginBottom: "8px" }}>
-                    <span style={{ width: "26px", height: "26px", borderRadius: "50%", background: "#1e3a8a", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "11px", fontWeight: "800", flexShrink: 0 }}>{t.ic}</span>
-                    <div style={{ flex: 1 }}>
-                      <div style={{ fontSize: "10px", fontWeight: "800" }}>{t.name}</div>
-                      <div style={{ fontSize: "8px", color: "#6b7280" }}>{t.date}</div>
-                    </div>
-                    <span style={{ fontSize: "10px", fontWeight: "800", color: t.up ? "#34d399" : "#f87171" }}>{t.amt}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Floating chip */}
-            <div className="bclean-float-chip" style={{ position: "absolute", right: "-14px", bottom: "48px", background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "16px", padding: "12px 18px", boxShadow: "0 16px 40px rgba(15,23,42,0.12)", display: "flex", alignItems: "center", gap: "10px", zIndex: 3 }}>
-              <span style={{ fontSize: "20px" }}>🛡️</span>
+          {/* RIGHT — 3D CRYPTO COINS & PHONE HERO IMAGE */}
+          <div className="bclean-hero-right-wrap" style={{ display: "flex", justifyContent: "center", position: "relative", zIndex: 2, transform: "translate(-35px, -10px)", width: "100%" }}>
+            
+            {/* Top-Right Floating Audit Badge */}
+            <div className="bclean-float-chip" style={{
+              position: "absolute",
+              top: "-16px",
+              right: "-12px",
+              background: "#ffffff",
+              border: "1px solid #e2e8f0",
+              borderRadius: "14px",
+              padding: "10px 16px",
+              boxShadow: "0 14px 32px rgba(15, 23, 42, 0.12)",
+              display: "flex",
+              alignItems: "center",
+              gap: "10px",
+              zIndex: 4
+            }}>
+              <span style={{ fontSize: "18px" }}>🛡️</span>
               <div>
-                <div style={{ fontSize: "12px", fontWeight: "900", color: "#0f172a" }}>100% Audited</div>
-                <div style={{ fontSize: "10px", color: "#64748b", fontWeight: "600" }}>Pre-launch, every contract</div>
+                <div style={{ fontSize: "11.5px", fontWeight: "900", color: "#0f172a" }}>100% Audited Contracts</div>
+                <div style={{ fontSize: "9px", color: "#10b981", fontWeight: "700" }}>✓ CertiK &amp; OpenZeppelin</div>
               </div>
             </div>
+
+            {/* Main 3D Crypto Image Container */}
+            <div style={{
+              position: "relative",
+              width: "100%",
+              maxWidth: "520px",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center"
+            }}>
+              <img
+                src="/blockchain_hero_crypto_transparent.png"
+                alt="Web3 & Blockchain Development Ecosystem"
+                style={{
+                  width: "100%",
+                  height: "auto",
+                  display: "block",
+                  objectFit: "contain",
+                  mixBlendMode: "multiply"
+                }}
+              />
+            </div>
+
+            {/* Bottom-Left Floating Badge */}
+            <div className="bclean-float-chip2" style={{
+              position: "absolute",
+              bottom: "-14px",
+              left: "-14px",
+              background: "#ffffff",
+              border: "1px solid #e2e8f0",
+              borderRadius: "14px",
+              padding: "9px 15px",
+              boxShadow: "0 12px 28px rgba(15, 23, 42, 0.10)",
+              display: "flex",
+              alignItems: "center",
+              gap: "8px",
+              zIndex: 4
+            }}>
+              <span style={{ fontSize: "14px" }}>⚡</span>
+              <div>
+                <div style={{ fontSize: "11px", fontWeight: "800", color: "#0f172a" }}>Multi-Chain Ecosystem</div>
+                <div style={{ fontSize: "9px", color: "#64748b", fontWeight: "600" }}>ETH · SOL · BASE · ARB · POL</div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -249,7 +257,7 @@ export default function BlockchainPageClean() {
       </section>
 
       {/* ═══ 4. CAPABILITY TERMINAL CARDS ═══ */}
-      <section id="capabilities" style={{ background: "#f8fafc", padding: "88px 24px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <section id="capabilities" style={{ background: "#f8fafc", padding: "88px 24px 40px 24px", display: "flex", flexDirection: "column", alignItems: "center" }}>
         <div style={{ textAlign: "center", marginBottom: "48px", maxWidth: "760px" }}>
           <span style={{ fontSize: "13px", fontWeight: "900", letterSpacing: "2.5px", textTransform: "uppercase", color: "#0f172a", display: "block", marginBottom: "12px" }}>OUR CAPABILITIES</span>
           <h2 style={{ fontSize: "clamp(28px, 4.5vw, 48px)", fontWeight: "900", color: "#0f172a", lineHeight: "1.1", letterSpacing: "-1px", margin: "0 0 12px 0" }}>Our Blockchain Engineering Stack</h2>
@@ -315,7 +323,7 @@ export default function BlockchainPageClean() {
       </section>
 
       {/* ═══ 5. COMPLETE SERVICES GRID ═══ */}
-      <section id="services" style={{ background: "#ffffff", padding: "104px 24px", borderBottom: "1px solid #f1f5f9", textAlign: "center" }}>
+      <section id="services" style={{ background: "#ffffff", padding: "40px 24px 40px 24px", borderBottom: "1px solid #f1f5f9", textAlign: "center" }}>
         <h2 className="vd-section-h2">Complete Blockchain Development Services</h2>
         <p className="vd-section-p" style={{ maxWidth: "640px", marginLeft: "auto", marginRight: "auto", marginBottom: "64px" }}>
           Every layer of the Web3 stack, covered by one senior team — from protocol design and smart contracts to polished product UX and post-launch operations.
@@ -334,29 +342,29 @@ export default function BlockchainPageClean() {
           <div className="bento-card" style={{
             gridColumn: "1 / 2", gridRow: "1 / 3", background: "#f8fafc", borderRadius: "24px", padding: "32px", display: "flex", flexDirection: "column", position: "relative", overflow: "hidden", border: "1px solid #e2e8f0"
           }}>
-            <div style={{ fontSize: "72px", fontWeight: "400", fontFamily: "Georgia, serif", color: "#0f172a", lineHeight: "1" }}>82%</div>
-            <h3 style={{ fontSize: "24px", fontWeight: "600", color: "#0f172a", margin: "12px 0" }}>Felt More in Control</h3>
+            <div style={{ fontSize: "72px", fontWeight: "400", fontFamily: "Georgia, serif", color: "#0f172a", lineHeight: "1" }}>100%</div>
+            <h3 style={{ fontSize: "24px", fontWeight: "600", color: "#0f172a", margin: "12px 0" }}>Audited & Secure</h3>
             <p style={{ fontSize: "15px", color: "#64748b", lineHeight: "1.6", marginBottom: "40px" }}>
-              Reported improved confidence managing their brain health after using the dashboard.
+              Every smart contract goes through rigorous testing, static analysis, and third-party audits before mainnet.
             </p>
             <div style={{ background: "#ffffff", borderRadius: "16px", padding: "20px", boxShadow: "0 10px 30px rgba(0,0,0,0.05)", border: "1px solid #e2e8f0", zIndex: 2, marginTop: "auto" }}>
-              <div style={{ fontSize: "14px", fontWeight: "700", marginBottom: "16px" }}>Suggested Next Steps</div>
+              <div style={{ fontSize: "14px", fontWeight: "700", marginBottom: "16px" }}>Security Pipeline</div>
               <div style={{ display: "flex", gap: "12px", marginBottom: "16px" }}>
-                <div style={{ width: "24px", height: "24px", background: "#f1f5f9", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px" }}>🩺</div>
+                <div style={{ width: "24px", height: "24px", background: "#f1f5f9", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px" }}>🛡️</div>
                 <div>
-                  <div style={{ fontSize: "12px", fontWeight: "600", color: "#0f172a" }}>Diagnostic <span style={{ color: "#94a3b8", fontWeight: "400", marginLeft: "8px" }}>May - June</span></div>
+                  <div style={{ fontSize: "12px", fontWeight: "600", color: "#0f172a" }}>Static Analysis <span style={{ color: "#94a3b8", fontWeight: "400", marginLeft: "8px" }}>Automated</span></div>
                   <ul style={{ paddingLeft: "16px", margin: "4px 0 0", fontSize: "11px", color: "#64748b", lineHeight: "1.5" }}>
-                    <li>Repeat MRI in 3-4 months</li>
-                    <li>Cognitive test recommended</li>
+                    <li>Slither & Mythril scans</li>
+                    <li>Gas optimization checks</li>
                   </ul>
                 </div>
               </div>
               <div style={{ display: "flex", gap: "12px" }}>
-                <div style={{ width: "24px", height: "24px", background: "#f1f5f9", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px" }}>👨‍⚕️</div>
+                <div style={{ width: "24px", height: "24px", background: "#f1f5f9", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px" }}>👨‍💻</div>
                 <div>
-                  <div style={{ fontSize: "12px", fontWeight: "600", color: "#0f172a" }}>Specialist <span style={{ color: "#94a3b8", fontWeight: "400", marginLeft: "8px" }}>July</span></div>
+                  <div style={{ fontSize: "12px", fontWeight: "600", color: "#0f172a" }}>Manual Audit <span style={{ color: "#94a3b8", fontWeight: "400", marginLeft: "8px" }}>Peer Review</span></div>
                   <ul style={{ paddingLeft: "16px", margin: "4px 0 0", fontSize: "11px", color: "#64748b", lineHeight: "1.5" }}>
-                    <li>Consult a neurologist (early risk detected)</li>
+                    <li>Invariant testing & Formal verification</li>
                   </ul>
                 </div>
               </div>
@@ -369,10 +377,10 @@ export default function BlockchainPageClean() {
           <div className="bento-card" style={{
             gridColumn: "2 / 3", gridRow: "1 / 2", background: "#f8fafc", borderRadius: "24px", padding: "32px", border: "1px solid #e2e8f0", display: "flex", flexDirection: "column"
           }}>
-            <div style={{ fontSize: "48px", fontWeight: "400", fontFamily: "Georgia, serif", color: "#0f172a", lineHeight: "1" }}>68%</div>
-            <h3 style={{ fontSize: "20px", fontWeight: "600", color: "#0f172a", margin: "12px 0" }}>Risk Reduction</h3>
+            <div style={{ fontSize: "48px", fontWeight: "400", fontFamily: "Georgia, serif", color: "#0f172a", lineHeight: "1" }}>40%</div>
+            <h3 style={{ fontSize: "20px", fontWeight: "600", color: "#0f172a", margin: "12px 0" }}>Gas Optimization</h3>
             <p style={{ fontSize: "14px", color: "#64748b", lineHeight: "1.5", marginBottom: "32px" }}>
-              Users who followed AI-guided lifestyle suggestions reduced key risk markers.
+              Reduced smart contract deployment and execution costs through advanced Yul optimization.
             </p>
             <div style={{ marginTop: "auto", position: "relative", height: "100px", overflow: "hidden", display: "flex", justifyContent: "center" }}>
               {/* Semi-circle gauge */}
@@ -388,16 +396,16 @@ export default function BlockchainPageClean() {
           <div className="bento-card" style={{
             gridColumn: "3 / 4", gridRow: "1 / 2", background: "#f8fafc", borderRadius: "24px", padding: "32px", border: "1px solid #e2e8f0", display: "flex", flexDirection: "column"
           }}>
-            <div style={{ fontSize: "48px", fontWeight: "400", fontFamily: "Georgia, serif", color: "#0f172a", lineHeight: "1" }}>76%</div>
-            <h3 style={{ fontSize: "20px", fontWeight: "600", color: "#0f172a", margin: "12px 0" }}>Detected Early</h3>
+            <div style={{ fontSize: "48px", fontWeight: "400", fontFamily: "Georgia, serif", color: "#0f172a", lineHeight: "1" }}>99.9%</div>
+            <h3 style={{ fontSize: "20px", fontWeight: "600", color: "#0f172a", margin: "12px 0" }}>Uptime Guaranteed</h3>
             <p style={{ fontSize: "14px", color: "#64748b", lineHeight: "1.5", marginBottom: "32px" }}>
-              Early-stage neurodegenerative conditions identified before clinical symptoms appeared.
+              Enterprise-grade infrastructure ensuring high availability for your decentralized applications.
             </p>
             <div style={{ marginTop: "auto" }}>
               <div style={{ marginBottom: "16px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", fontSize: "11px", fontWeight: "600", marginBottom: "6px" }}>
-                  <span style={{ color: "#64748b" }}>Symptoms Appeared</span>
-                  <span style={{ color: "#0f172a" }}>May 2025</span>
+                  <span style={{ color: "#64748b" }}>Testnet Deployment</span>
+                  <span style={{ color: "#0f172a" }}>Week 4</span>
                 </div>
                 <div style={{ height: "12px", background: "#ffedd5", borderRadius: "6px", width: "100%", position: "relative" }}>
                   <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "85%", background: "#fdba74", borderRadius: "6px" }}></div>
@@ -405,8 +413,8 @@ export default function BlockchainPageClean() {
               </div>
               <div>
                 <div style={{ display: "flex", justifyContent: "space-between", fontSize: "11px", fontWeight: "600", marginBottom: "6px" }}>
-                  <span style={{ color: "#64748b" }}>Condition Detected</span>
-                  <span style={{ color: "#0f172a" }}>June 2024</span>
+                  <span style={{ color: "#64748b" }}>Mainnet Launch</span>
+                  <span style={{ color: "#0f172a" }}>Week 8</span>
                 </div>
                 <div style={{ height: "12px", background: "#ffedd5", borderRadius: "6px", width: "100%", position: "relative" }}>
                   <div style={{ position: "absolute", left: 0, top: 0, bottom: 0, width: "65%", background: "#f97316", borderRadius: "6px" }}></div>
@@ -419,32 +427,33 @@ export default function BlockchainPageClean() {
           <div className="bento-card" style={{
             gridColumn: "2 / 4", gridRow: "2 / 3", background: "#f8fafc", borderRadius: "24px", padding: "32px", border: "1px solid #e2e8f0", display: "flex", flexDirection: "row", alignItems: "center", justifyContent: "space-between", gap: "24px"
           }}>
-            <div style={{ flex: 1 }}>
-              <div style={{ fontSize: "48px", fontWeight: "400", fontFamily: "Georgia, serif", color: "#0f172a", lineHeight: "1" }}>12k</div>
+            <div style={{ flex: 1, minWidth: "200px" }}>
+              <div style={{ fontSize: "48px", fontWeight: "400", fontFamily: "Georgia, serif", color: "#0f172a", lineHeight: "1" }}>$1.2B+</div>
               <p style={{ fontSize: "15px", color: "#64748b", lineHeight: "1.6", margin: "16px 0 24px" }}>
-                Individuals already tracking their brain health with our platform.
+                Total Value Locked (TVL) securely managed by protocols engineered by our team.
               </p>
-              <button style={{ background: "#0f172a", color: "#ffffff", padding: "10px 24px", borderRadius: "99px", fontSize: "14px", fontWeight: "600", border: "none", cursor: "pointer" }}>Join Us</button>
+              <button style={{ background: "#0f172a", color: "#ffffff", padding: "10px 24px", borderRadius: "99px", fontSize: "14px", fontWeight: "600", border: "none", cursor: "pointer" }}>Start Building</button>
             </div>
-            <div style={{ width: "200px", height: "160px", display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr", gap: "8px" }}>
+            <div className="bento-images-grid" style={{ width: "200px", height: "160px", display: "grid", gridTemplateColumns: "1fr 1fr", gridTemplateRows: "1fr 1fr", gap: "8px", flexShrink: 0 }}>
               <div style={{ background: "#e2e8f0", borderRadius: "12px", overflow: "hidden" }}>
-                <img src="https://i.pravatar.cc/150?img=1" alt="User 1" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <img src="https://images.unsplash.com/photo-1621416894569-0f39ed31d247?w=300&q=80" alt="Bitcoin abstract" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
               <div style={{ background: "#e2e8f0", borderRadius: "12px", overflow: "hidden" }}>
-                <img src="https://i.pravatar.cc/150?img=2" alt="User 2" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <img src="https://images.unsplash.com/photo-1622782914767-404fb9ab3f57?w=300&q=80" alt="Ethereum logo" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
               <div style={{ background: "#e2e8f0", borderRadius: "12px", overflow: "hidden" }}>
-                <img src="https://i.pravatar.cc/150?img=3" alt="User 3" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <img src="https://images.unsplash.com/photo-1605792657660-596af9009e82?w=300&q=80" alt="Crypto abstract" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
               <div style={{ background: "#e2e8f0", borderRadius: "12px", overflow: "hidden" }}>
-                <img src="https://i.pravatar.cc/150?img=4" alt="User 4" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+                <img src="https://images.unsplash.com/photo-1620321023374-d1a68fbc720d?w=300&q=80" alt="Code abstract" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
               </div>
             </div>
           </div>
         </div>
 
         {/* CSS for responsiveness */}
-        <style dangerouslySetInnerHTML={{__html: `
+        <style dangerouslySetInnerHTML={{
+          __html: `
           @media (max-width: 900px) {
             .bento-grid { grid-template-columns: 1fr 1fr !important; }
             .bento-grid > div:nth-child(1) { grid-column: 1 / 3 !important; grid-row: 1 / 2 !important; }
@@ -454,9 +463,12 @@ export default function BlockchainPageClean() {
           }
           @media (max-width: 600px) {
             .bento-grid { grid-template-columns: 1fr !important; }
-            .bento-grid > div { grid-column: 1 / 2 !important; grid-row: auto !important; }
-            .bento-grid > div:nth-child(4) { flex-direction: column !important; text-align: center !important; }
-            .bento-grid > div:nth-child(4) > div:nth-child(2) { width: 100% !important; height: auto !important; aspect-ratio: 4/3; }
+            .bento-grid > div:nth-child(1),
+            .bento-grid > div:nth-child(2),
+            .bento-grid > div:nth-child(3),
+            .bento-grid > div:nth-child(4) { grid-column: 1 / -1 !important; grid-row: auto !important; }
+            .bento-grid > div:nth-child(4) { flex-direction: column-reverse !important; text-align: center !important; }
+            .bento-images-grid { width: 100% !important; height: auto !important; aspect-ratio: 4/3; }
           }
         `}} />
       </section>
@@ -464,7 +476,7 @@ export default function BlockchainPageClean() {
       <BlockchainSpotlights />
 
       {/* ═══ 6. TOKEN & CONTRACT DEPLOYMENT ═══ */}
-      <section style={{ background: "#f8fafc", padding: "96px 24px", borderTop: "1px solid #f1f5f9" }}>
+      <section style={{ background: "#f8fafc", padding: "40px 24px 40px 24px", borderTop: "1px solid #f1f5f9" }}>
         <div className="bclean-perf-grid" style={{ display: "grid", gridTemplateColumns: "1.1fr 1.2fr", gap: "48px", alignItems: "center", maxWidth: "1150px", margin: "0 auto" }}>
           <div style={{ textAlign: "left" }}>
             <span style={{ fontSize: "13px", fontWeight: "900", letterSpacing: "2.5px", textTransform: "uppercase", color: "#0f172a", display: "block", marginBottom: "12px" }}>LAUNCH SERVICES</span>
@@ -474,7 +486,7 @@ export default function BlockchainPageClean() {
             <p style={{ color: "#475569", fontSize: "15px", fontWeight: "600", margin: "0 0 28px 0", lineHeight: "1.65" }}>
               From token design to a verified mainnet launch — we engineer the contract, run the audit, rehearse on testnets and execute the deployment so your launch day is boring, in the best way.
             </p>
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px" }}>
+            <div className="bclean-checklist-grid">
               {deployChecklist.map((c, i) => (
                 <div key={i} style={{ background: "#ffffff", border: "1.5px solid #e2e8f0", borderRadius: "14px", padding: "14px" }}>
                   <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "4px" }}>
@@ -513,7 +525,7 @@ export default function BlockchainPageClean() {
       </section>
 
       {/* ═══ 7. BLOCKCHAINS & TOOLS ═══ */}
-      <section style={{ background: "#ffffff", padding: "104px 24px", borderBottom: "1px solid #f1f5f9", textAlign: "center" }}>
+      <section style={{ background: "#ffffff", padding: "40px 24px 40px 24px", borderBottom: "1px solid #f1f5f9", textAlign: "center" }}>
         <div className="vd-badge-tag" style={{ marginLeft: "auto", marginRight: "auto", color: PRIMARY, background: "rgba(37,99,235,0.1)", borderColor: "rgba(37,99,235,0.25)" }}>Infrastructure</div>
         <h2 className="vd-section-h2">Blockchains &amp; Tools We Build With</h2>
         <p className="vd-section-p" style={{ maxWidth: "620px", marginLeft: "auto", marginRight: "auto" }}>
@@ -545,7 +557,7 @@ export default function BlockchainPageClean() {
       </section>
 
       {/* ═══ 8. INDUSTRIES ═══ */}
-      <section style={{ background: "#f8fafc", padding: "96px 24px", borderBottom: "1px solid #f1f5f9", textAlign: "center" }}>
+      <section style={{ background: "#f8fafc", padding: "40px 24px 40px 24px", borderBottom: "1px solid #f1f5f9", textAlign: "center" }}>
         <div className="vd-badge-tag" style={{ marginLeft: "auto", marginRight: "auto", color: PRIMARY, background: "rgba(37,99,235,0.1)", borderColor: "rgba(37,99,235,0.25)" }}>Use Cases</div>
         <h2 className="vd-section-h2">Industries We Build For</h2>
         <p className="vd-section-p" style={{ maxWidth: "620px", marginLeft: "auto", marginRight: "auto" }}>
@@ -566,7 +578,7 @@ export default function BlockchainPageClean() {
       </section>
 
       {/* ═══ 9. PROCESS TIMELINE ═══ */}
-      <section className="vd-process-section" style={{ padding: "104px 24px 90px" }}>
+      <section className="vd-process-section" style={{ padding: "40px 24px 40px" }}>
         <div className="vd-badge-tag" style={{ marginLeft: "auto", marginRight: "auto", color: PRIMARY, background: "rgba(37,99,235,0.1)", borderColor: "rgba(37,99,235,0.25)" }}>Delivery Process</div>
         <h2 className="vd-section-h2">How We Ship Blockchain Products</h2>
         <p className="vd-section-p" style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
@@ -606,7 +618,7 @@ export default function BlockchainPageClean() {
       </section>
 
       {/* ═══ 10. FAQ ═══ */}
-      <section style={{ background: "#f8fafc", padding: "80px 24px" }}>
+      <section style={{ background: "#f8fafc", padding: "40px 24px 20px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
           <h2 style={{ fontSize: "32px", fontWeight: "800", color: "#0f172a", textAlign: "center", marginBottom: "40px" }}>Blockchain Engineering FAQs</h2>
           <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
@@ -621,7 +633,7 @@ export default function BlockchainPageClean() {
       </section>
 
       {/* ═══ 11. CTA ═══ */}
-      <section className="vd-cta-section" id="get-started">
+      <section className="vd-cta-section" id="get-started" style={{ paddingTop: "20px", marginTop: "0px", position: "relative", zIndex: 10 }}>
         <div className="vd-cta-inner">
           <div className="vd-badge-tag" style={{ marginLeft: "auto", marginRight: "auto" }}>Free Discovery Call</div>
           <div className="vd-cta-title">Have a blockchain idea? <span>Let&apos;s scope it.</span></div>
@@ -710,15 +722,58 @@ export default function BlockchainPageClean() {
         }
         .bclean-ind-card:hover { transform: translateY(-3px); border-color: #93c5fd; box-shadow: 0 14px 30px rgba(15,23,42,0.07); }
 
+        .bclean-checks-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; max-width: 600px; }
+        .bclean-checklist-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+        .vd-marquee-section {
+          overflow: hidden;
+          background: #f1f5f9;
+          padding: 16px 0;
+          border-bottom: 1px solid #e2e8f0;
+        }
+        .vd-marquee-track {
+          display: flex;
+          width: max-content;
+          animation: marqueeScroll 20s linear infinite;
+        }
+        .vd-marquee-item {
+          display: inline-flex;
+          align-items: center;
+          font-weight: 700;
+          font-size: 14px;
+          color: #475569;
+          padding: 0 24px;
+          white-space: nowrap;
+        }
+        .vd-marquee-item .sep {
+          color: #cbd5e1;
+          font-size: 10px;
+          margin-right: 24px;
+        }
+        @keyframes marqueeScroll {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+
         @media (max-width: 1024px) {
           .bclean-hero-grid { grid-template-columns: 1fr !important; gap: 50px !important; }
-          .reports-grid { grid-template-columns: 1fr; max-width: 560px; }
+          .reports-grid { grid-template-columns: 1fr; max-width: 560px; margin: 0 auto; }
           .bclean-perf-grid { grid-template-columns: 1fr !important; gap: 40px !important; }
           .bclean-net-grid { grid-template-columns: repeat(3, 1fr) !important; }
           .bclean-ind-grid { grid-template-columns: 1fr !important; }
         }
+        @media (max-width: 768px) {
+          .bclean-hero-btns { flex-direction: column; }
+          .bclean-hero-btns a { width: 100%; text-align: center; justify-content: center; }
+          .bclean-float-chip { top: -10px !important; right: 0px !important; transform: scale(0.85); transform-origin: top right; }
+          .bclean-float-chip2 { bottom: -10px !important; left: 0px !important; transform: scale(0.85); transform-origin: bottom left; }
+          .bclean-hero-right-wrap { transform: translate(0, 0) !important; margin-top: 20px; }
+          .bclean-checks-grid { grid-template-columns: 1fr; }
+        }
         @media (max-width: 640px) {
           .bclean-net-grid { grid-template-columns: repeat(2, 1fr) !important; }
+          .bclean-checklist-grid { grid-template-columns: 1fr; }
+          .bclean-float-chip, .bclean-float-chip2 { transform: scale(0.75); }
         }
       `}</style>
     </div>

@@ -148,12 +148,12 @@ export default function SecurityPageClean() {
               Penetration testing, SOC 2 / ISO 27001, identity-aware Zero-Trust and a 24/7 SOC — one senior team that hardens your stack and stays on the line when it matters.
             </p>
 
-            <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", marginBottom: "48px" }}>
+            <div className="sec-hero-btns" style={{ display: "flex", gap: "16px", flexWrap: "wrap", marginBottom: "48px" }}>
               <Link href="/contact" className="sec-btn-dark">Book a Security Review →</Link>
               <a href="#capabilities" className="sec-btn-ghost">Explore Capabilities</a>
             </div>
 
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", maxWidth: "600px" }}>
+            <div className="sec-checks-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", maxWidth: "600px" }}>
               {heroChecks.map((item) => (
                 <div key={item.title} className="sec-check-card">
                   <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "6px" }}>
@@ -225,7 +225,7 @@ export default function SecurityPageClean() {
         </div>
       </section>
 
-      <section id="capabilities" style={{ background: "#f8fafc", padding: "88px 24px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <section id="capabilities" style={{ background: "#f8fafc", padding: "88px 24px 40px 24px", display: "flex", flexDirection: "column", alignItems: "center" }}>
         <div style={{ textAlign: "center", marginBottom: "48px", maxWidth: "760px" }}>
           <span style={{ fontSize: "13px", fontWeight: "900", letterSpacing: "2.5px", textTransform: "uppercase", color: "#0f172a", display: "block", marginBottom: "12px" }}>OUR CAPABILITIES</span>
           <h2 style={{ fontSize: "clamp(28px, 4.5vw, 48px)", fontWeight: "900", color: "#0f172a", lineHeight: "1.1", letterSpacing: "-1px", margin: "0 0 12px 0" }}>Offense, Defense &amp; Compliance</h2>
@@ -286,7 +286,7 @@ export default function SecurityPageClean() {
         </div>
       </section>
 
-      <section id="services" style={{ background: "#ffffff", padding: "104px 24px", borderBottom: "1px solid #f1f5f9", textAlign: "center" }}>
+      <section id="services" style={{ background: "#ffffff", padding: "40px 24px 40px 24px", borderBottom: "1px solid #f1f5f9", textAlign: "center" }}>
         <div className="vd-badge-tag" style={{ marginLeft: "auto", marginRight: "auto", color: PRIMARY, background: "rgba(5,150,105,0.1)", borderColor: "rgba(5,150,105,0.25)" }}>Full-Stack Security</div>
         <h2 className="vd-section-h2">Cloud &amp; Cyber Security Services</h2>
         <p className="vd-section-p" style={{ maxWidth: "640px", marginLeft: "auto", marginRight: "auto" }}>
@@ -312,7 +312,7 @@ export default function SecurityPageClean() {
         </div>
       </section>
 
-      <section style={{ background: "#f8fafc", padding: "96px 24px", borderBottom: "1px solid #f1f5f9" }}>
+      <section style={{ background: "#f8fafc", padding: "40px 24px 40px 24px", borderBottom: "1px solid #f1f5f9" }}>
         <div style={{ maxWidth: "1150px", margin: "0 auto" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
             <div style={{ width: "24px", height: "6px", background: PRIMARY, borderRadius: "3px" }} />
@@ -338,7 +338,7 @@ export default function SecurityPageClean() {
         </div>
       </section>
 
-      <section style={{ background: "#ffffff", padding: "96px 24px" }}>
+      <section style={{ background: "#ffffff", padding: "40px 24px 40px 24px" }}>
         <div style={{ maxWidth: "1150px", margin: "0 auto" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "16px" }}>
             <div style={{ width: "24px", height: "6px", background: PRIMARY, borderRadius: "3px" }} />
@@ -368,7 +368,7 @@ export default function SecurityPageClean() {
         </div>
       </section>
 
-      <section className="vd-process-section" style={{ padding: "104px 24px 90px", background: "#f8fafc" }}>
+      <section className="vd-process-section" style={{ padding: "40px 24px 40px", background: "#f8fafc" }}>
         <div className="vd-badge-tag" style={{ marginLeft: "auto", marginRight: "auto", color: PRIMARY, background: "rgba(5,150,105,0.1)", borderColor: "rgba(5,150,105,0.25)" }}>Delivery Process</div>
         <h2 className="vd-section-h2">From Threat Model to Signed Audit</h2>
         <p className="vd-section-p" style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
@@ -407,7 +407,7 @@ export default function SecurityPageClean() {
         </div>
       </section>
 
-      <section style={{ background: "#f8fafc", padding: "80px 24px" }}>
+      <section style={{ background: "#f8fafc", padding: "40px 24px 20px 24px" }}>
         <div style={{ maxWidth: "860px", margin: "0 auto" }}>
           <h2 style={{ fontSize: "32px", fontWeight: "800", color: "#0f172a", textAlign: "center", marginBottom: "40px" }}>Security FAQs</h2>
           <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
@@ -421,7 +421,7 @@ export default function SecurityPageClean() {
         </div>
       </section>
 
-      <section className="vd-cta-section" id="get-started">
+      <section className="vd-cta-section" id="get-started" style={{ paddingTop: "20px", marginTop: "0px", position: "relative", zIndex: 10 }}>
         <div className="vd-cta-inner">
           <div className="vd-badge-tag" style={{ marginLeft: "auto", marginRight: "auto" }}>Free Security Review</div>
           <div className="vd-cta-title">Need a pentest, SOC 2 or a SOC? <span>Let&apos;s scope it.</span></div>
@@ -502,6 +502,11 @@ export default function SecurityPageClean() {
           .sec-hero-grid { grid-template-columns: 1fr !important; gap: 50px !important; }
           .reports-grid { grid-template-columns: 1fr; max-width: 560px; }
           .sec-concern-row { grid-template-columns: 1fr !important; gap: 24px !important; }
+        }
+        @media (max-width: 768px) {
+          .sec-hero-btns { flex-direction: column; }
+          .sec-hero-btns a { width: 100%; text-align: center; justify-content: center; }
+          .sec-float-chip { display: none !important; }
         }
       `}</style>
     </div>

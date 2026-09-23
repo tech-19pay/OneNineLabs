@@ -314,6 +314,20 @@ const industrySolutions: IndustrySolution[] = [
       "Real-Time WebSocket Interactive Reaction Feeds"
     ],
     image: "/social_mockup_1787414135953.jpg"
+  },
+  {
+    id: "typing-practice",
+    title: "Typing Practice & Speed Test Apps",
+    desc: "Fast, custom software keyboards with instant feedback. See your typing speed (WPM) and accuracy in real time. Enjoy smart AI lessons that adapt to you, plus fun offline typing games.",
+    badge: "Super Fast Keystrokes",
+    icon: "⌨️",
+    stats: "99.8% Keystroke Precision",
+    bullets: [
+      "Press Multiple Keys at Once",
+      "Built-in Steno Dictionaries",
+      "Instant Typing Feedback"
+    ],
+    image: "/typing_practice_mockup.jpg"
   }
 ];
 
@@ -438,7 +452,7 @@ export default function MobileAppsPageContent() {
     <div className="mobile-page-content-root">
       {/* ── 1. HERO SECTION ── */}
       <section className="hero-section-wrapper" style={{
-        background: "linear-gradient(180deg, #f8fafc 0%, #ffffff 100%)",
+        background: "transparent",
         position: "relative",
         overflow: "hidden",
         padding: "100px 20px 40px",
@@ -446,8 +460,8 @@ export default function MobileAppsPageContent() {
       }}>
 
         {/* Abstract Graphics */}
-        <div style={{ position: "absolute", top: "-10%", left: "-10%", width: "500px", height: "500px", background: "radial-gradient(circle, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0) 70%)", borderRadius: "50%", pointerEvents: "none" }} />
-        <div style={{ position: "absolute", top: "20%", right: "-15%", width: "600px", height: "600px", background: "radial-gradient(circle, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 60%)", borderRadius: "50%", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "-10%", left: "-10%", width: "500px", height: "500px", background: "radial-gradient(circle, rgba(186, 230, 253, 0.25) 0%, transparent 70%)", borderRadius: "50%", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", top: "20%", right: "-15%", width: "600px", height: "600px", background: "radial-gradient(circle, rgba(224, 231, 255, 0.25) 0%, transparent 60%)", borderRadius: "50%", pointerEvents: "none" }} />
 
         <div className="hero-split-layout" style={{ maxWidth: "1400px", margin: "0 auto", display: "flex", flexWrap: "nowrap", alignItems: "center", justifyContent: "space-between", position: "relative", zIndex: 10 }}>
 
@@ -620,7 +634,7 @@ export default function MobileAppsPageContent() {
       </section>
 
       {/* ── 2. CORE PILLARS SECTION ── */}
-      <section className="core-pillars-section" style={{ background: "#ffffff", padding: "40px 24px 80px", fontFamily: "Inter, sans-serif" }}>
+      <section className="core-pillars-section" style={{ background: "transparent", padding: "40px 24px 80px", fontFamily: "Inter, sans-serif" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
 
           <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 64px" }}>
@@ -776,7 +790,7 @@ export default function MobileAppsPageContent() {
       </section>
 
       {/* ── 3. MULTI-PLATFORM & NATIVE ENGINEERING STACKS ── */}
-      <section id="stacks" style={{ background: "#ffffff", padding: "80px 24px", fontFamily: "Inter, sans-serif" }}>
+      <section id="stacks" style={{ background: "transparent", padding: "80px 24px", fontFamily: "Inter, sans-serif" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", display: "flex", flexDirection: "column", gap: "80px" }}>
 
           {/* Top Section */}
@@ -880,7 +894,7 @@ export default function MobileAppsPageContent() {
               }
             }
           `}</style>
-          <div style={{ position: "relative", borderRadius: "32px", boxShadow: "0 20px 40px rgba(123, 94, 240, 0.2)", marginTop: "40px" }}>
+          <div className="native-banner-container" style={{ position: "relative", borderRadius: "32px", boxShadow: "0 20px 40px rgba(123, 94, 240, 0.2)", marginTop: "40px" }}>
 
             {/* Background Layer with Overflow Hidden (for the rings) */}
             <div style={{ position: "absolute", top: 0, left: 0, right: 0, bottom: 0, background: "linear-gradient(135deg, #a084f5, #7b5ef0)", borderRadius: "32px", overflow: "hidden", zIndex: 0 }}>
@@ -935,7 +949,7 @@ export default function MobileAppsPageContent() {
               {/* Banner Text on the right */}
               <div className="native-banner-text" style={{ flex: "1 1 300px", position: "relative", zIndex: 10, color: "#ffffff" }}>
                 <h3 style={{ fontSize: "32px", fontWeight: "800", marginBottom: "16px", lineHeight: "1.2", letterSpacing: "-0.5px" }}>
-                  Ready? Let's Build with {platformStacks[1].badge} & {platformStacks[2].badge}
+                  Ready? Let&apos;s Build with {platformStacks[1].badge} & {platformStacks[2].badge}
                 </h3>
                 <p style={{ fontSize: "15px", lineHeight: "1.7", opacity: 0.9, marginBottom: "32px", maxWidth: "500px" }}>
                   {platformStacks[1].tagline} {platformStacks[2].tagline}
@@ -951,7 +965,7 @@ export default function MobileAppsPageContent() {
       </section>
 
       {/* ── 4. INDUSTRY SOLUTIONS (6 BENTO CARDS) ── */}
-      <section className="business-vertical-section" style={{ background: "#ffffff", padding: "80px 24px" }}>
+      <section className="business-vertical-section" style={{ background: "transparent", padding: "80px 24px" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 56px" }}>
 
@@ -963,17 +977,17 @@ export default function MobileAppsPageContent() {
             </p>
           </div>
 
-          <div style={{ display: "flex", flexDirection: "column", gap: "100px", marginTop: "40px" }}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "80px", marginTop: "40px" }}>
             {industrySolutions.map((sol, index) => (
-              <div key={sol.id} style={{
+              <div key={sol.id} className="industry-sol-row" style={{
                 display: "flex",
                 flexDirection: index % 2 === 0 ? "row" : "row-reverse",
-                gap: "80px",
+                gap: "60px",
                 alignItems: "center",
                 flexWrap: "wrap"
               }}>
                 {/* Left Side: Graphic with floating elements */}
-                <div style={{ flex: "1 1 400px", position: "relative", minHeight: "450px", display: "flex", justifyContent: "center", alignItems: "center" }}>
+                <div className="industry-sol-graphic" style={{ flex: "1 1 300px", position: "relative", minHeight: "350px", display: "flex", justifyContent: "center", alignItems: "center" }}>
 
                   {/* Big background shape */}
                   <div style={{
@@ -1052,7 +1066,7 @@ export default function MobileAppsPageContent() {
                 {/* Right Side: Content */}
                 <div style={{ flex: "1 1 400px", padding: "20px" }}>
                   {/* Decorative Quote Icon */}
-                  <div style={{ fontSize: "72px", color: "#a084f5", lineHeight: "1", opacity: 0.5, marginBottom: "10px", fontFamily: "serif" }}>"</div>
+                  <div style={{ fontSize: "72px", color: "#a084f5", lineHeight: "1", opacity: 0.5, marginBottom: "10px", fontFamily: "serif" }}>&quot;</div>
 
                   <h3 style={{ fontSize: "clamp(28px, 3.5vw, 36px)", fontWeight: "800", color: "#1a1a2e", margin: "0 0 24px 0", lineHeight: "1.25", letterSpacing: "-0.5px" }}>
                     {sol.title}
@@ -1077,117 +1091,8 @@ export default function MobileAppsPageContent() {
         </div>
       </section>
 
-      {/* ── 5. LAYERED MOBILE STACK ARCHITECTURE ── */}
-      <section className="layered-stack-section" style={{ background: "#ffffff", padding: "80px 24px", fontFamily: "Inter, sans-serif" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-
-          <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 64px" }}>
-
-            <h2 className="core-pillars-heading" style={{ fontSize: "clamp(26px, 3.5vw, 54px)", fontWeight: "900", letterSpacing: "-0.03em", color: "#0f172a", margin: "0 0 24px 0", lineHeight: "1.1", whiteSpace: "nowrap" }}>
-              How We Layer Your Mobile Stack
-            </h2>
-            <p style={{ fontSize: "17px", color: "#64748b", lineHeight: "1.7", margin: "0", maxWidth: "800px", marginLeft: "auto", marginRight: "auto" }}>
-              A high-performance layered pipeline from GPU-accelerated interface to local SQLite persistence and cloud edge orchestration.
-            </p>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 400px), 1fr))", gap: "32px" }}>
-            {archLayers.map((layer, i) => (
-              <div key={i} style={{
-                background: "#ffffff",
-                border: "1px solid #e5e7eb",
-                borderRadius: "32px",
-                padding: "32px",
-                display: "flex",
-                flexDirection: "row",
-                flexWrap: "wrap",
-                gap: "24px",
-                boxShadow: "0 15px 35px rgba(0, 0, 0, 0.03)",
-                transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                position: "relative",
-                overflow: "hidden"
-              }}>
-                {/* Left Side: Content */}
-                <div style={{ flex: "1 1 240px", display: "flex", flexDirection: "column", zIndex: 10 }}>
-                  <div style={{ width: "64px", height: "64px", borderRadius: "20px", background: "#f8fafc", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "28px", flexShrink: 0, border: "1px solid #e2e8f0", boxShadow: "inset 0 2px 4px rgba(255,255,255,1)", marginBottom: "20px" }}>
-                    {layer.icon}
-                  </div>
-                  <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
-                    <span style={{ fontSize: "10.5px", fontWeight: "800", color: "#0369a1", background: "#f0f9ff", border: "1px solid #e0f2fe", padding: "4px 10px", borderRadius: "8px", textTransform: "uppercase", letterSpacing: "0.5px" }}>
-                      {layer.tag}
-                    </span>
-                  </div>
-                  <h3 style={{ fontSize: "22px", fontWeight: "800", color: "#0f172a", margin: "0 0 12px 0", letterSpacing: "-0.5px" }}>{layer.title}</h3>
-                  <p style={{ fontSize: "15px", lineHeight: "1.7", color: "#475569", margin: 0, paddingRight: "10px" }}>{layer.desc}</p>
-                </div>
-
-                {/* Right Side: Mini Phone Mockup */}
-                <div style={{ width: "140px", flexShrink: 0, position: "relative", zIndex: 10, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <div style={{ width: "120px", height: "240px", background: "#ffffff", borderRadius: "20px", border: "6px solid #e2e8f0", boxShadow: "0 10px 25px rgba(0,0,0,0.1)", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column" }}>
-
-                    {/* Dynamic Mockup Contents Based on Layer */}
-                    {layer.num === "01" && (
-                      <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "8px", height: "100%", background: "#f8fafc" }}>
-                        <div style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "4px" }}>
-                          <div style={{ width: "16px", height: "16px", borderRadius: "50%", background: "#a084f5" }}></div>
-                          <div style={{ flex: 1, height: "6px", borderRadius: "3px", background: "#cbd5e1" }}></div>
-                        </div>
-                        <div style={{ flex: 1, borderRadius: "8px", background: "linear-gradient(135deg, #a084f5, #7b5ef0)" }}></div>
-                        <div style={{ flex: 1, borderRadius: "8px", background: "#ffffff", border: "1px solid #e2e8f0" }}></div>
-                        <div style={{ height: "20px", borderRadius: "4px", background: "#e2e8f0", marginTop: "auto" }}></div>
-                      </div>
-                    )}
-
-                    {layer.num === "02" && (
-                      <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "6px", height: "100%", background: "#f0fdf4" }}>
-                        <div style={{ textAlign: "center", fontSize: "10px", color: "#16a34a", fontWeight: "800", marginBottom: "4px" }}>SYNCED ✓</div>
-                        {[1, 2, 3, 4, 5].map(j => (
-                          <div key={j} style={{ background: "#ffffff", borderRadius: "6px", padding: "6px", border: "1px solid #bbf7d0", display: "flex", alignItems: "center", gap: "6px" }}>
-                            <div style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#22c55e" }}></div>
-                            <div style={{ flex: 1, height: "4px", borderRadius: "2px", background: "#cbd5e1" }}></div>
-                          </div>
-                        ))}
-                      </div>
-                    )}
-
-                    {layer.num === "03" && (
-                      <div style={{ padding: "8px", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", height: "100%", background: "#1e293b", color: "#ffffff" }}>
-                        <div style={{ fontSize: "28px", marginBottom: "16px", color: "#a084f5" }}>🔒</div>
-                        <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "rgba(160, 132, 245, 0.2)", border: "2px solid #a084f5", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px", marginBottom: "16px" }}>👤</div>
-                        <div style={{ fontSize: "8px", fontWeight: "700", letterSpacing: "1px", color: "#10b981", background: "rgba(16,185,129,0.2)", padding: "4px 8px", borderRadius: "8px" }}>SECURE ENCLAVE</div>
-                      </div>
-                    )}
-
-                    {layer.num === "04" && (
-                      <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "8px", height: "100%", background: "#f8fafc" }}>
-                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                          <div style={{ fontSize: "12px" }}>☁️</div>
-                          <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#3b82f6", boxShadow: "0 0 8px #3b82f6" }}></div>
-                        </div>
-                        <div style={{ height: "40px", borderRadius: "8px", background: "#e0f2fe", border: "1px dashed #7dd3fc" }}></div>
-                        <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                          <div style={{ fontSize: "6px", color: "#64748b" }}>GET /api/v1/sync</div>
-                          <div style={{ width: "100%", height: "2px", background: "#cbd5e1" }}><div style={{ width: "100%", height: "100%", background: "#3b82f6" }}></div></div>
-                          <div style={{ fontSize: "6px", color: "#64748b" }}>WSS connection live</div>
-                        </div>
-                      </div>
-                    )}
-                  </div>
-                </div>
-
-                {/* Huge faint number */}
-                <span style={{ fontSize: "160px", fontWeight: "900", color: "#f1f5f9", lineHeight: "1", position: "absolute", bottom: "-40px", left: "-20px", zIndex: 0, letterSpacing: "-8px", opacity: 0.6 }}>
-                  {layer.num}
-                </span>
-              </div>
-            ))}
-          </div>
-
-        </div>
-      </section>
-
       {/* ── 6. PERFORMANCE & DEVICE SLA BENCHMARK ── */}
-      <section className="sla-benchmark-section" style={{ background: "#ffffff", padding: "80px 24px" }}>
+      <section className="sla-benchmark-section" style={{ background: "transparent", padding: "80px 24px" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 320px), 1fr))", gap: "60px", alignItems: "center" }}>
             {/* Left Column */}
@@ -1235,7 +1140,7 @@ export default function MobileAppsPageContent() {
       </section>
 
       {/* ── 7. 4-STAGE DELIVERY PROCESS ── */}
-      <section style={{ background: "#f8fafc", padding: "80px 24px", fontFamily: "Inter, sans-serif" }}>
+      <section style={{ background: "transparent", padding: "80px 24px", fontFamily: "Inter, sans-serif" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 80px" }}>
             <h2 className="core-pillars-heading" style={{ fontSize: "clamp(26px, 3.2vw, 54px)", fontWeight: "900", letterSpacing: "-0.03em", color: "#0f172a", margin: "0 0 24px 0", lineHeight: "1.1", whiteSpace: "nowrap" }}>
@@ -1247,7 +1152,8 @@ export default function MobileAppsPageContent() {
           </div>
 
           {/* Responsive Bento Grid Styles */}
-          <style dangerouslySetInnerHTML={{ __html: `
+          <style dangerouslySetInnerHTML={{
+            __html: `
             .mobile-bento-grid {
               display: grid;
               gap: 24px;
@@ -1296,66 +1202,66 @@ export default function MobileAppsPageContent() {
 
               return (
                 <div key={i} className={`mobile-bento-item ${gridClass}`} style={{ borderTop: `6px solid ${c.hex}` }}>
-                  
+
                   {/* Content Container */}
                   <div style={{ display: "flex", flexDirection: isWide ? "row" : "column", gap: "24px", height: "100%", zIndex: 10, flexWrap: "wrap" }}>
-                    
+
                     {/* Left Side: Text */}
                     <div style={{ flex: isWide ? "1 1 240px" : "1", display: "flex", flexDirection: "column" }}>
-                    <div style={{ width: "56px", height: "56px", borderRadius: "16px", background: c.grad, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px", flexShrink: 0, boxShadow: `0 8px 16px ${c.shadow}`, marginBottom: "20px", color: "#fff" }}>
-                      {step.num}
+                      <div style={{ width: "56px", height: "56px", borderRadius: "16px", background: c.grad, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "24px", flexShrink: 0, boxShadow: `0 8px 16px ${c.shadow}`, marginBottom: "20px", color: "#fff" }}>
+                        {step.num}
+                      </div>
+                      <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
+                        <span style={{ fontSize: "10.5px", fontWeight: "800", color: c.hex, background: c.bg, border: `1px solid ${c.hex}30`, padding: "4px 10px", borderRadius: "8px", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+                          {step.tag}
+                        </span>
+                      </div>
+                      <h3 style={{ fontSize: "22px", fontWeight: "800", color: "#0f172a", margin: "0 0 12px 0", letterSpacing: "-0.5px" }}>{step.title}</h3>
+                      <p style={{ fontSize: "15px", lineHeight: "1.7", color: "#475569", margin: 0, paddingRight: "10px" }}>{step.desc}</p>
                     </div>
-                    <div style={{ display: "flex", alignItems: "center", gap: "12px", marginBottom: "12px" }}>
-                      <span style={{ fontSize: "10.5px", fontWeight: "800", color: c.hex, background: c.bg, border: `1px solid ${c.hex}30`, padding: "4px 10px", borderRadius: "8px", textTransform: "uppercase", letterSpacing: "0.5px" }}>
-                        {step.tag}
-                      </span>
-                    </div>
-                    <h3 style={{ fontSize: "22px", fontWeight: "800", color: "#0f172a", margin: "0 0 12px 0", letterSpacing: "-0.5px" }}>{step.title}</h3>
-                    <p style={{ fontSize: "15px", lineHeight: "1.7", color: "#475569", margin: 0, paddingRight: "10px" }}>{step.desc}</p>
-                  </div>
 
-                  {/* Right Side: Mini Mockup */}
-                  <div style={{ flexShrink: 0, width: isWide ? "140px" : "100%", display: "flex", alignItems: isWide ? "center" : "flex-end", justifyContent: isWide ? "center" : "flex-start", marginTop: isWide ? 0 : "auto", paddingTop: "24px" }}>
-                    <div style={{ width: "120px", height: "160px", background: "#f8fafc", borderRadius: "20px", border: "4px solid #e2e8f0", boxShadow: "0 10px 25px rgba(0,0,0,0.05)", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column" }}>
+                    {/* Right Side: Mini Mockup */}
+                    <div style={{ flexShrink: 0, width: isWide ? "140px" : "100%", display: "flex", alignItems: isWide ? "center" : "flex-end", justifyContent: isWide ? "center" : "flex-start", marginTop: isWide ? 0 : "auto", paddingTop: "24px" }}>
+                      <div style={{ width: "120px", height: "160px", background: "#f8fafc", borderRadius: "20px", border: "4px solid #e2e8f0", boxShadow: "0 10px 25px rgba(0,0,0,0.05)", position: "relative", overflow: "hidden", display: "flex", flexDirection: "column" }}>
 
-                      {step.num === "01" && (
-                        <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "6px", height: "100%" }}>
-                          <div style={{ width: "100%", height: "40px", background: "#e2e8f0", borderRadius: "8px" }}></div>
-                          <div style={{ display: "flex", gap: "6px" }}>
-                            <div style={{ width: "30%", height: "30px", background: "#e2e8f0", borderRadius: "6px" }}></div>
-                            <div style={{ width: "70%", height: "30px", background: "#e2e8f0", borderRadius: "6px" }}></div>
+                        {step.num === "01" && (
+                          <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "6px", height: "100%" }}>
+                            <div style={{ width: "100%", height: "40px", background: "#e2e8f0", borderRadius: "8px" }}></div>
+                            <div style={{ display: "flex", gap: "6px" }}>
+                              <div style={{ width: "30%", height: "30px", background: "#e2e8f0", borderRadius: "6px" }}></div>
+                              <div style={{ width: "70%", height: "30px", background: "#e2e8f0", borderRadius: "6px" }}></div>
+                            </div>
+                            <div style={{ flex: 1, background: c.bg, borderRadius: "8px", border: `1px dashed ${c.hex}` }}></div>
                           </div>
-                          <div style={{ flex: 1, background: c.bg, borderRadius: "8px", border: `1px dashed ${c.hex}` }}></div>
-                        </div>
-                      )}
+                        )}
 
-                      {step.num === "02" && (
-                        <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "4px", height: "100%", background: "#1e293b" }}>
-                          <div style={{ width: "60%", height: "4px", background: "#38bdf8", borderRadius: "2px", marginBottom: "4px" }}></div>
-                          <div style={{ width: "80%", height: "4px", background: "#a084f5", borderRadius: "2px" }}></div>
-                          <div style={{ width: "40%", height: "4px", background: "#f472b6", borderRadius: "2px" }}></div>
-                          <div style={{ width: "90%", height: "4px", background: "#34d399", borderRadius: "2px" }}></div>
-                          <div style={{ width: "70%", height: "4px", background: "#f472b6", borderRadius: "2px", marginTop: "8px" }}></div>
-                          <div style={{ width: "50%", height: "4px", background: "#38bdf8", borderRadius: "2px" }}></div>
-                        </div>
-                      )}
+                        {step.num === "02" && (
+                          <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "4px", height: "100%", background: "#1e293b" }}>
+                            <div style={{ width: "60%", height: "4px", background: "#38bdf8", borderRadius: "2px", marginBottom: "4px" }}></div>
+                            <div style={{ width: "80%", height: "4px", background: "#a084f5", borderRadius: "2px" }}></div>
+                            <div style={{ width: "40%", height: "4px", background: "#f472b6", borderRadius: "2px" }}></div>
+                            <div style={{ width: "90%", height: "4px", background: "#34d399", borderRadius: "2px" }}></div>
+                            <div style={{ width: "70%", height: "4px", background: "#f472b6", borderRadius: "2px", marginTop: "8px" }}></div>
+                            <div style={{ width: "50%", height: "4px", background: "#38bdf8", borderRadius: "2px" }}></div>
+                          </div>
+                        )}
 
-                      {step.num === "03" && (
-                        <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "6px", height: "100%", alignItems: "center", justifyContent: "center" }}>
-                          <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "#ecfdf5", border: "2px solid #10b981", display: "flex", alignItems: "center", justifyContent: "center", color: "#10b981", fontSize: "20px" }}>✓</div>
-                          <div style={{ width: "80%", height: "6px", background: "#e2e8f0", borderRadius: "3px", marginTop: "8px" }}><div style={{ width: "100%", height: "100%", background: "#10b981", borderRadius: "3px" }}></div></div>
-                          <div style={{ fontSize: "8px", color: "#64748b", fontWeight: "700" }}>TESTS PASSED</div>
-                        </div>
-                      )}
+                        {step.num === "03" && (
+                          <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "6px", height: "100%", alignItems: "center", justifyContent: "center" }}>
+                            <div style={{ width: "40px", height: "40px", borderRadius: "50%", background: "#ecfdf5", border: "2px solid #10b981", display: "flex", alignItems: "center", justifyContent: "center", color: "#10b981", fontSize: "20px" }}>✓</div>
+                            <div style={{ width: "80%", height: "6px", background: "#e2e8f0", borderRadius: "3px", marginTop: "8px" }}><div style={{ width: "100%", height: "100%", background: "#10b981", borderRadius: "3px" }}></div></div>
+                            <div style={{ fontSize: "8px", color: "#64748b", fontWeight: "700" }}>TESTS PASSED</div>
+                          </div>
+                        )}
 
-                      {step.num === "04" && (
-                        <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "8px", height: "100%", background: "#f8fafc", alignItems: "center" }}>
-                          <div style={{ fontSize: "32px", marginTop: "10px" }}>🚀</div>
-                          <div style={{ width: "80%", height: "20px", background: "#0ea5e9", borderRadius: "10px", marginTop: "auto", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "8px", fontWeight: "800" }}>DEPLOY</div>
-                        </div>
-                      )}
+                        {step.num === "04" && (
+                          <div style={{ padding: "8px", display: "flex", flexDirection: "column", gap: "8px", height: "100%", background: "#f8fafc", alignItems: "center" }}>
+                            <div style={{ fontSize: "32px", marginTop: "10px" }}>🚀</div>
+                            <div style={{ width: "80%", height: "20px", background: "#0ea5e9", borderRadius: "10px", marginTop: "auto", display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: "8px", fontWeight: "800" }}>DEPLOY</div>
+                          </div>
+                        )}
+                      </div>
                     </div>
-                  </div>
 
                   </div>
 
@@ -1371,54 +1277,141 @@ export default function MobileAppsPageContent() {
       </section>
 
       {/* ── 8. MOBILE ENGINEERING FAQS ── */}
-      <section className="faq-section" style={{ background: "#ffffff", padding: "80px 24px" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 56px" }}>
-
-            <h2 style={{ fontSize: "clamp(30px, 3.8vw, 48px)", fontWeight: "900", letterSpacing: "-0.02em", color: "#0f172a", margin: "0 0 20px 0", lineHeight: "1.14" }}>
+      <section className="faq-section" style={{ background: "transparent", padding: "36px 20px 50px", width: "100%", boxSizing: "border-box" }}>
+        <div style={{ width: "100%", maxWidth: "100%", margin: "0 auto" }}>
+          <div style={{ textAlign: "center", maxWidth: "900px", margin: "0 auto 28px" }}>
+            <h2 style={{ fontSize: "clamp(26px, 3.5vw, 40px)", fontWeight: "900", letterSpacing: "-0.02em", color: "#0f172a", margin: "0 0 10px 0", lineHeight: "1.2" }}>
               Frequently Asked Questions
             </h2>
-            <p style={{ fontSize: "16px", color: "#64748b", lineHeight: "1.65", margin: 0 }}>
+            <p style={{ fontSize: "15px", color: "#64748b", lineHeight: "1.6", margin: 0 }}>
               Everything you need to know about our native iOS/Android development, cross-platform stacks, offline sync, and App Store approval guarantees.
             </p>
           </div>
 
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))", gap: "40px", alignItems: "start" }}>
-            {/* Sidebar */}
-            <div style={{ background: "#f4f5f7", border: "1px solid #e5e7eb", borderRadius: "32px", padding: "40px 32px", display: "flex", flexDirection: "column", gap: "20px", boxShadow: "0 10px 30px rgba(0, 0, 0, 0.03)" }}>
-              <h3 style={{ fontSize: "24px", fontWeight: "900", color: "#0f172a", margin: 0, letterSpacing: "-0.02em" }}>Have a Custom Mobile App in Mind?</h3>
-              <p style={{ fontSize: "15px", lineHeight: "1.65", color: "#64748b", margin: 0 }}>
-                Speak directly with our principal mobile architect to evaluate offline sync architectures, framework selection, and store approval timelines.
-              </p>
-              <Link href="/contact" style={{
-                background: "#0f172a",
-                color: "#ffffff",
-                padding: "16px 24px",
-                borderRadius: "9999px",
-                fontSize: "15px",
-                fontWeight: "800",
-                textDecoration: "none",
-                textAlign: "center",
-                marginTop: "10px"
-              }}>
-                Talk to a Mobile Architect →
-              </Link>
-              <div style={{ background: "#ffffff", border: "1px solid #e5e7eb", borderRadius: "20px", padding: "24px", textAlign: "center", marginTop: "12px", boxShadow: "0 4px 16px rgba(0,0,0,0.02)" }}>
-                <div style={{ fontSize: "32px", fontWeight: "900", color: "#0ea5e9" }}>6–8 Wks</div>
-                <div style={{ fontSize: "11px", color: "#64748b", fontWeight: "700", textTransform: "uppercase", letterSpacing: "1px", marginTop: "4px" }}>Average MVP Delivery</div>
+          <style>{`
+            .faq-single-col-list {
+              display: flex;
+              flex-direction: column;
+              gap: 12px;
+              width: 100%;
+            }
+            .faq-card-single-line {
+              background: #ffffff;
+              border: 1.5px solid #e2e8f0;
+              border-radius: 14px;
+              padding: 16px 28px;
+              box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+              transition: all 0.25s ease;
+              width: 100%;
+              box-sizing: border-box;
+            }
+            .faq-card-single-line:hover {
+              border-color: #38bdf8;
+              box-shadow: 0 6px 20px rgba(14, 165, 233, 0.08);
+              transform: translateY(-1px);
+            }
+            .faq-card-single-line summary {
+              list-style: none;
+              cursor: pointer;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              font-weight: 700;
+              color: #0f172a;
+              font-size: 16px;
+              line-height: 1.4;
+              padding: 4px 0;
+              width: 100%;
+              user-select: none;
+              position: relative;
+              text-align: center;
+            }
+            .faq-card-single-line summary::-webkit-details-marker {
+              display: none;
+            }
+            .faq-toggle-icon {
+              position: absolute;
+              right: 0;
+              top: 50%;
+              transform: translateY(-50%);
+              width: 32px;
+              height: 32px;
+              border-radius: 50%;
+              background: #f0f9ff;
+              color: #0284c7;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 18px;
+              font-weight: 800;
+              flex-shrink: 0;
+              transition: all 0.2s ease;
+              border: 1px solid #bae6fd;
+            }
+            .faq-card-single-line:hover .faq-toggle-icon {
+              background: #0284c7;
+              color: #ffffff;
+            }
+          `}</style>
+
+          {/* Wide & Spacious FAQ Cards Stack */}
+          <div className="faq-single-col-list">
+            {faqs.map((f, i) => (
+              <details key={i} className="faq-card-single-line">
+                <summary>
+                  <span style={{ color: "#0f172a", fontWeight: "700", textAlign: "center", padding: "0 44px", width: "100%" }}>
+                    {f.q}
+                  </span>
+                  <span className="faq-toggle-icon">
+                    +
+                  </span>
+                </summary>
+                <p style={{ color: "#475569", marginTop: "12px", lineHeight: "1.65", fontSize: "14.5px", marginBottom: 0, borderTop: "1px solid #f1f5f9", paddingTop: "14px", textAlign: "center", maxWidth: "900px", marginLeft: "auto", marginRight: "auto" }}>
+                  {f.a}
+                </p>
+              </details>
+            ))}
+          </div>
+
+          {/* Bottom Consultation Strip */}
+          <div style={{
+            marginTop: "28px",
+            background: "linear-gradient(135deg, #0f172a 0%, #1e293b 100%)",
+            borderRadius: "16px",
+            padding: "20px 32px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+            gap: "16px",
+            boxShadow: "0 8px 24px rgba(15, 23, 42, 0.08)"
+          }}>
+            <div>
+              <div style={{ fontSize: "16px", fontWeight: "800", color: "#ffffff", marginBottom: "3px" }}>
+                Have a Custom Mobile App in Mind?
+              </div>
+              <div style={{ fontSize: "13.5px", color: "#94a3b8" }}>
+                Speak directly with our principal mobile architect for roadmap & frameworks.
               </div>
             </div>
-
-            {/* Accordion */}
-            <div style={{ display: "flex", flexDirection: "column", gap: "16px" }}>
-              {faqs.map((f, i) => (
-                <details key={i} style={{ background: "#ffffff", border: "1px solid #e5e7eb", borderRadius: "24px", padding: "24px 28px", cursor: "pointer", boxShadow: "0 10px 30px rgba(0, 0, 0, 0.02)" }}>
-                  <summary style={{ fontWeight: "800", color: "#0f172a", fontSize: "16px", listStyle: "none" }}>{f.q}</summary>
-                  <p style={{ color: "#64748b", marginTop: "16px", lineHeight: "1.7", fontSize: "15px", marginBottom: 0 }}>{f.a}</p>
-                </details>
-              ))}
-            </div>
+            <Link href="/contact" style={{
+              background: "linear-gradient(135deg, #0284c7 0%, #38bdf8 100%)",
+              color: "#ffffff",
+              padding: "10px 24px",
+              borderRadius: "9999px",
+              fontSize: "14px",
+              fontWeight: "750",
+              textDecoration: "none",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "6px",
+              whiteSpace: "nowrap",
+              boxShadow: "0 4px 14px rgba(2, 132, 199, 0.3)"
+            }}>
+              Talk to an Architect →
+            </Link>
           </div>
+
         </div>
       </section>
 
@@ -1472,35 +1465,83 @@ export default function MobileAppsPageContent() {
             margin-bottom: 0px !important;
           }
           .core-pillars-section {
-            padding-top: 0px !important;
-            margin-top: -140px !important;
+            padding-top: 40px !important;
+            margin-top: 0px !important;
             position: relative;
             z-index: 20;
           }
           .layered-stack-section {
-            padding-top: 0px !important;
-            margin-top: -100px !important;
+            padding-top: 40px !important;
+            margin-top: 0px !important;
           }
           .sla-benchmark-section {
-            padding-top: 0px !important;
-            margin-top: -40px !important;
+            padding-top: 40px !important;
+            margin-top: 0px !important;
           }
           .business-vertical-section {
-            padding-top: 0px !important;
-            margin-top: -120px !important;
+            padding-top: 40px !important;
+            margin-top: 0px !important;
           }
           .faq-section {
-            padding-top: 0px !important;
-            margin-top: -80px !important;
+            padding-top: 40px !important;
+            margin-top: 0px !important;
           }
           .core-pillars-heading {
             white-space: normal !important;
           }
         }
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
           .mobile-apps-phones-wrapper {
             transform: scale(0.45);
             height: 200px !important;
+          }
+          .faq-card-single-line {
+            padding: 12px 14px !important;
+            border-radius: 10px !important;
+          }
+          .faq-card-single-line summary span:first-child {
+            font-size: 14px !important;
+            padding: 0 32px 0 0 !important;
+            text-align: left !important;
+          }
+          .faq-toggle-icon {
+            width: 26px !important;
+            height: 26px !important;
+            font-size: 14px !important;
+          }
+          .faq-card-single-line p {
+            font-size: 13px !important;
+            text-align: left !important;
+            padding-top: 10px !important;
+          }
+
+          /* Industry Solutions - stack vertically on mobile */
+          .business-vertical-section [style*="display: flex"][style*="flex-direction"] {
+            flex-direction: column !important;
+            gap: 40px !important;
+          }
+          .industry-sol-row {
+            flex-direction: column !important;
+            gap: 32px !important;
+          }
+          .industry-sol-graphic {
+            min-height: 260px !important;
+            width: 100% !important;
+          }
+
+          /* Native banner - stack on mobile */
+          .native-banner-text {
+            padding: 24px !important;
+          }
+
+          /* Platform stacks - full width on mobile */
+          .platform-tab-selector {
+            flex-wrap: wrap !important;
+          }
+
+          /* Stats section two column on mobile */
+          .mobile-stats-grid {
+            grid-template-columns: 1fr 1fr !important;
           }
         }
         @media (max-width: 400px) {

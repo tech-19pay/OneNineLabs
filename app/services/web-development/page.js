@@ -103,7 +103,7 @@ export default function WebDevelopmentServicePage() {
 
         <section className="vd-hero-section" style={{
           background: "linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f3f4f6 100%)",
-          padding: "115px 24px 80px 24px",
+          padding: "calc(var(--header-height, 80px) + 32px) 24px 80px 24px",
           borderBottom: "1px solid #f1f5f9",
           fontFamily: "'Inter', sans-serif",
           position: "relative",
@@ -145,7 +145,7 @@ export default function WebDevelopmentServicePage() {
               </p>
 
               {/* Action Buttons */}
-              <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", marginBottom: "48px" }}>
+              <div className="webdev-hero-btns" style={{ display: "flex", gap: "16px", flexWrap: "wrap", marginBottom: "48px" }}>
                 <Link
                   href="/contact"
                   className="vd-btn-primary"
@@ -169,6 +169,7 @@ export default function WebDevelopmentServicePage() {
                 </Link>
                 <a
                   href="#capabilities"
+                  className="vd-btn-ghost-secondary"
                   style={{
                     background: "#ffffff",
                     color: "#0f172a",
@@ -183,7 +184,6 @@ export default function WebDevelopmentServicePage() {
                     alignItems: "center",
                     transition: "all 0.25s ease"
                   }}
-                  className="vd-btn-ghost-secondary"
                 >
                   Explore Capabilities
                 </a>
@@ -206,6 +206,7 @@ export default function WebDevelopmentServicePage() {
                   </div>
                 ))}
               </div>
+
             </div>
 
             {/* RIGHT COLUMN: PHONE DEVICE SHOWCASE CANVAS (CENTERED) */}
@@ -235,7 +236,6 @@ export default function WebDevelopmentServicePage() {
                   {/* Backdrop light glow behind screen */}
                   <div className="phone-screen-glow" />
 
-                  {/* Browser Mock Navigation Bar at the top */}
                   <div className="mock-browser-bar" style={{
                     background: "#1e293b",
                     borderRadius: "10px",
@@ -505,12 +505,11 @@ export default function WebDevelopmentServicePage() {
               animation: scrollVideoPages 18s cubic-bezier(0.65, 0, 0.35, 1) infinite;
             }
 
-
-
             @keyframes flowPhoneSvg {
               from { stroke-dashoffset: 20; }
               to { stroke-dashoffset: 0; }
             }
+
             .phone-svg-line {
               stroke-dasharray: 6 3;
               animation: flowPhoneSvg 1.2s linear infinite;
@@ -523,6 +522,78 @@ export default function WebDevelopmentServicePage() {
               }
               .webdev-hero-right {
                 justify-content: center;
+              }
+            }
+            
+            @media (max-width: 768px) {
+              .vd-hero-section {
+                padding-top: calc(var(--header-height, 80px) + 60px) !important;
+              }
+
+              .webdev-hero-grid {
+                gap: 32px !important;
+              }
+
+              .webdev-hero-left {
+                text-align: center !important;
+              }
+
+              .webdev-hero-left h1,
+              .webdev-hero-left p {
+                margin-left: auto !important;
+                margin-right: auto !important;
+              }
+
+              .webdev-hero-btns {
+                width: 100%;
+                flex-direction: column;
+                align-items: stretch;
+                margin-bottom: 32px !important;
+              }
+
+              .webdev-hero-btns a {
+                width: 100%;
+                justify-content: center;
+              }
+
+              .webdev-accordion-grid {
+                grid-template-columns: 1fr !important;
+                max-width: none !important;
+                text-align: left;
+              }
+
+              .webdev-hero-right {
+                width: 100%;
+              }
+
+              .webdev-phone-wrapper {
+                max-width: min(340px, 100%) !important;
+              }
+
+              .webdev-page-screen {
+                max-width: 100%;
+              }
+            }
+
+            @media (max-width: 480px) {
+              .vd-hero-section {
+                padding-left: 16px !important;
+                padding-right: 16px !important;
+              }
+
+              .webdev-phone-wrapper {
+                padding: 10px !important;
+                border-radius: 28px !important;
+              }
+
+              .webdev-phone-wrapper > div {
+                border-radius: 22px !important;
+                padding: 9px !important;
+              }
+
+              .vd-services-section {
+                padding-left: 16px !important;
+                padding-right: 16px !important;
               }
             }
           `}</style>
@@ -575,14 +646,14 @@ export default function WebDevelopmentServicePage() {
                     <span className="mockup-title" style={{ color: "#38bdf8", fontFamily: "monospace", fontSize: "7px" }}>App.tsx — React Vue Design System</span>
                   </div>
                 </div>
-                <div className="mockup-body" style={{ height: "130px", display: "flex", flexDirection: "column", justifyContent: "space-between", fontFamily: "monospace", color: "#cbd5e1" }}>
-                  <div style={{ fontSize: "6.5px", lineHeight: "1.5" }}>
+                <div className="mockup-body" style={{ minHeight: "130px", display: "flex", flexDirection: "column", justifyContent: "space-between", fontFamily: "monospace", color: "#cbd5e1" }}>
+                  <div style={{ fontSize: "10px", lineHeight: "1.5" }}>
                     <span style={{ color: "#c084fc" }}>export default async function</span> <span style={{ color: "#facc15" }}>Page</span>() &#123;<br />
-                    &nbsp;&nbsp;<span style={{ color: "#38bdf8" }}>const</span> res = <span style={{ color: "#c084fc" }}>await</span> fetch(<span style={{ color: "#4ade80" }}>'/api/edge'</span>);<br />
+                    &nbsp;&nbsp;<span style={{ color: "#38bdf8" }}>const</span> res = <span style={{ color: "#c084fc" }}>await</span> fetch(<span style={{ color: "#4ade80" }}>&apos;/api/edge&apos;</span>);<br />
                     &nbsp;&nbsp;<span style={{ color: "#c084fc" }}>return</span> &lt;<span style={{ color: "#facc15" }}>RSCView</span> data=&#123;res&#125; /&gt;;<br />
                     &#125;
                   </div>
-                  <div style={{ background: "#1e293b", padding: "4px 6px", borderRadius: "4px", fontSize: "6px", border: "1px solid #334155" }}>
+                  <div style={{ background: "#1e293b", padding: "4px 6px", borderRadius: "4px", fontSize: "9px", border: "1px solid #334155" }}>
                     <span style={{ color: "#4ade80" }}>✓ Compiled in 0.4s (Edge RSC)</span>
                   </div>
                 </div>
@@ -612,14 +683,14 @@ export default function WebDevelopmentServicePage() {
                     <span className="mockup-title" style={{ color: "#f59e0b", fontFamily: "monospace", fontSize: "7px" }}>schema.ts — Sanity CMS Studio</span>
                   </div>
                 </div>
-                <div className="mockup-body" style={{ height: "130px", display: "flex", flexDirection: "column", justifyContent: "space-between", fontFamily: "monospace", color: "#cbd5e1" }}>
-                  <div style={{ fontSize: "6.5px", lineHeight: "1.5" }}>
+                <div className="mockup-body" style={{ minHeight: "130px", display: "flex", flexDirection: "column", justifyContent: "space-between", fontFamily: "monospace", color: "#cbd5e1" }}>
+                  <div style={{ fontSize: "10px", lineHeight: "1.5" }}>
                     <span style={{ color: "#c084fc" }}>defineField</span>(&#123;<br />
-                    &nbsp;&nbsp;name: <span style={{ color: "#4ade80" }}>'title'</span>, type: <span style={{ color: "#4ade80" }}>'string'</span>,<br />
+                    &nbsp;&nbsp;name: <span style={{ color: "#4ade80" }}>&apos;title&apos;</span>, type: <span style={{ color: "#4ade80" }}>&apos;string&apos;</span>,<br />
                     &nbsp;&nbsp;validation: (Rule) =&gt; Rule.required()<br />
                     &#125;);
                   </div>
-                  <div style={{ background: "#1e293b", padding: "4px 6px", borderRadius: "4px", fontSize: "6px", border: "1px solid #334155" }}>
+                  <div style={{ background: "#1e293b", padding: "4px 6px", borderRadius: "4px", fontSize: "9px", border: "1px solid #334155" }}>
                     <span style={{ color: "#f59e0b" }}>🚀 ISR Triggered: &lt;50ms Edge Rebuild</span>
                   </div>
                 </div>
@@ -650,14 +721,14 @@ export default function WebDevelopmentServicePage() {
                     <span className="mockup-title" style={{ color: "#a78bfa", fontFamily: "monospace", fontSize: "7px" }}>api.controller.ts — NestJS API</span>
                   </div>
                 </div>
-                <div className="mockup-body" style={{ height: "130px", display: "flex", flexDirection: "column", justifyContent: "space-between", fontFamily: "monospace", color: "#cbd5e1" }}>
-                  <div style={{ fontSize: "6.5px", lineHeight: "1.5" }}>
-                    <span style={{ color: "#a78bfa" }}>@Get</span>(<span style={{ color: "#4ade80" }}>'/users'</span>)<br />
+                <div className="mockup-body" style={{ minHeight: "130px", display: "flex", flexDirection: "column", justifyContent: "space-between", fontFamily: "monospace", color: "#cbd5e1" }}>
+                  <div style={{ fontSize: "10px", lineHeight: "1.5" }}>
+                    <span style={{ color: "#a78bfa" }}>@Get</span>(<span style={{ color: "#4ade80" }}>&apos;/users&apos;</span>)<br />
                     <span style={{ color: "#38bdf8" }}>async</span> <span style={{ color: "#facc15" }}>findMany</span>() &#123;<br />
                     &nbsp;&nbsp;<span style={{ color: "#c084fc" }}>return</span> <span style={{ color: "#38bdf8" }}>this</span>.prisma.user.<span style={{ color: "#facc15" }}>findMany</span>();<br />
                     &#125;
                   </div>
-                  <div style={{ background: "#1e293b", padding: "4px 6px", borderRadius: "4px", fontSize: "6px", border: "1px solid #334155" }}>
+                  <div style={{ background: "#1e293b", padding: "4px 6px", borderRadius: "4px", fontSize: "9px", border: "1px solid #334155" }}>
                     <span style={{ color: "#a78bfa" }}>⚡ 12.4k req/s • 12ms Latency</span>
                   </div>
                 </div>
@@ -716,12 +787,13 @@ export default function WebDevelopmentServicePage() {
               margin-bottom: 8px;
             }
             .mockup-title {
-              font-size: 8px;
+              font-size: 10px;
               font-weight: 700;
               color: #475569;
             }
             .mockup-body {
-              font-size: 8px;
+              font-size: 10px;
+              gap: 8px;
             }
             .mockup-stat-label {
               font-size: 5px;
@@ -731,68 +803,53 @@ export default function WebDevelopmentServicePage() {
               letter-spacing: 0.2px;
             }
             .mockup-stat-value {
-              font-size: 9px;
-              font-weight: 800;
+              font-size: 8px;
+              font-weight: 900;
               color: #0f172a;
-              line-height: 1.1;
-            }
-            .mockup-stat-pill {
-              display: inline-block;
-              font-size: 5px;
-              font-weight: 800;
-              padding: 1px 3px;
-              border-radius: 99px;
-              margin-top: 1px;
-            }
-            .mockup-stat-pill.green {
-              background: #d1fae5;
-              color: #065f46;
             }
             .card-title {
               font-size: 20px;
-              font-weight: 700;
+              font-weight: 800;
               color: #0f172a;
               margin: 0 0 12px 0;
+              flex: 1;
             }
             .card-logo-container {
               display: flex;
-              align-items: center;
-              margin-bottom: 20px;
+              gap: 8px;
+              margin-bottom: 24px;
             }
             .card-buttons {
               display: flex;
               gap: 12px;
               margin-top: auto;
             }
-            .btn-details, .btn-preview {
-              flex: 1;
-              text-align: center;
-              padding: 10px;
-              border-radius: 6px;
-              font-size: 13px;
-              font-weight: 600;
-              text-decoration: none;
-              transition: all 0.2s;
-            }
             .btn-details {
-              background: #ffffff;
-              color: #475569;
-              border: 1px solid #d1d5db;
+              padding: 10px 16px;
+              background: #f8fafc;
+              border: 1px solid #e2e8f0;
+              border-radius: 8px;
+              color: #0f172a;
+              font-size: 14px;
+              font-weight: 700;
+              text-decoration: none;
+              transition: all 0.2s ease;
             }
             .btn-details:hover {
-              background: #f8fafc;
-              border-color: #9ca3af;
-              color: #1e293b;
+              background: #f1f5f9;
+              border-color: #cbd5e1;
             }
             .btn-preview {
+              padding: 10px 16px;
               background: #ffffff;
-              color: #475569;
-              border: 1px solid #d1d5db;
+              color: #3b82f6;
+              font-size: 14px;
+              font-weight: 700;
+              text-decoration: none;
+              transition: all 0.2s ease;
             }
             .btn-preview:hover {
-              background: #f8fafc;
-              border-color: #9ca3af;
-              color: #1e293b;
+              text-decoration: underline;
             }
             @media (max-width: 1024px) {
               .reports-grid {
@@ -876,13 +933,17 @@ export default function WebDevelopmentServicePage() {
                 grid-template-columns: 1fr !important;
               }
             }
+            @media (max-width: 768px) {
+              .webdev-hero-btns { flex-direction: column; }
+              .webdev-hero-btns a { width: 100%; text-align: center; justify-content: center; }
+            }
           `}</style>
         </section>
 
         <WebDevMoreSections />
 
         {/* ─── 3. FAQ SECTION ─── */}
-        <section style={{ background: "#f8fafc", padding: "80px 24px" }}>
+        <section style={{ background: "#f8fafc", padding: "80px 24px 40px 24px" }}>
           <div style={{ maxWidth: "860px", margin: "0 auto" }}>
             <h2 style={{ fontSize: "32px", fontWeight: "800", color: "#0f172a", textAlign: "center", marginBottom: "40px" }}>
               Web Engineering FAQs
@@ -898,7 +959,7 @@ export default function WebDevelopmentServicePage() {
           </div>
         </section>
 
-        <section className="vd-cta-section" id="get-started">
+        <section className="vd-cta-section" id="get-started" style={{ paddingTop: "20px" }}>
           <div className="vd-cta-inner">
             <div className="vd-badge-tag" style={{ marginLeft: "auto", marginRight: "auto" }}>Free Architecture Call</div>
 

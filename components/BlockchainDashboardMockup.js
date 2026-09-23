@@ -4,80 +4,296 @@ import React from "react";
 
 export default function BlockchainDashboardMockup() {
   return (
-    <div style={{ position: "relative", width: "100%", maxWidth: "520px", display: "flex", flexDirection: "column", gap: "20px", zIndex: 2 }}>
-      
-      {/* Floating Logo (Top Rightish) */}
-      <div className="float-anim" style={{ position: "absolute", top: "-20px", right: "10%", width: "48px", height: "48px", background: "#0f172a", borderRadius: "12px", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 10px 25px rgba(15,23,42,0.2)", zIndex: 5, transform: "rotate(10deg)" }}>
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="2"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-      </div>
-
-      {/* Main Dashboard Window */}
-      <div style={{ background: "#ffffff", borderRadius: "24px", padding: "24px", boxShadow: "0 25px 50px -12px rgba(16,185,129,0.15)", border: "1px solid #e2e8f0", position: "relative", overflow: "hidden" }}>
-        
-        {/* Top bar */}
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "30px" }}>
-          <div style={{ fontSize: "12px", fontWeight: "800", color: "#0f172a", letterSpacing: "0.5px" }}>WEB3 SMART DEPLOYMENT</div>
-          <div style={{ display: "flex", alignItems: "center", gap: "6px", background: "#f8fafc", padding: "6px 12px", borderRadius: "100px", fontSize: "11px", fontWeight: "600", color: "#475569" }}>
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
-            Share
+    <div
+      style={{
+        background: "transparent",
+        borderRadius: "20px",
+        padding: "0",
+        fontFamily: "Inter, sans-serif",
+        color: "#0f172a",
+        width: "100%",
+        maxWidth: "680px",
+        margin: "0 auto",
+        overflow: "hidden",
+      }}
+    >
+      <div style={{ padding: "16px 24px" }}>
+        {/* Title */}
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
+          <h2 style={{ fontSize: "20px", fontWeight: "700", letterSpacing: "0.5px", margin: 0, color: "#0f172a" }}>Vaults</h2>
+          <div style={{ display: "flex", gap: "8px" }}>
+            <span style={{ fontSize: "11px", background: "rgba(59, 130, 246, 0.1)", color: "#2563eb", padding: "4px 10px", borderRadius: "20px", fontWeight: "600", border: "1px solid rgba(59, 130, 246, 0.2)" }}>Mainnet</span>
           </div>
         </div>
 
-        {/* Center Graphic */}
-        <div style={{ display: "flex", justifyContent: "center", marginBottom: "30px" }}>
-          <div style={{ width: "80px", height: "80px", borderRadius: "50%", background: "linear-gradient(135deg, #10b981 0%, #34d399 100%)", position: "relative", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 10px 20px rgba(16,185,129,0.3)" }}>
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#ffffff" strokeWidth="3"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-          </div>
-        </div>
-
-        {/* Processing Bar */}
-        <div style={{ background: "#f8fafc", borderRadius: "12px", padding: "16px", marginBottom: "30px" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", fontSize: "11px", fontWeight: "600", color: "#64748b", marginBottom: "8px" }}>
-            <span>Compiling Contract...</span>
-            <span style={{ color: "#0f172a" }}>80%</span>
-          </div>
-          <div style={{ height: "6px", background: "#e2e8f0", borderRadius: "100px", overflow: "hidden" }}>
-            <div style={{ width: "80%", height: "100%", background: "#10b981", borderRadius: "100px" }}></div>
-          </div>
-        </div>
-
-        {/* List items */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "12px" }}>
-          {[1, 2, 3].map((i) => (
-            <div key={i} style={{ display: "flex", alignItems: "center", gap: "12px", padding: "10px 0", borderBottom: i !== 3 ? "1px solid #f1f5f9" : "none" }}>
-              <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: "#e2e8f0" }}></div>
-              <div style={{ flex: 1 }}>
-                <div style={{ height: "6px", background: "#e2e8f0", borderRadius: "4px", width: "60%", marginBottom: "6px" }}></div>
-                <div style={{ height: "6px", background: "#f1f5f9", borderRadius: "4px", width: "40%" }}></div>
+        {/* Top Cards Row */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px", marginBottom: "20px" }}>
+          {/* Performance Card */}
+          <div style={{ background: "#ffffff", border: "none", borderRadius: "12px", padding: "12px 16px", position: "relative", overflow: "hidden", boxShadow: "0 4px 12px rgba(0,0,0,0.02)" }}>
+            <div style={{ fontSize: "13px", fontWeight: "600", marginBottom: "10px", color: "#0f172a" }}>Performance</div>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
+              <div>
+                <div style={{ fontSize: "11px", color: "#64748b", marginBottom: "2px" }}>Chains:</div>
+                <div style={{ display: "flex", gap: "-6px" }}>
+                  <div style={{ width: "20px", height: "20px", borderRadius: "50%", background: "linear-gradient(to right, #ec4899, #f43f5e)", border: "2px solid #ffffff", zIndex: 3, marginLeft: 0 }}></div>
+                  <div style={{ width: "20px", height: "20px", borderRadius: "50%", background: "linear-gradient(to right, #f59e0b, #eab308)", border: "2px solid #ffffff", zIndex: 2, marginLeft: "-8px" }}></div>
+                  <div style={{ width: "20px", height: "20px", borderRadius: "50%", background: "linear-gradient(to right, #10b981, #059669)", border: "2px solid #ffffff", zIndex: 1, marginLeft: "-8px" }}></div>
+                </div>
               </div>
-              <div style={{ width: "16px", height: "16px", background: "#f1f5f9", borderRadius: "4px" }}></div>
+              <div style={{ textAlign: "right" }}>
+                <div style={{ fontSize: "11px", color: "#64748b", marginBottom: "2px" }}>Vaults:</div>
+                <div style={{ fontSize: "20px", fontWeight: "700", color: "#0f172a" }}>1,308</div>
+              </div>
+              <div style={{ textAlign: "right" }}>
+                <div style={{ fontSize: "11px", color: "#64748b", marginBottom: "2px" }}>AVG. APY:</div>
+                <div style={{ fontSize: "20px", fontWeight: "700", color: "#0f172a" }}>9.57%</div>
+              </div>
             </div>
-          ))}
+          </div>
+          {/* AUM Card */}
+          <div style={{ background: "#ffffff", border: "none", borderRadius: "12px", padding: "12px 16px", position: "relative", overflow: "hidden", boxShadow: "0 4px 12px rgba(0,0,0,0.02)", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+            <div style={{ fontSize: "13px", fontWeight: "600", color: "#0f172a" }}>Assets under Management</div>
+            <div style={{ fontSize: "26px", fontWeight: "800", color: "#0f172a" }}>$82,413,926.74</div>
+          </div>
         </div>
 
-        {/* Background gradient overlay to match the green vibe */}
-        <div style={{ position: "absolute", top: 0, left: 0, right: 0, height: "120px", background: "linear-gradient(180deg, rgba(16,185,129,0.05) 0%, transparent 100%)", pointerEvents: "none" }}></div>
-      </div>
+        {/* Popular Vaults */}
+        <h3 style={{ fontSize: "15px", fontWeight: "600", marginBottom: "12px", color: "#0f172a" }}>Popular Vaults</h3>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px", marginBottom: "20px" }}>
+          
+          {/* Vault 1 */}
+          <div style={{ background: "#ffffff", border: "none", borderRadius: "12px", padding: "12px", display: "flex", flexDirection: "column", justifyContent: "space-between", boxShadow: "0 4px 12px rgba(0,0,0,0.02)" }}>
+            <div>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "10px" }}>
+                <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: "#f1f5f9", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <div style={{ width: "14px", height: "14px", background: "#0f172a", borderRadius: "50%" }}></div>
+                </div>
+                <span style={{ fontSize: "13px", fontWeight: "600", color: "#0f172a" }}>Civa</span>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <div style={{ fontSize: "10px", color: "#64748b", marginBottom: "2px" }}>AUM</div>
+                <div style={{ fontSize: "10px", color: "#64748b", marginBottom: "8px" }}>Depositors</div>
+              </div>
+            </div>
+            <div>
+              <svg viewBox="0 0 100 30" style={{ width: "100%", height: "24px", marginBottom: "10px" }}>
+                <defs>
+                  <linearGradient id="grad1" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style={{ stopColor: "rgba(239, 68, 68, 0.15)", stopOpacity: 1 }} />
+                    <stop offset="100%" style={{ stopColor: "rgba(239, 68, 68, 0)", stopOpacity: 1 }} />
+                  </linearGradient>
+                </defs>
+                <polygon fill="url(#grad1)" points="0,30 0,10 10,12 20,8 30,22 40,20 50,25 60,28 70,26 80,35 90,32 100,30 100,30" />
+                <polyline fill="none" stroke="#ef4444" strokeWidth="2" points="0,10 10,12 20,8 30,22 40,20 50,25 60,28 70,26 80,35 90,32 100,30" />
+              </svg>
+              <div style={{ display: "flex", gap: "4px", fontSize: "11px", fontWeight: "600" }}>
+                <span style={{ color: "#059669" }}>$0.39</span>
+                <span style={{ color: "#64748b", fontWeight: "500" }}>/ share</span>
+                <span style={{ color: "#dc2626" }}>-0.09%</span>
+              </div>
+            </div>
+          </div>
 
-      {/* Floating Accuracy Card (Bottom Left) */}
-      <div className="float-anim" style={{ position: "absolute", bottom: "-30px", left: "-40px", background: "#ffffff", borderRadius: "16px", padding: "20px", boxShadow: "0 20px 40px rgba(0,0,0,0.08)", border: "1px solid #f1f5f9", width: "220px", zIndex: 10, animationDelay: "1s" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: "6px", color: "#10b981", fontSize: "10px", fontWeight: "700", marginBottom: "8px" }}>
-          <div style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#10b981" }}></div>
-          Security Audit
+          {/* Vault 2 */}
+          <div style={{ background: "#ffffff", border: "none", borderRadius: "12px", padding: "12px", display: "flex", flexDirection: "column", justifyContent: "space-between", boxShadow: "0 4px 12px rgba(0,0,0,0.02)" }}>
+            <div>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "10px" }}>
+                <div style={{ width: "24px", height: "24px", borderRadius: "50%", border: "2px solid #f59e0b", display: "flex", alignItems: "center", justifyContent: "center", color: "#d97706", fontSize: "10px", fontWeight: "800", background: "rgba(245, 158, 11, 0.1)" }}>ARC</div>
+                <span style={{ fontSize: "13px", fontWeight: "600", color: "#0f172a" }}>ARCrypto MV</span>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <div style={{ fontSize: "10px", color: "#64748b", marginBottom: "2px" }}>AUM</div>
+                <div style={{ fontSize: "10px", color: "#64748b", marginBottom: "8px" }}>Depositors</div>
+              </div>
+            </div>
+            <div>
+              <svg viewBox="0 0 100 30" style={{ width: "100%", height: "24px", marginBottom: "10px" }}>
+                <defs>
+                  <linearGradient id="grad2" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style={{ stopColor: "rgba(16, 185, 129, 0.15)", stopOpacity: 1 }} />
+                    <stop offset="100%" style={{ stopColor: "rgba(16, 185, 129, 0)", stopOpacity: 1 }} />
+                  </linearGradient>
+                </defs>
+                <polygon fill="url(#grad2)" points="0,30 0,20 10,22 15,10 20,12 30,25 40,24 50,22 60,20 70,22 75,10 80,12 90,10 100,12 100,30" />
+                <polyline fill="none" stroke="#10b981" strokeWidth="2" points="0,20 10,22 15,10 20,12 30,25 40,24 50,22 60,20 70,22 75,10 80,12 90,10 100,12" />
+              </svg>
+              <div style={{ display: "flex", gap: "4px", fontSize: "11px", fontWeight: "600", justifyContent: "space-between" }}>
+                <div style={{ display: "flex", gap: "4px" }}>
+                  <span style={{ color: "#059669" }}>$0.94</span>
+                  <span style={{ color: "#64748b", fontWeight: "500" }}>/ share</span>
+                  <span style={{ color: "#059669" }}>+0.53%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Vault 3 */}
+          <div style={{ background: "#ffffff", border: "none", borderRadius: "12px", padding: "12px", display: "flex", flexDirection: "column", justifyContent: "space-between", boxShadow: "0 4px 12px rgba(0,0,0,0.02)" }}>
+            <div>
+              <div style={{ display: "flex", alignItems: "center", gap: "8px", marginBottom: "10px" }}>
+                <div style={{ width: "24px", height: "24px", borderRadius: "50%", background: "#f1f5f9", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <div style={{ width: "12px", height: "12px", background: "linear-gradient(135deg, #3b82f6, #8b5cf6)", transform: "rotate(45deg)", borderRadius: "2px" }}></div>
+                </div>
+                <span style={{ fontSize: "13px", fontWeight: "600", color: "#0f172a" }}>Defiable</span>
+              </div>
+              <div style={{ display: "flex", justifyContent: "space-between" }}>
+                <div style={{ fontSize: "10px", color: "#64748b", marginBottom: "2px" }}>AUM</div>
+                <div style={{ fontSize: "10px", color: "#64748b", marginBottom: "8px" }}>Depositors</div>
+              </div>
+            </div>
+            <div>
+              <svg viewBox="0 0 100 30" style={{ width: "100%", height: "24px", marginBottom: "10px" }}>
+                <defs>
+                  <linearGradient id="grad3" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" style={{ stopColor: "rgba(16, 185, 129, 0.15)", stopOpacity: 1 }} />
+                    <stop offset="100%" style={{ stopColor: "rgba(16, 185, 129, 0)", stopOpacity: 1 }} />
+                  </linearGradient>
+                </defs>
+                <polygon fill="url(#grad3)" points="0,30 0,25 10,22 15,24 20,20 22,25 25,12 30,12 40,15 50,14 60,14 70,10 75,5 80,10 90,15 100,12 100,30" />
+                <polyline fill="none" stroke="#10b981" strokeWidth="2" points="0,25 10,22 15,24 20,20 22,25 25,12 30,12 40,15 50,14 60,14 70,10 75,5 80,10 90,15 100,12" />
+              </svg>
+              <div style={{ display: "flex", gap: "4px", fontSize: "11px", fontWeight: "600", justifyContent: "space-between", alignItems: "center" }}>
+                <div style={{ display: "flex", gap: "4px" }}>
+                  <span style={{ color: "#059669" }}>$0.25</span>
+                  <span style={{ color: "#64748b", fontWeight: "500" }}>/ share</span>
+                  <span style={{ color: "#059669" }}>+1.93%</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div style={{ fontSize: "14px", fontWeight: "800", color: "#0f172a", marginBottom: "6px" }}>Audit Score</div>
-        <p style={{ fontSize: "11px", color: "#64748b", margin: 0, marginBottom: "16px", lineHeight: "1.4" }}>
-          Zero vulnerabilities detected in static analysis.
-        </p>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
-          <span style={{ fontSize: "10px", fontWeight: "700", color: "#94a3b8" }}>SCORE</span>
-          <span style={{ fontSize: "20px", fontWeight: "800", color: "#0f172a" }}>98%</span>
+
+        {/* Table Section */}
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "12px" }}>
+          <div style={{ display: "flex", gap: "6px", fontSize: "12px" }}>
+            <div style={{ background: "linear-gradient(135deg, #3b82f6 0%, #2563eb 100%)", color: "#fff", padding: "6px 14px", borderRadius: "100px", fontWeight: "600", cursor: "pointer", boxShadow: "0 4px 10px rgba(59, 130, 246, 0.2)" }}>All Vaults</div>
+            <div style={{ color: "#64748b", padding: "6px 14px", cursor: "pointer", fontWeight: "500" }}>Eligible Vaults</div>
+            <div style={{ color: "#64748b", padding: "6px 14px", cursor: "pointer", fontWeight: "500" }}>My Vaults</div>
+          </div>
+          <div style={{ display: "flex", gap: "10px", alignItems: "center" }}>
+            <div style={{ background: "#ffffff", border: "none", padding: "6px 14px", borderRadius: "100px", display: "flex", alignItems: "center", gap: "6px", width: "160px" }}>
+              <span style={{ color: "#94a3b8", fontSize: "12px" }}>Search vaults..</span>
+              <span style={{ color: "#94a3b8", fontSize: "12px", marginLeft: "auto" }}>&#128269;</span>
+            </div>
+          </div>
         </div>
-        <div style={{ height: "4px", background: "#e2e8f0", borderRadius: "100px", marginTop: "8px", overflow: "hidden" }}>
-          <div style={{ width: "98%", height: "100%", background: "linear-gradient(90deg, #10b981 0%, #34d399 100%)", borderRadius: "100px" }}></div>
+
+        <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+          {/* Row 1 */}
+          <div style={{ background: "#ffffff", border: "none", borderRadius: "12px", padding: "12px 16px", display: "flex", alignItems: "center", justifyContent: "space-between", boxShadow: "0 2px 10px rgba(0,0,0,0.02)" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px", width: "220px" }}>
+              <div style={{ position: "relative" }}>
+                <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: "#fef2f2", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid #fee2e2" }}>
+                  <span style={{ color: "#ef4444", fontSize: "16px", fontWeight: "800" }}>U</span>
+                </div>
+                <div style={{ width: "14px", height: "14px", borderRadius: "50%", background: "#3b82f6", border: "2px solid #ffffff", position: "absolute", bottom: "-2px", right: "-2px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <span style={{ color: "#fff", fontSize: "8px" }}>&#9889;</span>
+                </div>
+              </div>
+              <div>
+                <div style={{ fontSize: "13px", fontWeight: "700", letterSpacing: "0.2px", color: "#0f172a" }}>UST/FRAX/USDC</div>
+                <div style={{ display: "flex", gap: "10px", fontSize: "10px", color: "#64748b", marginTop: "2px" }}>
+                  <span>Chain: <span style={{ color: "#334155", fontWeight: "600" }}>Fantom</span></span>
+                  <span>App: <span style={{ color: "#334155", fontWeight: "600" }}>Curve</span></span>
+                </div>
+              </div>
+            </div>
+
+            <div style={{ display: "flex", gap: "20px", fontSize: "12px", textAlign: "right", flex: 1, justifyContent: "flex-end", marginRight: "16px" }}>
+              <div>
+                <div style={{ color: "#64748b", fontSize: "10px", marginBottom: "4px", fontWeight: "500" }}>Wallet</div>
+                <div style={{ fontWeight: "700", color: "#0f172a" }}>$1.23k</div>
+              </div>
+              <div>
+                <div style={{ color: "#64748b", fontSize: "10px", marginBottom: "4px", fontWeight: "500" }}>Deposited</div>
+                <div style={{ fontWeight: "700", color: "#0f172a" }}>$7.51k</div>
+              </div>
+              <div>
+                <div style={{ color: "#64748b", fontSize: "10px", marginBottom: "4px", fontWeight: "500" }}>APY</div>
+                <div style={{ fontWeight: "700", color: "#059669" }}>16.03%</div>
+              </div>
+              <div>
+                <div style={{ color: "#64748b", fontSize: "10px", marginBottom: "4px", fontWeight: "500" }}>Daily</div>
+                <div style={{ fontWeight: "700", color: "#0f172a" }}>0.04%</div>
+              </div>
+              <div>
+                <div style={{ color: "#64748b", fontSize: "10px", marginBottom: "4px", fontWeight: "500" }}>Score</div>
+                <div style={{ fontWeight: "700", color: "#059669", display: "flex", alignItems: "center", gap: "2px", justifyContent: "flex-end" }}>
+                  10.0
+                  <span style={{ fontSize: "8px" }}>&#9611;&#9611;</span>
+                </div>
+              </div>
+              <div>
+                <div style={{ color: "#64748b", fontSize: "10px", marginBottom: "4px", fontWeight: "500" }}>TVL</div>
+                <div style={{ fontWeight: "700", color: "#0f172a" }}>$21.3M</div>
+              </div>
+            </div>
+            
+            <div style={{ width: "60px", opacity: 0.8 }}>
+              <svg viewBox="0 0 100 30" style={{ width: "100%", height: "16px" }}>
+                <polyline fill="none" stroke="#059669" strokeWidth="2.5" points="0,20 20,22 40,15 60,18 80,10 100,8" />
+              </svg>
+            </div>
+          </div>
+
+          {/* Row 2 */}
+          <div style={{ background: "#ffffff", border: "none", borderRadius: "12px", padding: "12px 16px", display: "flex", alignItems: "center", justifyContent: "space-between", boxShadow: "0 2px 10px rgba(0,0,0,0.02)" }}>
+            <div style={{ display: "flex", alignItems: "center", gap: "12px", width: "220px" }}>
+              <div style={{ position: "relative" }}>
+                <div style={{ width: "32px", height: "32px", borderRadius: "50%", background: "linear-gradient(135deg, #f59e0b, #d97706)", display: "flex", alignItems: "center", justifyContent: "center", border: "1px solid #fff" }}>
+                  <span style={{ color: "#fff", fontSize: "16px", fontWeight: "800" }}>B</span>
+                </div>
+                <div style={{ width: "14px", height: "14px", borderRadius: "50%", background: "#fcd34d", border: "2px solid #ffffff", position: "absolute", bottom: "-2px", right: "-2px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <span style={{ color: "#000", fontSize: "8px" }}>&#9889;</span>
+                </div>
+              </div>
+              <div>
+                <div style={{ fontSize: "13px", fontWeight: "700", letterSpacing: "0.2px", color: "#0f172a" }}>BTCB-ETH LP</div>
+                <div style={{ display: "flex", gap: "10px", fontSize: "10px", color: "#64748b", marginTop: "2px" }}>
+                  <span>Chain: <span style={{ color: "#334155", fontWeight: "600" }}>BNB</span></span>
+                  <span>App: <span style={{ color: "#334155", fontWeight: "600" }}>Biswap</span></span>
+                </div>
+              </div>
+            </div>
+
+            <div style={{ display: "flex", gap: "20px", fontSize: "12px", textAlign: "right", flex: 1, justifyContent: "flex-end", marginRight: "16px" }}>
+              <div>
+                <div style={{ color: "#64748b", fontSize: "10px", marginBottom: "4px", fontWeight: "500" }}>Wallet</div>
+                <div style={{ fontWeight: "700", color: "#0f172a" }}>$2.45k</div>
+              </div>
+              <div>
+                <div style={{ color: "#64748b", fontSize: "10px", marginBottom: "4px", fontWeight: "500" }}>Deposited</div>
+                <div style={{ fontWeight: "700", color: "#0f172a" }}>$4.33k</div>
+              </div>
+              <div>
+                <div style={{ color: "#64748b", fontSize: "10px", marginBottom: "4px", fontWeight: "500" }}>APY</div>
+                <div style={{ fontWeight: "700", color: "#059669" }}>25.92%</div>
+              </div>
+              <div>
+                <div style={{ color: "#64748b", fontSize: "10px", marginBottom: "4px", fontWeight: "500" }}>Daily</div>
+                <div style={{ fontWeight: "700", color: "#0f172a" }}>0.07%</div>
+              </div>
+              <div>
+                <div style={{ color: "#64748b", fontSize: "10px", marginBottom: "4px", fontWeight: "500" }}>Score</div>
+                <div style={{ fontWeight: "700", color: "#059669", display: "flex", alignItems: "center", gap: "2px", justifyContent: "flex-end" }}>
+                  9.6
+                  <span style={{ fontSize: "8px" }}>&#9611;&#9611;</span>
+                </div>
+              </div>
+              <div>
+                <div style={{ color: "#64748b", fontSize: "10px", marginBottom: "4px", fontWeight: "500" }}>TVL</div>
+                <div style={{ fontWeight: "700", color: "#0f172a" }}>$7.99M</div>
+              </div>
+            </div>
+            
+            <div style={{ width: "60px", opacity: 0.8 }}>
+              <svg viewBox="0 0 100 30" style={{ width: "100%", height: "16px" }}>
+                <polyline fill="none" stroke="#059669" strokeWidth="2.5" points="0,25 20,24 40,15 60,14 80,12 100,5" />
+              </svg>
+            </div>
+          </div>
         </div>
       </div>
-      
     </div>
   );
 }

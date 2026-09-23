@@ -153,9 +153,9 @@ function NextBoard() {
   );
 }
 
-function Spotlight({ id, eyebrow, title, lead, points, flip, cta, visual }) {
+function Spotlight({ id, eyebrow, title, lead, points, flip, cta, visual, style }) {
   return (
-    <section id={id} className={`wd-spot ${flip ? "flip" : ""}`}>
+    <section id={id} className={`wd-spot ${flip ? "flip" : ""}`} style={style}>
       <div className="wd-spot-inner">
         <div className="wd-spot-copy">
           <span className="wd-eye">{eyebrow}</span>
@@ -196,7 +196,7 @@ export default function WebDevMoreSections() {
         </div>
       </section>
 
-      <section id="all-services" style={{ background: "#ffffff", padding: "40px 24px", borderBottom: "1px solid #f1f5f9" }}>
+      <section id="all-services" style={{ background: "#fdf8f0", padding: "40px 24px" }}>
 
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "40px 0" }}>
           {/* Header */}
@@ -343,6 +343,7 @@ export default function WebDevMoreSections() {
         points={nextPoints}
         cta="Scope a Next.js build →"
         visual={<NextBoard />}
+        style={{ paddingTop: "10px" }}
       />
       <Spotlight
         id="cms"
@@ -353,6 +354,7 @@ export default function WebDevMoreSections() {
         flip
         cta="Scope a CMS site →"
         visual={<CmsStudio />}
+        style={{ paddingTop: "10px" }}
       />
       <Spotlight
         id="apis"
@@ -362,9 +364,10 @@ export default function WebDevMoreSections() {
         points={apiPoints}
         cta="Scope an API →"
         visual={<ApiConsole />}
+        style={{ paddingTop: "10px" }}
       />
 
-      <section style={{ background: "#f8fafc", padding: "96px 24px", borderBottom: "1px solid #f1f5f9", textAlign: "center" }}>
+      <section style={{ background: "#faf3e6", padding: "10px 24px 96px", textAlign: "center" }}>
         <div className="vd-badge-tag" style={{ marginLeft: "auto", marginRight: "auto", color: PRIMARY, background: "rgba(37,99,235,0.1)", borderColor: "rgba(37,99,235,0.25)" }}>Use Cases</div>
         <h2 className="vd-section-h2">Industries We Build For</h2>
         <p className="vd-section-p" style={{ maxWidth: "620px", marginLeft: "auto", marginRight: "auto" }}>
@@ -383,52 +386,106 @@ export default function WebDevMoreSections() {
         </div>
       </section>
 
-      <section className="vd-process-section" style={{ padding: "104px 24px 90px", background: "#ffffff" }}>
-        <div className="vd-badge-tag" style={{ marginLeft: "auto", marginRight: "auto", color: PRIMARY, background: "rgba(37,99,235,0.1)", borderColor: "rgba(37,99,235,0.25)" }}>Delivery Process</div>
-        <h2 className="vd-section-h2">How We Ship Web Products</h2>
-        <p className="vd-section-p" style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
-          Fixed milestones from information architecture to a green Lighthouse score — no hourly surprises.
-        </p>
-        <div className="vd-process-timeline-v2">
-          <div className="vt-line" />
-          {processSteps.map((step, idx) => {
-            const isRight = idx % 2 === 1;
-            return (
-              <div className={`vt-item ${isRight ? "vt-right" : "vt-left"}`} key={step.num}>
-                <div className="vt-dot" />
-                <div className="vt-content">
-                  <span className="vt-step-badge">Step {step.num}</span>
-                  <h3 className="vt-title">{step.title}</h3>
-                  <p className="vt-desc">{step.desc}</p>
-                </div>
-                <div className="vt-visual">
-                  <div className="vt-image-container">
-                    <div style={{ background: "#ffffff", borderRadius: "16px", border: "1px solid #e2e8f0", padding: "20px", width: "100%", maxWidth: "300px", boxShadow: "0 10px 30px rgba(15,23,42,0.06)" }}>
-                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
-                        <span style={{ fontSize: "12px", fontWeight: "900", color: "#0f172a" }}>{step.title}</span>
-                        <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#10b981", boxShadow: "0 0 8px #10b981" }} />
-                      </div>
-                      <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "10px", padding: "12px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                        <span style={{ fontSize: "11px", color: "#64748b", fontWeight: "600" }}>Milestone</span>
-                        <span style={{ fontSize: "12px", fontWeight: "900", color: PRIMARY }}>{step.metric}</span>
+      <section className="vd-process-section" style={{ position: "relative", overflow: "hidden", padding: "10px 24px 90px", background: "#fdf8f0" }}>
+        {/* Advanced CSS 3D Scene */}
+        <div className="process-scene-3d">
+          <div className="scene-wrapper">
+            <div className="grid-floor" />
+            <div className="cube-wrapper cw-1"><div className="cube"><div className="face f"/> <div className="face b"/> <div className="face l"/> <div className="face r"/> <div className="face t"/> <div className="face bo"/></div></div>
+            <div className="cube-wrapper cw-2"><div className="cube"><div className="face f"/> <div className="face b"/> <div className="face l"/> <div className="face r"/> <div className="face t"/> <div className="face bo"/></div></div>
+            <div className="cube-wrapper cw-3"><div className="cube"><div className="face f"/> <div className="face b"/> <div className="face l"/> <div className="face r"/> <div className="face t"/> <div className="face bo"/></div></div>
+            <div className="cube-wrapper cw-4"><div className="cube"><div className="face f"/> <div className="face b"/> <div className="face l"/> <div className="face r"/> <div className="face t"/> <div className="face bo"/></div></div>
+          </div>
+        </div>
+
+        <div style={{ position: "relative", zIndex: 10 }}>
+          <div className="vd-badge-tag" style={{ marginLeft: "auto", marginRight: "auto", color: PRIMARY, background: "rgba(37,99,235,0.1)", borderColor: "rgba(37,99,235,0.25)" }}>Delivery Process</div>
+          <h2 className="vd-section-h2">How We Ship Web Products</h2>
+          <p className="vd-section-p" style={{ maxWidth: "600px", marginLeft: "auto", marginRight: "auto" }}>
+            Fixed milestones from information architecture to a green Lighthouse score — no hourly surprises.
+          </p>
+          <div className="vd-process-timeline-v2">
+            <div className="vt-line" />
+            {processSteps.map((step, idx) => {
+              const isRight = idx % 2 === 1;
+              return (
+                <div className={`vt-item ${isRight ? "vt-right" : "vt-left"}`} key={step.num}>
+                  <div className="vt-dot" />
+                  <div className="vt-content">
+                    <span className="vt-step-badge">Step {step.num}</span>
+                    <h3 className="vt-title">{step.title}</h3>
+                    <p className="vt-desc">{step.desc}</p>
+                  </div>
+                  <div className="vt-visual">
+                    <div className="vt-image-container">
+                      <div style={{ background: "#ffffff", borderRadius: "16px", border: "1px solid #e2e8f0", padding: "20px", width: "100%", maxWidth: "300px", boxShadow: "0 10px 30px rgba(15,23,42,0.06)" }}>
+                        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
+                          <span style={{ fontSize: "12px", fontWeight: "900", color: "#0f172a" }}>{step.title}</span>
+                          <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#10b981", boxShadow: "0 0 8px #10b981" }} />
+                        </div>
+                        <div style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "10px", padding: "12px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                          <span style={{ fontSize: "11px", color: "#64748b", fontWeight: "600" }}>Milestone</span>
+                          <span style={{ fontSize: "12px", fontWeight: "900", color: PRIMARY }}>{step.metric}</span>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </section>
 
       <style>{`
+        .process-scene-3d { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 0; overflow: hidden; pointer-events: none; perspective: 1400px; display: flex; align-items: center; justify-content: center; }
+        .scene-wrapper { width: 100%; height: 100%; position: absolute; top: 0; left: 0; transform-style: preserve-3d; transform: rotateX(60deg) rotateZ(-45deg) translateZ(-150px) scale(1.5); }
+        
+        .grid-floor {
+          position: absolute; width: 300%; height: 300%; top: -100%; left: -100%;
+          background-image: linear-gradient(rgba(37,99,235,0.06) 2px, transparent 2px), linear-gradient(90deg, rgba(37,99,235,0.06) 2px, transparent 2px);
+          background-size: 80px 80px;
+          animation: gridMove 4s linear infinite;
+        }
+        @keyframes gridMove { from { transform: translateY(0); } to { transform: translateY(80px); } }
+
+        .cube-wrapper { position: absolute; transform-style: preserve-3d; animation: cubeFloat linear infinite; }
+        .cube { position: relative; width: 40px; height: 40px; transform-style: preserve-3d; }
+        .face { position: absolute; width: 40px; height: 40px; background: rgba(37,99,235,0.05); border: 2px solid rgba(37,99,235,0.4); box-shadow: inset 0 0 10px rgba(37,99,235,0.1); }
+        .face.f { transform: translateZ(20px); }
+        .face.b { transform: rotateY(180deg) translateZ(20px); }
+        .face.l { transform: rotateY(-90deg) translateZ(20px); }
+        .face.r { transform: rotateY(90deg) translateZ(20px); }
+        .face.t { transform: rotateX(90deg) translateZ(20px); background: rgba(37,99,235,0.2); }
+        .face.bo { transform: rotateX(-90deg) translateZ(20px); }
+
+        .cw-1 { top: 10%; left: -20%; animation-duration: 20s; animation-delay: 0s; transform: translateZ(20px); }
+        .cw-2 { top: 40%; left: 120%; animation-duration: 25s; animation-delay: 4s; transform: translateZ(60px); }
+        .cw-3 { top: 70%; left: -20%; animation-duration: 18s; animation-delay: 2s; transform: translateZ(10px); }
+        .cw-4 { top: 85%; left: 120%; animation-duration: 22s; animation-delay: 7s; transform: translateZ(40px); }
+
+        @keyframes cubeFloat {
+          0% { transform: translateX(0vw) translateY(0vw) rotateZ(0deg) translateZ(0px); opacity: 0; }
+          10% { opacity: 1; }
+          90% { opacity: 1; }
+          100% { transform: translateX(120vw) translateY(120vw) rotateZ(360deg) translateZ(50px); opacity: 0; }
+        }
+        
+        .cw-2, .cw-4 { animation-name: cubeFloatRev; }
+        @keyframes cubeFloatRev {
+          0% { transform: translateX(0vw) translateY(0vw) rotateZ(0deg) translateZ(0px); opacity: 0; }
+          10% { opacity: 1; }
+          90% { opacity: 1; }
+          100% { transform: translateX(-120vw) translateY(-120vw) rotateZ(-360deg) translateZ(50px); opacity: 0; }
+        }
+
         .wd-eye {
           display: inline-block; font-size: 12px; font-weight: 800; letter-spacing: 1.4px;
           text-transform: uppercase; color: ${PRIMARY}; background: rgba(37,99,235,0.08);
           padding: 6px 14px; border-radius: 99px; margin-bottom: 16px;
         }
-        .wd-spot { background: #ffffff; padding: 96px 24px; border-bottom: 1px solid #f1f5f9; }
-        .wd-spot.flip { background: #f8fafc; }
+        .wd-spot { background: #fdf8f0; padding: 96px 24px; }
+        .wd-spot.flip { background: #faf3e6; }
         .wd-spot-inner {
           max-width: 1180px; margin: 0 auto; display: grid;
           grid-template-columns: 1fr 1.05fr; gap: 56px; align-items: center;
@@ -531,6 +588,15 @@ export default function WebDevMoreSections() {
           .wd-spot-inner, .wd-spot.flip .wd-spot-inner { grid-template-columns: 1fr !important; }
           .wd-spot.flip .wd-spot-copy, .wd-spot.flip .wd-spot-visual { order: unset; }
           .wd-ind-grid { grid-template-columns: 1fr; }
+        }
+        
+        @media (max-width: 768px) {
+          .vd-marquee-section { overflow: hidden !important; width: 100vw !important; white-space: nowrap !important; }
+          .vd-marquee-track { display: flex; align-items: center; width: max-content; }
+          .vd-marquee-item { display: inline-flex; align-items: center; white-space: nowrap; }
+          .vd-process-section { padding: 40px 24px !important; }
+          .process-scene-3d { display: none !important; }
+          .wd-spot { padding: 56px 24px !important; }
         }
       `}</style>
     </>

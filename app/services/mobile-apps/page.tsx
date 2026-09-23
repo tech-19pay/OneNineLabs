@@ -102,6 +102,7 @@ export default function MobileAppsServicePage() {
         "Native iOS and Android",
         "App Store and Play Store Launch",
         "Offline-First Sync",
+        "Typing & Interactive EdTech Apps",
       ].map((name) => ({ "@type": "Offer", itemOffered: { "@type": "Service", name } })),
     },
   };
@@ -123,7 +124,7 @@ export default function MobileAppsServicePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       
-      <main style={{ minHeight: "100vh", background: "#ffffff" }}>
+      <main style={{ minHeight: "100vh", background: "transparent" }}>
         <MobileAppsPageContent />
       </main>
 

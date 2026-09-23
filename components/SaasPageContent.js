@@ -594,7 +594,7 @@ export default function SaasPageContent() {
                 </div>
                 <div>
                   <div style={{ fontSize: "12.5px", fontWeight: "800", color: "#0f172a" }}>You are doing good!</div>
-                  <div style={{ fontSize: "11px", color: "#64748b" }}>You're close to reaching your target goal of 99.99% multi-tenant SLA.</div>
+                  <div style={{ fontSize: "11px", color: "#64748b" }}>You&apos;re close to reaching your target goal of 99.99% multi-tenant SLA.</div>
                 </div>
               </div>
 
@@ -604,23 +604,101 @@ export default function SaasPageContent() {
         </div>
       </section>
 
-      {/* ── 2. ABOUT US SECTION (SHIFTED UP TOWARDS HERO) ── */}
-      <section className="saas-landing-about" style={{ paddingTop: "0px", marginTop: "-70px", paddingBottom: "20px", position: "relative", zIndex: 12 }}>
-        <div className="saas-landing-about-container-flex" style={{ display: "flex", gap: "40px", alignItems: "center" }}>
-          <div className="saas-landing-about-image">
-            <img src="/assets/about_img.jpg" alt="Dashboard Illustration" />
-          </div>
-          <div className="saas-landing-about-content">
-            <h2>Zero Cross-Tenant Data Leaks Guaranteed</h2>
-            <p>We build robust multi-tenant systems using PostgreSQL Row-Level Security (RLS) to guarantee complete data isolation between organizations. Our architectures are designed to pass rigorous SOC 2 Type II and HIPAA compliance audits out of the box, ensuring your enterprise clients trust your platform with their most sensitive data.</p>
+      {/* ── 2. ZERO CROSS-TENANT DATA LEAKS (ABOUT / SECURITY HIGHLIGHT) ── */}
+      <section className="saas-landing-about" style={{
+        background: "#ffffff",
+        padding: "60px 24px 70px",
+        position: "relative",
+        zIndex: 12
+      }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          <div className="saas-landing-about-container-flex" style={{
+            display: "flex",
+            gap: "50px",
+            alignItems: "center",
+            background: "linear-gradient(145deg, #f0fdf4 0%, #f8fafc 100%)",
+            border: "1.5px solid #dcfce7",
+            borderRadius: "28px",
+            padding: "44px 40px",
+            boxShadow: "0 12px 36px rgba(5, 150, 105, 0.05)"
+          }}>
+            <div className="saas-landing-about-image" style={{ flex: 1 }}>
+              <div style={{ position: "relative", borderRadius: "20px", overflow: "hidden", boxShadow: "0 16px 36px rgba(0, 0, 0, 0.08)", border: "1px solid #e2e8f0" }}>
+                <img src="/assets/about_img.jpg" alt="Dashboard Illustration" style={{ width: "100%", height: "auto", display: "block" }} />
+              </div>
+            </div>
+            <div className="saas-landing-about-content" style={{ flex: 1.1 }}>
+              <div style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                background: "#dcfce7",
+                color: "#15803d",
+                border: "1px solid #bbf7d0",
+                padding: "5px 14px",
+                borderRadius: "100px",
+                fontSize: "12px",
+                fontWeight: "800",
+                letterSpacing: "1px",
+                textTransform: "uppercase",
+                marginBottom: "16px"
+              }}>
+                <span style={{ width: "7px", height: "7px", borderRadius: "50%", background: "#16a34a" }}></span>
+                Zero-Leak Security SLA
+              </div>
+              <h2 style={{ fontSize: "clamp(28px, 3.5vw, 42px)", fontWeight: "800", color: "#0f172a", lineHeight: "1.2", marginBottom: "16px", letterSpacing: "-0.6px" }}>
+                Zero Cross-Tenant Data Leaks Guaranteed
+              </h2>
+              <p style={{ fontSize: "15.5px", color: "#475569", lineHeight: "1.7", marginBottom: "24px" }}>
+                We build robust multi-tenant systems using PostgreSQL Row-Level Security (RLS) to guarantee complete data isolation between organizations. Our architectures are designed to pass rigorous SOC 2 Type II and HIPAA compliance audits out of the box, ensuring your enterprise clients trust your platform with their most sensitive data.
+              </p>
+              <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "12px" }}>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#334155", fontSize: "13.5px", fontWeight: "700" }}>
+                  <span style={{ color: "#059669", background: "#ecfdf5", width: "22px", height: "22px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px" }}>✓</span>
+                  PostgreSQL RLS Engine
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#334155", fontSize: "13.5px", fontWeight: "700" }}>
+                  <span style={{ color: "#059669", background: "#ecfdf5", width: "22px", height: "22px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px" }}>✓</span>
+                  SOC 2 Type II Ready
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#334155", fontSize: "13.5px", fontWeight: "700" }}>
+                  <span style={{ color: "#059669", background: "#ecfdf5", width: "22px", height: "22px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px" }}>✓</span>
+                  Okta SAML 2.0 Auth
+                </div>
+                <div style={{ display: "flex", alignItems: "center", gap: "8px", color: "#334155", fontSize: "13.5px", fontWeight: "700" }}>
+                  <span style={{ color: "#059669", background: "#ecfdf5", width: "22px", height: "22px", borderRadius: "50%", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "12px" }}>✓</span>
+                  Automated Stripe Billing
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ── 3. HIGH-PERFORMANCE MULTI-TENANT ARCHITECTURE (5-CARD BENTO GRID MATCHING REFERENCE DESIGN) ── */}
-      <section className="saas-arch-section" id="architecture" style={{ background: "#ffffff", paddingTop: "0px", marginTop: "-30px", paddingBottom: "80px", paddingLeft: "24px", paddingRight: "24px", position: "relative", zIndex: 11 }}>
-        
+      {/* ── 3. HIGH-PERFORMANCE MULTI-TENANT ARCHITECTURE (5-CARD BENTO GRID) ── */}
+      <section className="saas-arch-section" id="architecture" style={{
+        background: "#f8fafc",
+        padding: "70px 24px 80px",
+        position: "relative",
+        zIndex: 11,
+        borderTop: "1px solid #f1f5f9",
+        borderBottom: "1px solid #f1f5f9"
+      }}>
         <div className="saas-arch-container" style={{ maxWidth: "1200px", margin: "0 auto" }}>
+          
+          {/* Header */}
+          <div className="saas-sec-header" style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 48px" }}>
+            <div className="saas-badge-pill" style={{ background: "#ecfdf5", border: "1px solid #a7f3d0", color: "#059669", padding: "6px 16px", borderRadius: "100px", fontSize: "12px", fontWeight: "800", display: "inline-flex", alignItems: "center", gap: "8px", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "14px" }}>
+              <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#059669" }}></span>
+              Multi-Tenant Architecture
+            </div>
+            <h2 style={{ fontSize: "clamp(32px, 4vw, 46px)", fontWeight: "800", color: "#0f172a", lineHeight: "1.18", letterSpacing: "-0.8px", marginBottom: "14px" }}>
+              Engineered for High-Concurrency SaaS
+            </h2>
+            <p style={{ fontSize: "16px", color: "#64748b", lineHeight: "1.65", maxWidth: "640px", margin: "0 auto" }}>
+              PostgreSQL Row-Level Security, automated Stripe revenue pipelines, SAML SSO directory syncing, and tamper-proof audit trails.
+            </p>
+          </div>
           
 
 
@@ -886,35 +964,48 @@ export default function SaasPageContent() {
         </div>
       </section>
 
-      {/* ── 5. WORK THE WAY YOU WANT (CUSTOM UI) ── */}
-      <section id="work-the-way" style={{ background: "#ffffff", padding: "0 24px 80px" }}>
+      {/* ── 4. WORK THE WAY YOU WANT (CUSTOM UI) ── */}
+      <section id="work-the-way" style={{ background: "#ffffff", padding: "70px 24px 36px" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
           
-
+          {/* Header */}
+          <div className="saas-sec-header" style={{ textAlign: "center", maxWidth: "800px", margin: "0 auto 48px" }}>
+            <div className="saas-badge-pill" style={{ background: "#eff6ff", border: "1px solid #bfdbfe", color: "#2563eb", padding: "6px 16px", borderRadius: "100px", fontSize: "12px", fontWeight: "800", display: "inline-flex", alignItems: "center", gap: "8px", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "14px" }}>
+              <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#2563eb" }}></span>
+              Intuitive Workflows
+            </div>
+            <h2 style={{ fontSize: "clamp(32px, 4vw, 46px)", fontWeight: "800", color: "#0f172a", lineHeight: "1.18", letterSpacing: "-0.8px", marginBottom: "14px" }}>
+              Work The Way You Want
+            </h2>
+            <p style={{ fontSize: "16px", color: "#64748b", lineHeight: "1.65", maxWidth: "640px", margin: "0 auto" }}>
+              Flexible Kanban task flows, calendar planning, and real-time team analytics dashboards.
+            </p>
+          </div>
 
           {/* Cards */}
           <div style={{ display: "flex", flexDirection: "column", gap: "30px" }}>
             
             {/* Card 1 */}
-            <div className="saas-custom-card" style={{ display: "flex", alignItems: "stretch", background: "#ffffff", borderRadius: "24px", overflow: "hidden", boxShadow: "0 4px 20px rgba(15, 23, 42, 0.02)" }}>
+            <div className="saas-custom-card" style={{ display: "flex", alignItems: "stretch", background: "#ffffff", borderRadius: "24px", overflow: "hidden", border: "1px solid #e2e8f0", boxShadow: "0 10px 30px rgba(15, 23, 42, 0.03)" }}>
               <div className="saas-custom-card-text" style={{ flex: 1, padding: "40px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-
-                <h3 style={{ fontSize: "32px", fontWeight: "800", color: "#0f172a", lineHeight: "1.25", marginBottom: "20px", maxWidth: "380px" }}>
+                <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "#f0f9ff", color: "#0284c7", border: "1px solid #bae6fd", padding: "4px 12px", borderRadius: "100px", fontSize: "11px", fontWeight: "800", width: "fit-content", marginBottom: "16px", textTransform: "uppercase", letterSpacing: "0.8px" }}>
+                  Kanban Stages
+                </div>
+                <h3 style={{ fontSize: "28px", fontWeight: "800", color: "#0f172a", lineHeight: "1.25", marginBottom: "16px", maxWidth: "380px" }}>
                   Effortless Task Flow Management
                 </h3>
-                <p style={{ fontSize: "16px", color: "#64748b", lineHeight: "1.7", marginBottom: "36px", maxWidth: "440px" }}>
-                  Move tasks seamlessly between stages with an intuitive drag-and-drop system.
+                <p style={{ fontSize: "15.5px", color: "#64748b", lineHeight: "1.7", marginBottom: "28px", maxWidth: "440px" }}>
+                  Move tasks seamlessly between stages with an intuitive drag-and-drop system and automated status triggers.
                 </p>
-
               </div>
-              <div className="saas-custom-card-img right-img" style={{ flex: 1.1, background: "#f8fafc", padding: "24px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <div className="saas-custom-card-img right-img" style={{ flex: 1.1, background: "#f8fafc", padding: "28px", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 {/* Kanban Mockup */}
                 <div style={{ width: "100%", background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "16px", padding: "20px", boxShadow: "0 10px 25px rgba(0,0,0,0.03)" }}>
                   <div className="saas-mockup-grid-3" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "16px" }}>
                     <div style={{ background: "#f8fafc", borderRadius: "12px", padding: "16px", minHeight: "200px" }}>
                       <div style={{ fontSize: "12px", fontWeight: "800", marginBottom: "12px", color: "#475569" }}>Backlog</div>
                       <div style={{ background: "#ffffff", padding: "12px", borderRadius: "8px", boxShadow: "0 2px 4px rgba(0,0,0,0.02)", border: "1px solid #e2e8f0", marginBottom: "8px" }}>
-                        <div style={{ fontSize: "10px", color: "#ef4444", background: "#fee2e2", display: "inline-block", padding: "2px 6px", borderRadius: "4px", marginBottom: "6px" }}>High</div>
+                        <div style={{ fontSize: "10px", color: "#ef4444", background: "#fee2e2", display: "inline-block", padding: "2px 6px", borderRadius: "4px", marginBottom: "6px", fontWeight: "700" }}>High</div>
                         <div style={{ fontSize: "13px", fontWeight: "700", color: "#0f172a" }}>CRM Feature List</div>
                         <div style={{ fontSize: "11px", color: "#64748b", marginTop: "4px" }}>Define core modules...</div>
                       </div>
@@ -935,18 +1026,19 @@ export default function SaasPageContent() {
             </div>
 
             {/* Card 2 */}
-            <div className="saas-custom-card reverse" style={{ display: "flex", flexDirection: "row-reverse", alignItems: "stretch", background: "#ffffff", borderRadius: "24px", overflow: "hidden", boxShadow: "0 4px 20px rgba(15, 23, 42, 0.02)" }}>
+            <div className="saas-custom-card reverse" style={{ display: "flex", flexDirection: "row-reverse", alignItems: "stretch", background: "#ffffff", borderRadius: "24px", overflow: "hidden", border: "1px solid #e2e8f0", boxShadow: "0 10px 30px rgba(15, 23, 42, 0.03)" }}>
               <div className="saas-custom-card-text" style={{ flex: 1, padding: "40px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-
-                <h3 style={{ fontSize: "32px", fontWeight: "800", color: "#0f172a", lineHeight: "1.25", marginBottom: "20px", maxWidth: "380px" }}>
+                <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "#faf5ff", color: "#7c3aed", border: "1px solid #e9d5ff", padding: "4px 12px", borderRadius: "100px", fontSize: "11px", fontWeight: "800", width: "fit-content", marginBottom: "16px", textTransform: "uppercase", letterSpacing: "0.8px" }}>
+                  Timeline View
+                </div>
+                <h3 style={{ fontSize: "28px", fontWeight: "800", color: "#0f172a", lineHeight: "1.25", marginBottom: "16px", maxWidth: "380px" }}>
                   Stay Organized with Calendar View
                 </h3>
-                <p style={{ fontSize: "16px", color: "#64748b", lineHeight: "1.7", marginBottom: "36px", maxWidth: "440px" }}>
-                  Plan ahead, set deadlines, and never miss an important task with a clear timeline view.
+                <p style={{ fontSize: "15.5px", color: "#64748b", lineHeight: "1.7", marginBottom: "28px", maxWidth: "440px" }}>
+                  Plan ahead, set deadlines, and never miss an important milestone with a synchronized multi-tenant calendar.
                 </p>
-
               </div>
-              <div className="saas-custom-card-img left-img" style={{ flex: 1.1, background: "#f8fafc", padding: "24px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <div className="saas-custom-card-img left-img" style={{ flex: 1.1, background: "#f8fafc", padding: "28px", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 {/* Calendar Mockup */}
                 <div style={{ width: "100%", background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "16px", padding: "20px", boxShadow: "0 10px 25px rgba(0,0,0,0.03)" }}>
                   <div style={{ display: "grid", gridTemplateColumns: "40px repeat(3, 1fr)", gap: "1px", background: "#e2e8f0", border: "1px solid #e2e8f0", borderRadius: "8px", overflow: "hidden" }}>
@@ -974,18 +1066,19 @@ export default function SaasPageContent() {
             </div>
 
             {/* Card 3 */}
-            <div className="saas-custom-card" style={{ display: "flex", alignItems: "stretch", background: "#ffffff", borderRadius: "24px", overflow: "hidden", boxShadow: "0 4px 20px rgba(15, 23, 42, 0.02)" }}>
+            <div className="saas-custom-card" style={{ display: "flex", alignItems: "stretch", background: "#ffffff", borderRadius: "24px", overflow: "hidden", border: "1px solid #e2e8f0", boxShadow: "0 10px 30px rgba(15, 23, 42, 0.03)" }}>
               <div className="saas-custom-card-text" style={{ flex: 1, padding: "40px", display: "flex", flexDirection: "column", justifyContent: "center" }}>
-
-                <h3 style={{ fontSize: "32px", fontWeight: "800", color: "#0f172a", lineHeight: "1.25", marginBottom: "20px", maxWidth: "380px" }}>
+                <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "#ecfdf5", color: "#059669", border: "1px solid #a7f3d0", padding: "4px 12px", borderRadius: "100px", fontSize: "11px", fontWeight: "800", width: "fit-content", marginBottom: "16px", textTransform: "uppercase", letterSpacing: "0.8px" }}>
+                  Live Telemetry
+                </div>
+                <h3 style={{ fontSize: "28px", fontWeight: "800", color: "#0f172a", lineHeight: "1.25", marginBottom: "16px", maxWidth: "380px" }}>
                   Gain Clarity with Project Overview
                 </h3>
-                <p style={{ fontSize: "16px", color: "#64748b", lineHeight: "1.7", marginBottom: "36px", maxWidth: "440px" }}>
-                  Track progress, team workload, and key milestones—all in one comprehensive dashboard.
+                <p style={{ fontSize: "15.5px", color: "#64748b", lineHeight: "1.7", marginBottom: "28px", maxWidth: "440px" }}>
+                  Track progress, team workload, and key tenant health metrics—all in one high-precision dashboard.
                 </p>
-
               </div>
-              <div className="saas-custom-card-img right-img" style={{ flex: 1.1, background: "#f8fafc", padding: "24px", display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <div className="saas-custom-card-img right-img" style={{ flex: 1.1, background: "#f8fafc", padding: "28px", display: "flex", alignItems: "center", justifyContent: "center" }}>
                 {/* Overview Mockup */}
                 <div style={{ width: "100%", background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "16px", padding: "20px", boxShadow: "0 10px 25px rgba(0,0,0,0.03)" }}>
                   <div className="saas-mockup-grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
@@ -1015,231 +1108,303 @@ export default function SaasPageContent() {
         </div>
       </section>
 
-      {/* ── 7. 4-STAGE SAAS DELIVERY PROCESS (BENTO GRID MATCHING REFERENCE DESIGN) ── */}
-      <section className="saas-process-section" style={{ padding: "0 24px 80px", background: "#ffffff", position: "relative", zIndex: 11 }}>
+      {/* ── 5. 4-STAGE SAAS DELIVERY PROCESS ── */}
+      <section className="saas-process-section" style={{
+        padding: "60px 24px 70px",
+        background: "#f8fafc",
+        position: "relative",
+        zIndex: 11,
+        borderTop: "1px solid #f1f5f9",
+        borderBottom: "1px solid #f1f5f9"
+      }}>
         <div className="saas-process-container" style={{ maxWidth: "1200px", margin: "0 auto" }}>
           
           {/* Header */}
-          <div className="saas-sec-header" style={{ maxWidth: "800px", margin: "0 auto 50px", textAlign: "center" }}>
-
-            <h2 className="saas-sec-title-dark" style={{ fontSize: "clamp(34px, 4vw, 48px)", fontWeight: "800", color: "#475569", lineHeight: "1.18", letterSpacing: "-1px", marginBottom: "16px" }}>
+          <div className="saas-sec-header" style={{ maxWidth: "800px", margin: "0 auto 48px", textAlign: "center" }}>
+            <div className="saas-badge-pill" style={{ background: "#f5f3ff", border: "1px solid #ddd6fe", color: "#7c3aed", padding: "6px 16px", borderRadius: "100px", fontSize: "12px", fontWeight: "800", display: "inline-flex", alignItems: "center", gap: "8px", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "14px" }}>
+              <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#7c3aed" }}></span>
+              Delivery Roadmap
+            </div>
+            <h2 className="saas-sec-title-dark" style={{ fontSize: "clamp(32px, 4vw, 46px)", fontWeight: "800", color: "#0f172a", lineHeight: "1.18", letterSpacing: "-0.8px", marginBottom: "14px" }}>
               4-Stage SaaS Delivery Process
             </h2>
-            <p className="saas-sec-desc-dark" style={{ fontSize: "16.5px", color: "#718096", lineHeight: "1.7", maxWidth: "660px", margin: "0 auto" }}>
+            <p className="saas-sec-desc-dark" style={{ fontSize: "16px", color: "#64748b", lineHeight: "1.65", maxWidth: "660px", margin: "0 auto" }}>
               From data modeling and Stripe billing integration to penetration testing and 6–8 week MVP production rollout.
             </p>
           </div>
 
-          {/* Bento Grid Container */}
-          <div style={{ display: "flex", flexDirection: "column", gap: "24px" }}>
-            
-            {/* Top Row: 2 Large Bento Cards Side-by-Side */}
-            <div className="saas-process-grid-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "24px" }}>
-              
-              {/* Top Left Bento Card (Stage 01: Tenant Data Modeling & RLS) */}
-              <div style={{
-                background: "#f8fafc",
-                border: "1px solid #e2e8f0",
-                borderRadius: "28px",
-                padding: "36px 36px 0 36px",
-                display: "flex",
-                flexDirection: "column",
-                justify: "space-between",
-                overflow: "hidden",
-                boxShadow: "0 10px 30px rgba(15, 23, 42, 0.03)"
-              }}>
-                <div style={{ marginBottom: "24px" }}>
-                  <h3 style={{ fontSize: "24px", fontWeight: "800", color: "#0f172a", marginBottom: "12px", lineHeight: "1.3" }}>
-                    {deliverySteps[0].title}
-                  </h3>
-                  <p style={{ fontSize: "15px", color: "#475569", lineHeight: "1.6" }}>
-                    {deliverySteps[0].desc}
-                  </p>
-                </div>
+          {/* Simple & Clean 4-Stage Cards Grid */}
+          <style>{`
+            .saas-stages-grid {
+              display: grid;
+              grid-template-columns: repeat(4, 1fr);
+              gap: 24px;
+            }
+            @media (max-width: 1024px) {
+              .saas-stages-grid {
+                grid-template-columns: repeat(2, 1fr);
+              }
+            }
+            @media (max-width: 640px) {
+              .saas-stages-grid {
+                grid-template-columns: 1fr;
+              }
+            }
+            .saas-stage-card {
+              background: #ffffff;
+              border: 1px solid #e2e8f0;
+              border-radius: 24px;
+              padding: 32px 26px;
+              display: flex;
+              flex-direction: column;
+              justifyContent: space-between;
+              box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+              transition: all 0.25s ease;
+              position: relative;
+              overflow: hidden;
+            }
+            .saas-stage-card:hover {
+              transform: translateY(-4px);
+              box-shadow: 0 16px 36px rgba(15, 23, 42, 0.08);
+              border-color: #cbd5e1;
+            }
+          `}</style>
 
-                {/* Overlapping Dual Code & Contract Window Mockup */}
-                <div style={{ display: "flex", gap: "14px", transform: "translateY(10px)" }}>
-                  <div style={{ flex: 1, background: "#0f172a", borderRadius: "14px 14px 0 0", padding: "14px", fontFamily: "monospace", fontSize: "10.5px", color: "#e2e8f0" }}>
-                    <div style={{ color: "#94a3b8", marginBottom: "4px" }}>dataset: tenant_catalog</div>
-                    <div style={{ color: "#38bdf8" }}>checks:</div>
-                    <div style={{ color: "#4ade80", paddingLeft: "10px" }}>- schema: PostgreSQL RLS</div>
-                    <div style={{ color: "#cbd5e1", paddingLeft: "10px" }}>- tenant_id filter: REQUIRED</div>
-                  </div>
-                  <div style={{ flex: 1.3, background: "#ffffff", borderRadius: "14px 14px 0 0", padding: "14px", boxShadow: "0 -8px 25px rgba(0,0,0,0.08)" }}>
-                    <div style={{ display: "flex", justifyContent: "space-between", fontSize: "11px", fontWeight: "800", color: "#0f172a", marginBottom: "8px" }}>
-                      <span>RLS Contract</span>
-                      <span style={{ color: "#00bba7" }}>● Active</span>
-                    </div>
-                    <div style={{ fontSize: "10px", color: "#64748b", marginBottom: "6px" }}>Filter: tenant_id = app.current_tenant</div>
-                    <div style={{ background: "#ecfdf5", color: "#059669", fontSize: "10px", padding: "4px 8px", borderRadius: "6px", fontWeight: "700" }}>✓ Zero-Leak Schema Enforced</div>
-                  </div>
-                </div>
-              </div>
+          <div className="saas-stages-grid">
+            {deliverySteps.map((step, idx) => {
+              const stageColors = [
+                { hex: "#00bba7", badgeBg: "#ecfdf5", badgeColor: "#059669", numBg: "#ccfbf1", numColor: "#0f766e" },
+                { hex: "#7c3aed", badgeBg: "#f5f3ff", badgeColor: "#7c3aed", numBg: "#ede9fe", numColor: "#6d28d9" },
+                { hex: "#0284c7", badgeBg: "#f0f9ff", badgeColor: "#0284c7", numBg: "#e0f2fe", numColor: "#0369a1" },
+                { hex: "#059669", badgeBg: "#f0fdf4", badgeColor: "#16a34a", numBg: "#dcfce7", numColor: "#15803d" }
+              ];
+              const col = stageColors[idx] || stageColors[0];
 
-              {/* Top Right Bento Card (Stage 02: Rapid MVP Pod Build 6-8 Weeks) */}
-              <div style={{
-                background: "#f8fafc",
-                border: "1px solid #e2e8f0",
-                borderRadius: "28px",
-                padding: "36px",
-                display: "flex",
-                flexDirection: "column",
-                justify: "space-between",
-                boxShadow: "0 10px 30px rgba(15, 23, 42, 0.03)"
-              }}>
-                <div>
-                  <h3 style={{ fontSize: "24px", fontWeight: "800", color: "#0f172a", marginBottom: "12px", lineHeight: "1.3" }}>
-                    {deliverySteps[1].title}
-                  </h3>
-                  <p style={{ fontSize: "15px", color: "#475569", lineHeight: "1.6" }}>
-                    {deliverySteps[1].desc}
-                  </p>
-                </div>
-
-                {/* Node Flowchart Diagram Visual (Exact match with reference image) */}
-                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "30px", position: "relative" }}>
-                  
-                  {/* Left Alert Node Pills */}
-                  <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                    <span style={{ background: "#fef2f2", color: "#ef4444", border: "1px solid #fecaca", padding: "6px 12px", borderRadius: "100px", fontSize: "11px", fontWeight: "700" }}>
-                      ✕ Missing Isolation
-                    </span>
-                    <span style={{ background: "#fefce8", color: "#eab308", border: "1px solid #fef08a", padding: "6px 12px", borderRadius: "100px", fontSize: "11px", fontWeight: "700" }}>
-                      ⚠ Duplicated Keys
-                    </span>
-                    <span style={{ background: "#fef2f2", color: "#ef4444", border: "1px solid #fecaca", padding: "6px 12px", borderRadius: "100px", fontSize: "11px", fontWeight: "700" }}>
-                      ✕ Invalid Session
-                    </span>
-                  </div>
-
-                  {/* Center Glowing Node Pill */}
-                  <div style={{ width: "48px", height: "48px", borderRadius: "16px", background: "#00bba7", color: "#ffffff", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "22px", boxShadow: "0 10px 25px rgba(0, 187, 167, 0.4)" }}>
-                    ⚡
-                  </div>
-
-                  {/* Right Verified Node Pills */}
-                  <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                    <span style={{ background: "#ecfdf5", color: "#059669", border: "1px solid #a7f3d0", padding: "6px 12px", borderRadius: "100px", fontSize: "11px", fontWeight: "700" }}>
-                      ✓ Customer records
-                    </span>
-                    <span style={{ background: "#ecfdf5", color: "#059669", border: "1px solid #a7f3d0", padding: "6px 12px", borderRadius: "100px", fontSize: "11px", fontWeight: "700" }}>
-                      ✓ Sales records
-                    </span>
-                    <span style={{ background: "#ecfdf5", color: "#059669", border: "1px solid #a7f3d0", padding: "6px 12px", borderRadius: "100px", fontSize: "11px", fontWeight: "700" }}>
-                      ✓ Transactional records
-                    </span>
-                  </div>
-
-                </div>
-              </div>
-
-            </div>
-
-            {/* Bottom Row: Full-Width Bento Card (Stage 03 & 04: Security Verification & Launch) */}
-            <div className="saas-process-flex-col" style={{
-              background: "#f8fafc",
-              border: "1px solid #e2e8f0",
-              borderRadius: "28px",
-              padding: "40px",
-              display: "flex",
-              alignItems: "center",
-              gap: "40px",
-              boxShadow: "0 10px 30px rgba(15, 23, 42, 0.03)"
-            }}>
-              
-              {/* Left Column: Text & Pill Action Link */}
-              <div style={{ flex: 1 }}>
-                <div style={{ fontSize: "11.5px", fontWeight: "800", color: "#7c3aed", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "12px" }}>
-                  STAGE 03 & 04 • SECURITY AUDIT & LAUNCH
-                </div>
-                <h3 style={{ fontSize: "28px", fontWeight: "800", color: "#0f172a", marginBottom: "14px", lineHeight: "1.25" }}>
-                  Security Hardening, Penetration Testing & Production Launch
-                </h3>
-                <p style={{ fontSize: "15.5px", color: "#475569", lineHeight: "1.7", marginBottom: "28px" }}>
-                  We conduct exhaustive multi-tenant penetration tests, eliminate cross-tenant leak vectors, configure SOC 2 audit logging, and deploy with CI/CD automation for 99.99% SLA-backed maintenance.
-                </p>
-                <a href="/contact" style={{ background: "#ffffff", color: "#0f172a", padding: "12px 24px", borderRadius: "100px", fontWeight: "700", fontSize: "14px", textDecoration: "none", display: "inline-flex", alignItems: "center", gap: "8px", boxShadow: "0 4px 15px rgba(0,0,0,0.06)", border: "1px solid #e2e8f0" }}>
-                  <span>Learn more</span>
-                  <span>›</span>
-                </a>
-              </div>
-
-              {/* Right Column: Large Browser Window UI Visual */}
-              <div style={{ flex: 1.2, width: "100%" }}>
-                <div style={{ background: "#ffffff", borderRadius: "20px", overflow: "hidden", boxShadow: "0 15px 35px rgba(0,0,0,0.08)", border: "1px solid #e2e8f0" }}>
-                  {/* Chrome Bar */}
-                  <div style={{ display: "flex", alignItems: "center", padding: "10px 16px", background: "#f8fafc", borderBottom: "1px solid #e2e8f0", gap: "6px" }}>
-                    <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#ef4444" }} />
-                    <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#eab308" }} />
-                    <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#22c55e" }} />
-                    <span style={{ marginLeft: "10px", fontSize: "10.5px", color: "#64748b", fontFamily: "monospace" }}>audit.saas-platform.com</span>
-                  </div>
-
-                  {/* Window Content Split */}
-                  <div className="saas-process-flex-col" style={{ display: "flex", minHeight: "180px" }}>
-                    {/* Dark Copilot Panel */}
-                    <div style={{ width: "40%", background: "#0f172a", padding: "16px", color: "#ffffff", display: "flex", flexDirection: "column", justifyContent: "center", alignItems: "center", textAlign: "center" }}>
-                      <div style={{ width: "36px", height: "36px", borderRadius: "50%", background: "linear-gradient(135deg, #a855f7, #6366f1)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "18px", marginBottom: "10px" }}>
-                        🔮
-                      </div>
-                      <div style={{ fontSize: "12px", fontWeight: "700", color: "#ffffff", marginBottom: "4px" }}>Audit Copilot</div>
-                      <div style={{ fontSize: "10px", color: "#94a3b8" }}>0 Leak Vectors Detected</div>
+              return (
+                <div key={idx} className="saas-stage-card" style={{ borderTop: `4px solid ${col.hex}` }}>
+                  <div>
+                    {/* Top Row: Stage Number + Category */}
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "20px" }}>
+                      <span style={{
+                        width: "38px",
+                        height: "38px",
+                        borderRadius: "12px",
+                        background: col.numBg,
+                        color: col.numColor,
+                        display: "inline-flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        fontSize: "16px",
+                        fontWeight: "900",
+                        letterSpacing: "-0.5px"
+                      }}>
+                        {step.num}
+                      </span>
+                      <span style={{
+                        background: col.badgeBg,
+                        color: col.badgeColor,
+                        padding: "4px 10px",
+                        borderRadius: "100px",
+                        fontSize: "10.5px",
+                        fontWeight: "800",
+                        letterSpacing: "0.5px",
+                        textTransform: "uppercase"
+                      }}>
+                        {step.category}
+                      </span>
                     </div>
 
-                    {/* White Workspace Panel */}
-                    <div style={{ width: "60%", padding: "16px", background: "#ffffff" }}>
-                      <div style={{ fontSize: "12px", fontWeight: "800", color: "#0f172a", marginBottom: "8px" }}>Contract Verification</div>
-                      <div style={{ display: "flex", flexDirection: "column", gap: "6px", fontSize: "10.5px", color: "#64748b" }}>
-                        <div style={{ display: "flex", justifyContent: "space-between", background: "#f8fafc", padding: "6px 8px", borderRadius: "6px" }}>
-                          <span>PostgreSQL RLS</span>
-                          <span style={{ color: "#059669", fontWeight: "700" }}>VERIFIED</span>
-                        </div>
-                        <div style={{ display: "flex", justifyContent: "space-between", background: "#f8fafc", padding: "6px 8px", borderRadius: "6px" }}>
-                          <span>Stripe Webhooks</span>
-                          <span style={{ color: "#059669", fontWeight: "700" }}>VERIFIED</span>
-                        </div>
-                        <div style={{ display: "flex", justifyContent: "space-between", background: "#f8fafc", padding: "6px 8px", borderRadius: "6px" }}>
-                          <span>SAML 2.0 Auth</span>
-                          <span style={{ color: "#059669", fontWeight: "700" }}>VERIFIED</span>
-                        </div>
-                      </div>
-                    </div>
+                    {/* Step Title */}
+                    <h3 style={{
+                      fontSize: "19px",
+                      fontWeight: "800",
+                      color: "#0f172a",
+                      lineHeight: "1.35",
+                      marginBottom: "12px"
+                    }}>
+                      {step.title}
+                    </h3>
+
+                    {/* Step Description */}
+                    <p style={{
+                      fontSize: "14px",
+                      color: "#64748b",
+                      lineHeight: "1.65",
+                      margin: "0 0 24px 0"
+                    }}>
+                      {step.desc}
+                    </p>
+                  </div>
+
+                  {/* Bottom Tag Pill */}
+                  <div style={{
+                    paddingTop: "16px",
+                    borderTop: "1px solid #f1f5f9",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px"
+                  }}>
+                    <span style={{
+                      fontSize: "12px",
+                      fontWeight: "700",
+                      color: "#334155",
+                      display: "inline-flex",
+                      alignItems: "center",
+                      gap: "6px"
+                    }}>
+                      <span style={{ color: col.hex }}>✓</span>
+                      {step.tag}
+                    </span>
                   </div>
                 </div>
-              </div>
-
-            </div>
-
+              );
+            })}
           </div>
 
         </div>
       </section>
 
-      {/* ── 8. SAAS ENGINEERING FAQS (MODERN CENTERED DESIGN) ── */}
-      <section className="saas-faq-section" style={{ paddingTop: "20px", marginTop: "-40px", paddingBottom: "20px", position: "relative", zIndex: 12 }}>
-        <div className="saas-faq-container">
-          <div className="saas-sec-header" style={{ marginBottom: "60px" }}>
-            <h2 className="saas-sec-title">Frequently Asked Questions</h2>
-            <p className="saas-sec-desc">Everything you need to know about our multi-tenant SaaS architecture, billing integrations, and MVP timelines.</p>
+      {/* ── 6. SAAS ENGINEERING FAQS ── */}
+      <section className="saas-faq-section" style={{
+        background: "#ffffff",
+        padding: "40px 24px 50px",
+        position: "relative",
+        zIndex: 12
+      }}>
+        <div className="saas-faq-container" style={{ maxWidth: "840px", margin: "0 auto" }}>
+          <div className="saas-sec-header" style={{ textAlign: "center", maxWidth: "700px", margin: "0 auto 30px" }}>
+            <div className="saas-badge-pill" style={{ background: "#ecfdf5", border: "1px solid #a7f3d0", color: "#059669", padding: "4px 14px", borderRadius: "100px", fontSize: "11px", fontWeight: "800", display: "inline-flex", alignItems: "center", gap: "6px", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "10px" }}>
+              <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#059669" }}></span>
+              Got Questions?
+            </div>
+            <h2 className="saas-sec-title" style={{ fontSize: "clamp(26px, 3.2vw, 40px)", fontWeight: "800", color: "#0f172a", lineHeight: "1.18", letterSpacing: "-0.8px", marginBottom: "10px" }}>
+              Frequently Asked Questions
+            </h2>
+            <p className="saas-sec-desc" style={{ fontSize: "14.5px", color: "#64748b", lineHeight: "1.6", maxWidth: "620px", margin: "0 auto" }}>
+              Everything you need to know about our multi-tenant SaaS architecture, billing integrations, and MVP timelines.
+            </p>
           </div>
 
-          <div className="saas-faq-accordion">
+          {/* Ultra-Slim Single Column FAQ List */}
+          <div style={{ display: "flex", flexDirection: "column", gap: "6px", maxWidth: "720px", margin: "0 auto" }}>
             {faqs.map((f, i) => (
-              <details key={i} className="saas-faq-item">
-                <summary>
+              <details key={i} className="saas-faq-item" style={{
+                background: "#f8fafc",
+                border: "1px solid #e2e8f0",
+                borderRadius: "8px",
+                padding: "7px 16px",
+                transition: "all 0.2s ease",
+                boxShadow: "0 1px 3px rgba(0,0,0,0.015)"
+              }}>
+                <summary style={{
+                  listStyle: "none",
+                  cursor: "pointer",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  fontSize: "13.5px",
+                  fontWeight: "650",
+                  color: "#0f172a",
+                  lineHeight: "1.3"
+                }}>
                   <span className="saas-faq-q">{f.q}</span>
-                  <span className="saas-faq-toggle">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-                      <path d="M12 5v14M5 12h14" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
+                  <span className="saas-faq-toggle" style={{ color: "#059669", display: "flex", alignItems: "center", marginLeft: "10px", fontSize: "14px", fontWeight: "800", flexShrink: 0 }}>
+                    +
                   </span>
                 </summary>
-                <div className="saas-faq-a">{f.a}</div>
+                <div className="saas-faq-a" style={{ marginTop: "6px", fontSize: "12.5px", color: "#475569", lineHeight: "1.5", borderTop: "1px solid #e2e8f0", paddingTop: "6px" }}>
+                  {f.a}
+                </div>
               </details>
             ))}
           </div>
+        </div>
+      </section>
 
-
+      {/* ── 7. HIGH-CONVERTING SAAS CTA BANNER ── */}
+      <section className="saas-cta-banner-section" style={{
+        background: "linear-gradient(145deg, #0f172a 0%, #1e293b 100%)",
+        padding: "80px 24px",
+        textAlign: "center",
+        position: "relative",
+        overflow: "hidden",
+        color: "#ffffff"
+      }}>
+        <div style={{ position: "absolute", top: "-50%", left: "50%", transform: "translateX(-50%)", width: "800px", height: "400px", background: "radial-gradient(circle, rgba(0, 187, 167, 0.25) 0%, transparent 70%)", pointerEvents: "none" }} />
+        
+        <div style={{ maxWidth: "840px", margin: "0 auto", position: "relative", zIndex: 10 }}>
+          <div style={{
+            display: "inline-flex",
+            alignItems: "center",
+            gap: "8px",
+            background: "rgba(0, 187, 167, 0.15)",
+            border: "1px solid rgba(0, 187, 167, 0.4)",
+            color: "#5eead4",
+            padding: "6px 18px",
+            borderRadius: "100px",
+            fontSize: "12px",
+            fontWeight: "800",
+            letterSpacing: "1px",
+            textTransform: "uppercase",
+            marginBottom: "20px"
+          }}>
+            <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#00bba7" }}></span>
+            Ready When You Are
+          </div>
+          
+          <h2 style={{
+            fontSize: "clamp(32px, 4.5vw, 50px)",
+            fontWeight: "900",
+            color: "#ffffff",
+            lineHeight: "1.15",
+            letterSpacing: "-1px",
+            marginBottom: "18px"
+          }}>
+            Launch Your Multi-Tenant SaaS Platform
+          </h2>
+          
+          <p style={{
+            color: "#94a3b8",
+            fontSize: "16.5px",
+            lineHeight: "1.7",
+            maxWidth: "600px",
+            margin: "0 auto 36px"
+          }}>
+            Get a production-grade architecture blueprint, PostgreSQL RLS schema plan, and Stripe billing roadmap in 72 hours.
+          </p>
+          
+          <div style={{ display: "flex", justifyContent: "center", gap: "16px", flexWrap: "wrap" }}>
+            <Link href="/contact" style={{
+              background: "#00bba7",
+              color: "#ffffff",
+              padding: "15px 34px",
+              borderRadius: "100px",
+              fontWeight: "700",
+              fontSize: "15px",
+              textDecoration: "none",
+              boxShadow: "0 10px 25px rgba(0, 187, 167, 0.35)",
+              display: "inline-flex",
+              alignItems: "center",
+              gap: "8px",
+              transition: "transform 0.2s ease, box-shadow 0.2s ease"
+            }}>
+              <span>Book a SaaS Architecture Call</span>
+              <span>→</span>
+            </Link>
+            <Link href="/services" style={{
+              background: "rgba(255, 255, 255, 0.08)",
+              color: "#ffffff",
+              border: "1px solid rgba(255, 255, 255, 0.2)",
+              padding: "15px 30px",
+              borderRadius: "100px",
+              fontWeight: "600",
+              fontSize: "15px",
+              textDecoration: "none",
+              transition: "background 0.2s ease"
+            }}>
+              View All Services
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -1249,8 +1414,14 @@ export default function SaasPageContent() {
           font-family: -apple-system, BlinkMacSystemFont, "Plus Jakarta Sans", "Inter", sans-serif;
           color: #0f172a;
           background: #ffffff;
-          overflow-x: hidden;
+          overflow-x: clip;
           width: 100%;
+          min-width: 0;
+          max-width: 100%;
+          touch-action: pan-y;
+          overscroll-behavior-y: auto;
+          -webkit-overflow-scrolling: touch;
+          scroll-behavior: smooth;
         }
 
         /* Generic Header */
@@ -2934,7 +3105,8 @@ export default function SaasPageContent() {
           color: #94a3b8;
           font-size: 12px;
         }
-        /* ── FAQ STYLING ── */
+
+        /* ── FAQ STYLING ── */
         .saas-faq-container {
           max-width: 800px;
           margin: 0 auto;
@@ -3047,7 +3219,14 @@ export default function SaasPageContent() {
 
         @media (max-width: 768px) {
           .saas-page-root {
-            overflow-x: hidden;
+            width: 100%;
+            max-width: 100%;
+            overflow-x: clip;
+          }
+
+          .saas-page-root * {
+            min-width: 0;
+            max-width: 100%;
           }
           .saas-landing-hero {
             padding: 40px 16px !important;
@@ -3294,10 +3473,45 @@ export default function SaasPageContent() {
 
         @media (max-width: 768px) {
           .saas-page-root {
-            overflow-x: hidden;
+            overflow-x: clip;
+            touch-action: pan-y;
+            overscroll-behavior-y: auto;
           }
           .saas-landing-hero {
             padding: 120px 16px 40px !important;
+          }
+          .saas-landing-hero-container {
+            flex-direction: column !important;
+            gap: 12px !important;
+          }
+
+          .saas-landing-hero-content {
+            padding-right: 0 !important;
+          }
+
+          .saas-landing-hero-image {
+            margin-top: 12px !important;
+          }
+
+          .saas-landing-hero-content,
+          .saas-landing-hero-image,
+          .saas-custom-card-text,
+          .saas-custom-card-img,
+          .saas-arch-glass-left,
+          .saas-arch-glass-right {
+            width: 100% !important;
+            max-width: 100% !important;
+            min-width: 0 !important;
+          }
+
+          .saas-landing-hero-image,
+          .saas-custom-card-img {
+            overflow: hidden;
+          }
+
+          .saas-landing-hero-image > *,
+          .saas-custom-card-img > * {
+            max-width: 100% !important;
           }
           .saas-landing-hero-content h1 {
             font-size: clamp(26px, 7vw, 36px) !important;

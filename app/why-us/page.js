@@ -62,23 +62,33 @@ export default function WhyUsPage() {
       </nav>
 
       {/* Hero */}
-      <section style={{ background: "linear-gradient(180deg, #ffffff 0%, #f8fafc 100%)", color: "#0f172a", paddingTop: "40px", paddingBottom: "70px", paddingLeft: "24px", paddingRight: "24px", borderBottom: "1px solid #e2e8f0" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", textAlign: "center" }}>
-          <div style={{ display: "inline-block", background: "#f0fdf4", color: "#16a34a", border: "1px solid #bbf7d0", borderRadius: "30px", padding: "6px 18px", fontSize: "12px", fontWeight: "700", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "20px" }}>
-            The OneNineLabs Advantage &bull; Why Us
+      <section style={{ position: "relative", overflow: "hidden", background: "linear-gradient(180deg, #ffffff 0%, #f4f8fc 100%)", color: "#0f172a", paddingTop: "32px", paddingBottom: "100px", paddingLeft: "24px", paddingRight: "24px", borderBottom: "1px solid #e2e8f0" }}>
+        {/* Decorative Grid */}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(to right, rgba(2, 132, 199, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(2, 132, 199, 0.05) 1px, transparent 1px)", backgroundSize: "40px 40px", pointerEvents: "none", zIndex: 0 }} />
+        {/* Glow */}
+        <div style={{ position: "absolute", top: "-50px", left: "50%", transform: "translateX(-50%)", width: "600px", height: "600px", background: "radial-gradient(circle, rgba(2, 132, 199, 0.15) 0%, transparent 60%)", filter: "blur(60px)", pointerEvents: "none", zIndex: 0 }} />
+        
+        <div style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
+          <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "#f0fdf4", color: "#16a34a", border: "1px solid #bbf7d0", borderRadius: "30px", padding: "6px 16px", fontSize: "11px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "24px", boxShadow: "0 4px 12px rgba(22, 163, 74, 0.1)" }}>
+            <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#16a34a" }} />
+            The OneNineLabs Advantage
           </div>
-          <h1 style={{ fontSize: "clamp(32px, 5vw, 52px)", fontWeight: "900", letterSpacing: "-1.5px", marginBottom: "20px", lineHeight: "1.1", color: "#0f172a" }}>
-            Why Enterprise Leaders Partner With Us
+          
+          <h1 style={{ fontSize: "clamp(40px, 6vw, 64px)", fontWeight: "900", letterSpacing: "-1.5px", marginBottom: "24px", lineHeight: "1.1", color: "#0f172a" }}>
+            Why Enterprise Leaders <br />
+            <span style={{ background: "linear-gradient(135deg, #0284c7 0%, #2563eb 40%, #7c3aed 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Partner With Us</span>
           </h1>
-          <p style={{ fontSize: "18px", color: "#475569", maxWidth: "740px", margin: "0 auto 24px", lineHeight: "1.6" }}>
-            We combine <strong style={{ color: "#0f172a" }}>high-speed execution</strong> with <strong style={{ color: "#0f172a" }}>enterprise rigor</strong> — zero tech debt, 99.9% uptime SLAs, and battle-tested cloud security. From Lucknow to worldwide.
+          
+          <p style={{ fontSize: "18px", color: "#475569", maxWidth: "680px", margin: "0 auto 36px", lineHeight: "1.65" }}>
+            We combine <strong style={{ color: "#0284c7" }}>high-speed execution</strong> with <strong style={{ color: "#0284c7" }}>enterprise rigor</strong>. From 6-week rapid MVPs to SOC 2 compliant autonomous systems, we engineer software that scales.
           </p>
-          <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/contact" style={{ background: "#16a34a", color: "#fff", padding: "12px 22px", borderRadius: "10px", fontWeight: 800, textDecoration: "none", fontSize: "14px" }}>
-              Talk to Leads — 19@oneninelabs.com
+          
+          <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
+            <Link href="/contact" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", background: "#0284c7", color: "#fff", padding: "14px 28px", borderRadius: "12px", fontWeight: 800, textDecoration: "none", fontSize: "15px", boxShadow: "0 8px 20px rgba(2, 132, 199, 0.3)", transition: "all 0.2s" }}>
+              Talk to Engineering Leads →
             </Link>
-            <a href="tel:+918588807039" style={{ background: "#fff", border: "1px solid #e2e8f0", color: "#0f172a", padding: "12px 22px", borderRadius: "10px", fontWeight: 800, textDecoration: "none", fontSize: "14px" }}>
-              Call +91 85888 07039
+            <a href="tel:+918588807039" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", background: "#ffffff", border: "1px solid #cbd5e1", color: "#0f172a", padding: "14px 28px", borderRadius: "12px", fontWeight: 800, textDecoration: "none", fontSize: "15px", boxShadow: "0 4px 12px rgba(15, 23, 42, 0.05)", transition: "all 0.2s" }}>
+              📞 +91 85888 07039
             </a>
           </div>
         </div>

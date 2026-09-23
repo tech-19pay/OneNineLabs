@@ -232,9 +232,9 @@ function ExtensionPopup() {
   );
 }
 
-function Spotlight({ id, eyebrow, title, lead, points, flip, cta, visual }) {
+function Spotlight({ id, eyebrow, title, lead, points, flip, cta, visual, style }) {
   return (
-    <section id={id} className={`bc-spot ${flip ? "flip" : ""}`}>
+    <section id={id} className={`bc-spot ${flip ? "flip" : ""}`} style={style}>
       <div className="bc-spot-inner">
         <div className="bc-spot-copy">
           {eyebrow && <span className="bc-spot-eye">{eyebrow}</span>}
@@ -266,6 +266,7 @@ export default function BlockchainSpotlights() {
     <>
       <Spotlight
         id="exchange"
+        style={{ paddingTop: "10px" }}
         title="Crypto Exchange Development"
         lead="We design and ship centralized and decentralized exchanges — matching engines, custody, KYC, liquidity and a trading UI your users will actually trust."
         points={exchangePoints}
@@ -274,6 +275,7 @@ export default function BlockchainSpotlights() {
       />
       <Spotlight
         id="wallet"
+        style={{ paddingTop: "10px" }}
         eyebrow="Service Spotlight · Web3 Wallet Development"
         title="Web3 Wallet Development"
         lead="Custodial, non-custodial and MPC wallets for web and mobile — multi-chain portfolios, passkeys, social recovery and fiat ramps, engineered for real users."
@@ -284,6 +286,7 @@ export default function BlockchainSpotlights() {
       />
       <Spotlight
         id="wallet-extension"
+        style={{ paddingTop: "10px" }}
         eyebrow="Service Spotlight · Browser Extension"
         title="Web3 Wallet Extension Development"
         lead="Chrome, Firefox, Brave and Edge extensions that inject into every dApp — transaction simulation, hardware-wallet pairing and a popup UX that feels native."

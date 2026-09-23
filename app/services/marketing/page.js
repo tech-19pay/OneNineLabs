@@ -200,26 +200,94 @@ export default function MarketingServicePage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
       <style>{servicePageStyles(PRIMARY, GRAD_FROM, GRAD_TO, GLOW)}</style>
+      <style>{`
+        .vd-hero-grid {
+          max-width: 1280px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: 1fr 660px;
+          gap: 40px;
+          align-items: flex-start;
+        }
+        @media (max-width: 1024px) {
+          .vd-hero-section {
+            padding: 110px 20px 60px 20px !important;
+          }
+          .vd-hero-grid {
+            grid-template-columns: 1fr;
+            gap: 40px;
+          }
+          .vd-hero-right {
+            display: flex !important;
+            justify-content: center;
+            transform: scale(0.9);
+            transform-origin: top center;
+            height: 480px !important;
+          }
+          .vd-hero-left {
+            text-align: center !important;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+          }
+          .vd-hero-left h1 {
+            font-size: clamp(32px, 5vw, 44px) !important;
+            margin: 0 auto 20px auto !important;
+            word-wrap: break-word;
+          }
+          .vd-hero-stats-row {
+            justify-content: center;
+            gap: 24px !important;
+            margin-top: 32px !important;
+            padding-top: 24px !important;
+          }
+        }
+        @media (max-width: 768px) {
+          .vd-hero-section {
+            padding: 110px 16px 44px !important;
+          }
+          .vd-hero-grid {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+          }
+          .vd-hero-right {
+            display: flex !important;
+            justify-content: center;
+            transform: scale(0.75);
+            transform-origin: top center;
+            height: 400px !important;
+            margin-left: 0;
+            width: 100%;
+            position: relative;
+          }
+          .vd-hero-stats-row {
+            flex-direction: column;
+            align-items: center;
+            gap: 16px !important;
+            border-top: none !important;
+            padding-top: 0 !important;
+          }
+          .vd-hero-stats-divider {
+            width: 80% !important;
+            height: 1px !important;
+          }
+        }
+      `}</style>
 
       <div className="vd-wrap">
 
         {/* ─── 1. HERO (EXACT 1:1 REFERENCE MATCH — NATIVE REACT UI) ─── */}
         <section className="vd-hero-section" style={{
           background: "linear-gradient(135deg, #f8fafc 0%, #ffffff 50%, #f3f4f6 100%)",
-          padding: "115px 24px 100px 24px",
+          padding: "calc(var(--header-height, 80px) + 32px) 24px 100px 24px",
           borderBottom: "1px solid #f1f5f9",
           fontFamily: "'Inter', sans-serif",
           position: "relative",
           overflow: "hidden"
         }}>
-          <div style={{
-            maxWidth: "1280px",
-            margin: "0 auto",
-            display: "grid",
-            gridTemplateColumns: "1fr 660px",
-            gap: "40px",
-            alignItems: "flex-start"
-          }}>
+          <div className="vd-hero-grid">
             {/* Left Content Column */}
             <div className="vd-hero-left" style={{ textAlign: "left", zIndex: 2, marginTop: "10px" }}>
 
@@ -282,7 +350,7 @@ export default function MarketingServicePage() {
               </div>
 
               {/* Metric Highlights Below CTA Button */}
-              <div style={{
+              <div className="vd-hero-stats-row" style={{
                 display: "flex",
                 gap: "28px",
                 marginTop: "32px",
@@ -298,7 +366,7 @@ export default function MarketingServicePage() {
                   <div style={{ fontSize: "24px", fontWeight: "900", color: "#4f46e5", lineHeight: "1.1" }}>4.8x</div>
                   <div style={{ fontSize: "12px", fontWeight: "600", color: "#64748b", marginTop: "2px" }}>Campaign ROAS</div>
                 </div>
-                <div style={{ width: "1px", background: "#e2e8f0" }} />
+                <div className="vd-hero-stats-divider" style={{ width: "1px", background: "#e2e8f0" }} />
                 <div>
                   <div style={{ fontSize: "24px", fontWeight: "900", color: "#10b981", lineHeight: "1.1" }}>-22%</div>
                   <div style={{ fontSize: "12px", fontWeight: "600", color: "#64748b", marginTop: "2px" }}>Lower CAC Rate</div>
@@ -544,12 +612,9 @@ export default function MarketingServicePage() {
 
           <style>{`
             @media (max-width: 1024px) {
-              .vd-hero-section > div {
+              .vd-hero-section > .vd-hero-grid {
                 grid-template-columns: 1fr !important;
                 gap: 40px !important;
-              }
-              .vd-hero-right {
-                height: 500px !important;
               }
             }
           `}</style>
@@ -559,6 +624,37 @@ export default function MarketingServicePage() {
 
         {/* ─── 1c. TECH MARQUEE ─── */}
         <section className="vd-marquee-section">
+          <style>{`
+            .vd-marquee-section {
+              overflow: hidden;
+              background: #f1f5f9;
+              padding: 16px 0;
+              border-bottom: 1px solid #e2e8f0;
+            }
+            .vd-marquee-track {
+              display: flex;
+              width: max-content;
+              animation: marqueeScroll 20s linear infinite;
+            }
+            .vd-marquee-item {
+              display: inline-flex;
+              align-items: center;
+              font-weight: 700;
+              font-size: 14px;
+              color: #475569;
+              padding: 0 24px;
+              white-space: nowrap;
+            }
+            .vd-marquee-item .sep {
+              color: #cbd5e1;
+              font-size: 10px;
+              margin-right: 24px;
+            }
+            @keyframes marqueeScroll {
+              0% { transform: translateX(0); }
+              100% { transform: translateX(-50%); }
+            }
+          `}</style>
           <div className="vd-marquee-track">
             {["Google Ads", "Meta Ads", "LinkedIn Ads", "GA4", "GTM Server-Side", "Search Console", "Hotjar", "HubSpot", "Salesforce", "PMax", "Conversions API", "Looker Studio"].concat(["Google Ads", "Meta Ads", "LinkedIn Ads", "GA4", "GTM Server-Side", "Search Console", "Hotjar", "HubSpot", "Salesforce", "PMax", "Conversions API", "Looker Studio"]).map((item, i) => (
               <span className="vd-marquee-item" key={i}><span className="sep">◆</span>{item}</span>
@@ -615,7 +711,7 @@ export default function MarketingServicePage() {
                   </div>
                 </div>
                 {/* Body */}
-                <div className="mockup-body" style={{ display: "flex", flexDirection: "column", gap: "10px", height: "130px", justifyContent: "space-between" }}>
+                <div className="mockup-body" style={{ display: "flex", flexDirection: "column", gap: "10px", minHeight: "130px", justifyContent: "space-between" }}>
                   {/* Lighthouse Scores */}
                   <div style={{ display: "flex", justifyContent: "space-between", padding: "0 4px" }}>
                     {["Perf", "Access", "Best P.", "SEO"].map((score, i) => (
@@ -675,7 +771,7 @@ export default function MarketingServicePage() {
                   </div>
                 </div>
                 {/* Body */}
-                <div className="mockup-body" style={{ height: "130px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                <div className="mockup-body" style={{ minHeight: "130px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                   {/* Spend Stats */}
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: "4px" }}>
                     <div>
@@ -735,7 +831,7 @@ export default function MarketingServicePage() {
                   </div>
                 </div>
                 {/* Body */}
-                <div className="mockup-body" style={{ height: "130px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                <div className="mockup-body" style={{ minHeight: "130px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                   {/* Funnel conversion stages */}
                   <div style={{ display: "flex", flexDirection: "column", gap: "4px", padding: "4px 0" }}>
                     {[
@@ -789,7 +885,7 @@ export default function MarketingServicePage() {
                   </div>
                 </div>
                 {/* Body */}
-                <div className="mockup-body" style={{ height: "130px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                <div className="mockup-body" style={{ minHeight: "130px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                   {/* Index and ranking list */}
                   <div style={{ display: "flex", gap: "8px" }}>
                     <div style={{ flex: 1 }}>
@@ -851,7 +947,7 @@ export default function MarketingServicePage() {
                   </div>
                 </div>
                 {/* Body */}
-                <div className="mockup-body" style={{ height: "130px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                <div className="mockup-body" style={{ minHeight: "130px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                   {/* Server tags status */}
                   <div style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
                     <div style={{ fontSize: "4.5px", color: "#94a3b8", fontWeight: "700" }}>ACTIVE ATTRIBUTION TAGS</div>
@@ -905,7 +1001,7 @@ export default function MarketingServicePage() {
                   </div>
                 </div>
                 {/* Body */}
-                <div className="mockup-body" style={{ height: "130px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                <div className="mockup-body" style={{ minHeight: "130px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                   {/* Wallet & holder stats */}
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "6px" }}>
                     <div>
@@ -949,11 +1045,7 @@ export default function MarketingServicePage() {
             </div>
           </div>
           <style>{`
-            .mkt-card-item { display: block; }
-            .mkt-card-inner { transition: transform 0.28s cubic-bezier(0.2,0.8,0.2,1), box-shadow 0.28s ease; }
-            .mkt-card-item:hover .mkt-card-inner { transform: translateY(-6px); box-shadow: 0 22px 52px rgba(15,23,42,0.10); }
-            @media (max-width: 1024px) { .mkt-card-grid { grid-template-columns: repeat(2,1fr) !important; } }
-            @media (max-width: 640px)  { .mkt-card-grid { grid-template-columns: 1fr !important; } }
+            /* Services Grid Styles handled by .reports-grid globally */
           `}</style>
         </section>
 
@@ -995,6 +1087,15 @@ export default function MarketingServicePage() {
             }
             @media (max-width: 767px) {
               .outcomes-bento-item { padding: 24px; }
+              .ob-wide {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 20px !important;
+              }
+              .outcomes-image-panel {
+                grid-template-columns: 1fr !important;
+                width: 100% !important;
+              }
             }
           `}} />
 
@@ -1100,21 +1201,68 @@ export default function MarketingServicePage() {
                 <p style={{ fontSize: "15px", color: "#64748b", lineHeight: "1.6", marginBottom: "24px" }}>
                   Qualified leads generated and nurtured through our automated performance marketing funnels.
                 </p>
-                <button style={{ background: "#0f172a", color: "#ffffff", padding: "10px 24px", borderRadius: "99px", fontSize: "14px", fontWeight: "600", border: "none", cursor: "pointer" }}>
+                <Link href="/contact" style={{ background: "#0f172a", color: "#ffffff", padding: "10px 24px", borderRadius: "99px", fontSize: "14px", fontWeight: "600", border: "none", cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", textDecoration: "none" }}>
                   Join Us
-                </button>
+                </Link>
               </div>
-              <div style={{ flex: 1, display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", minWidth: "250px" }}>
-                {/* Collage placeholder blocks */}
-                <div style={{ background: "#e2e8f0", borderRadius: "12px", overflow: "hidden", minHeight: "150px" }}>
-                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=200&h=200" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                </div>
-                <div style={{ display: "grid", gridTemplateRows: "1fr 1fr", gap: "12px" }}>
-                  <div style={{ background: "#cbd5e1", borderRadius: "12px", overflow: "hidden" }}>
-                    <img src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?auto=format&fit=crop&q=80&w=200&h=100" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+
+              <div className="outcomes-image-panel" style={{ flex: 1, display: "grid", gridTemplateColumns: "1.15fr 0.85fr", gap: "12px", minWidth: "250px", alignItems: "stretch" }}>
+                <div style={{ background: "#ffffff", borderRadius: "16px", border: "1px solid #e2e8f0", padding: "16px", boxShadow: "0 16px 28px rgba(15,23,42,0.04)", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "14px" }}>
+                    <span style={{ fontSize: "11px", fontWeight: "700", color: "#64748b", letterSpacing: "0.7px", textTransform: "uppercase" }}>Pipeline</span>
+                    <span style={{ fontSize: "11px", fontWeight: "700", color: "#16a34a", background: "#dcfce7", borderRadius: "999px", padding: "4px 8px" }}>+38%</span>
                   </div>
-                  <div style={{ background: "#94a3b8", borderRadius: "12px", overflow: "hidden" }}>
-                    <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=200&h=100" style={{ width: "100%", height: "100%", objectFit: "cover" }} />
+
+                  <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "8px", marginBottom: "14px" }}>
+                    {[
+                      { label: "Leads", value: "3.2k" },
+                      { label: "SQLs", value: "641" },
+                      { label: "ROAS", value: "4.8x" }
+                    ].map((item) => (
+                      <div key={item.label} style={{ background: "#f8fafc", borderRadius: "10px", padding: "8px 6px", border: "1px solid #e2e8f0", textAlign: "center" }}>
+                        <div style={{ fontSize: "9px", color: "#64748b", marginBottom: "4px", fontWeight: "700" }}>{item.label}</div>
+                        <div style={{ fontSize: "16px", color: "#0f172a", fontWeight: "800" }}>{item.value}</div>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div style={{ background: "linear-gradient(180deg, #f8fafc 0%, #eef2ff 100%)", borderRadius: "12px", padding: "10px 10px 6px", border: "1px solid #e2e8f0", height: "92px", display: "flex", alignItems: "flex-end", justifyContent: "space-between", gap: "6px" }}>
+                    {[42, 58, 48, 72, 82, 68, 90].map((height, idx) => (
+                      <div key={idx} style={{ flex: 1, height: `${height}%`, borderRadius: "999px 999px 0 0", background: idx === 6 ? "linear-gradient(180deg, #67e8f9 0%, #3b82f6 100%)" : idx % 2 === 0 ? "#cbd5e1" : "#93c5fd" }} />
+                    ))}
+                  </div>
+                </div>
+
+                <div style={{ display: "grid", gridTemplateRows: "1fr 1fr", gap: "12px" }}>
+                  <div style={{ background: "#ffffff", borderRadius: "16px", border: "1px solid #e2e8f0", padding: "14px", display: "flex", flexDirection: "column", justifyContent: "space-between", boxShadow: "0 12px 22px rgba(15,23,42,0.03)" }}>
+                    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                      <span style={{ fontSize: "10px", fontWeight: "800", color: "#64748b", letterSpacing: "0.6px", textTransform: "uppercase" }}>Spend</span>
+                      <span style={{ fontSize: "10px", color: "#0f172a", fontWeight: "700" }}>$12.4k</span>
+                    </div>
+                    <div style={{ position: "relative", height: "56px", marginTop: "8px" }}>
+                      <div style={{ position: "absolute", inset: "10px 10px 8px 10px", borderRadius: "999px", background: "#f1f5f9" }} />
+                      <div style={{ position: "absolute", left: "12px", right: "18px", bottom: "10px", height: "12px", borderRadius: "999px", background: "linear-gradient(90deg, #fbbf24 0%, #f97316 100%)" }} />
+                      <div style={{ position: "absolute", left: "38px", top: "2px", width: "18px", height: "18px", borderRadius: "50%", background: "#0f172a", boxShadow: "0 0 0 4px rgba(15,23,42,0.07)" }} />
+                    </div>
+                  </div>
+
+                  <div style={{ background: "linear-gradient(135deg, #f8fafc 0%, #ecfeff 100%)", borderRadius: "16px", border: "1px solid #e2e8f0", padding: "14px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                    <div style={{ fontSize: "10px", fontWeight: "800", color: "#64748b", letterSpacing: "0.6px", textTransform: "uppercase", marginBottom: "8px" }}>Campaign Health</div>
+                    <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
+                      {[
+                        { label: "Meta", value: "92%", color: "#22c55e" },
+                        { label: "Google", value: "87%", color: "#3b82f6" },
+                        { label: "LinkedIn", value: "81%", color: "#f59e0b" }
+                      ].map((item) => (
+                        <div key={item.label} style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: "8px" }}>
+                          <div style={{ display: "flex", alignItems: "center", gap: "7px", flex: 1 }}>
+                            <span style={{ width: "8px", height: "8px", borderRadius: "50%", display: "inline-block", background: item.color }} />
+                            <span style={{ fontSize: "11px", color: "#0f172a", fontWeight: "700" }}>{item.label}</span>
+                          </div>
+                          <span style={{ fontSize: "11px", color: "#64748b", fontWeight: "700" }}>{item.value}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -1124,6 +1272,47 @@ export default function MarketingServicePage() {
 
         {/* ─── 5. STAFF / POD SPOTLIGHT BANNER WITH BOWTIE FUNNEL MODEL ─── */}
         <section className="vd-pod-banner" style={{ background: "#f8fafc", padding: "80px 24px", borderBottom: "1px solid #f1f5f9" }}>
+          <style>{`
+            .vd-pod-grid {
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 60px;
+              max-width: 1200px;
+              margin: 0 auto;
+              align-items: center;
+            }
+            .vd-pod-left h2 {
+              font-family: 'Plus Jakarta Sans', sans-serif;
+              font-size: clamp(32px, 4vw, 48px);
+              font-weight: 900;
+              margin-bottom: 24px;
+              line-height: 1.1;
+            }
+            .vd-pod-left p {
+              font-size: 16px;
+              line-height: 1.7;
+              margin-bottom: 32px;
+            }
+            .vd-pod-right img {
+              width: 100%;
+              height: auto;
+              border-radius: 16px;
+            }
+            @media (max-width: 1024px) {
+              .vd-pod-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+              }
+              .vd-pod-left p {
+                margin-left: auto;
+                margin-right: auto;
+              }
+              .vd-pod-right {
+                order: -1;
+              }
+            }
+          `}</style>
           <div className="vd-pod-grid">
             <div className="vd-pod-left">
               <h2 style={{ color: "#0f172a" }}>Our Growth Marketers Will Scale Your Pipeline</h2>
@@ -1445,7 +1634,7 @@ export default function MarketingServicePage() {
         {/* ─── 6. REPORT TEMPLATES SECTION ─── */}
         <section className="vd-reports-section" style={{
           background: "#f8fafc",
-          padding: "30px 24px 70px 24px",
+          padding: "30px 24px 36px 24px",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -1493,7 +1682,7 @@ export default function MarketingServicePage() {
                   </div>
                 </div>
                 {/* Body */}
-                <div className="mockup-body" style={{ display: "flex", gap: "12px", height: "130px" }}>
+                <div className="mockup-body" style={{ display: "flex", gap: "12px", minHeight: "130px" }}>
                   {/* Left Column (Stats) */}
                   <div style={{ display: "flex", flexDirection: "column", gap: "8px", flexShrink: 0, width: "90px" }}>
                     <div>
@@ -1583,7 +1772,7 @@ export default function MarketingServicePage() {
                   </div>
                 </div>
                 {/* Body */}
-                <div className="mockup-body" style={{ height: "130px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                <div className="mockup-body" style={{ minHeight: "130px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                   {/* Stats Row */}
                   <div style={{ display: "flex", justifyContent: "space-between", gap: "4px" }}>
                     <div>
@@ -1665,7 +1854,7 @@ export default function MarketingServicePage() {
                   </div>
                 </div>
                 {/* Body */}
-                <div className="mockup-body" style={{ height: "130px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+                <div className="mockup-body" style={{ minHeight: "130px", display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
                   {/* Stats Grid 2x4 */}
                   <div style={{ display: "grid", gridTemplateColumns: "repeat(4, 1fr)", gap: "4px" }}>
                     <div>
@@ -1758,7 +1947,7 @@ export default function MarketingServicePage() {
           </div>
 
           {/* Bottom link */}
-          <div style={{ marginTop: "40px", textAlign: "center" }}>
+          <div style={{ marginTop: "24px", textAlign: "center" }}>
             <Link href="/contact" className="reports-footer-link">
               View all our report templates
             </Link>
@@ -2036,7 +2225,7 @@ export default function MarketingServicePage() {
         {/* ─── 7. CTA BANNER ─── */}
         <section className="vd-cta-section" style={{
           background: "#ffffff",
-          padding: "100px 24px",
+          padding: "40px 24px 50px 24px",
           textAlign: "center",
           borderTop: "1px solid #f1f5f9",
           borderBottom: "1px solid #f1f5f9"
@@ -2064,7 +2253,7 @@ export default function MarketingServicePage() {
               lineHeight: "1.1",
               marginBottom: "16px"
             }}>
-              Let's Scale Your Growth Engine
+              Let&apos;s Scale Your Growth Engine
             </div>
             <p className="vd-cta-desc" style={{
               color: "#64748b",

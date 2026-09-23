@@ -179,6 +179,25 @@ const servicesList = [
     ],
     widget: "🛡️ 0 Criticals • 15m IR SLA",
   },
+  {
+    id: "student",
+    title: "Student Social Media & Branding",
+    role: "Posts, Reels, Stories & Personal Branding",
+    category: "Student Services",
+    href: "/services/student",
+    icon: "🎓",
+    gradient: "linear-gradient(135deg, #0284c7, #38bdf8)",
+    accent: "#0284c7",
+    accentLight: "#e0f2fe",
+    accentBorder: "#bae6fd",
+    bullets: [
+      "Custom reels, graphics, stories, captions & hashtags",
+      "Tiered plans starting from ₹399/mo (Platinum to Ace)",
+      "Omnichannel growth across Instagram, LinkedIn & X",
+      "Personal branding & campus engagement strategies",
+    ],
+    widget: "🎓 4 Tiered Plans • Starting ₹399/mo",
+  },
 ];
 
 const faqs = [

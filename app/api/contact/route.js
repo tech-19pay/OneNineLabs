@@ -12,12 +12,21 @@ export async function POST(request) {
     }
     const { email, company, name, message, sourcePage } = body || {};
 
-    if (!email || !email.trim()) {
-      return NextResponse.json({ success: false, error: "Email is required" }, { status: 400 });
+    // Basic length validations to prevent DoS via huge payloads
+    if (!email || typeof email !== 'string' || !email.trim() || email.length > 254) {
+      return NextResponse.json({ success: false, error: "Valid email is required" }, { status: 400 });
     }
 
-    if (!company || !company.trim()) {
-      return NextResponse.json({ success: false, error: "Company is required" }, { status: 400 });
+    if (!company || typeof company !== 'string' || !company.trim() || company.length > 200) {
+      return NextResponse.json({ success: false, error: "Valid company name is required" }, { status: 400 });
+    }
+
+    if (name && (typeof name !== 'string' || name.length > 100)) {
+      return NextResponse.json({ success: false, error: "Name must be less than 100 characters" }, { status: 400 });
+    }
+
+    if (message && (typeof message !== 'string' || message.length > 2000)) {
+      return NextResponse.json({ success: false, error: "Message must be less than 2000 characters" }, { status: 400 });
     }
 
     await connectToDatabase();
@@ -27,21 +36,22 @@ export async function POST(request) {
       company: company.trim(),
       name: name ? name.trim() : "",
       message: message ? message.trim() : "",
-      sourcePage: sourcePage || "contact_form",
+      sourcePage: (typeof sourcePage === 'string' && sourcePage.length <= 100) ? sourcePage : "contact_form",
     });
 
     return NextResponse.json(
       {
         success: true,
-        message: "Contact request saved successfully in oneninecontact collection",
-        data: newContact,
+        message: "Contact request saved successfully",
       },
       { status: 201 }
     );
   } catch (error) {
+    // Log the actual error on the server for debugging
     console.error("Error submitting contact form to database:", error);
+    // Mask the error returned to the client to avoid leaking DB info
     return NextResponse.json(
-      { success: false, error: error.message || "Failed to save contact request" },
+      { success: false, error: "An unexpected error occurred. Please try again later." },
       { status: 500 }
     );
   }

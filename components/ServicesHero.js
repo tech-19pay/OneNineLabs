@@ -131,122 +131,56 @@ export default function ServicesHero({ cfg }) {
             </div>
           </div>
 
-          {/* Right Column: Phone Mockup & Floating Overlay Cards */}
+          {/* Right Column: Optimized Browser Mockup Window & Floating Overlay Badges */}
           <div className="sh-hero-right">
-            <div className="sh-phone-wrapper">
-              {/* Soft blue backdrop glow behind phone */}
-              <div className="sh-phone-backdrop" />
+            <div className="sh-mockup-wrapper">
+              {/* Ambient Glow Backdrop */}
+              <div className="sh-mockup-glow" />
 
-              {/* Phone Frame */}
-              <div className="sh-phone-frame">
-                {/* Dynamic Island Notch */}
-                <div className="sh-phone-island" />
-                <div className="sh-phone-statusbar">
-                  <span>9:41</span>
-                  <div className="sh-status-icons">
-                    <span>📶</span>
-                    <span>🔋</span>
-                  </div>
-                </div>
+              {/* Floating Badge Top Right */}
+              <div className="sh-mockup-float-badge top-right">
+                <span className="sh-mockup-pulse-dot" />
+                <span>⚡ Sub-Second LCP • 99.9% SLA</span>
+              </div>
 
-                {/* Phone Screen App Header */}
-                <div className="sh-phone-screen">
-                  <div className="sh-phone-header">
-                    <div className="sh-header-avatar">
-                      <span role="img" aria-label="OneNine logo">🚀</span>
-                    </div>
-                    <div>
-                      <div className="sh-header-name">OneNine Hub</div>
-                      <div className="sh-header-date">Services Explorer</div>
-                    </div>
-                  </div>
-
-                  {!selectedService ? (
-                    <div className="sh-phone-services">
-                      <div className="sh-phone-subtitle">Core Capabilities</div>
-                      <div className="sh-phone-services-list">
-                        {servicesList.map((service) => (
-                          <button
-                            key={service.id}
-                            type="button"
-                            className="sh-phone-service-item"
-                            onClick={() => setSelectedService(service)}
-                          >
-                            <span className="sh-phone-service-icon">{service.icon}</span>
-                            <div className="sh-phone-service-info">
-                              <div className="sh-phone-service-title">{service.title}</div>
-                              <div className="sh-phone-service-role">{service.role}</div>
-                            </div>
-                            <span className="sh-phone-service-chevron">➔</span>
-                          </button>
-                        ))}
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="sh-phone-service-detail">
-                      <button
-                        type="button"
-                        className="sh-phone-back-btn"
-                        onClick={() => setSelectedService(null)}
-                      >
-                        ← Back to List
-                      </button>
-                      <div className="sh-phone-detail-header">
-                        <span className="sh-phone-detail-icon">{selectedService.icon}</span>
-                        <div>
-                          <div className="sh-phone-detail-title">{selectedService.title}</div>
-                          <div className="sh-phone-detail-role">{selectedService.role}</div>
-                        </div>
-                      </div>
-                      <div className="sh-phone-detail-scroll">
-                        <ul className="sh-phone-bullets">
-                          {selectedService.bullets.map((bullet, idx) => (
-                            <li key={idx} className="sh-phone-bullet-item">
-                              <span className="sh-phone-bullet-dot">✦</span>
-                              <span>{bullet}</span>
-                            </li>
-                          ))}
-                        </ul>
-                        {selectedService.widget && (
-                          <div className="sh-phone-detail-widget">
-                            {selectedService.widget}
-                          </div>
-                        )}
-                      </div>
-                      <Link href={selectedService.href || "/contact"} className="sh-phone-cta-button">
-                        Explore Capability →
-                      </Link>
-                    </div>
-                  )}
+              {/* Floating Badge Bottom Left */}
+              <div className="sh-mockup-float-badge bottom-left">
+                <div className="sh-mockup-check-icon">✓</div>
+                <div>
+                  <div className="sh-mockup-float-title">SOC 2 &amp; Zero-Trust</div>
+                  <div className="sh-mockup-float-sub">Enterprise Production Live</div>
                 </div>
               </div>
 
-              {/* ── FLOATING OVERLAY CARDS ── */}
+              {/* Browser Window Mockup Frame */}
+              <div className="sh-browser-mockup">
+                {/* Browser Title Bar */}
+                <div className="sh-browser-header">
+                  <div className="sh-browser-dots">
+                    <span className="sh-dot sh-dot-red" />
+                    <span className="sh-dot sh-dot-yellow" />
+                    <span className="sh-dot sh-dot-green" />
+                  </div>
+                  <div className="sh-browser-address-bar">
+                    <span className="sh-lock-icon">🔒</span>
+                    <span className="sh-url-text">oneninelabs.com/services</span>
+                  </div>
+                  <div className="sh-browser-status">
+                    <span className="sh-live-dot" />
+                    <span>Live</span>
+                  </div>
+                </div>
 
-              {/* Floating Card 2: Middle Dark Stopwatch Graph */}
-              <div className="sh-float-card sh-float-card-2">
-                <div className="sh-dark-card-header">
-                  <span className="sh-stopwatch-icon">⏱️</span>
-                  <span>Average Turnaround</span>
-                </div>
-                <div className="sh-chart-wrap">
-                  <svg viewBox="0 0 100 40" className="sh-chart-svg">
-                    <path
-                      d="M 5 30 Q 30 35, 50 15 T 95 10"
-                      fill="none"
-                      stroke="#38bdf8"
-                      strokeWidth="3"
-                      strokeLinecap="round"
-                    />
-                    <circle cx="50" cy="15" r="4" fill="#38bdf8" className="sh-chart-dot" />
-                  </svg>
-                </div>
-                <div className="sh-dark-card-val">
-                  <span className="sh-val-num">6-8</span>
-                  <span className="sh-val-unit">weeks MVP</span>
+                {/* Viewport with existing hero image */}
+                <div className="sh-browser-viewport">
+                  <img
+                    src={cfg?.hero?.image || "/services/services_hero_main.png"}
+                    alt={titleHighlight || "OneNineLabs Software Engineering Services"}
+                    className="sh-browser-img"
+                  />
+                  <div className="sh-browser-glare" />
                 </div>
               </div>
-
             </div>
           </div>
         </div>
