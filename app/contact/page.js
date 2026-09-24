@@ -7,7 +7,6 @@ import Link from "next/link";
 
 export default function ContactPage() {
   const [selectedTopic, setSelectedTopic] = useState("Web Dev");
-  const [selectedBudget, setSelectedBudget] = useState("$10K - $50K");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,7 +25,6 @@ export default function ContactPage() {
     { id: "cloud", label: "Cloud & SOC 2 Security", icon: "🛡️" },
     { id: "blockchain", label: "Web3 & Blockchain", icon: "💎" },
   ];
-  const budgetOptions = ["Less than $10K", "$10K - $50K", "More than $50K"];
 
   const handleTopicClick = (label) => {
     setSelectedTopic(label);
@@ -52,7 +50,6 @@ export default function ContactPage() {
       `Name: ${formData.name || "Not provided"}`,
       `Email: ${formData.email}`,
       `Service: ${selectedTopic}`,
-      `Budget: ${selectedBudget}`,
       `Project details: ${formData.message || "Not provided"}`,
     ].join("\n");
     window.open(`https://wa.me/918588807039?text=${encodeURIComponent(whatsappMessage)}`, "_blank", "noopener,noreferrer");
@@ -67,7 +64,7 @@ export default function ContactPage() {
         body: JSON.stringify({
           ...formData,
           company: formData.company || "Website inquiry",
-          message: [formData.message, `Service: ${selectedTopic}`, `Budget: ${selectedBudget}`].filter(Boolean).join("\n\n"),
+          message: [formData.message, `Service: ${selectedTopic}`].filter(Boolean).join("\n\n"),
           sourcePage: "contact_page_form",
         }),
       });
@@ -197,17 +194,6 @@ export default function ContactPage() {
                 {projectTopics.slice(0, 4).map((topic) => (
                   <button key={topic.id} type="button" className={`reference-pill ${selectedTopic === topic.label ? "active" : ""}`} onClick={() => setSelectedTopic(topic.label)}>
                     {topic.label}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div className="reference-field-group">
-              <label>Budget</label>
-              <div className="reference-pill-row">
-                {budgetOptions.map((budget) => (
-                  <button key={budget} type="button" className={`reference-pill ${selectedBudget === budget ? "active" : ""}`} onClick={() => setSelectedBudget(budget)}>
-                    {budget}
                   </button>
                 ))}
               </div>

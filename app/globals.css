@@ -72,7 +72,7 @@ body {
 html, body {
   width: 100%;
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow-x: clip;
   -webkit-overflow-scrolling: touch;
   overscroll-behavior-x: none;
   touch-action: pan-y;

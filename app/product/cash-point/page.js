@@ -103,51 +103,51 @@ export default function CashPointPage() {
 
         <section className="cash-point-services-section" id="payment-services">
           <div className="cash-point-section-heading">
-            <span className="cash-point-eyebrow">ONE PLATFORM • MANY POSSIBILITIES</span>
-            <h2>Our payment services</h2>
+            <span className="cash-point-eyebrow">⚡ ONE PLATFORM • MANY POSSIBILITIES</span>
+            <h2>💳 Our payment services ✨</h2>
             <p>Give every merchant a simple way to collect, transfer, deposit and pay out money while your team manages the complete operation from one place.</p>
           </div>
 
           <div className="cash-point-services-list">
             <article className="cash-point-service-card cash-point-service-card-featured">
               <span className="cash-point-card-number">01</span>
-              <div className="cash-point-card-icon">⌁</div>
-              <h3>QR Payment</h3>
+              <div className="cash-point-card-icon">📱</div>
+              <h3>📲 QR Payment</h3>
               <p>Accept fast, convenient digital payments through merchant QR codes and keep every collection visible in real time.</p>
               <span className="cash-point-card-link">Quick collections <b>↗</b></span>
             </article>
             <article className="cash-point-service-card">
               <span className="cash-point-card-number">02</span>
-              <div className="cash-point-card-icon">↔</div>
-              <h3>Domestic Money Transfer</h3>
+              <div className="cash-point-card-icon">💸</div>
+              <h3>💸 Domestic Money Transfer</h3>
               <p>Help customers send money securely with a streamlined DMT experience for assisted and agent-led transactions.</p>
               <span className="cash-point-card-link">Reliable transfers <b>↗</b></span>
             </article>
             <article className="cash-point-service-card">
               <span className="cash-point-card-number">03</span>
-              <div className="cash-point-card-icon">◉</div>
-              <h3>AEPS</h3>
+              <div className="cash-point-card-icon">🏧</div>
+              <h3>🏧 AEPS (Aadhaar Banking)</h3>
               <p>Enable Aadhaar-enabled banking services through a trusted agent network with clear transaction tracking.</p>
               <span className="cash-point-card-link">Assisted banking <b>↗</b></span>
             </article>
             <article className="cash-point-service-card">
               <span className="cash-point-card-number">04</span>
-              <div className="cash-point-card-icon">₹</div>
-              <h3>Aadhaar Pay</h3>
+              <div className="cash-point-card-icon">👆</div>
+              <h3>👆 Aadhaar Pay</h3>
               <p>Make secure, assisted payments using Aadhaar authentication for customers who prefer convenient local access.</p>
               <span className="cash-point-card-link">Simple verification <b>↗</b></span>
             </article>
             <article className="cash-point-service-card">
               <span className="cash-point-card-number">05</span>
-              <div className="cash-point-card-icon">＋</div>
-              <h3>Cash Deposit</h3>
+              <div className="cash-point-card-icon">💵</div>
+              <h3>💵 Cash Deposit</h3>
               <p>Support agent-assisted cash deposits with a transparent record of every customer, amount and settlement.</p>
               <span className="cash-point-card-link">Clear settlements <b>↗</b></span>
             </article>
             <article className="cash-point-service-card">
               <span className="cash-point-card-number">06</span>
-              <div className="cash-point-card-icon">↗</div>
-              <h3>Payout Services</h3>
+              <div className="cash-point-card-icon">🚀</div>
+              <h3>🚀 Payout Services</h3>
               <p>Send business payouts with dependable controls, status visibility and a workflow designed for daily operations.</p>
               <span className="cash-point-card-link">Business-ready payouts <b>↗</b></span>
             </article>
