@@ -5,19 +5,21 @@ import Link from "next/link";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://oneninelabs.com";
 
 export const metadata = {
-  title: "Terms of Service | OneNineLabs",
+  title: "Terms of Service — Using OneNineLabs Software Services",
   description:
     "Terms for using oneninelabs.com and engaging OneNineLabs for software, AI, SaaS, Web3 and security work. Lucknow, India.",
   alternates: {
     canonical: "/terms",
-    languages: { "en-US": "/terms", en: "/terms", "hi-IN": "/terms", "x-default": "/terms" },
+    languages: { "en-US": "/terms", en: "/terms", "x-default": "/terms" },
   },
-  openGraph: {
-    title: "Terms of Service | OneNineLabs",
+  openGraph: { locale: "en_US", siteName: "OneNineLabs",
+    title: "Terms of Service — Using OneNineLabs Software Services",
     description: "Terms for using the OneNineLabs website and engaging our engineering team.",
     url: `${siteUrl}/terms`,
     type: "website",
-    images: [{ url: "/tech_banner.png", width: 1200, height: 630, alt: "OneNineLabs Terms of Service" }],
+    images: [
+      { url: "/og/default.jpg", width: 1200, height: 630, alt: "OneNineLabs Terms of Service", type: "image/jpeg" },
+    ],
   },
   robots: { index: true, follow: true },
 };

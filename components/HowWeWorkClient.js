@@ -975,7 +975,7 @@ export default function HowWeWorkClient() {
 
           {/* 2. Main Title */}
           <h1 className="hww-hero-title">
-            <span className="title-black">FROM CONCEPT TO</span>
+            <span className="title-black">FROM CONCEPT TO </span>
             <span className="title-gradient">PRODUCTION SCALE.</span>
           </h1>
 

@@ -113,7 +113,7 @@ export default function ServicesHero({ cfg }) {
               {titleBefore} <br />
               {titleHighlight}{" "}
 
-              <span className="sh-title-powered">Powered</span>
+              <span className="sh-title-powered">{cfg?.hero?.titlePowered || "Powered"}</span>
             </h1>
 
             <p className="sh-desc">{desc}</p>

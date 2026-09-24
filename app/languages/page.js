@@ -29,23 +29,24 @@ export const metadata = {
     languages: {
       "en-US": "/languages",
       en: "/languages",
-      "hi-IN": "/languages",
       "x-default": "/languages",
     },
   },
-  openGraph: {
+  openGraph: { locale: "en_US", siteName: "OneNineLabs",
     title: "Core Working Languages & Environments — OneNineLabs",
     description: "12 battle-tested languages & runtimes — from Next.js & Python to Rust & Solidity — all live in production.",
     url: `${siteUrl}/languages`,
     siteName: "OneNineLabs",
     type: "website",
-    images: [{ url: "/tech_banner.png", width: 1200, height: 630, alt: "OneNineLabs Languages & Environments" }],
+    images: [
+      { url: "/og/default.jpg", width: 1200, height: 630, alt: "OneNineLabs tech stack", type: "image/jpeg" },
+    ],
   },
-  twitter: {
+  twitter: { site: "@oneninelabs", creator: "@oneninelabs",
     card: "summary_large_image",
     title: "Core Working Languages & Environments — OneNineLabs",
     description: "TypeScript, Python, Go, Rust, Solidity & more — explore our 12 live environments.",
-    images: ["/tech_banner.png"],
+    images: ["/og/default.jpg"],
   },
   robots: { index: true, follow: true },
 };
@@ -235,7 +236,6 @@ export default function LanguagesPage() {
         description: l.desc,
         url: `${siteUrl}/languages#${l.id}`,
         operatingSystem: "Cross-platform",
-        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
       },
     })),
   };

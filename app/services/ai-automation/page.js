@@ -11,22 +11,24 @@ const GRAD_TO = "#7c3aed";
 const GLOW = "rgba(124,58,237,0.15)";
 
 export const metadata = {
-  title: "AI & Automation Engineering — LLMs, Agents & RAG | OneNineLabs",
+  title: "AI Automation Services — LLM Agents & RAG | OneNineLabs",
   description: "Enterprise AI solutions built with OpenAI GPT-4, Claude 3.5, LangChain & LlamaIndex. Autonomous AI agents, RAG vector search, and workflow automation.",
   keywords: ["AI development company", "LLM integration", "autonomous AI agents", "RAG vector search", "Pinecone developer", "LangChain engineering"],
-  alternates: { canonical: "/services/ai-automation", languages: { "en-US": "/services/ai-automation", en: "/services/ai-automation", "hi-IN": "/services/ai-automation", "x-default": "/services/ai-automation" } },
-  openGraph: {
+  alternates: { canonical: "/services/ai-automation", languages: { "en-US": "/services/ai-automation", en: "/services/ai-automation", "x-default": "/services/ai-automation" } },
+  openGraph: { locale: "en_US", siteName: "OneNineLabs",
     title: "AI & Automation Engineering — LLMs & Agents | OneNineLabs",
     description: "Custom AI agent pipelines, vector search RAG systems & workflow automation.",
     url: "https://oneninelabs.com/services/ai-automation",
     type: "website",
-    images: [{ url: "/ai_robot_mascot.jpg", width: 1200, height: 630, alt: "AI & Automation by OneNineLabs" }],
+    images: [
+      { url: "/og/ai-automation.jpg", width: 1200, height: 630, alt: "AI Automation by OneNineLabs", type: "image/jpeg" },
+    ],
   },
-  twitter: {
+  twitter: { site: "@oneninelabs", creator: "@oneninelabs",
     card: "summary_large_image",
     title: "AI & Automation Engineering — LLMs & Agents | OneNineLabs",
     description: "Custom AI agent pipelines, vector search RAG systems & workflow automation.",
-    images: ["/ai_robot_mascot.jpg"],
+    images: ["/og/ai-automation.jpg"],
   },
   robots: { index: true, follow: true },
 };
@@ -58,9 +60,8 @@ export default function AiAutomationServicePage() {
     serviceType: "AI and Intelligent Automation",
     url: `${siteUrl}/services/ai-automation`,
     description: "Enterprise AI solutions built with OpenAI GPT-4, Claude 3.5, LangChain & LlamaIndex. Autonomous AI agents, RAG vector search, and workflow automation.",
-    provider: { "@type": "Organization", name: "OneNineLabs", url: siteUrl },
+    provider: { "@id": `${siteUrl}/#organization` },
     areaServed: { "@type": "Country", name: "Worldwide" },
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD", availability: "https://schema.org/InStock" },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "AI & Automation Services",

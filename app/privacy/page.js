@@ -5,19 +5,21 @@ import Link from "next/link";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://oneninelabs.com";
 
 export const metadata = {
-  title: "Privacy Policy | OneNineLabs",
+  title: "Privacy Policy — How OneNineLabs Handles Your Data",
   description:
     "How OneNineLabs collects, uses and protects personal data. Contact 19@oneninelabs.com for privacy requests. Lucknow, Uttar Pradesh, India.",
   alternates: {
     canonical: "/privacy",
-    languages: { "en-US": "/privacy", en: "/privacy", "hi-IN": "/privacy", "x-default": "/privacy" },
+    languages: { "en-US": "/privacy", en: "/privacy", "x-default": "/privacy" },
   },
-  openGraph: {
-    title: "Privacy Policy | OneNineLabs",
+  openGraph: { locale: "en_US", siteName: "OneNineLabs",
+    title: "Privacy Policy — How OneNineLabs Handles Your Data",
     description: "How we collect, use and protect personal data at OneNineLabs.",
     url: `${siteUrl}/privacy`,
     type: "website",
-    images: [{ url: "/tech_banner.png", width: 1200, height: 630, alt: "OneNineLabs Privacy Policy" }],
+    images: [
+      { url: "/og/default.jpg", width: 1200, height: 630, alt: "OneNineLabs Privacy Policy", type: "image/jpeg" },
+    ],
   },
   robots: { index: true, follow: true },
 };

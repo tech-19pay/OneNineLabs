@@ -468,7 +468,7 @@ export default function MobileAppsPageContent() {
           {/* Text Content (1 Hisse / Left) */}
           <div style={{ flex: "1 1 50%", textAlign: "left", paddingRight: "140px", paddingBottom: "40px", marginTop: "60px", minWidth: 0 }}>
             <h1 className="hero-heading" style={{ fontWeight: "800", color: "#111827", lineHeight: "1.1", marginBottom: "30px", letterSpacing: "-1.5px", whiteSpace: "nowrap" }}>
-              Mobile Apps<br />for iOS & Android
+              Mobile Apps <br />for iOS & Android
             </h1>
             <p style={{ fontSize: "16px", color: "#4b5563", lineHeight: "1.6", marginBottom: "40px" }}>
               Deliver seamless, native-like mobile experiences to your users with our expert custom app development services. From intuitive UI/UX design to robust backend integration, we build scalable iOS and Android applications that drive engagement and accelerate your business growth.

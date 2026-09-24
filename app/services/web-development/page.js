@@ -12,9 +12,11 @@ export const metadata = {
   title: "Custom Web Development & High-Performance UIs | OneNineLabs",
   description: "Enterprise web applications built on modern UI stacks, React, Vue, Vite & Edge APIs. Blazing-fast edge delivery, headless CMS, and sub-second LCP page loads.",
   keywords: ["web development company", "custom web applications", "UI design system", "React Vue agency", "Node.js APIs", "headless CMS integration", "Lighthouse speed optimization"],
-  alternates: { canonical: "/services/web-development", languages: { "en-US": "/services/web-development", en: "/services/web-development", "hi-IN": "/services/web-development", "x-default": "/services/web-development" } },
-  openGraph: { title: "Custom Web Development & Modern UI Apps | OneNineLabs", description: "Blazing-fast custom web applications engineered for speed, security & scale.", url: "https://oneninelabs.com/services/web-development", type: "website", images: [{ url: "/services/web_dev_preview.png", width: 1200, height: 630, alt: "Custom Web Development by OneNineLabs" }] },
-  twitter: { card: "summary_large_image", title: "Custom Web Development & Modern UI Apps | OneNineLabs", description: "Blazing-fast custom web applications engineered for speed, security & scale.", images: ["/services/web_dev_preview.png"] },
+  alternates: { canonical: "/services/web-development", languages: { "en-US": "/services/web-development", en: "/services/web-development", "x-default": "/services/web-development" } },
+  openGraph: { locale: "en_US", siteName: "OneNineLabs", title: "Custom Web Development & Modern UI Apps | OneNineLabs", description: "Blazing-fast custom web applications engineered for speed, security & scale.", url: "https://oneninelabs.com/services/web-development", type: "website", images: [
+      { url: "/og/web-development.jpg", width: 1200, height: 630, alt: "Custom Web Development by OneNineLabs", type: "image/jpeg" },
+    ] },
+  twitter: { site: "@oneninelabs", creator: "@oneninelabs", card: "summary_large_image", title: "Custom Web Development & Modern UI Apps | OneNineLabs", description: "Blazing-fast custom web applications engineered for speed, security & scale.", images: ["/og/web-development.jpg"] },
   robots: { index: true, follow: true },
 };
 
@@ -77,9 +79,8 @@ export default function WebDevelopmentServicePage() {
     serviceType: "Web Development and Applications",
     url: `${siteUrl}/services/web-development`,
     description: "Enterprise web applications built on Next.js 15, React 19, Node.js & Python. Blazing-fast edge delivery, headless CMS, and sub-second LCP page loads.",
-    provider: { "@type": "Organization", name: "OneNineLabs", url: siteUrl },
+    provider: { "@id": `${siteUrl}/#organization` },
     areaServed: { "@type": "Country", name: "Worldwide" },
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD", availability: "https://schema.org/InStock" },
   };
   const faqLd = {
     "@context": "https://schema.org",

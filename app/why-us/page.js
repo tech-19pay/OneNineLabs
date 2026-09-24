@@ -14,23 +14,24 @@ export const metadata = {
     languages: {
       "en-US": "/why-us",
       en: "/why-us",
-      "hi-IN": "/why-us",
       "x-default": "/why-us",
     },
   },
-  openGraph: {
+  openGraph: { locale: "en_US", siteName: "OneNineLabs",
     title: "Why Enterprise Leaders Partner With OneNineLabs",
     description: "High-speed execution + enterprise rigor — 6-8 week MVPs, SOC 2, 99.9% SLA, AI-native. Lucknow & worldwide.",
     url: `${siteUrl}/why-us`,
     siteName: "OneNineLabs",
     type: "website",
-    images: [{ url: "/tech_banner.png", width: 1200, height: 630, alt: "Why OneNineLabs" }],
+    images: [
+      { url: "/og/default.jpg", width: 1200, height: 630, alt: "Why choose OneNineLabs", type: "image/jpeg" },
+    ],
   },
-  twitter: {
+  twitter: { site: "@oneninelabs", creator: "@oneninelabs",
     card: "summary_large_image",
     title: "Why Enterprise Leaders Partner With OneNineLabs",
     description: "6–8 week MVPs, SOC 2-ready, 99.9% SLA. Lucknow and worldwide.",
-    images: ["/tech_banner.png"],
+    images: ["/og/default.jpg"],
   },
   robots: { index: true, follow: true },
 };

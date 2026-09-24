@@ -2,14 +2,48 @@ import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 
-export const metadata = {
-  title: "NinteenPay Cash Point | OneNine Labs",
-  description: "NinteenPay Cash Point is a multi-merchant payment system for QR payments, DMT, AEPS, Aadhaar Pay, cash deposit and payout services.",
-};
+import JsonLd from "@/components/JsonLd";
+import { pageMetadata, siteUrl, breadcrumbLd } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  path: "/product/cash-point",
+  title: "NinteenPay Cash Point — Multi-Merchant Payment Platform",
+  description:
+    "NinteenPay Cash Point is a multi-merchant payment system for QR payments, DMT, AEPS, Aadhaar Pay, cash deposit and payout — one secure dashboard.",
+  keywords: [
+    "NinteenPay Cash Point",
+    "multi-merchant payment system",
+    "QR payment platform",
+    "DMT AEPS Aadhaar Pay software",
+    "cash deposit payout platform India",
+  ],
+  ogTitle: "NinteenPay Cash Point — Multi-Merchant Payment Platform",
+});
 
 export default function CashPointPage() {
+  const breadcrumb = breadcrumbLd([
+    { name: "Products", path: "/product" },
+    { name: "NinteenPay Cash Point", path: "/product/cash-point" },
+  ]);
+  const productLd = {
+    "@context": "https://schema.org",
+    "@type": ["Product", "SoftwareApplication"],
+    "@id": `${siteUrl}/product/cash-point#product`,
+    name: "NinteenPay Cash Point",
+    description:
+      "One powerful, multi-merchant payment system for retailers, agents and businesses: QR payments, domestic money transfer, AEPS, Aadhaar Pay, cash deposit and payout services from a single secure platform.",
+    url: `${siteUrl}/product/cash-point`,
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    brand: { "@id": `${siteUrl}/#organization` },
+    creator: { "@id": `${siteUrl}/#organization` },
+    // No `offers.price` on purpose: this is a quote-based B2B platform.
+    // A fake price ("0") would mislead Google Merchant/rich results.
+  };
   return (
     <>
+      <JsonLd data={breadcrumb} />
+      <JsonLd data={productLd} />
       <Header variant="light" />
       <main className="cash-point-page">
         <section className="cash-point-hero">

@@ -11,6 +11,7 @@ export default function AboutPage() {
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": `${siteUrl}/about#breadcrumb`,
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
       { "@type": "ListItem", position: 2, name: "About Us", item: `${siteUrl}/about` },
@@ -23,15 +24,10 @@ export default function AboutPage() {
     name: "About OneNineLabs",
     description: "OneNineLabs in Lucknow, UP builds web, mobile, SaaS, AI & Web3 for startups to enterprises — 80+ products, 99.9% SLA.",
     url: `${siteUrl}/about`,
-    mainEntity: {
-      "@type": "Organization",
-      name: "OneNineLabs",
-      url: siteUrl,
-      logo: `${siteUrl}/logo.png`,
-      foundingDate: "2020",
-      address: { "@type": "PostalAddress", addressLocality: "Lucknow", addressRegion: "Uttar Pradesh", addressCountry: "IN" },
-      contactPoint: [{ "@type": "ContactPoint", telephone: "+91-8588807039", contactType: "customer service", email: "19@oneninelabs.com", areaServed: "Worldwide" }],
-    },
+    // Reference the single site-wide Organization node instead of declaring
+    // a second, conflicting Organization entity.
+    mainEntity: { "@id": `${siteUrl}/#organization` },
+    breadcrumb: { "@id": `${siteUrl}/about#breadcrumb` },
   };
 
   return ( 
@@ -56,7 +52,7 @@ export default function AboutPage() {
     <div className="about-intro-grid">
       <div className="about-intro-copy">
         <div className="about-intro-eyebrow"><span /> Independent engineering partners</div>
-        <h1>About Us <em></em></h1>
+        <h1>About OneNineLabs <em></em></h1>
         <p className="about-intro-lead">
           OneNineLabs is a high-speed software engineering consulting firm based in Lucknow, UP, partnering with forward-thinking enterprises, high-growth startups, and Web3 protocols worldwide. We build custom Next.js web platforms, autonomous AI agents, and zero-trust cloud architectures with 99.9% uptime SLAs.
         </p>

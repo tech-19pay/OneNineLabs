@@ -1,0 +1,3145 @@
+{
+ "/": {
+  "title": "OneNineLabs \u2014 Custom Software Company | Lucknow, India",
+  "title_len": 54,
+  "desc": "Lucknow's custom software company for web, mobile, SaaS, AI and Web3 \u2014 Next.js, React Native, RAG, 99.9% uptime. Contact 19@oneninelabs.com or +91 85888 07039.",
+  "desc_len": 159,
+  "canonical": [
+   "https://oneninelabs.com"
+  ],
+  "hreflang": [
+   [
+    "en-US",
+    "https://oneninelabs.com"
+   ],
+   [
+    "en",
+    "https://oneninelabs.com"
+   ],
+   [
+    "x-default",
+    "https://oneninelabs.com"
+   ]
+  ],
+  "og": {
+   "og:title": [
+    "OneNineLabs \u2014 Custom Software, AI Agents & Web3 Apps"
+   ],
+   "og:description": [
+    "We build scalable custom applications, AI automation, SaaS platforms, blockchain dApps, and growth systems \u2014 engineered for speed, security & scale. Talk to an architect in 24h."
+   ],
+   "og:url": [
+    "https://oneninelabs.com"
+   ],
+   "og:site_name": [
+    "OneNineLabs"
+   ],
+   "og:locale": [
+    "en_US"
+   ],
+   "og:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ],
+   "og:image:type": [
+    "image/jpeg"
+   ],
+   "og:image:width": [
+    "1200"
+   ],
+   "og:image:height": [
+    "630"
+   ],
+   "og:image:alt": [
+    "OneNineLabs \u2014 Custom Software Development Company"
+   ],
+   "og:type": [
+    "website"
+   ]
+  },
+  "tw": {
+   "twitter:card": [
+    "summary_large_image"
+   ],
+   "twitter:site": [
+    "@oneninelabs"
+   ],
+   "twitter:creator": [
+    "@oneninelabs"
+   ],
+   "twitter:title": [
+    "OneNineLabs \u2014 Custom Software Development Company"
+   ],
+   "twitter:description": [
+    "Custom web apps, AI agents, SaaS & Web3 \u2014 99.9% uptime, SOC 2-ready."
+   ],
+   "twitter:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ]
+  },
+  "robots": "index, follow",
+  "icons": [
+   [
+    "/favicon.ico",
+    null,
+    null,
+    "any",
+    null
+   ],
+   [
+    "/icon.svg",
+    null,
+    null,
+    null,
+    "image/svg+xml"
+   ],
+   [
+    "/icons/icon-192.png",
+    null,
+    null,
+    "192x192",
+    "image/png"
+   ],
+   [
+    "/icons/icon-512.png",
+    null,
+    null,
+    "512x512",
+    "image/png"
+   ],
+   [
+    "/apple-touch-icon.png",
+    null,
+    null,
+    "180x180",
+    "image/png"
+   ],
+   [
+    "/favicon.ico",
+    null,
+    null,
+    null,
+    null
+   ]
+  ],
+  "manifest": [
+   "/manifest.json"
+  ],
+  "h1_count": 1,
+  "h1": [
+   "Next-Generation Web Architectures"
+  ],
+  "h2_count": 9,
+  "img_count": 11,
+  "img_noalt": 0,
+  "ld_types": [
+   "Answer",
+   "BreadcrumbList",
+   "ContactPoint",
+   "Country",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ItemList",
+   "ListItem",
+   "Offer",
+   "OfferCatalog",
+   "OpeningHoursSpecification",
+   "Organization",
+   "PostalAddress",
+   "ProfessionalService",
+   "Question",
+   "Service",
+   "WebSite"
+  ],
+  "ld_errors": [],
+  "ld_count": 5,
+  "lang": "en",
+  "viewport": "width=device-width, initial-scale=1",
+  "keywords_present": true,
+  "word_count": 5433
+ },
+ "/about": {
+  "title": "About OneNineLabs \u2014 Our Story, Mission & Team | Lucknow",
+  "title_len": 55,
+  "desc": "Meet OneNineLabs: an independent Lucknow engineering firm building web, mobile, SaaS, AI & Web3 for startups to enterprises \u2014 80+ products, 99.9% SLA.",
+  "desc_len": 150,
+  "canonical": [
+   "https://oneninelabs.com/about"
+  ],
+  "hreflang": [
+   [
+    "en-US",
+    "https://oneninelabs.com/about"
+   ],
+   [
+    "en",
+    "https://oneninelabs.com/about"
+   ],
+   [
+    "x-default",
+    "https://oneninelabs.com/about"
+   ]
+  ],
+  "og": {
+   "og:title": [
+    "About OneNineLabs \u2014 Our Story, Mission & Team | Lucknow"
+   ],
+   "og:description": [
+    "Meet OneNineLabs: an independent Lucknow engineering firm building web, mobile, SaaS, AI & Web3 for startups to enterprises \u2014 80+ products, 99.9% SLA."
+   ],
+   "og:url": [
+    "https://oneninelabs.com/about"
+   ],
+   "og:site_name": [
+    "OneNineLabs"
+   ],
+   "og:locale": [
+    "en_US"
+   ],
+   "og:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ],
+   "og:image:type": [
+    "image/jpeg"
+   ],
+   "og:image:width": [
+    "1200"
+   ],
+   "og:image:height": [
+    "630"
+   ],
+   "og:image:alt": [
+    "OneNineLabs \u2014 Custom Software, AI Agents & Web3 Apps"
+   ],
+   "og:type": [
+    "website"
+   ]
+  },
+  "tw": {
+   "twitter:card": [
+    "summary_large_image"
+   ],
+   "twitter:site": [
+    "@oneninelabs"
+   ],
+   "twitter:creator": [
+    "@oneninelabs"
+   ],
+   "twitter:title": [
+    "About OneNineLabs \u2014 Our Story, Mission & Team | Lucknow"
+   ],
+   "twitter:description": [
+    "Meet OneNineLabs: an independent Lucknow engineering firm building web, mobile, SaaS, AI & Web3 for startups to enterprises \u2014 80+ products, 99.9% SLA."
+   ],
+   "twitter:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ]
+  },
+  "robots": "index, follow",
+  "icons": [
+   [
+    "/favicon.ico",
+    null,
+    null,
+    "any",
+    null
+   ],
+   [
+    "/icon.svg",
+    null,
+    null,
+    null,
+    "image/svg+xml"
+   ],
+   [
+    "/icons/icon-192.png",
+    null,
+    null,
+    "192x192",
+    "image/png"
+   ],
+   [
+    "/icons/icon-512.png",
+    null,
+    null,
+    "512x512",
+    "image/png"
+   ],
+   [
+    "/apple-touch-icon.png",
+    null,
+    null,
+    "180x180",
+    "image/png"
+   ],
+   [
+    "/favicon.ico",
+    null,
+    null,
+    null,
+    null
+   ]
+  ],
+  "manifest": [
+   "/manifest.json"
+  ],
+  "h1_count": 1,
+  "h1": [
+   "About OneNineLabs"
+  ],
+  "h2_count": 5,
+  "img_count": 3,
+  "img_noalt": 0,
+  "ld_types": [
+   "AboutPage",
+   "BreadcrumbList",
+   "ContactPoint",
+   "Country",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "Offer",
+   "OfferCatalog",
+   "OpeningHoursSpecification",
+   "Organization",
+   "PostalAddress",
+   "ProfessionalService",
+   "Service",
+   "WebSite"
+  ],
+  "ld_errors": [],
+  "ld_count": 4,
+  "lang": "en",
+  "viewport": "width=device-width, initial-scale=1",
+  "keywords_present": true,
+  "word_count": 1627
+ },
+ "/contact": {
+  "title": "Contact OneNineLabs \u2014 19@oneninelabs.com | +91 85888 07039",
+  "title_len": 58,
+  "desc": "Contact OneNineLabs in Lucknow: email 19@oneninelabs.com or call +91 85888 07039. We reply within 12h about your web, mobile, SaaS, AI or Web3 project.",
+  "desc_len": 151,
+  "canonical": [
+   "https://oneninelabs.com/contact"
+  ],
+  "hreflang": [
+   [
+    "en-US",
+    "https://oneninelabs.com/contact"
+   ],
+   [
+    "en",
+    "https://oneninelabs.com/contact"
+   ],
+   [
+    "x-default",
+    "https://oneninelabs.com/contact"
+   ]
+  ],
+  "og": {
+   "og:title": [
+    "Contact OneNineLabs \u2014 Let's Build Together"
+   ],
+   "og:description": [
+    "Email 19@oneninelabs.com or call +91 85888 07039 \u2014 Lucknow, UP. We reply within 12h."
+   ],
+   "og:url": [
+    "https://oneninelabs.com/contact"
+   ],
+   "og:site_name": [
+    "OneNineLabs"
+   ],
+   "og:locale": [
+    "en_US"
+   ],
+   "og:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ],
+   "og:image:type": [
+    "image/jpeg"
+   ],
+   "og:image:width": [
+    "1200"
+   ],
+   "og:image:height": [
+    "630"
+   ],
+   "og:image:alt": [
+    "OneNineLabs \u2014 Custom Software, AI Agents & Web3 Apps"
+   ],
+   "og:type": [
+    "website"
+   ]
+  },
+  "tw": {
+   "twitter:card": [
+    "summary_large_image"
+   ],
+   "twitter:site": [
+    "@oneninelabs"
+   ],
+   "twitter:creator": [
+    "@oneninelabs"
+   ],
+   "twitter:title": [
+    "Contact OneNineLabs \u2014 Let's Build Together"
+   ],
+   "twitter:description": [
+    "Email 19@oneninelabs.com or call +91 85888 07039 \u2014 Lucknow, UP. We reply within 12h."
+   ],
+   "twitter:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ]
+  },
+  "robots": "index, follow",
+  "icons": [
+   [
+    "/favicon.ico",
+    null,
+    null,
+    "any",
+    null
+   ],
+   [
+    "/icon.svg",
+    null,
+    null,
+    null,
+    "image/svg+xml"
+   ],
+   [
+    "/icons/icon-192.png",
+    null,
+    null,
+    "192x192",
+    "image/png"
+   ],
+   [
+    "/icons/icon-512.png",
+    null,
+    null,
+    "512x512",
+    "image/png"
+   ],
+   [
+    "/apple-touch-icon.png",
+    null,
+    null,
+    "180x180",
+    "image/png"
+   ],
+   [
+    "/favicon.ico",
+    null,
+    null,
+    null,
+    null
+   ]
+  ],
+  "manifest": [
+   "/manifest.json"
+  ],
+  "h1_count": 1,
+  "h1": [
+   "Let&#x27;s Build Something Remarkable Together."
+  ],
+  "h2_count": 3,
+  "img_count": 2,
+  "img_noalt": 0,
+  "ld_types": [
+   "Answer",
+   "BreadcrumbList",
+   "ContactPage",
+   "ContactPoint",
+   "Country",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "Offer",
+   "OfferCatalog",
+   "OpeningHoursSpecification",
+   "Organization",
+   "PostalAddress",
+   "ProfessionalService",
+   "Question",
+   "Service",
+   "WebSite"
+  ],
+  "ld_errors": [],
+  "ld_count": 5,
+  "lang": "en",
+  "viewport": "width=device-width, initial-scale=1",
+  "keywords_present": true,
+  "word_count": 2220
+ },
+ "/how-we-work": {
+  "title": "How We Work \u2014 The 7-Stage Execution Protocol | OneNineLabs",
+  "title_len": 58,
+  "desc": "Our 7-stage software execution protocol: Discovery, Plan, Design, Build, Review, Launch and Support \u2014 transparent, milestone-driven engineering.",
+  "desc_len": 144,
+  "canonical": [
+   "https://oneninelabs.com/how-we-work"
+  ],
+  "hreflang": [
+   [
+    "en-US",
+    "https://oneninelabs.com/how-we-work"
+   ],
+   [
+    "en",
+    "https://oneninelabs.com/how-we-work"
+   ],
+   [
+    "x-default",
+    "https://oneninelabs.com/how-we-work"
+   ]
+  ],
+  "og": {
+   "og:title": [
+    "How We Work \u2014 The 7-Stage Execution Protocol | OneNineLabs"
+   ],
+   "og:description": [
+    "From Concept to Production Scale. Discover our battle-tested 7-phase methodology engineered for velocity, security, and measurable ROI."
+   ],
+   "og:url": [
+    "https://oneninelabs.com/how-we-work"
+   ],
+   "og:site_name": [
+    "OneNineLabs"
+   ],
+   "og:locale": [
+    "en_US"
+   ],
+   "og:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ],
+   "og:image:type": [
+    "image/jpeg"
+   ],
+   "og:image:width": [
+    "1200"
+   ],
+   "og:image:height": [
+    "630"
+   ],
+   "og:image:alt": [
+    "How OneNineLabs delivers software"
+   ],
+   "og:type": [
+    "website"
+   ]
+  },
+  "tw": {
+   "twitter:card": [
+    "summary_large_image"
+   ],
+   "twitter:site": [
+    "@oneninelabs"
+   ],
+   "twitter:creator": [
+    "@oneninelabs"
+   ],
+   "twitter:title": [
+    "How We Work \u2014 The 7-Stage Execution Protocol | OneNineLabs"
+   ],
+   "twitter:description": [
+    "From Concept to Production Scale. Transparent, disciplined 7-phase engineering methodology."
+   ],
+   "twitter:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ]
+  },
+  "robots": "index, follow",
+  "icons": [
+   [
+    "/favicon.ico",
+    null,
+    null,
+    "any",
+    null
+   ],
+   [
+    "/icon.svg",
+    null,
+    null,
+    null,
+    "image/svg+xml"
+   ],
+   [
+    "/icons/icon-192.png",
+    null,
+    null,
+    "192x192",
+    "image/png"
+   ],
+   [
+    "/icons/icon-512.png",
+    null,
+    null,
+    "512x512",
+    "image/png"
+   ],
+   [
+    "/apple-touch-icon.png",
+    null,
+    null,
+    "180x180",
+    "image/png"
+   ],
+   [
+    "/favicon.ico",
+    null,
+    null,
+    null,
+    null
+   ]
+  ],
+  "manifest": [
+   "/manifest.json"
+  ],
+  "h1_count": 1,
+  "h1": [
+   "FROM CONCEPT TO PRODUCTION SCALE."
+  ],
+  "h2_count": 10,
+  "img_count": 2,
+  "img_noalt": 0,
+  "ld_types": [
+   "BreadcrumbList",
+   "ContactPoint",
+   "Country",
+   "GeoCoordinates",
+   "HowTo",
+   "HowToStep",
+   "ImageObject",
+   "ListItem",
+   "Offer",
+   "OfferCatalog",
+   "OpeningHoursSpecification",
+   "Organization",
+   "PostalAddress",
+   "ProfessionalService",
+   "Service",
+   "WebSite"
+  ],
+  "ld_errors": [],
+  "ld_count": 4,
+  "lang": "en",
+  "viewport": "width=device-width, initial-scale=1",
+  "keywords_present": true,
+  "word_count": 2359
+ },
+ "/languages": {
+  "title": "Tech Stack \u2014 Languages & Environments | OneNineLabs",
+  "title_len": 51,
+  "desc": "Inside OneNineLabs\u2019 12 live environments: TypeScript, Python, Go, Rust, Solidity and more \u2014 Next.js to K8s, all in production with benchmarks and terminals.",
+  "desc_len": 156,
+  "canonical": [
+   "https://oneninelabs.com/languages"
+  ],
+  "hreflang": [
+   [
+    "en-US",
+    "https://oneninelabs.com/languages"
+   ],
+   [
+    "en",
+    "https://oneninelabs.com/languages"
+   ],
+   [
+    "x-default",
+    "https://oneninelabs.com/languages"
+   ]
+  ],
+  "og": {
+   "og:title": [
+    "Core Working Languages & Environments \u2014 OneNineLabs"
+   ],
+   "og:description": [
+    "12 battle-tested languages & runtimes \u2014 from Next.js & Python to Rust & Solidity \u2014 all live in production."
+   ],
+   "og:url": [
+    "https://oneninelabs.com/languages"
+   ],
+   "og:site_name": [
+    "OneNineLabs"
+   ],
+   "og:locale": [
+    "en_US"
+   ],
+   "og:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ],
+   "og:image:type": [
+    "image/jpeg"
+   ],
+   "og:image:width": [
+    "1200"
+   ],
+   "og:image:height": [
+    "630"
+   ],
+   "og:image:alt": [
+    "OneNineLabs tech stack"
+   ],
+   "og:type": [
+    "website"
+   ]
+  },
+  "tw": {
+   "twitter:card": [
+    "summary_large_image"
+   ],
+   "twitter:site": [
+    "@oneninelabs"
+   ],
+   "twitter:creator": [
+    "@oneninelabs"
+   ],
+   "twitter:title": [
+    "Core Working Languages & Environments \u2014 OneNineLabs"
+   ],
+   "twitter:description": [
+    "TypeScript, Python, Go, Rust, Solidity & more \u2014 explore our 12 live environments."
+   ],
+   "twitter:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ]
+  },
+  "robots": "index, follow",
+  "icons": [
+   [
+    "/favicon.ico",
+    null,
+    null,
+    "any",
+    null
+   ],
+   [
+    "/icon.svg",
+    null,
+    null,
+    null,
+    "image/svg+xml"
+   ],
+   [
+    "/icons/icon-192.png",
+    null,
+    null,
+    "192x192",
+    "image/png"
+   ],
+   [
+    "/icons/icon-512.png",
+    null,
+    null,
+    "512x512",
+    "image/png"
+   ],
+   [
+    "/apple-touch-icon.png",
+    null,
+    null,
+    "180x180",
+    "image/png"
+   ],
+   [
+    "/favicon.ico",
+    null,
+    null,
+    null,
+    null
+   ]
+  ],
+  "manifest": [
+   "/manifest.json"
+  ],
+  "h1_count": 1,
+  "h1": [
+   "Our Core Working Languages &amp; Environments"
+  ],
+  "h2_count": 1,
+  "img_count": 2,
+  "img_noalt": 0,
+  "ld_types": [
+   "BreadcrumbList",
+   "ContactPoint",
+   "Country",
+   "GeoCoordinates",
+   "ImageObject",
+   "ItemList",
+   "ListItem",
+   "Offer",
+   "OfferCatalog",
+   "OpeningHoursSpecification",
+   "Organization",
+   "PostalAddress",
+   "ProfessionalService",
+   "Service",
+   "SoftwareApplication",
+   "WebSite"
+  ],
+  "ld_errors": [],
+  "ld_count": 4,
+  "lang": "en",
+  "viewport": "width=device-width, initial-scale=1",
+  "keywords_present": true,
+  "word_count": 2361
+ },
+ "/privacy": {
+  "title": "Privacy Policy \u2014 How OneNineLabs Handles Your Data",
+  "title_len": 50,
+  "desc": "How OneNineLabs collects, uses and protects personal data. Contact 19@oneninelabs.com for privacy requests. Lucknow, Uttar Pradesh, India.",
+  "desc_len": 138,
+  "canonical": [
+   "https://oneninelabs.com/privacy"
+  ],
+  "hreflang": [
+   [
+    "en-US",
+    "https://oneninelabs.com/privacy"
+   ],
+   [
+    "en",
+    "https://oneninelabs.com/privacy"
+   ],
+   [
+    "x-default",
+    "https://oneninelabs.com/privacy"
+   ]
+  ],
+  "og": {
+   "og:title": [
+    "Privacy Policy \u2014 How OneNineLabs Handles Your Data"
+   ],
+   "og:description": [
+    "How we collect, use and protect personal data at OneNineLabs."
+   ],
+   "og:url": [
+    "https://oneninelabs.com/privacy"
+   ],
+   "og:site_name": [
+    "OneNineLabs"
+   ],
+   "og:locale": [
+    "en_US"
+   ],
+   "og:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ],
+   "og:image:type": [
+    "image/jpeg"
+   ],
+   "og:image:width": [
+    "1200"
+   ],
+   "og:image:height": [
+    "630"
+   ],
+   "og:image:alt": [
+    "OneNineLabs Privacy Policy"
+   ],
+   "og:type": [
+    "website"
+   ]
+  },
+  "tw": {
+   "twitter:card": [
+    "summary_large_image"
+   ],
+   "twitter:site": [
+    "@oneninelabs"
+   ],
+   "twitter:creator": [
+    "@oneninelabs"
+   ],
+   "twitter:title": [
+    "OneNineLabs \u2014 Custom Software, Web, AI & SaaS Company"
+   ],
+   "twitter:description": [
+    "OneNineLabs builds web, mobile, SaaS, AI and Web3 \u2014 Next.js, RAG, Stripe & SOC 2, 80+ shipped worldwide. Email 19@oneninelabs.com or call +91 85888 07039."
+   ],
+   "twitter:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ]
+  },
+  "robots": "index, follow",
+  "icons": [
+   [
+    "/favicon.ico",
+    null,
+    null,
+    "any",
+    null
+   ],
+   [
+    "/icon.svg",
+    null,
+    null,
+    null,
+    "image/svg+xml"
+   ],
+   [
+    "/icons/icon-192.png",
+    null,
+    null,
+    "192x192",
+    "image/png"
+   ],
+   [
+    "/icons/icon-512.png",
+    null,
+    null,
+    "512x512",
+    "image/png"
+   ],
+   [
+    "/apple-touch-icon.png",
+    null,
+    null,
+    "180x180",
+    "image/png"
+   ],
+   [
+    "/favicon.ico",
+    null,
+    null,
+    null,
+    null
+   ]
+  ],
+  "manifest": [
+   "/manifest.json"
+  ],
+  "h1_count": 1,
+  "h1": [
+   "Privacy Policy"
+  ],
+  "h2_count": 7,
+  "img_count": 2,
+  "img_noalt": 0,
+  "ld_types": [
+   "BreadcrumbList",
+   "ContactPoint",
+   "Country",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "Offer",
+   "OfferCatalog",
+   "OpeningHoursSpecification",
+   "Organization",
+   "PostalAddress",
+   "ProfessionalService",
+   "Service",
+   "WebPage",
+   "WebSite"
+  ],
+  "ld_errors": [],
+  "ld_count": 4,
+  "lang": "en",
+  "viewport": "width=device-width, initial-scale=1",
+  "keywords_present": false,
+  "word_count": 1243
+ },
+ "/product": {
+  "title": "Products \u2014 Typing Practice & Speed Test Apps | OneNineLabs",
+  "title_len": 58,
+  "desc": "Explore OneNineLabs products: the Typing Practice & Speed Test app suite and NinteenPay Cash Point \u2014 built, shipped and maintained in-house.",
+  "desc_len": 140,
+  "canonical": [
+   "https://oneninelabs.com/product"
+  ],
+  "hreflang": [
+   [
+    "en-US",
+    "https://oneninelabs.com/product"
+   ],
+   [
+    "en",
+    "https://oneninelabs.com/product"
+   ],
+   [
+    "x-default",
+    "https://oneninelabs.com/product"
+   ]
+  ],
+  "og": {
+   "og:title": [
+    "Products \u2014 Typing Practice & Speed Test Apps | OneNineLabs"
+   ],
+   "og:description": [
+    "Explore OneNineLabs products: the Typing Practice & Speed Test app suite and NinteenPay Cash Point \u2014 built, shipped and maintained in-house."
+   ],
+   "og:url": [
+    "https://oneninelabs.com/product"
+   ],
+   "og:site_name": [
+    "OneNineLabs"
+   ],
+   "og:locale": [
+    "en_US"
+   ],
+   "og:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ],
+   "og:image:type": [
+    "image/jpeg"
+   ],
+   "og:image:width": [
+    "1200"
+   ],
+   "og:image:height": [
+    "630"
+   ],
+   "og:image:alt": [
+    "OneNineLabs \u2014 Custom Software, AI Agents & Web3 Apps"
+   ],
+   "og:type": [
+    "website"
+   ]
+  },
+  "tw": {
+   "twitter:card": [
+    "summary_large_image"
+   ],
+   "twitter:site": [
+    "@oneninelabs"
+   ],
+   "twitter:creator": [
+    "@oneninelabs"
+   ],
+   "twitter:title": [
+    "Products \u2014 Typing Practice & Speed Test Apps | OneNineLabs"
+   ],
+   "twitter:description": [
+    "Explore OneNineLabs products: the Typing Practice & Speed Test app suite and NinteenPay Cash Point \u2014 built, shipped and maintained in-house."
+   ],
+   "twitter:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ]
+  },
+  "robots": "index, follow",
+  "icons": [
+   [
+    "/favicon.ico",
+    null,
+    null,
+    "any",
+    null
+   ],
+   [
+    "/icon.svg",
+    null,
+    null,
+    null,
+    "image/svg+xml"
+   ],
+   [
+    "/icons/icon-192.png",
+    null,
+    null,
+    "192x192",
+    "image/png"
+   ],
+   [
+    "/icons/icon-512.png",
+    null,
+    null,
+    "512x512",
+    "image/png"
+   ],
+   [
+    "/apple-touch-icon.png",
+    null,
+    null,
+    "180x180",
+    "image/png"
+   ],
+   [
+    "/favicon.ico",
+    null,
+    null,
+    null,
+    null
+   ]
+  ],
+  "manifest": [
+   "/manifest.json"
+  ],
+  "h1_count": 1,
+  "h1": [
+   "Stenography Practice &amp; Speed Test Apps"
+  ],
+  "h2_count": 2,
+  "img_count": 2,
+  "img_noalt": 0,
+  "ld_types": [
+   "BreadcrumbList",
+   "ContactPoint",
+   "Country",
+   "GeoCoordinates",
+   "ImageObject",
+   "ItemList",
+   "ListItem",
+   "Offer",
+   "OfferCatalog",
+   "OpeningHoursSpecification",
+   "Organization",
+   "PostalAddress",
+   "ProfessionalService",
+   "Service",
+   "SoftwareApplication",
+   "WebSite"
+  ],
+  "ld_errors": [],
+  "ld_count": 4,
+  "lang": "en",
+  "viewport": "width=device-width, initial-scale=1",
+  "keywords_present": true,
+  "word_count": 1596
+ },
+ "/product/cash-point": {
+  "title": "NinteenPay Cash Point \u2014 Multi-Merchant Payment Platform",
+  "title_len": 55,
+  "desc": "NinteenPay Cash Point is a multi-merchant payment system for QR payments, DMT, AEPS, Aadhaar Pay, cash deposit and payout \u2014 one secure dashboard.",
+  "desc_len": 145,
+  "canonical": [
+   "https://oneninelabs.com/product/cash-point"
+  ],
+  "hreflang": [
+   [
+    "en-US",
+    "https://oneninelabs.com/product/cash-point"
+   ],
+   [
+    "en",
+    "https://oneninelabs.com/product/cash-point"
+   ],
+   [
+    "x-default",
+    "https://oneninelabs.com/product/cash-point"
+   ]
+  ],
+  "og": {
+   "og:title": [
+    "NinteenPay Cash Point \u2014 Multi-Merchant Payment Platform"
+   ],
+   "og:description": [
+    "NinteenPay Cash Point is a multi-merchant payment system for QR payments, DMT, AEPS, Aadhaar Pay, cash deposit and payout \u2014 one secure dashboard."
+   ],
+   "og:url": [
+    "https://oneninelabs.com/product/cash-point"
+   ],
+   "og:site_name": [
+    "OneNineLabs"
+   ],
+   "og:locale": [
+    "en_US"
+   ],
+   "og:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ],
+   "og:image:type": [
+    "image/jpeg"
+   ],
+   "og:image:width": [
+    "1200"
+   ],
+   "og:image:height": [
+    "630"
+   ],
+   "og:image:alt": [
+    "OneNineLabs \u2014 Custom Software, AI Agents & Web3 Apps"
+   ],
+   "og:type": [
+    "website"
+   ]
+  },
+  "tw": {
+   "twitter:card": [
+    "summary_large_image"
+   ],
+   "twitter:site": [
+    "@oneninelabs"
+   ],
+   "twitter:creator": [
+    "@oneninelabs"
+   ],
+   "twitter:title": [
+    "NinteenPay Cash Point \u2014 Multi-Merchant Payment Platform"
+   ],
+   "twitter:description": [
+    "NinteenPay Cash Point is a multi-merchant payment system for QR payments, DMT, AEPS, Aadhaar Pay, cash deposit and payout \u2014 one secure dashboard."
+   ],
+   "twitter:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ]
+  },
+  "robots": "index, follow",
+  "icons": [
+   [
+    "/favicon.ico",
+    null,
+    null,
+    "any",
+    null
+   ],
+   [
+    "/icon.svg",
+    null,
+    null,
+    null,
+    "image/svg+xml"
+   ],
+   [
+    "/icons/icon-192.png",
+    null,
+    null,
+    "192x192",
+    "image/png"
+   ],
+   [
+    "/icons/icon-512.png",
+    null,
+    null,
+    "512x512",
+    "image/png"
+   ],
+   [
+    "/apple-touch-icon.png",
+    null,
+    null,
+    "180x180",
+    "image/png"
+   ],
+   [
+    "/favicon.ico",
+    null,
+    null,
+    null,
+    null
+   ]
+  ],
+  "manifest": [
+   "/manifest.json"
+  ],
+  "h1_count": 1,
+  "h1": [
+   "NinteenPay Cash Point"
+  ],
+  "h2_count": 2,
+  "img_count": 2,
+  "img_noalt": 0,
+  "ld_types": [
+   "BreadcrumbList",
+   "ContactPoint",
+   "Country",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "Offer",
+   "OfferCatalog",
+   "OpeningHoursSpecification",
+   "Organization",
+   "PostalAddress",
+   "Product",
+   "ProfessionalService",
+   "Service",
+   "SoftwareApplication",
+   "WebSite"
+  ],
+  "ld_errors": [],
+  "ld_count": 4,
+  "lang": "en",
+  "viewport": "width=device-width, initial-scale=1",
+  "keywords_present": true,
+  "word_count": 1327
+ },
+ "/services": {
+  "title": "Our Services \u2014 Web, Mobile, AI, SaaS & Web3 | OneNineLabs",
+  "title_len": 57,
+  "desc": "Explore OneNineLabs services: web, mobile, AI, SaaS, blockchain, marketing and DevOps \u2014 core capabilities, 99.9% SLA, SOC 2-ready. Let's build your next system.",
+  "desc_len": 160,
+  "canonical": [
+   "https://oneninelabs.com/services"
+  ],
+  "hreflang": [
+   [
+    "en-US",
+    "https://oneninelabs.com/services"
+   ],
+   [
+    "en",
+    "https://oneninelabs.com/services"
+   ],
+   [
+    "x-default",
+    "https://oneninelabs.com/services"
+   ]
+  ],
+  "og": {
+   "og:title": [
+    "OneNineLabs Services \u2014 Custom Software Engineering for Enterprise Growth"
+   ],
+   "og:description": [
+    "From high-scale Web3 protocols and AI automation pipelines to multi-tenant SaaS platforms \u2014 OneNineLabs delivers battle-tested software tailored for enterprise growth."
+   ],
+   "og:url": [
+    "https://oneninelabs.com/services"
+   ],
+   "og:site_name": [
+    "OneNineLabs"
+   ],
+   "og:locale": [
+    "en_US"
+   ],
+   "og:image": [
+    "https://oneninelabs.com/og/services.jpg"
+   ],
+   "og:image:type": [
+    "image/jpeg"
+   ],
+   "og:image:width": [
+    "1200"
+   ],
+   "og:image:height": [
+    "630"
+   ],
+   "og:image:alt": [
+    "OneNineLabs engineering services"
+   ],
+   "og:type": [
+    "website"
+   ]
+  },
+  "tw": {
+   "twitter:card": [
+    "summary_large_image"
+   ],
+   "twitter:site": [
+    "@oneninelabs"
+   ],
+   "twitter:creator": [
+    "@oneninelabs"
+   ],
+   "twitter:title": [
+    "OneNineLabs Services \u2014 Custom Software Engineering for Enterprise Growth"
+   ],
+   "twitter:description": [
+    "Web, AI, SaaS, Blockchain, Marketing & Security \u2014 enterprise software that scales."
+   ],
+   "twitter:image": [
+    "https://oneninelabs.com/og/services.jpg"
+   ]
+  },
+  "robots": "index, follow",
+  "icons": [
+   [
+    "/favicon.ico",
+    null,
+    null,
+    "any",
+    null
+   ],
+   [
+    "/icon.svg",
+    null,
+    null,
+    null,
+    "image/svg+xml"
+   ],
+   [
+    "/icons/icon-192.png",
+    null,
+    null,
+    "192x192",
+    "image/png"
+   ],
+   [
+    "/icons/icon-512.png",
+    null,
+    null,
+    "512x512",
+    "image/png"
+   ],
+   [
+    "/apple-touch-icon.png",
+    null,
+    null,
+    "180x180",
+    "image/png"
+   ],
+   [
+    "/favicon.ico",
+    null,
+    null,
+    null,
+    null
+   ]
+  ],
+  "manifest": [
+   "/manifest.json"
+  ],
+  "h1_count": 1,
+  "h1": [
+   "Professional Engineering Services for Web, Mobile, AI, SaaS &amp; Web3 by OneNin"
+  ],
+  "h2_count": 6,
+  "img_count": 11,
+  "img_noalt": 0,
+  "ld_types": [
+   "Answer",
+   "BreadcrumbList",
+   "ContactPoint",
+   "Country",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ItemList",
+   "ListItem",
+   "Offer",
+   "OfferCatalog",
+   "OpeningHoursSpecification",
+   "Organization",
+   "PostalAddress",
+   "ProfessionalService",
+   "Question",
+   "Service",
+   "WebSite"
+  ],
+  "ld_errors": [],
+  "ld_count": 5,
+  "lang": "en",
+  "viewport": "width=device-width, initial-scale=1",
+  "keywords_present": true,
+  "word_count": 2909
+ },
+ "/services/ai-automation": {
+  "title": "AI Automation Services \u2014 LLM Agents & RAG | OneNineLabs",
+  "title_len": 55,
+  "desc": "Enterprise AI solutions built with OpenAI GPT-4, Claude 3.5, LangChain & LlamaIndex. Autonomous AI agents, RAG vector search, and workflow automation.",
+  "desc_len": 150,
+  "canonical": [
+   "https://oneninelabs.com/services/ai-automation"
+  ],
+  "hreflang": [
+   [
+    "en-US",
+    "https://oneninelabs.com/services/ai-automation"
+   ],
+   [
+    "en",
+    "https://oneninelabs.com/services/ai-automation"
+   ],
+   [
+    "x-default",
+    "https://oneninelabs.com/services/ai-automation"
+   ]
+  ],
+  "og": {
+   "og:title": [
+    "AI & Automation Engineering \u2014 LLMs & Agents | OneNineLabs"
+   ],
+   "og:description": [
+    "Custom AI agent pipelines, vector search RAG systems & workflow automation."
+   ],
+   "og:url": [
+    "https://oneninelabs.com/services/ai-automation"
+   ],
+   "og:site_name": [
+    "OneNineLabs"
+   ],
+   "og:locale": [
+    "en_US"
+   ],
+   "og:image": [
+    "https://oneninelabs.com/og/ai-automation.jpg"
+   ],
+   "og:image:type": [
+    "image/jpeg"
+   ],
+   "og:image:width": [
+    "1200"
+   ],
+   "og:image:height": [
+    "630"
+   ],
+   "og:image:alt": [
+    "AI Automation by OneNineLabs"
+   ],
+   "og:type": [
+    "website"
+   ]
+  },
+  "tw": {
+   "twitter:card": [
+    "summary_large_image"
+   ],
+   "twitter:site": [
+    "@oneninelabs"
+   ],
+   "twitter:creator": [
+    "@oneninelabs"
+   ],
+   "twitter:title": [
+    "AI & Automation Engineering \u2014 LLMs & Agents | OneNineLabs"
+   ],
+   "twitter:description": [
+    "Custom AI agent pipelines, vector search RAG systems & workflow automation."
+   ],
+   "twitter:image": [
+    "https://oneninelabs.com/og/ai-automation.jpg"
+   ]
+  },
+  "robots": "index, follow",
+  "icons": [
+   [
+    "/favicon.ico",
+    null,
+    null,
+    "any",
+    null
+   ],
+   [
+    "/icon.svg",
+    null,
+    null,
+    null,
+    "image/svg+xml"
+   ],
+   [
+    "/icons/icon-192.png",
+    null,
+    null,
+    "192x192",
+    "image/png"
+   ],
+   [
+    "/icons/icon-512.png",
+    null,
+    null,
+    "512x512",
+    "image/png"
+   ],
+   [
+    "/apple-touch-icon.png",
+    null,
+    null,
+    "180x180",
+    "image/png"
+   ],
+   [
+    "/favicon.ico",
+    null,
+    null,
+    null,
+    null
+   ]
+  ],
+  "manifest": [
+   "/manifest.json"
+  ],
+  "h1_count": 1,
+  "h1": [
+   "Autonomous AI workflows &amp; LLM pipelines that ship to production"
+  ],
+  "h2_count": 9,
+  "img_count": 3,
+  "img_noalt": 0,
+  "ld_types": [
+   "Answer",
+   "BreadcrumbList",
+   "ContactPoint",
+   "Country",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "Offer",
+   "OfferCatalog",
+   "OpeningHoursSpecification",
+   "Organization",
+   "PostalAddress",
+   "ProfessionalService",
+   "Question",
+   "Service",
+   "WebSite"
+  ],
+  "ld_errors": [],
+  "ld_count": 5,
+  "lang": "en",
+  "viewport": "width=device-width, initial-scale=1",
+  "keywords_present": true,
+  "word_count": 3197
+ },
+ "/services/blockchain": {
+  "title": "Blockchain & Web3 Development \u2014 Solidity, dApps & L2",
+  "title_len": 52,
+  "desc": "Solidity and Rust smart contracts, dApps, L2 rollups and Web3 wallets \u2014 audited, gas-optimized and production-hardened by OneNineLabs engineers.",
+  "desc_len": 144,
+  "canonical": [
+   "https://oneninelabs.com/services/blockchain"
+  ],
+  "hreflang": [
+   [
+    "en-US",
+    "https://oneninelabs.com/services/blockchain"
+   ],
+   [
+    "en",
+    "https://oneninelabs.com/services/blockchain"
+   ],
+   [
+    "x-default",
+    "https://oneninelabs.com/services/blockchain"
+   ]
+  ],
+  "og": {
+   "og:title": [
+    "Blockchain Development Services | OneNineLabs"
+   ],
+   "og:description": [
+    "Audited smart contracts, dApps, DeFi, exchanges, wallets and tokenization \u2014 built by one senior Web3 team."
+   ],
+   "og:url": [
+    "https://oneninelabs.com/services/blockchain"
+   ],
+   "og:site_name": [
+    "OneNineLabs"
+   ],
+   "og:locale": [
+    "en_US"
+   ],
+   "og:image": [
+    "https://oneninelabs.com/og/blockchain.jpg"
+   ],
+   "og:image:type": [
+    "image/jpeg"
+   ],
+   "og:image:width": [
+    "1200"
+   ],
+   "og:image:height": [
+    "630"
+   ],
+   "og:image:alt": [
+    "Blockchain and Web3 Development by OneNineLabs"
+   ],
+   "og:type": [
+    "website"
+   ]
+  },
+  "tw": {
+   "twitter:card": [
+    "summary_large_image"
+   ],
+   "twitter:site": [
+    "@oneninelabs"
+   ],
+   "twitter:creator": [
+    "@oneninelabs"
+   ],
+   "twitter:title": [
+    "Blockchain Development Services | OneNineLabs"
+   ],
+   "twitter:description": [
+    "Audited smart contracts, dApps, DeFi, exchanges, wallets and tokenization \u2014 built by one senior Web3 team."
+   ],
+   "twitter:image": [
+    "https://oneninelabs.com/og/blockchain.jpg"
+   ]
+  },
+  "robots": "index, follow",
+  "icons": [
+   [
+    "/favicon.ico",
+    null,
+    null,
+    "any",
+    null
+   ],
+   [
+    "/icon.svg",
+    null,
+    null,
+    null,
+    "image/svg+xml"
+   ],
+   [
+    "/icons/icon-192.png",
+    null,
+    null,
+    "192x192",
+    "image/png"
+   ],
+   [
+    "/icons/icon-512.png",
+    null,
+    null,
+    "512x512",
+    "image/png"
+   ],
+   [
+    "/apple-touch-icon.png",
+    null,
+    null,
+    "180x180",
+    "image/png"
+   ],
+   [
+    "/favicon.ico",
+    null,
+    null,
+    null,
+    null
+   ]
+  ],
+  "manifest": [
+   "/manifest.json"
+  ],
+  "h1_count": 1,
+  "h1": [
+   "Build the future of Web3 &amp; Blockchain"
+  ],
+  "h2_count": 10,
+  "img_count": 7,
+  "img_noalt": 0,
+  "ld_types": [
+   "Answer",
+   "BreadcrumbList",
+   "ContactPoint",
+   "Country",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "Offer",
+   "OfferCatalog",
+   "OpeningHoursSpecification",
+   "Organization",
+   "PostalAddress",
+   "ProfessionalService",
+   "Question",
+   "Service",
+   "WebSite"
+  ],
+  "ld_errors": [],
+  "ld_count": 5,
+  "lang": "en",
+  "viewport": "width=device-width, initial-scale=1",
+  "keywords_present": true,
+  "word_count": 3593
+ },
+ "/services/marketing": {
+  "title": "Growth Marketing Services \u2014 SEO, PPC & CRO | OneNineLabs",
+  "title_len": 56,
+  "desc": "Technical SEO, Core Web Vitals, PPC and CRO that compounds \u2014 +340% organic, 4.8x ROAS. We scale B2B SaaS & Web3 funnels from click to revenue.",
+  "desc_len": 142,
+  "canonical": [
+   "https://oneninelabs.com/services/marketing"
+  ],
+  "hreflang": [
+   [
+    "en-US",
+    "https://oneninelabs.com/services/marketing"
+   ],
+   [
+    "en",
+    "https://oneninelabs.com/services/marketing"
+   ],
+   [
+    "x-default",
+    "https://oneninelabs.com/services/marketing"
+   ]
+  ],
+  "og": {
+   "og:title": [
+    "Growth Marketing, SEO & PPC \u2014 4.8x ROAS | OneNineLabs"
+   ],
+   "og:description": [
+    "Technical SEO + PPC + CRO + full-funnel analytics \u2014 engineered for compounding growth."
+   ],
+   "og:url": [
+    "https://oneninelabs.com/services/marketing"
+   ],
+   "og:site_name": [
+    "OneNineLabs"
+   ],
+   "og:locale": [
+    "en_US"
+   ],
+   "og:image": [
+    "https://oneninelabs.com/og/marketing.jpg"
+   ],
+   "og:image:type": [
+    "image/jpeg"
+   ],
+   "og:image:width": [
+    "1200"
+   ],
+   "og:image:height": [
+    "630"
+   ],
+   "og:image:alt": [
+    "Growth Marketing by OneNineLabs"
+   ],
+   "og:type": [
+    "website"
+   ]
+  },
+  "tw": {
+   "twitter:card": [
+    "summary_large_image"
+   ],
+   "twitter:site": [
+    "@oneninelabs"
+   ],
+   "twitter:creator": [
+    "@oneninelabs"
+   ],
+   "twitter:title": [
+    "Growth Marketing, SEO & PPC \u2014 4.8x ROAS | OneNineLabs"
+   ],
+   "twitter:description": [
+    "Technical SEO + PPC + CRO that compounds."
+   ],
+   "twitter:image": [
+    "https://oneninelabs.com/og/marketing.jpg"
+   ]
+  },
+  "robots": "index, follow",
+  "icons": [
+   [
+    "/favicon.ico",
+    null,
+    null,
+    "any",
+    null
+   ],
+   [
+    "/icon.svg",
+    null,
+    null,
+    null,
+    "image/svg+xml"
+   ],
+   [
+    "/icons/icon-192.png",
+    null,
+    null,
+    "192x192",
+    "image/png"
+   ],
+   [
+    "/icons/icon-512.png",
+    null,
+    null,
+    "512x512",
+    "image/png"
+   ],
+   [
+    "/apple-touch-icon.png",
+    null,
+    null,
+    "180x180",
+    "image/png"
+   ],
+   [
+    "/favicon.ico",
+    null,
+    null,
+    null,
+    null
+   ]
+  ],
+  "manifest": [
+   "/manifest.json"
+  ],
+  "h1_count": 1,
+  "h1": [
+   "Growth Marketing, SEO &amp; PPC That Compounds"
+  ],
+  "h2_count": 7,
+  "img_count": 3,
+  "img_noalt": 0,
+  "ld_types": [
+   "Answer",
+   "BreadcrumbList",
+   "ContactPoint",
+   "Country",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "Offer",
+   "OfferCatalog",
+   "OpeningHoursSpecification",
+   "Organization",
+   "PostalAddress",
+   "ProfessionalService",
+   "Question",
+   "Service",
+   "WebSite"
+  ],
+  "ld_errors": [],
+  "ld_count": 5,
+  "lang": "en",
+  "viewport": "width=device-width, initial-scale=1",
+  "keywords_present": true,
+  "word_count": 4433
+ },
+ "/services/mobile-apps": {
+  "title": "Mobile App Development Company \u2014 React Native & Flutter",
+  "title_len": 55,
+  "desc": "React Native, Flutter and native iOS/Android apps with offline-first data, OTA updates and store launch \u2014 shipped by OneNineLabs in 6-8 weeks.",
+  "desc_len": 142,
+  "canonical": [
+   "https://oneninelabs.com/services/mobile-apps"
+  ],
+  "hreflang": [
+   [
+    "en-US",
+    "https://oneninelabs.com/services/mobile-apps"
+   ],
+   [
+    "en",
+    "https://oneninelabs.com/services/mobile-apps"
+   ],
+   [
+    "x-default",
+    "https://oneninelabs.com/services/mobile-apps"
+   ]
+  ],
+  "og": {
+   "og:title": [
+    "Mobile App Development Company \u2014 React Native & Flutter"
+   ],
+   "og:description": [
+    "React Native, Flutter and native iOS/Android apps with offline-first data, OTA updates and rapid store launch."
+   ],
+   "og:url": [
+    "https://oneninelabs.com/services/mobile-apps"
+   ],
+   "og:site_name": [
+    "OneNineLabs"
+   ],
+   "og:locale": [
+    "en_US"
+   ],
+   "og:image": [
+    "https://oneninelabs.com/og/mobile-apps.jpg"
+   ],
+   "og:image:type": [
+    "image/jpeg"
+   ],
+   "og:image:width": [
+    "1200"
+   ],
+   "og:image:height": [
+    "630"
+   ],
+   "og:image:alt": [
+    "Mobile App Development by OneNineLabs"
+   ],
+   "og:type": [
+    "website"
+   ]
+  },
+  "tw": {
+   "twitter:card": [
+    "summary_large_image"
+   ],
+   "twitter:site": [
+    "@oneninelabs"
+   ],
+   "twitter:creator": [
+    "@oneninelabs"
+   ],
+   "twitter:title": [
+    "Mobile App Development Company \u2014 React Native & Flutter"
+   ],
+   "twitter:description": [
+    "React Native, Flutter and native iOS/Android apps with offline-first data, OTA updates and rapid store launch."
+   ],
+   "twitter:image": [
+    "https://oneninelabs.com/og/mobile-apps.jpg"
+   ]
+  },
+  "robots": "index, follow",
+  "icons": [
+   [
+    "/favicon.ico",
+    null,
+    null,
+    "any",
+    null
+   ],
+   [
+    "/icon.svg",
+    null,
+    null,
+    null,
+    "image/svg+xml"
+   ],
+   [
+    "/icons/icon-192.png",
+    null,
+    null,
+    "192x192",
+    "image/png"
+   ],
+   [
+    "/icons/icon-512.png",
+    null,
+    null,
+    "512x512",
+    "image/png"
+   ],
+   [
+    "/apple-touch-icon.png",
+    null,
+    null,
+    "180x180",
+    "image/png"
+   ],
+   [
+    "/favicon.ico",
+    null,
+    null,
+    null,
+    null
+   ]
+  ],
+  "manifest": [
+   "/manifest.json"
+  ],
+  "h1_count": 1,
+  "h1": [
+   "Mobile Apps for iOS &amp; Android"
+  ],
+  "h2_count": 6,
+  "img_count": 9,
+  "img_noalt": 0,
+  "ld_types": [
+   "Answer",
+   "BreadcrumbList",
+   "ContactPoint",
+   "Country",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "Offer",
+   "OfferCatalog",
+   "OpeningHoursSpecification",
+   "Organization",
+   "PostalAddress",
+   "ProfessionalService",
+   "Question",
+   "Service",
+   "WebSite"
+  ],
+  "ld_errors": [],
+  "ld_count": 5,
+  "lang": "en",
+  "viewport": "width=device-width, initial-scale=1",
+  "keywords_present": true,
+  "word_count": 4112
+ },
+ "/services/saas": {
+  "title": "SaaS Development Company \u2014 Multi-Tenant, Stripe & SSO",
+  "title_len": 53,
+  "desc": "B2B SaaS engineering on Next.js 15 & Node.js microservices. Multi-tenant database isolation, Stripe recurring billing, team RBAC, and telemetry analytics.",
+  "desc_len": 154,
+  "canonical": [
+   "https://oneninelabs.com/services/saas"
+  ],
+  "hreflang": [
+   [
+    "en-US",
+    "https://oneninelabs.com/services/saas"
+   ],
+   [
+    "en",
+    "https://oneninelabs.com/services/saas"
+   ],
+   [
+    "x-default",
+    "https://oneninelabs.com/services/saas"
+   ]
+  ],
+  "og": {
+   "og:title": [
+    "SaaS Platform Development | OneNineLabs"
+   ],
+   "og:description": [
+    "Scale B2B SaaS platforms with multi-tenant isolation and automated Stripe billing."
+   ],
+   "og:url": [
+    "https://oneninelabs.com/services/saas"
+   ],
+   "og:site_name": [
+    "OneNineLabs"
+   ],
+   "og:locale": [
+    "en_US"
+   ],
+   "og:image": [
+    "https://oneninelabs.com/og/saas.jpg"
+   ],
+   "og:image:type": [
+    "image/jpeg"
+   ],
+   "og:image:width": [
+    "1200"
+   ],
+   "og:image:height": [
+    "630"
+   ],
+   "og:image:alt": [
+    "SaaS Development by OneNineLabs"
+   ],
+   "og:type": [
+    "website"
+   ]
+  },
+  "tw": {
+   "twitter:card": [
+    "summary_large_image"
+   ],
+   "twitter:site": [
+    "@oneninelabs"
+   ],
+   "twitter:creator": [
+    "@oneninelabs"
+   ],
+   "twitter:title": [
+    "SaaS Platform Development | OneNineLabs"
+   ],
+   "twitter:description": [
+    "Multi-tenant SaaS with Stripe billing, SSO and SOC 2-ready logs."
+   ],
+   "twitter:image": [
+    "https://oneninelabs.com/og/saas.jpg"
+   ]
+  },
+  "robots": "index, follow",
+  "icons": [
+   [
+    "/favicon.ico",
+    null,
+    null,
+    "any",
+    null
+   ],
+   [
+    "/icon.svg",
+    null,
+    null,
+    null,
+    "image/svg+xml"
+   ],
+   [
+    "/icons/icon-192.png",
+    null,
+    null,
+    "192x192",
+    "image/png"
+   ],
+   [
+    "/icons/icon-512.png",
+    null,
+    null,
+    "512x512",
+    "image/png"
+   ],
+   [
+    "/apple-touch-icon.png",
+    null,
+    null,
+    "180x180",
+    "image/png"
+   ],
+   [
+    "/favicon.ico",
+    null,
+    null,
+    null,
+    null
+   ]
+  ],
+  "manifest": [
+   "/manifest.json"
+  ],
+  "h1_count": 1,
+  "h1": [
+   "Elevate Your Enterprise with Next-Gen SaaS Architecture"
+  ],
+  "h2_count": 6,
+  "img_count": 3,
+  "img_noalt": 0,
+  "ld_types": [
+   "Answer",
+   "BreadcrumbList",
+   "ContactPoint",
+   "Country",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "Offer",
+   "OfferCatalog",
+   "OpeningHoursSpecification",
+   "Organization",
+   "PostalAddress",
+   "ProfessionalService",
+   "Question",
+   "Service",
+   "WebSite"
+  ],
+  "ld_errors": [],
+  "ld_count": 5,
+  "lang": "en",
+  "viewport": "width=device-width, initial-scale=1",
+  "keywords_present": true,
+  "word_count": 3113
+ },
+ "/services/security": {
+  "title": "Cloud & Cybersecurity Services \u2014 SOC 2 & Zero-Trust",
+  "title_len": 51,
+  "desc": "Enterprise cloud & cybersecurity audits, zero-trust cloud architecture, penetration testing, SOC 2 Type II compliance, and real-time threat defense.",
+  "desc_len": 148,
+  "canonical": [
+   "https://oneninelabs.com/services/security"
+  ],
+  "hreflang": [
+   [
+    "en-US",
+    "https://oneninelabs.com/services/security"
+   ],
+   [
+    "en",
+    "https://oneninelabs.com/services/security"
+   ],
+   [
+    "x-default",
+    "https://oneninelabs.com/services/security"
+   ]
+  ],
+  "og": {
+   "og:title": [
+    "Cloud & Cyber Security Readiness | OneNineLabs"
+   ],
+   "og:description": [
+    "Zero-trust cloud architecture, penetration testing & real-time threat defense."
+   ],
+   "og:url": [
+    "https://oneninelabs.com/services/security"
+   ],
+   "og:site_name": [
+    "OneNineLabs"
+   ],
+   "og:locale": [
+    "en_US"
+   ],
+   "og:image": [
+    "https://oneninelabs.com/og/security.jpg"
+   ],
+   "og:image:type": [
+    "image/jpeg"
+   ],
+   "og:image:width": [
+    "1200"
+   ],
+   "og:image:height": [
+    "630"
+   ],
+   "og:image:alt": [
+    "Cloud and Cyber Security by OneNineLabs"
+   ],
+   "og:type": [
+    "website"
+   ]
+  },
+  "tw": {
+   "twitter:card": [
+    "summary_large_image"
+   ],
+   "twitter:site": [
+    "@oneninelabs"
+   ],
+   "twitter:creator": [
+    "@oneninelabs"
+   ],
+   "twitter:title": [
+    "Cloud & Cyber Security Readiness | OneNineLabs"
+   ],
+   "twitter:description": [
+    "Zero-trust cloud architecture, penetration testing & real-time threat defense."
+   ],
+   "twitter:image": [
+    "https://oneninelabs.com/og/security.jpg"
+   ]
+  },
+  "robots": "index, follow",
+  "icons": [
+   [
+    "/favicon.ico",
+    null,
+    null,
+    "any",
+    null
+   ],
+   [
+    "/icon.svg",
+    null,
+    null,
+    null,
+    "image/svg+xml"
+   ],
+   [
+    "/icons/icon-192.png",
+    null,
+    null,
+    "192x192",
+    "image/png"
+   ],
+   [
+    "/icons/icon-512.png",
+    null,
+    null,
+    "512x512",
+    "image/png"
+   ],
+   [
+    "/apple-touch-icon.png",
+    null,
+    null,
+    "180x180",
+    "image/png"
+   ],
+   [
+    "/favicon.ico",
+    null,
+    null,
+    null,
+    null
+   ]
+  ],
+  "manifest": [
+   "/manifest.json"
+  ],
+  "h1_count": 1,
+  "h1": [
+   "Zero-trust defense &amp; audit-ready security for cloud products"
+  ],
+  "h2_count": 6,
+  "img_count": 2,
+  "img_noalt": 0,
+  "ld_types": [
+   "Answer",
+   "BreadcrumbList",
+   "ContactPoint",
+   "Country",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "Offer",
+   "OfferCatalog",
+   "OpeningHoursSpecification",
+   "Organization",
+   "PostalAddress",
+   "ProfessionalService",
+   "Question",
+   "Service",
+   "WebSite"
+  ],
+  "ld_errors": [],
+  "ld_count": 5,
+  "lang": "en",
+  "viewport": "width=device-width, initial-scale=1",
+  "keywords_present": true,
+  "word_count": 2871
+ },
+ "/services/student": {
+  "title": "Student Social Media & Branding Packages | OneNineLabs",
+  "title_len": 54,
+  "desc": "Social media management and personal branding for students and campus creators \u2014 posts, reels, captions and hashtag strategy from \u20b9399/month.",
+  "desc_len": 141,
+  "canonical": [
+   "https://oneninelabs.com/services/student"
+  ],
+  "hreflang": [
+   [
+    "en-US",
+    "https://oneninelabs.com/services/student"
+   ],
+   [
+    "en",
+    "https://oneninelabs.com/services/student"
+   ],
+   [
+    "x-default",
+    "https://oneninelabs.com/services/student"
+   ]
+  ],
+  "og": {
+   "og:title": [
+    "Student Social Media & Personal Branding Packages | OneNineLabs"
+   ],
+   "og:description": [
+    "Affordable monthly social media posts, reels, stories, and personal branding strategies for students and campus creators."
+   ],
+   "og:url": [
+    "https://oneninelabs.com/services/student"
+   ],
+   "og:site_name": [
+    "OneNineLabs"
+   ],
+   "og:locale": [
+    "en_US"
+   ],
+   "og:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ],
+   "og:image:type": [
+    "image/jpeg"
+   ],
+   "og:image:width": [
+    "1200"
+   ],
+   "og:image:height": [
+    "630"
+   ],
+   "og:image:alt": [
+    "Student social media packages by OneNineLabs"
+   ],
+   "og:type": [
+    "website"
+   ]
+  },
+  "tw": {
+   "twitter:card": [
+    "summary_large_image"
+   ],
+   "twitter:site": [
+    "@oneninelabs"
+   ],
+   "twitter:creator": [
+    "@oneninelabs"
+   ],
+   "twitter:title": [
+    "Student Programs & Campus Accelerator \u2014 OneNineLabs"
+   ],
+   "twitter:description": [
+    "From Campus to Production Scale. Live codebases, 1-on-1 mentorship & paid internships."
+   ],
+   "twitter:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ]
+  },
+  "robots": "index, follow",
+  "icons": [
+   [
+    "/favicon.ico",
+    null,
+    null,
+    "any",
+    null
+   ],
+   [
+    "/icon.svg",
+    null,
+    null,
+    null,
+    "image/svg+xml"
+   ],
+   [
+    "/icons/icon-192.png",
+    null,
+    null,
+    "192x192",
+    "image/png"
+   ],
+   [
+    "/icons/icon-512.png",
+    null,
+    null,
+    "512x512",
+    "image/png"
+   ],
+   [
+    "/apple-touch-icon.png",
+    null,
+    null,
+    "180x180",
+    "image/png"
+   ],
+   [
+    "/favicon.ico",
+    null,
+    null,
+    null,
+    null
+   ]
+  ],
+  "manifest": [
+   "/manifest.json"
+  ],
+  "h1_count": 1,
+  "h1": [
+   "GROW YOUR CAMPUS INFLUENCE. STARTING AT \u20b9399/MO."
+  ],
+  "h2_count": 4,
+  "img_count": 2,
+  "img_noalt": 0,
+  "ld_types": [
+   "BreadcrumbList",
+   "ContactPoint",
+   "Country",
+   "EducationalOccupationalProgram",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "Offer",
+   "OfferCatalog",
+   "OpeningHoursSpecification",
+   "Organization",
+   "PostalAddress",
+   "ProfessionalService",
+   "Service",
+   "WebSite"
+  ],
+  "ld_errors": [],
+  "ld_count": 4,
+  "lang": "en",
+  "viewport": "width=device-width, initial-scale=1",
+  "keywords_present": true,
+  "word_count": 1892
+ },
+ "/services/web-development": {
+  "title": "Custom Web Development & High-Performance UIs | OneNineLabs",
+  "title_len": 59,
+  "desc": "Enterprise web applications built on modern UI stacks, React, Vue, Vite & Edge APIs. Blazing-fast edge delivery, headless CMS, and sub-second LCP page loads.",
+  "desc_len": 157,
+  "canonical": [
+   "https://oneninelabs.com/services/web-development"
+  ],
+  "hreflang": [
+   [
+    "en-US",
+    "https://oneninelabs.com/services/web-development"
+   ],
+   [
+    "en",
+    "https://oneninelabs.com/services/web-development"
+   ],
+   [
+    "x-default",
+    "https://oneninelabs.com/services/web-development"
+   ]
+  ],
+  "og": {
+   "og:title": [
+    "Custom Web Development & Modern UI Apps | OneNineLabs"
+   ],
+   "og:description": [
+    "Blazing-fast custom web applications engineered for speed, security & scale."
+   ],
+   "og:url": [
+    "https://oneninelabs.com/services/web-development"
+   ],
+   "og:site_name": [
+    "OneNineLabs"
+   ],
+   "og:locale": [
+    "en_US"
+   ],
+   "og:image": [
+    "https://oneninelabs.com/og/web-development.jpg"
+   ],
+   "og:image:type": [
+    "image/jpeg"
+   ],
+   "og:image:width": [
+    "1200"
+   ],
+   "og:image:height": [
+    "630"
+   ],
+   "og:image:alt": [
+    "Custom Web Development by OneNineLabs"
+   ],
+   "og:type": [
+    "website"
+   ]
+  },
+  "tw": {
+   "twitter:card": [
+    "summary_large_image"
+   ],
+   "twitter:site": [
+    "@oneninelabs"
+   ],
+   "twitter:creator": [
+    "@oneninelabs"
+   ],
+   "twitter:title": [
+    "Custom Web Development & Modern UI Apps | OneNineLabs"
+   ],
+   "twitter:description": [
+    "Blazing-fast custom web applications engineered for speed, security & scale."
+   ],
+   "twitter:image": [
+    "https://oneninelabs.com/og/web-development.jpg"
+   ]
+  },
+  "robots": "index, follow",
+  "icons": [
+   [
+    "/favicon.ico",
+    null,
+    null,
+    "any",
+    null
+   ],
+   [
+    "/icon.svg",
+    null,
+    null,
+    null,
+    "image/svg+xml"
+   ],
+   [
+    "/icons/icon-192.png",
+    null,
+    null,
+    "192x192",
+    "image/png"
+   ],
+   [
+    "/icons/icon-512.png",
+    null,
+    null,
+    "512x512",
+    "image/png"
+   ],
+   [
+    "/apple-touch-icon.png",
+    null,
+    null,
+    "180x180",
+    "image/png"
+   ],
+   [
+    "/favicon.ico",
+    null,
+    null,
+    null,
+    null
+   ]
+  ],
+  "manifest": [
+   "/manifest.json"
+  ],
+  "h1_count": 1,
+  "h1": [
+   "Kickstart your custom web app effortlessly"
+  ],
+  "h2_count": 12,
+  "img_count": 2,
+  "img_noalt": 0,
+  "ld_types": [
+   "Answer",
+   "BreadcrumbList",
+   "ContactPoint",
+   "Country",
+   "FAQPage",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "Offer",
+   "OfferCatalog",
+   "OpeningHoursSpecification",
+   "Organization",
+   "PostalAddress",
+   "ProfessionalService",
+   "Question",
+   "Service",
+   "WebSite"
+  ],
+  "ld_errors": [],
+  "ld_count": 5,
+  "lang": "en",
+  "viewport": "width=device-width, initial-scale=1",
+  "keywords_present": true,
+  "word_count": 4126
+ },
+ "/terms": {
+  "title": "Terms of Service \u2014 Using OneNineLabs Software Services",
+  "title_len": 54,
+  "desc": "Terms for using oneninelabs.com and engaging OneNineLabs for software, AI, SaaS, Web3 and security work. Lucknow, India.",
+  "desc_len": 120,
+  "canonical": [
+   "https://oneninelabs.com/terms"
+  ],
+  "hreflang": [
+   [
+    "en-US",
+    "https://oneninelabs.com/terms"
+   ],
+   [
+    "en",
+    "https://oneninelabs.com/terms"
+   ],
+   [
+    "x-default",
+    "https://oneninelabs.com/terms"
+   ]
+  ],
+  "og": {
+   "og:title": [
+    "Terms of Service \u2014 Using OneNineLabs Software Services"
+   ],
+   "og:description": [
+    "Terms for using the OneNineLabs website and engaging our engineering team."
+   ],
+   "og:url": [
+    "https://oneninelabs.com/terms"
+   ],
+   "og:site_name": [
+    "OneNineLabs"
+   ],
+   "og:locale": [
+    "en_US"
+   ],
+   "og:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ],
+   "og:image:type": [
+    "image/jpeg"
+   ],
+   "og:image:width": [
+    "1200"
+   ],
+   "og:image:height": [
+    "630"
+   ],
+   "og:image:alt": [
+    "OneNineLabs Terms of Service"
+   ],
+   "og:type": [
+    "website"
+   ]
+  },
+  "tw": {
+   "twitter:card": [
+    "summary_large_image"
+   ],
+   "twitter:site": [
+    "@oneninelabs"
+   ],
+   "twitter:creator": [
+    "@oneninelabs"
+   ],
+   "twitter:title": [
+    "OneNineLabs \u2014 Custom Software, Web, AI & SaaS Company"
+   ],
+   "twitter:description": [
+    "OneNineLabs builds web, mobile, SaaS, AI and Web3 \u2014 Next.js, RAG, Stripe & SOC 2, 80+ shipped worldwide. Email 19@oneninelabs.com or call +91 85888 07039."
+   ],
+   "twitter:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ]
+  },
+  "robots": "index, follow",
+  "icons": [
+   [
+    "/favicon.ico",
+    null,
+    null,
+    "any",
+    null
+   ],
+   [
+    "/icon.svg",
+    null,
+    null,
+    null,
+    "image/svg+xml"
+   ],
+   [
+    "/icons/icon-192.png",
+    null,
+    null,
+    "192x192",
+    "image/png"
+   ],
+   [
+    "/icons/icon-512.png",
+    null,
+    null,
+    "512x512",
+    "image/png"
+   ],
+   [
+    "/apple-touch-icon.png",
+    null,
+    null,
+    "180x180",
+    "image/png"
+   ],
+   [
+    "/favicon.ico",
+    null,
+    null,
+    null,
+    null
+   ]
+  ],
+  "manifest": [
+   "/manifest.json"
+  ],
+  "h1_count": 1,
+  "h1": [
+   "Terms of Service"
+  ],
+  "h2_count": 6,
+  "img_count": 2,
+  "img_noalt": 0,
+  "ld_types": [
+   "BreadcrumbList",
+   "ContactPoint",
+   "Country",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "Offer",
+   "OfferCatalog",
+   "OpeningHoursSpecification",
+   "Organization",
+   "PostalAddress",
+   "ProfessionalService",
+   "Service",
+   "WebPage",
+   "WebSite"
+  ],
+  "ld_errors": [],
+  "ld_count": 4,
+  "lang": "en",
+  "viewport": "width=device-width, initial-scale=1",
+  "keywords_present": false,
+  "word_count": 1194
+ },
+ "/why-us": {
+  "title": "Why OneNineLabs \u2014 6 Reasons Leaders Choose Us | Lucknow",
+  "title_len": 55,
+  "desc": "Why leaders choose OneNineLabs for custom software: 6\u20138 week MVP, SOC 2-ready, 99.9% uptime and hybrid pods. Lucknow & worldwide \u2014 see our advantage.",
+  "desc_len": 149,
+  "canonical": [
+   "https://oneninelabs.com/why-us"
+  ],
+  "hreflang": [
+   [
+    "en-US",
+    "https://oneninelabs.com/why-us"
+   ],
+   [
+    "en",
+    "https://oneninelabs.com/why-us"
+   ],
+   [
+    "x-default",
+    "https://oneninelabs.com/why-us"
+   ]
+  ],
+  "og": {
+   "og:title": [
+    "Why Enterprise Leaders Partner With OneNineLabs"
+   ],
+   "og:description": [
+    "High-speed execution + enterprise rigor \u2014 6-8 week MVPs, SOC 2, 99.9% SLA, AI-native. Lucknow & worldwide."
+   ],
+   "og:url": [
+    "https://oneninelabs.com/why-us"
+   ],
+   "og:site_name": [
+    "OneNineLabs"
+   ],
+   "og:locale": [
+    "en_US"
+   ],
+   "og:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ],
+   "og:image:type": [
+    "image/jpeg"
+   ],
+   "og:image:width": [
+    "1200"
+   ],
+   "og:image:height": [
+    "630"
+   ],
+   "og:image:alt": [
+    "Why choose OneNineLabs"
+   ],
+   "og:type": [
+    "website"
+   ]
+  },
+  "tw": {
+   "twitter:card": [
+    "summary_large_image"
+   ],
+   "twitter:site": [
+    "@oneninelabs"
+   ],
+   "twitter:creator": [
+    "@oneninelabs"
+   ],
+   "twitter:title": [
+    "Why Enterprise Leaders Partner With OneNineLabs"
+   ],
+   "twitter:description": [
+    "6\u20138 week MVPs, SOC 2-ready, 99.9% SLA. Lucknow and worldwide."
+   ],
+   "twitter:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ]
+  },
+  "robots": "index, follow",
+  "icons": [
+   [
+    "/favicon.ico",
+    null,
+    null,
+    "any",
+    null
+   ],
+   [
+    "/icon.svg",
+    null,
+    null,
+    null,
+    "image/svg+xml"
+   ],
+   [
+    "/icons/icon-192.png",
+    null,
+    null,
+    "192x192",
+    "image/png"
+   ],
+   [
+    "/icons/icon-512.png",
+    null,
+    null,
+    "512x512",
+    "image/png"
+   ],
+   [
+    "/apple-touch-icon.png",
+    null,
+    null,
+    "180x180",
+    "image/png"
+   ],
+   [
+    "/favicon.ico",
+    null,
+    null,
+    null,
+    null
+   ]
+  ],
+  "manifest": [
+   "/manifest.json"
+  ],
+  "h1_count": 1,
+  "h1": [
+   "Why Enterprise Leaders Partner With Us"
+  ],
+  "h2_count": 3,
+  "img_count": 2,
+  "img_noalt": 0,
+  "ld_types": [
+   "BreadcrumbList",
+   "ContactPoint",
+   "Country",
+   "GeoCoordinates",
+   "ImageObject",
+   "ListItem",
+   "Offer",
+   "OfferCatalog",
+   "OpeningHoursSpecification",
+   "Organization",
+   "PostalAddress",
+   "ProfessionalService",
+   "Service",
+   "WebSite"
+  ],
+  "ld_errors": [],
+  "ld_count": 3,
+  "lang": "en",
+  "viewport": "width=device-width, initial-scale=1",
+  "keywords_present": true,
+  "word_count": 1523
+ },
+ "/404": {
+  "title": "OneNineLabs \u2014 Custom Software, Web, AI & SaaS Company",
+  "title_len": 53,
+  "desc": "OneNineLabs builds web, mobile, SaaS, AI and Web3 \u2014 Next.js, RAG, Stripe & SOC 2, 80+ shipped worldwide. Email 19@oneninelabs.com or call +91 85888 07039.",
+  "desc_len": 154,
+  "canonical": [
+   "https://oneninelabs.com"
+  ],
+  "hreflang": [
+   [
+    "en-US",
+    "https://oneninelabs.com"
+   ],
+   [
+    "en",
+    "https://oneninelabs.com"
+   ],
+   [
+    "x-default",
+    "https://oneninelabs.com"
+   ]
+  ],
+  "og": {
+   "og:title": [
+    "OneNineLabs \u2014 Custom Software, Web, AI & SaaS Company"
+   ],
+   "og:description": [
+    "OneNineLabs builds web, mobile, SaaS, AI and Web3 \u2014 Next.js, RAG, Stripe & SOC 2, 80+ shipped worldwide. Email 19@oneninelabs.com or call +91 85888 07039."
+   ],
+   "og:url": [
+    "https://oneninelabs.com"
+   ],
+   "og:site_name": [
+    "OneNineLabs"
+   ],
+   "og:locale": [
+    "en_US"
+   ],
+   "og:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ],
+   "og:image:type": [
+    "image/jpeg"
+   ],
+   "og:image:width": [
+    "1200"
+   ],
+   "og:image:height": [
+    "630"
+   ],
+   "og:image:alt": [
+    "OneNineLabs \u2014 Custom Software, AI Agents & Web3 Apps"
+   ],
+   "og:type": [
+    "website"
+   ]
+  },
+  "tw": {
+   "twitter:card": [
+    "summary_large_image"
+   ],
+   "twitter:site": [
+    "@oneninelabs"
+   ],
+   "twitter:creator": [
+    "@oneninelabs"
+   ],
+   "twitter:title": [
+    "OneNineLabs \u2014 Custom Software, Web, AI & SaaS Company"
+   ],
+   "twitter:description": [
+    "OneNineLabs builds web, mobile, SaaS, AI and Web3 \u2014 Next.js, RAG, Stripe & SOC 2, 80+ shipped worldwide. Email 19@oneninelabs.com or call +91 85888 07039."
+   ],
+   "twitter:image": [
+    "https://oneninelabs.com/og/default.jpg"
+   ]
+  },
+  "robots": "noindex",
+  "icons": [
+   [
+    "/favicon.ico",
+    null,
+    null,
+    "any",
+    null
+   ],
+   [
+    "/icon.svg",
+    null,
+    null,
+    null,
+    "image/svg+xml"
+   ],
+   [
+    "/icons/icon-192.png",
+    null,
+    null,
+    "192x192",
+    "image/png"
+   ],
+   [
+    "/icons/icon-512.png",
+    null,
+    null,
+    "512x512",
+    "image/png"
+   ],
+   [
+    "/apple-touch-icon.png",
+    null,
+    null,
+    "180x180",
+    "image/png"
+   ],
+   [
+    "/favicon.ico",
+    null,
+    null,
+    null,
+    null
+   ]
+  ],
+  "manifest": [
+   "/manifest.json"
+  ],
+  "h1_count": 1,
+  "h1": [
+   "404"
+  ],
+  "h2_count": 1,
+  "img_count": 0,
+  "img_noalt": 0,
+  "ld_types": [
+   "ContactPoint",
+   "Country",
+   "GeoCoordinates",
+   "ImageObject",
+   "Offer",
+   "OfferCatalog",
+   "OpeningHoursSpecification",
+   "Organization",
+   "PostalAddress",
+   "ProfessionalService",
+   "Service",
+   "WebSite"
+  ],
+  "ld_errors": [],
+  "ld_count": 2,
+  "lang": "en",
+  "viewport": "width=device-width, initial-scale=1",
+  "keywords_present": false,
+  "word_count": 266
+ }
+}

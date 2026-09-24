@@ -23,24 +23,25 @@ export const metadata = {
     languages: {
       "en-US": "/services",
       "en": "/services",
-      "hi-IN": "/services",
       "x-default": "/services",
     },
   },
-  openGraph: {
+  openGraph: { locale: "en_US", siteName: "OneNineLabs",
     title: "OneNineLabs Services — Custom Software Engineering for Enterprise Growth",
     description:
       "From high-scale Web3 protocols and AI automation pipelines to multi-tenant SaaS platforms — OneNineLabs delivers battle-tested software tailored for enterprise growth.",
     url: `${siteUrl}/services`,
     siteName: "OneNineLabs",
     type: "website",
-    images: [{ url: "/services/services_hero_main.png", width: 1200, height: 630, alt: "OneNineLabs Services Overview" }],
+    images: [
+      { url: "/og/services.jpg", width: 1200, height: 630, alt: "OneNineLabs engineering services", type: "image/jpeg" },
+    ],
   },
-  twitter: {
+  twitter: { site: "@oneninelabs", creator: "@oneninelabs",
     card: "summary_large_image",
     title: "OneNineLabs Services — Custom Software Engineering for Enterprise Growth",
     description: "Web, AI, SaaS, Blockchain, Marketing & Security — enterprise software that scales.",
-    images: ["/services/services_hero_main.png"],
+    images: ["/og/services.jpg"],
   },
   robots: { index: true, follow: true },
 };
@@ -216,8 +217,9 @@ const cfg = {
 
   hero: {
     badge: "Professional Engineering Services",
-    titleBefore: "We Are Providing",
-    titleHighlight: "Professional Engineering",
+    titleBefore: "Professional Engineering Services",
+    titleHighlight: "for Web, Mobile, AI, SaaS & Web3",
+    titlePowered: "by OneNineLabs",
     desc: "From high-scale Web3 protocols and AI automation pipelines to multi-tenant SaaS platforms — OneNineLabs delivers battle-tested software tailored for enterprise growth.",
     primaryCta: { label: "Book Architecture Review →", href: "/contact" },
     ghostCta: { label: "Explore Engineering Capabilities", href: "/about" },
@@ -384,7 +386,7 @@ export default function ServicesPage() {
         name: s.title,
         category: s.category,
         url: `${siteUrl}${s.href}`,
-        provider: { "@type": "Organization", name: "OneNineLabs", url: siteUrl },
+        provider: { "@id": `${siteUrl}/#organization` },
       },
     })),
   };

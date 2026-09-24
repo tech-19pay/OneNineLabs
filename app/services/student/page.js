@@ -5,9 +5,9 @@ import StudentPageClient from "@/components/StudentPageClient";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://oneninelabs.com";
 
 export const metadata = {
-  title: "Student Social Media & Personal Branding Packages | OneNineLabs",
+  title: "Student Social Media & Branding Packages | OneNineLabs",
   description:
-    "Affordable social media management and personal branding packages for students and campus creators. High-quality posts, reels, stories, captions, and hashtag strategies starting at ₹399/mo.",
+    "Social media management and personal branding for students and campus creators — posts, reels, captions and hashtag strategy from ₹399/month.",
   keywords: [
     "student social media package",
     "student personal branding",
@@ -22,24 +22,25 @@ export const metadata = {
     languages: {
       "en-US": "/services/student",
       en: "/services/student",
-      "hi-IN": "/services/student",
       "x-default": "/services/student",
     },
   },
-  openGraph: {
+  openGraph: { locale: "en_US", siteName: "OneNineLabs",
     title: "Student Social Media & Personal Branding Packages | OneNineLabs",
     description:
       "Affordable monthly social media posts, reels, stories, and personal branding strategies for students and campus creators.",
     url: `${siteUrl}/services/student`,
     siteName: "OneNineLabs",
     type: "website",
-    images: [{ url: "/tech_banner.png", width: 1200, height: 630, alt: "Student Social Media Packages" }],
+    images: [
+      { url: "/og/default.jpg", width: 1200, height: 630, alt: "Student social media packages by OneNineLabs", type: "image/jpeg" },
+    ],
   },
-  twitter: {
+  twitter: { site: "@oneninelabs", creator: "@oneninelabs",
     card: "summary_large_image",
     title: "Student Programs & Campus Accelerator — OneNineLabs",
     description: "From Campus to Production Scale. Live codebases, 1-on-1 mentorship & paid internships.",
-    images: ["/tech_banner.png"],
+    images: ["/og/default.jpg"],
   },
   robots: { index: true, follow: true },
 };

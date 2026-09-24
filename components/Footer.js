@@ -66,8 +66,8 @@ export default function Footer({ accentColor = "#10b981" }) {
               </p>
               <div style={{ display: "flex", gap: "14px", marginTop: "6px" }}>
                 <a href="https://github.com/tech-19pay" target="_blank" rel="noopener noreferrer" style={{ color: "#64748b", textDecoration: "none", fontSize: "13px" }}>GitHub</a>
-                <a href="https://linkedin.com/company/oneninelabs" target="_blank" rel="noopener noreferrer" style={{ color: "#64748b", textDecoration: "none", fontSize: "13px" }}>LinkedIn</a>
-                <a href="https://twitter.com/oneninelabs" target="_blank" rel="noopener noreferrer" style={{ color: "#64748b", textDecoration: "none", fontSize: "13px" }}>Twitter</a>
+                <a href="https://www.linkedin.com/company/oneninelabs" target="_blank" rel="noopener noreferrer" style={{ color: "#64748b", textDecoration: "none", fontSize: "13px" }}>LinkedIn</a>
+                <a href="https://x.com/oneninelabs" target="_blank" rel="noopener noreferrer" style={{ color: "#64748b", textDecoration: "none", fontSize: "13px" }}>Twitter</a>
               </div>
             </div>
 

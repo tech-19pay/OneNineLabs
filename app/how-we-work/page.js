@@ -8,7 +8,7 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://oneninelabs.com";
 export const metadata = {
   title: "How We Work — The 7-Stage Execution Protocol | OneNineLabs",
   description:
-    "Explore OneNineLabs' 7-stage software execution protocol: Discovery, Plan, Design, Build, Review, Launch, and Support. Transparent, milestone-driven custom engineering.",
+    "Our 7-stage software execution protocol: Discovery, Plan, Design, Build, Review, Launch and Support — transparent, milestone-driven engineering.",
   keywords: [
     "how we work",
     "software development lifecycle",
@@ -23,24 +23,25 @@ export const metadata = {
     languages: {
       "en-US": "/how-we-work",
       en: "/how-we-work",
-      "hi-IN": "/how-we-work",
       "x-default": "/how-we-work",
     },
   },
-  openGraph: {
+  openGraph: { locale: "en_US", siteName: "OneNineLabs",
     title: "How We Work — The 7-Stage Execution Protocol | OneNineLabs",
     description:
       "From Concept to Production Scale. Discover our battle-tested 7-phase methodology engineered for velocity, security, and measurable ROI.",
     url: `${siteUrl}/how-we-work`,
     siteName: "OneNineLabs",
     type: "website",
-    images: [{ url: "/tech_banner.png", width: 1200, height: 630, alt: "How OneNineLabs Works" }],
+    images: [
+      { url: "/og/default.jpg", width: 1200, height: 630, alt: "How OneNineLabs delivers software", type: "image/jpeg" },
+    ],
   },
-  twitter: {
+  twitter: { site: "@oneninelabs", creator: "@oneninelabs",
     card: "summary_large_image",
     title: "How We Work — The 7-Stage Execution Protocol | OneNineLabs",
     description: "From Concept to Production Scale. Transparent, disciplined 7-phase engineering methodology.",
-    images: ["/tech_banner.png"],
+    images: ["/og/default.jpg"],
   },
   robots: { index: true, follow: true },
 };

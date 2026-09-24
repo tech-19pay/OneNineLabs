@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { securityFaqs as faqs } from "@/lib/faqs";
 
 const PRIMARY = "#059669";
 
@@ -88,14 +89,6 @@ const processSteps = [
   { num: "06", title: "Monitor & Respond", desc: "24/7 SIEM, on-call IR and quarterly tabletop exercises under a written SLA.", metric: "15m SLA" },
 ];
 
-const faqs = [
-  { q: "What is included in a OneNineLabs penetration test?", a: "Black-box and white-box coverage of web apps, mobile, REST/GraphQL APIs and cloud infrastructure. We test the OWASP Top 10, authentication bypass, privilege escalation, business-logic flaws and supply-chain issues, then deliver a remediation report and a free re-test." },
-  { q: "How fast can you prepare us for SOC 2 Type II or ISO 27001?", a: "Most platforms are audit-ready in 6–8 weeks. We draft the policies, configure technical controls, integrate Vanta or Drata for evidence and stay with your team through the auditor evaluation." },
-  { q: "What is Zero-Trust and how does it protect our cloud?", a: "Never trust, always verify. We retire legacy VPNs for identity-aware ZTNA, least-privilege IAM with session expiry, mTLS microsegmentation and hardware-backed KMS encryption." },
-  { q: "Do you provide 24/7 monitoring and incident response?", a: "Yes. Our SIEM and SOC ingest CloudTrail, Kubernetes and API logs continuously. Automated detection plus a sub-15-minute triage and containment SLA." },
-  { q: "Which clouds and environments do you support?", a: "AWS, GCP, Azure, Cloudflare and on-prem Kubernetes, declared in Terraform / OpenTofu so every control is versioned." },
-  { q: "How do you prove compliance to enterprise buyers?", a: "Audit-ready SOC 2 / ISO evidence packs, cryptographic trails, executive summaries and pentest verification letters you can share with prospects." },
-];
 
 const pill = {
   background: "#f8fafc", color: "#475569", border: "1px solid #e2e8f0",

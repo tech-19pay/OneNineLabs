@@ -96,64 +96,56 @@ export default function ContactPage() {
   const breadcrumbLd = {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
+    "@id": `${siteUrl}/contact#breadcrumb`,
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: siteUrl },
       { "@type": "ListItem", position: 2, name: "Contact Us", item: `${siteUrl}/contact` },
     ],
   };
+  // ContactPage referencing the single site-wide Organization node
+  // (previously a duplicate, conflicting Organization entity with a
+  //  dead github.com/oneninelabs sameAs and a wrong "TollFree" claim).
   const orgLd = {
     "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "OneNineLabs",
-    url: siteUrl,
-    logo: `${siteUrl}/logo.png`,
-    contactPoint: [
-      {
-        "@type": "ContactPoint",
-        telephone: "+91-8588807039",
-        contactType: "customer service",
-        email: "19@oneninelabs.com",
-        availableLanguage: ["en", "hi"],
-        areaServed: ["IN", "Worldwide"],
-        contactOption: "TollFree",
-      },
-    ],
-    address: {
-      "@type": "PostalAddress",
-      addressLocality: "Lucknow",
-      addressRegion: "Uttar Pradesh",
-      addressCountry: "IN",
-    },
-    sameAs: ["https://github.com/oneninelabs", "https://linkedin.com/company/oneninelabs", "https://twitter.com/oneninelabs"],
+    "@type": "ContactPage",
+    "@id": `${siteUrl}/contact#webpage`,
+    url: `${siteUrl}/contact`,
+    name: "Contact OneNineLabs",
+    inLanguage: "en-US",
+    isPartOf: { "@id": `${siteUrl}/#website` },
+    about: { "@id": `${siteUrl}/#organization` },
+    breadcrumb: { "@id": `${siteUrl}/contact#breadcrumb` },
+    mainEntity: { "@id": `${siteUrl}/#organization` },
   };
+  // FAQPage mirrors the visible <details> FAQ section below, verbatim.
   const faqLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
     mainEntity: [
       {
         "@type": "Question",
-        name: "How fast will OneNineLabs respond to my inquiry?",
-        acceptedAnswer: { "@type": "Answer", text: "We guarantee an engineer response within 12 hours for all inquiries to 19@oneninelabs.com or via phone +91 85888 07039. For urgent enterprise requests, we offer same-day architecture calls." },
+        name: "What happens after I submit the form?",
+        acceptedAnswer: { "@type": "Answer", text: "Your message is saved to our secure oneninecontact DB and an alert is sent to 19@oneninelabs.com. An engineer reviews and replies within 12 hours with next steps and a scheduling link." },
       },
       {
         "@type": "Question",
-        name: "What info should I include when contacting OneNineLabs?",
-        acceptedAnswer: { "@type": "Answer", text: "Share your goals, tech stack, timeline, and budget range. Even a 2-line brief helps us prep a tailored architecture review and estimate before the call." },
+        name: "Can I just email or call directly?",
+        acceptedAnswer: { "@type": "Answer", text: "Yes! Email 19@oneninelabs.com for detailed briefs or call +91 85888 07039 (Mon\u2013Sat 9AM\u20137PM IST) for quick scoping. Both go to the same engineering queue." },
       },
       {
         "@type": "Question",
-        name: "Where is OneNineLabs located and do you work worldwide?",
-        acceptedAnswer: { "@type": "Answer", text: "We are based in Lucknow, Uttar Pradesh, India (serving Farrukhabad region and worldwide). We work hybrid — on-site when needed, otherwise fully remote with 99.9% uptime SLAs and daily standups in your timezone." },
+        name: "Do you sign NDAs?",
+        acceptedAnswer: { "@type": "Answer", text: "Absolutely. We can sign your NDA or ours before any deep dive. All code and data are handled Zero-Trust with encrypted storage." },
       },
       {
         "@type": "Question",
-        name: "Can I schedule a call instead of filling the form?",
-        acceptedAnswer: { "@type": "Answer", text: "Absolutely — email 19@oneninelabs.com or call +91 85888 07039 to book a 30-min discovery call. Or use the form and we’ll propose slots within 12h." },
+        name: "Do you work with startups and enterprises both?",
+        acceptedAnswer: { "@type": "Answer", text: "Yes \u2014 from pre-seed MVPs to enterprise modernization. We scale the pod to fit your stage and budget, from 2-week sprints to dedicated teams." },
       },
       {
         "@type": "Question",
-        name: "Is my data secure when I contact you?",
-        acceptedAnswer: { "@type": "Answer", text: "Yes — all contact submissions are encrypted, stored in our secure oneninecontact MongoDB with access controls, and never shared. We are SOC 2-ready and Zero-Trust by default." },
+        name: "Where are you located?",
+        acceptedAnswer: { "@type": "Answer", text: "Lucknow, Uttar Pradesh, India \u2014 serving Farrukhabad region and clients worldwide, hybrid remote + on-site." },
       },
     ],
   };
@@ -185,7 +177,7 @@ export default function ContactPage() {
 
         <div className="contact-reference-panel">
           <div className="reference-copy">
-            <h1>Tell us about your<br /><span>project</span></h1>
+            <h2>Tell us about your <br /><span>project</span></h2>
             <div className="reference-promises">
               <div><span>✓</span> We&apos;ll respond to you within 12 hours</div>
               <div><span>✓</span> We&apos;ll sign an NDA if requested</div>
@@ -673,8 +665,8 @@ export default function ContactPage() {
         .contact-reference-panel::after { display: none; }
         .reference-copy, .reference-form { position: relative; z-index: 1; }
         .reference-copy { padding-left: 60px; }
-        .reference-copy h1 { margin: 0; color: #0f172a; font-size: clamp(48px, 4.5vw, 64px); line-height: 1; letter-spacing: -2.4px; font-weight: 900; white-space: nowrap; }
-        .reference-copy h1 span { color: #0f172a; }
+        .reference-copy h1, .reference-copy h2 { margin: 0; color: #0f172a; font-size: clamp(48px, 4.5vw, 64px); line-height: 1; letter-spacing: -2.4px; font-weight: 900; white-space: nowrap; }
+        .reference-copy h1 span, .reference-copy h2 span { color: #0f172a; }
         .reference-promises { display: flex; flex-direction: column; gap: 22px; margin-top: 46px; color: #52637a; font-size: 20px; font-weight: 600; }
         .reference-promises div { display: flex; align-items: center; gap: 18px; }
         .reference-promises span { width: 22px; height: 22px; display: inline-flex; align-items: center; justify-content: center; border-radius: 50%; background: #078aca; color: #ffffff; font-size: 16px; font-weight: 900; }
@@ -1058,7 +1050,7 @@ export default function ContactPage() {
           .reference-form textarea {
             font-size: 16px !important;
           }
-          .reference-copy h1 { font-size: clamp(36px, 12vw, 52px); white-space: normal; margin-top: -36px; }
+          .reference-copy h1, .reference-copy h2 { font-size: clamp(36px, 12vw, 52px); white-space: normal; margin-top: -36px; }
           .reference-contact-details { margin-top: 42px; }
           .reference-input-row { grid-template-columns: 1fr; gap: 18px; }
 

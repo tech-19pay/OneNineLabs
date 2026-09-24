@@ -2762,7 +2762,7 @@ export default function Home() {
                 },
                 {
                   "@type": "Question",
-                  name: "What tech stack does OneNineLabs use for web and SaaS development?",
+                  name: "What tech stack does OneNineLabs use for web and SaaS?",
                   acceptedAnswer: {
                     "@type": "Answer",
                     text: "Frontend: Next.js 15 (App Router, SSR/SSG/ISR), React 19, TypeScript, Tailwind CSS. Backend: Node.js (Nest/Express) and Python (FastAPI), tRPC/GraphQL. Data: PostgreSQL (RLS), Redis, Prisma. Infra: Vercel, AWS, GCP, Cloudflare, Docker, Kubernetes, Terraform, GitHub Actions. Headless CMS: Sanity/Contentful/Strapi. Programmatic SEO and server-side tagging baked in.",
@@ -2770,7 +2770,7 @@ export default function Home() {
                 },
                 {
                   "@type": "Question",
-                  name: "How long does it take to ship an MVP or modernize our existing app?",
+                  name: "How long to ship an MVP or modernize our existing app?",
                   acceptedAnswer: {
                     "@type": "Answer",
                     text: "Discovery 1–2 weeks, architecture & design 2–3 weeks, build & iterate 6–12 weeks, hardening & launch 1–2 weeks. MVPs ship in 6–8 weeks with weekly demos. For migrations, we use the strangler pattern, parallel preview deploys, and blue-green releases to modernize to Next.js/microservices and headless CMS without downtime — preserving SEO equity, redirects, and analytics.",
@@ -2778,7 +2778,7 @@ export default function Home() {
                 },
                 {
                   "@type": "Question",
-                  name: "Can OneNineLabs build AI agents and RAG over our private data?",
+                  name: "Can you build AI agents and RAG over our private data?",
                   acceptedAnswer: {
                     "@type": "Answer",
                     text: "Yes. We build autonomous LLM agents that plan, use tools, and verify — calling your APIs/ERPs/DBs with RBAC, retries, and audit trails. Our RAG stack uses chunking, embeddings, hybrid search (Pinecone/Qdrant/pgvector), and reranking for source-grounded, cited answers. Covers evals, tracing, prompt registry, cost routing (40–70% savings), and human-in-the-loop approvals. Works best paired with our Web Development and Security services.",
@@ -2810,7 +2810,7 @@ export default function Home() {
                 },
                 {
                   "@type": "Question",
-                  name: "Do you provide growth marketing (SEO & PPC) and conversion optimization?",
+                  name: "Do you provide growth marketing (SEO & PPC) and ongoing support?",
                   acceptedAnswer: {
                     "@type": "Answer",
                     text: "Yes — technical SEO (schema, Core Web Vitals, crawl architecture, programmatic SEO), internal href graph, authority links, plus Google/LinkedIn/Meta PPC with structured accounts, creative testing, bid automation, and landing-page CRO (heatmaps, replays, A/B). Full-funnel attribution via GA4/server-side tagging to CRM revenue, averaging +340% organic growth and 4.8x ROAS for retainer clients.",

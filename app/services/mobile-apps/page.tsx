@@ -6,8 +6,9 @@ import { Metadata } from "next";
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://oneninelabs.com";
 
 export const metadata: Metadata = {
-  title: "Custom Mobile App Development — iOS, Android & React Native | OneNineLabs",
-  description: "High-performance native and cross-platform mobile apps engineered for 60/120 FPS fluid motion, offline-first SQLite sync, and rapid App Store & Google Play launch.",
+  title: "Mobile App Development Company — React Native & Flutter",
+  description:
+    "React Native, Flutter and native iOS/Android apps with offline-first data, OTA updates and store launch — shipped by OneNineLabs in 6-8 weeks.",
   keywords: [
     "mobile app development company",
     "React Native development",
@@ -24,22 +25,25 @@ export const metadata: Metadata = {
     languages: {
       "en-US": "/services/mobile-apps",
       en: "/services/mobile-apps",
-      "hi-IN": "/services/mobile-apps",
       "x-default": "/services/mobile-apps",
     },
   },
   openGraph: {
-    title: "Custom Mobile App Development — iOS, Android & React Native | OneNineLabs",
-    description: "High-performance native & cross-platform mobile apps engineered for 60/120 FPS speed, offline sync & rapid store launch.",
-    url: `${siteUrl}/services/mobile-apps`,
     type: "website",
-    images: [{ url: "/mobile_app_preview.png", width: 1200, height: 630, alt: "Mobile App Development by OneNineLabs" }],
+    locale: "en_US",
+    siteName: "OneNineLabs",
+    title: "Mobile App Development Company — React Native & Flutter",
+    description: "React Native, Flutter and native iOS/Android apps with offline-first data, OTA updates and rapid store launch.",
+    url: `${siteUrl}/services/mobile-apps`,
+    images: [{ url: "/og/mobile-apps.jpg", width: 1200, height: 630, alt: "Mobile App Development by OneNineLabs", type: "image/jpeg" }],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Custom Mobile App Development — iOS, Android & React Native | OneNineLabs",
-    description: "High-performance native & cross-platform mobile apps engineered for 60/120 FPS speed and offline sync.",
-    images: ["/mobile_app_preview.png"],
+    site: "@oneninelabs",
+    creator: "@oneninelabs",
+    title: "Mobile App Development Company — React Native & Flutter",
+    description: "React Native, Flutter and native iOS/Android apps with offline-first data, OTA updates and rapid store launch.",
+    images: ["/og/mobile-apps.jpg"],
   },
   robots: { index: true, follow: true },
 };
@@ -90,9 +94,8 @@ export default function MobileAppsServicePage() {
     serviceType: "Mobile App Development",
     url: `${siteUrl}/services/mobile-apps`,
     description: "Native iOS (Swift / SwiftUI), Android (Kotlin), and React Native cross-platform mobile app engineering with sub-second API sync and App Store launch support.",
-    provider: { "@type": "Organization", name: "OneNineLabs", url: siteUrl },
+    provider: { "@id": `${siteUrl}/#organization` },
     areaServed: { "@type": "Country", name: "Worldwide" },
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD", availability: "https://schema.org/InStock" },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Mobile App Development Services",

@@ -11,9 +11,9 @@ const GRAD_TO = "#2563eb";
 const GLOW = "rgba(37,99,235,0.15)";
 
 export const metadata = {
-  title: "Blockchain Development Services — Smart Contracts, dApps, DeFi, Wallets & Exchanges",
+  title: "Blockchain & Web3 Development — Solidity, dApps & L2",
   description:
-    "End-to-end blockchain development: audited smart contracts, dApps, DeFi protocols, DEX/CEX exchanges, wallets, NFT marketplaces, tokenization and L1/L2 engineering on Ethereum, Solana, Polygon and more.",
+    "Solidity and Rust smart contracts, dApps, L2 rollups and Web3 wallets — audited, gas-optimized and production-hardened by OneNineLabs engineers.",
   keywords: [
     "blockchain development company",
     "smart contract development",
@@ -30,21 +30,23 @@ export const metadata = {
   ],
   alternates: {
     canonical: "/services/blockchain",
-    languages: { "en-US": "/services/blockchain", en: "/services/blockchain", "hi-IN": "/services/blockchain", "x-default": "/services/blockchain" },
+    languages: { "en-US": "/services/blockchain", en: "/services/blockchain", "x-default": "/services/blockchain" },
   },
-  openGraph: {
+  openGraph: { locale: "en_US", siteName: "OneNineLabs",
     title: "Blockchain Development Services | OneNineLabs",
     description:
       "Audited smart contracts, dApps, DeFi, exchanges, wallets and tokenization — built by one senior Web3 team.",
     url: "https://oneninelabs.com/services/blockchain",
     type: "website",
-    images: [{ url: "/services/blockchain_preview.png", width: 1200, height: 630, alt: "Blockchain Development by OneNineLabs" }],
+    images: [
+      { url: "/og/blockchain.jpg", width: 1200, height: 630, alt: "Blockchain and Web3 Development by OneNineLabs", type: "image/jpeg" },
+    ],
   },
-  twitter: {
+  twitter: { site: "@oneninelabs", creator: "@oneninelabs",
     card: "summary_large_image",
     title: "Blockchain Development Services | OneNineLabs",
     description: "Audited smart contracts, dApps, DeFi, exchanges, wallets and tokenization — built by one senior Web3 team.",
-    images: ["/services/blockchain_preview.png"],
+    images: ["/og/blockchain.jpg"],
   },
   robots: { index: true, follow: true },
 };
@@ -77,9 +79,8 @@ export default function BlockchainServicePage() {
     url: `${siteUrl}/services/blockchain`,
     description:
       "End-to-end blockchain development: audited smart contracts, dApps, DeFi protocols, DEX/CEX exchanges, wallets, NFT marketplaces, tokenization and L1/L2 engineering.",
-    provider: { "@type": "Organization", name: "OneNineLabs", url: siteUrl },
+    provider: { "@id": `${siteUrl}/#organization` },
     areaServed: { "@type": "Country", name: "Worldwide" },
-    offers: { "@type": "Offer", price: "0", priceCurrency: "USD", availability: "https://schema.org/InStock" },
     hasOfferCatalog: {
       "@type": "OfferCatalog",
       name: "Blockchain Development Services",

@@ -1,27 +1,37 @@
-export default function sitemap() {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://oneninelabs.com";
-  const now = new Date();
+const baseUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://oneninelabs.com").replace(/\/$/, "");
 
-  // Priority guide: 1.0 homepage, 0.9 services hub, 0.8 individual service pages, 0.7 secondary
+/**
+ * Bump this date whenever page content actually changes — search engines use
+ * <lastmod> to schedule recrawls. (It was `new Date()` before, which rewrote
+ * every <lastmod> on every deploy and made the signal meaningless.)
+ */
+const LAST_UPDATED = "2026-09-24";
+
+export default function sitemap() {
+  const d = (date) => new Date(`${date}T09:00:00+05:30`);
+
+  // Priority guide: 1.0 homepage, 0.9 services hub, 0.8 service pages, 0.7 secondary, 0.3 legal
   const routes = [
-    { url: `${baseUrl}/`, lastModified: now, changeFrequency: "weekly", priority: 1.0 },
-    { url: `${baseUrl}/services`, lastModified: now, changeFrequency: "weekly", priority: 0.9 },
-    { url: `${baseUrl}/services/web-development`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${baseUrl}/services/mobile-apps`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${baseUrl}/services/ai-automation`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${baseUrl}/services/saas`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${baseUrl}/services/blockchain`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${baseUrl}/services/marketing`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${baseUrl}/services/security`, lastModified: now, changeFrequency: "monthly", priority: 0.8 },
-    { url: `${baseUrl}/services/student`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
-    { url: `${baseUrl}/languages`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${baseUrl}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${baseUrl}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${baseUrl}/why-us`, lastModified: now, changeFrequency: "monthly", priority: 0.6 },
-    { url: `${baseUrl}/how-we-work`, lastModified: now, changeFrequency: "monthly", priority: 0.75 },
-    { url: `${baseUrl}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
-    { url: `${baseUrl}/terms`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${baseUrl}/`, changeFrequency: "weekly", priority: 1.0 },
+    { url: `${baseUrl}/services`, changeFrequency: "weekly", priority: 0.9 },
+    { url: `${baseUrl}/services/web-development`, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${baseUrl}/services/mobile-apps`, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${baseUrl}/services/ai-automation`, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${baseUrl}/services/saas`, changeFrequency: "monthly", priority: 0.85 },
+    { url: `${baseUrl}/services/blockchain`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/services/marketing`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/services/security`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/services/student`, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${baseUrl}/product`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/product/cash-point`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/languages`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/about`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/contact`, changeFrequency: "monthly", priority: 0.7 },
+    { url: `${baseUrl}/why-us`, changeFrequency: "monthly", priority: 0.6 },
+    { url: `${baseUrl}/how-we-work`, changeFrequency: "monthly", priority: 0.75 },
+    { url: `${baseUrl}/privacy`, changeFrequency: "yearly", priority: 0.3 },
+    { url: `${baseUrl}/terms`, changeFrequency: "yearly", priority: 0.3 },
   ];
 
-  return routes;
+  return routes.map((r) => ({ ...r, lastModified: d(LAST_UPDATED) }));
 }
