@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ServicesHero({ cfg }) {
   const [selectedService, setSelectedService] = useState(null);
@@ -171,12 +172,17 @@ export default function ServicesHero({ cfg }) {
                   </div>
                 </div>
 
-                {/* Viewport with existing hero image */}
+                {/* Viewport with optimized hero image */}
                 <div className="sh-browser-viewport">
-                  <img
+                  <Image
                     src={cfg?.hero?.image || "/services/services_hero_main.png"}
                     alt={titleHighlight || "OneNineLabs Software Engineering Services"}
+                    width={600}
+                    height={600}
+                    priority
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 520px"
                     className="sh-browser-img"
+                    quality={90}
                   />
                   <div className="sh-browser-glare" />
                 </div>
