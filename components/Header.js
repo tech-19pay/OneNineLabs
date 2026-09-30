@@ -104,13 +104,6 @@ export default function Header({ variant }) {
 
   const productDropdown = [
     {
-      title: "Cash Point",
-      desc: "Smart cash management and payment solutions",
-      href: "/product/cash-point",
-      theme: { bg: "#ecfdf5", border: "#a7f3d0", color: "#059669" },
-      icon: "💳",
-    },
-    {
       title: "Typing Practice & Speed Test",
       desc: "Stenography practice with real-time speed analytics",
       href: "/product",
@@ -368,8 +361,12 @@ export default function Header({ variant }) {
           margin: 10px 0;
         }
 
+        .product-popup-bridge {
+          width: 320px;
+        }
+
         .product-popup-card .product-popup-grid {
-          grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+          grid-template-columns: 1fr !important;
         }
 
         .popup-service-item {
@@ -939,7 +936,7 @@ export default function Header({ variant }) {
               <div className="mob-stoggle-icon-wrap">✦</div>
               <div>
                 <div className="mob-stoggle-title">Our Product</div>
-                <div className="mob-stoggle-sub">2 products</div>
+                <div className="mob-stoggle-sub">1 product</div>
               </div>
             </div>
             <svg className="mob-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
@@ -1052,13 +1049,10 @@ export default function Header({ variant }) {
               </button>
 
               {isProductOpen && (
-                <div className="services-dropdown-menu-bridge" onMouseEnter={() => setIsProductOpen(true)} onMouseLeave={() => setIsProductOpen(false)}>
+                <div className="services-dropdown-menu-bridge product-popup-bridge" onMouseEnter={() => setIsProductOpen(true)} onMouseLeave={() => setIsProductOpen(false)}>
                   <div className="services-popup-card product-popup-card">
                     <div className="popup-header-row">
                       <div className="popup-eyebrow-label"><span>✦</span><span>OUR PRODUCTS</span></div>
-                      <Link href="/product" className="popup-view-all-link" onClick={() => setIsProductOpen(false)}>
-                        <span>View Products</span><span>&rarr;</span>
-                      </Link>
                     </div>
                     <div className="popup-services-grid product-popup-grid">
                       {productDropdown.map((item) => (

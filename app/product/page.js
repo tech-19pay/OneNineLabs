@@ -35,18 +35,6 @@ export default function ProductPage() {
           creator: { "@id": `${siteUrl}/#organization` },
         },
       },
-      {
-        "@type": "ListItem",
-        position: 2,
-        item: {
-          "@type": "SoftwareApplication",
-          name: "NinteenPay Cash Point",
-          url: `${siteUrl}/product/cash-point`,
-          applicationCategory: "BusinessApplication",
-          operatingSystem: "Web",
-          creator: { "@id": `${siteUrl}/#organization` },
-        },
-      },
     ],
   };
   return (

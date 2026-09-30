@@ -23,7 +23,6 @@ export default function sitemap() {
     { url: `${baseUrl}/services/security`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/services/student`, changeFrequency: "monthly", priority: 0.8 },
     { url: `${baseUrl}/product`, changeFrequency: "monthly", priority: 0.7 },
-    { url: `${baseUrl}/product/cash-point`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/languages`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/about`, changeFrequency: "monthly", priority: 0.7 },
     { url: `${baseUrl}/contact`, changeFrequency: "monthly", priority: 0.7 },

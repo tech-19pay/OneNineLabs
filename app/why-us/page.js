@@ -1,6 +1,8 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import { Code2, Network, ShieldCheck, Timer, UsersRound, Zap, Gem, Pointer, Heart, Sparkles, Star, User, TrendingUp, ShoppingCart, Package, Target, Hand } from "lucide-react";
+
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://oneninelabs.com";
 
@@ -17,7 +19,8 @@ export const metadata = {
       "x-default": "/why-us",
     },
   },
-  openGraph: { locale: "en_US", siteName: "OneNineLabs",
+  openGraph: {
+    locale: "en_US", siteName: "OneNineLabs",
     title: "Why Enterprise Leaders Partner With OneNineLabs",
     description: "High-speed execution + enterprise rigor — 6-8 week MVPs, SOC 2, 99.9% SLA, AI-native. Lucknow & worldwide.",
     url: `${siteUrl}/why-us`,
@@ -27,7 +30,8 @@ export const metadata = {
       { url: "/og/default.jpg", width: 1200, height: 630, alt: "Why choose OneNineLabs", type: "image/jpeg" },
     ],
   },
-  twitter: { site: "@oneninelabs", creator: "@oneninelabs",
+  twitter: {
+    site: "@oneninelabs", creator: "@oneninelabs",
     card: "summary_large_image",
     title: "Why Enterprise Leaders Partner With OneNineLabs",
     description: "6–8 week MVPs, SOC 2-ready, 99.9% SLA. Lucknow and worldwide.",
@@ -51,109 +55,242 @@ export default function WhyUsPage() {
       <Header variant="light" />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
-      {/* Breadcrumb */}
-      <nav aria-label="Breadcrumb" style={{ background: "#ffffff", paddingTop: "96px", paddingLeft: "24px", paddingRight: "24px", borderBottom: "1px solid #f1f5f9" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "14px 0" }}>
-          <ol style={{ display: "flex", gap: "8px", alignItems: "center", listStyle: "none", margin: 0, padding: 0, fontSize: "13px", color: "#64748b" }}>
-            <li><Link href="/" style={{ color: "#64748b", textDecoration: "none", fontWeight: 600 }}>Home</Link></li>
-            <li aria-hidden="true" style={{ color: "#cbd5e1" }}>/</li>
-            <li aria-current="page" style={{ color: "#0f172a", fontWeight: 700 }}>Why Us</li>
-          </ol>
-        </div>
-      </nav>
+      {/* New Dark Split Hero Section (Section 1) */}
+      <section className="dark-split-hero">
+        <div className="dark-hero-left"></div>
+        <div className="dark-hero-right">
+          <h1 className="dark-hero-title">Why Choose Us</h1>
+          <div className="dark-banner-list">
 
-      {/* Hero */}
-      <section style={{ position: "relative", overflow: "hidden", background: "linear-gradient(180deg, #ffffff 0%, #f4f8fc 100%)", color: "#0f172a", paddingTop: "32px", paddingBottom: "100px", paddingLeft: "24px", paddingRight: "24px", borderBottom: "1px solid #e2e8f0" }}>
-        {/* Decorative Grid */}
-        <div style={{ position: "absolute", inset: 0, backgroundImage: "linear-gradient(to right, rgba(2, 132, 199, 0.05) 1px, transparent 1px), linear-gradient(to bottom, rgba(2, 132, 199, 0.05) 1px, transparent 1px)", backgroundSize: "40px 40px", pointerEvents: "none", zIndex: 0 }} />
-        {/* Glow */}
-        <div style={{ position: "absolute", top: "-50px", left: "50%", transform: "translateX(-50%)", width: "600px", height: "600px", background: "radial-gradient(circle, rgba(2, 132, 199, 0.15) 0%, transparent 60%)", filter: "blur(60px)", pointerEvents: "none", zIndex: 0 }} />
-        
-        <div style={{ maxWidth: "900px", margin: "0 auto", textAlign: "center", position: "relative", zIndex: 1 }}>
-          <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "#f0fdf4", color: "#16a34a", border: "1px solid #bbf7d0", borderRadius: "30px", padding: "6px 16px", fontSize: "11px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "1px", marginBottom: "24px", boxShadow: "0 4px 12px rgba(22, 163, 74, 0.1)" }}>
-            <span style={{ width: "6px", height: "6px", borderRadius: "50%", background: "#16a34a" }} />
-            The OneNineLabs Advantage
-          </div>
-          
-          <h1 style={{ fontSize: "clamp(40px, 6vw, 64px)", fontWeight: "900", letterSpacing: "-1.5px", marginBottom: "24px", lineHeight: "1.1", color: "#0f172a" }}>
-            Why Enterprise Leaders <br />
-            <span style={{ background: "linear-gradient(135deg, #0284c7 0%, #2563eb 40%, #7c3aed 100%)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Partner With Us</span>
-          </h1>
-          
-          <p style={{ fontSize: "18px", color: "#475569", maxWidth: "680px", margin: "0 auto 36px", lineHeight: "1.65" }}>
-            We combine <strong style={{ color: "#0284c7" }}>high-speed execution</strong> with <strong style={{ color: "#0284c7" }}>enterprise rigor</strong>. From 6-week rapid MVPs to SOC 2 compliant autonomous systems, we engineer software that scales.
-          </p>
-          
-          <div style={{ display: "flex", gap: "16px", justifyContent: "center", flexWrap: "wrap" }}>
-            <Link href="/contact" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", background: "#0284c7", color: "#fff", padding: "14px 28px", borderRadius: "12px", fontWeight: 800, textDecoration: "none", fontSize: "15px", boxShadow: "0 8px 20px rgba(2, 132, 199, 0.3)", transition: "all 0.2s" }}>
-              Talk to Engineering Leads →
-            </Link>
-            <a href="tel:+918588807039" style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", background: "#ffffff", border: "1px solid #cbd5e1", color: "#0f172a", padding: "14px 28px", borderRadius: "12px", fontWeight: 800, textDecoration: "none", fontSize: "15px", boxShadow: "0 4px 12px rgba(15, 23, 42, 0.05)", transition: "all 0.2s" }}>
-              📞 +91 85888 07039
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Stats bar */}
-      <section style={{ background: "#ffffff", padding: "32px 24px", borderBottom: "1px solid #f1f5f9" }}>
-        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))", gap: "16px" }}>
-            {[
-              { k: "80+", l: "Products Shipped", c: "#0f172a" },
-              { k: "99.9%", l: "Uptime SLA", c: "#16a34a" },
-              { k: "12h", l: "Response SLA", c: "#0284c7" },
-              { k: "6–8w", l: "MVP Timeline", c: "#9333ea" },
-            ].map((s) => (
-              <div key={s.l} style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "12px", padding: "18px", textAlign: "center" }}>
-                <div style={{ fontSize: "22px", fontWeight: 900, color: s.c }}>{s.k}</div>
-                <div style={{ fontSize: "12px", fontWeight: 800, color: "#0f172a" }}>{s.l}</div>
+            <div className="dark-banner left-aligned" style={{ background: '#3a4beb' }}>
+              <div className="dark-banner-icon"><TrendingUp size={36} color="#ffffff" /></div>
+              <div className="dark-banner-divider"></div>
+              <div className="dark-banner-content">
+                <h4>Rapid High-Speed MVPs</h4>
+                <p>Get to market faster with a focused, production-ready release in 6–8 weeks, retaining full IP ownership.</p>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Value Pillars — EXPANDED to 6 */}
-      <section style={{ background: "#ffffff", padding: "80px 24px", color: "#0f172a" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto" }}>
-          <div style={{ textAlign: "center", marginBottom: "36px" }}>
-            <span style={{ fontSize: "11px", fontWeight: 800, letterSpacing: "1px", textTransform: "uppercase", color: "#16a34a" }}>Our Edge</span>
-            <h2 style={{ fontSize: "28px", fontWeight: 900, color: "#0f172a", margin: "8px 0 10px", letterSpacing: "-0.6px" }}>6 Reasons Teams Outperform With OneNineLabs</h2>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "20px", marginBottom: "40px" }}>
-            {[
-              { icon: "⚡", t: "6-8 Week Rapid MVP", c: "#16a34a", d: "Ship production-ready web, mobile, and SaaS in weeks—not quarters—with continuous deployment and weekly demos." },
-              { icon: "🛡️", t: "SOC 2 Ready & Zero-Trust", c: "#0284c7", d: "Automated vuln scanning, encrypted layers, and audit-ready logs baked into every build." },
-              { icon: "📈", t: "High-Performance Telemetry", c: "#9333ea", d: "Sub-2.5s LCP, auto-indexed DBs, and 99.9% HA under peak loads (1.2B+ req/mo)." },
-              { icon: "🤖", t: "Autonomous AI Agents", c: "#ea580c", d: "LLM agents & RAG that execute—APIs/DBs/ERPs with evals, tracing, and guardrails." },
-              { icon: "📱", t: "Mobile + Web Unified", c: "#059669", d: "One design system for Next.js web and React Native/Flutter mobile — shared logic, OTA." },
-              { icon: "🌍", t: "Hybrid Worldwide Pods", c: "#2563eb", d: "Lucknow-based, worldwide delivery — on-site workshops + remote pods in your timezone." },
-            ].map((x) => (
-              <div key={x.t} style={{ background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "16px", padding: "28px", boxShadow: "0 4px 16px rgba(15,23,42,0.03)" }}>
-                <div style={{ fontSize: "28px", marginBottom: "12px" }}>{x.icon}</div>
-                <h3 style={{ fontSize: "17px", fontWeight: "800", marginBottom: "8px", color: x.c }}>{x.t}</h3>
-                <p style={{ fontSize: "13.5px", color: "#475569", lineHeight: 1.6, margin: 0 }}>{x.d}</p>
-              </div>
-            ))}
-          </div>
-
-          {/* Comparison table */}
-          <div style={{ background: "#ffffff", border: "1px solid #e2e8f0", borderRadius: "16px", overflow: "hidden", boxShadow: "0 4px 16px rgba(15,23,42,0.04)" }}>
-            <div style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr 1fr", background: "#0f172a", color: "#fff", padding: "14px 20px", fontSize: "12px", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.5px" }}>
-              <span>Capability</span><span>Typical Vendor</span><span style={{ color: "#4ade80" }}>OneNineLabs</span>
             </div>
-            {[
-              ["MVP Timeline", "3–6 months", "6–8 weeks"],
-              ["Uptime SLA", "97–99%", "99.9% with SLOs"],
-              ["Security", "Manual audits", "SOC 2-ready, Zero-Trust, auto scans"],
-              ["AI", "Chat demos", "Production agents with RAG & evals"],
-              ["Support", "Next-day", "<12h, 24/7 on-call for enterprise"],
-            ].map(([a, b, c], i) => (
-              <div key={a} style={{ display: "grid", gridTemplateColumns: "1.2fr 1fr 1fr", padding: "14px 20px", fontSize: "13px", color: "#334155", background: i % 2 === 0 ? "#f8fafc" : "#ffffff", borderTop: "1px solid #f1f5f9" }}>
-                <strong style={{ color: "#0f172a" }}>{a}</strong><span>{b}</span><strong style={{ color: "#059669" }}>{c}</strong>
+
+            <div className="dark-banner right-aligned" style={{ background: '#359b68' }}>
+              <div className="dark-banner-content right-text">
+                <h4>Elite Hybrid Teams</h4>
+                <p>Multi-disciplinary pods of engineers and designers acting as your dedicated extension.</p>
               </div>
-            ))}
+              <div className="dark-banner-divider"></div>
+              <div className="dark-banner-icon"><UsersRound size={36} color="#ffffff" /></div>
+            </div>
+
+            <div className="dark-banner left-aligned" style={{ background: '#c79c32' }}>
+              <div className="dark-banner-icon"><ShieldCheck size={36} color="#ffffff" /></div>
+              <div className="dark-banner-divider"></div>
+              <div className="dark-banner-content">
+                <h4>Enterprise SOC 2 Security</h4>
+                <p>Zero-Trust Kubernetes, rigorous CI/CD, and 99.99% uptime targets keep your critical platform resilient.</p>
+              </div>
+            </div>
+
+            <div className="dark-banner right-aligned" style={{ background: '#9f7556' }}>
+              <div className="dark-banner-content right-text">
+                <h4>Intelligent AI & Automation</h4>
+                <p>Integrating autonomous LLM agents and RAG vector search to streamline your complex business operations.</p>
+              </div>
+              <div className="dark-banner-divider"></div>
+              <div className="dark-banner-icon"><Target size={36} color="#ffffff" /></div>
+            </div>
+
+            <div className="dark-banner left-aligned" style={{ background: '#ec4989' }}>
+              <div className="dark-banner-icon"><Network size={36} color="#ffffff" /></div>
+              <div className="dark-banner-divider"></div>
+              <div className="dark-banner-content">
+                <h4>Cloud-Native Edge Architecture</h4>
+                <p>We build for extreme scale with serverless, Next.js, and API-first microservices for sub-second performance.</p>
+              </div>
+            </div>
+
+          </div>
+          <div className="dark-hero-pointer">
+            <Hand size={48} strokeWidth={1.5} color="#ffffff" />
+          </div>
+        </div>
+      </section>
+
+      {/* Grid Hero Section (Now Section 2) */}
+      <section className="new-hero-section">
+        <div className="new-hero-container">
+          <div className="new-hero-header">
+            <span className="eyebrow"><Sparkles size={16} /> Built To Support Your Growth</span>
+            <h2>Why partner with us</h2>
+          </div>
+
+          <div className="new-hero-grid">
+            <div className="new-hero-card">
+              <div className="new-hero-card-content">
+                <h3>Launch and pivot faster</h3>
+                <p>Our team helps startups quickly launch an effective brand and website, making it easy to pivot if needed.</p>
+              </div>
+              <div className="new-hero-widget">
+                <div style={{ textAlign: 'center', width: '100%' }}>
+                  <div style={{ fontSize: '11px', color: '#94a3b8', textTransform: 'none', letterSpacing: '0px', marginBottom: '16px' }}>Time to launch</div>
+                  <div style={{ fontSize: '48px', fontWeight: '800', fontFamily: 'monospace', color: '#6b3fc5', background: 'linear-gradient(90deg, #b993d6 0%, #8ca6db 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+                    01:12
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="new-hero-card">
+              <div className="new-hero-card-content">
+                <h3>Multi-expert team</h3>
+                <p>Get access to a skilled, multi-disciplinary team at a fair rate—ready to support your startup's growth.</p>
+              </div>
+              <div className="new-hero-widget">
+                <div style={{ display: 'flex', alignItems: 'center', gap: '8px', width: '100%', justifyContent: 'center' }}>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'linear-gradient(135deg, #a370df, #6b3fc5)' }}></div>
+                    <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'linear-gradient(135deg, #1fc1c4, #0da6a9)' }}></div>
+                  </div>
+                  <div style={{ width: '30px', height: '1px', background: '#e2e8f0' }}></div>
+                  <div style={{ width: '48px', height: '48px', borderRadius: '50%', background: '#f1e8fa', display: 'grid', placeItems: 'center', boxShadow: '0 4px 10px rgba(0,0,0,0.05)' }}>
+                    <User size={20} color="#6b3fc5" />
+                  </div>
+                  <div style={{ width: '30px', height: '1px', background: '#e2e8f0' }}></div>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                    <div style={{ width: '32px', height: '32px', borderRadius: '50%', background: 'linear-gradient(135deg, #6a82fb, #4e5cd9)' }}></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="new-hero-card">
+              <div className="new-hero-card-content">
+                <h3>Improved startup legitimacy</h3>
+                <p>We partner directly with startups to boost credibility and attract interest from clients and investors.</p>
+              </div>
+              <div className="new-hero-widget">
+                <div style={{ width: '100%' }}>
+                  <div style={{ fontSize: '12px', color: '#64748b', marginBottom: '16px', fontWeight: '500' }}>Lead volume</div>
+                  <div style={{ display: 'flex', height: '80px', width: '100%', gap: '8px' }}>
+                    <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between', fontSize: '9px', color: '#94a3b8', height: '65px' }}>
+                      <span>50K</span><span>40K</span><span>30K</span><span>20K</span>
+                    </div>
+                    <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                      <div style={{ display: 'flex', alignItems: 'flex-end', gap: '4px', height: '65px', borderLeft: '1px solid #e2e8f0', borderBottom: '1px solid #e2e8f0', paddingLeft: '8px' }}>
+                        {[20, 30, 45, 60, 40, 75, 90, 85, 100, 70, 80].map((h, i) => (
+                          <div key={i} style={{ flex: 1, height: `${h}%`, background: `linear-gradient(180deg, #f4b4c7 0%, #a370df 100%)`, borderRadius: '2px 2px 0 0', opacity: 0.9 }}></div>
+                        ))}
+                      </div>
+                      <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '9px', color: '#94a3b8', marginTop: '6px', paddingLeft: '8px' }}>
+                        <span>01</span><span>03</span><span>05</span><span>07</span><span>09</span><span>11</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="new-hero-card">
+              <div className="new-hero-card-content">
+                <h3>Specialized in B2B</h3>
+                <p>We offer tailored solutions specifically designed for business-to-business success and long-term growth.</p>
+              </div>
+              <div className="new-hero-widget">
+                <div style={{ display: 'flex', gap: '12px' }}>
+                  <div style={{ width: '70px', height: '70px', background: '#fff', borderRadius: '16px', boxShadow: '0 10px 25px rgba(0,0,0,0.06)', display: 'grid', placeItems: 'center', color: '#6b3fc5', fontWeight: '800', fontSize: '28px', border: '1px solid #f8fafc' }}>$</div>
+                  <div style={{ width: '70px', height: '70px', background: '#fff', borderRadius: '16px', boxShadow: '0 10px 25px rgba(0,0,0,0.06)', display: 'grid', placeItems: 'center', color: '#6b3fc5', fontWeight: '800', fontSize: '28px', border: '1px solid #f8fafc', transform: 'translateY(24px)' }}>$</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="new-hero-card">
+              <div className="new-hero-card-content">
+                <h3>Flexible Packages</h3>
+                <p>Choose from packages that suit your current stage—from early ideas to fast-growing businesses.</p>
+              </div>
+              <div className="new-hero-widget">
+                <div style={{ width: '100%', display: 'flex', flexDirection: 'column', gap: '16px', padding: '0 10px' }}>
+                  {[{ p: '31%', c: '#ffafbd' }, { p: '74%', c: '#6b3fc5' }, { p: '48%', c: '#8ca6db' }].map((s, i) => (
+                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+                      <div style={{ flex: 1, height: '6px', background: '#e2e8f0', borderRadius: '3px', position: 'relative' }}>
+                        <div style={{ position: 'absolute', top: '50%', left: s.p, transform: 'translate(-50%, -50%)', width: '18px', height: '18px', borderRadius: '50%', background: s.c, boxShadow: '0 2px 6px rgba(0,0,0,0.15)', border: '2px solid #fff' }}></div>
+                      </div>
+                      <div style={{ fontSize: '11px', color: '#94a3b8', width: '28px', fontWeight: '500' }}>{s.p}</div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            <div className="new-hero-card">
+              <div className="new-hero-card-content">
+                <h3>Proven track record</h3>
+                <p>Trusted by companies across industries that rely on our design, speed, and consistency.</p>
+              </div>
+              <div className="new-hero-widget">
+                <div style={{ width: '100%', background: '#fff', borderRadius: '16px', padding: '24px', boxShadow: '0 10px 30px rgba(0,0,0,0.04)', border: '1px solid #f8fafc' }}>
+                  <div style={{ display: 'flex', gap: '4px', marginBottom: '16px', justifyContent: 'center' }}>
+                    {[1, 2, 3, 4, 5].map(i => <Star key={i} size={16} fill="#b993d6" color="#b993d6" />)}
+                  </div>
+                  <div style={{ width: '100%', height: '8px', background: '#f1f5f9', borderRadius: '4px', marginBottom: '10px' }}></div>
+                  <div style={{ width: '70%', height: '8px', background: '#f1f5f9', borderRadius: '4px', marginBottom: '20px' }}></div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
+                    <div style={{ width: '24px', height: '24px', borderRadius: '50%', background: 'linear-gradient(135deg, #a370df, #6b3fc5)' }}></div>
+                    <div style={{ width: '60px', height: '6px', background: '#e2e8f0', borderRadius: '3px' }}></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Legacy Circular Section (Now Section 2) */}
+      <section className="why-us-hero" aria-labelledby="why-us-title">
+        <div className="why-us-layout">
+          <div className="why-us-orbit">
+            <div className="why-us-orbit-copy">
+              <h1 id="why-us-title">Why choose OneNineLabs?</h1>
+              <p>We bring sharp engineering, clear communication, and dependable delivery together.</p>
+            </div>
+            <div className="why-us-orbit-title">
+              <span>WHY</span>
+              <span>CHOOSE</span>
+              <span style={{ fontSize: "0.55em", fontWeight: 700, letterSpacing: "0.5px", marginTop: "4px" }}>ONENINELABS</span>
+            </div>
+            <span className="why-us-orbit-icon why-us-tone-blue"><Gem aria-hidden="true" /></span>
+            <span className="why-us-orbit-icon why-us-tone-violet"><Timer aria-hidden="true" /></span>
+            <span className="why-us-orbit-icon why-us-tone-teal"><Pointer aria-hidden="true" /></span>
+            <span className="why-us-orbit-icon why-us-tone-gray"><Heart aria-hidden="true" /></span>
+          </div>
+
+          <div className="why-us-benefits">
+            <article className="why-us-benefit why-us-benefit-1 why-us-tone-blue">
+              <span className="why-us-benefit-icon"><Gem aria-hidden="true" /></span>
+              <div>
+                <h2>Cloud-Native Edge Architecture</h2>
+                <p>We build for extreme scale with serverless, Next.js, and API-first microservices for sub-second performance.</p>
+              </div>
+            </article>
+            <article className="why-us-benefit why-us-benefit-2 why-us-tone-violet">
+              <span className="why-us-benefit-icon"><Timer aria-hidden="true" /></span>
+              <div>
+                <h2>Intelligent AI & Automation</h2>
+                <p>Integrating autonomous LLM agents and RAG vector search to streamline your complex business operations.</p>
+              </div>
+            </article>
+            <article className="why-us-benefit why-us-benefit-3 why-us-tone-teal">
+              <span className="why-us-benefit-icon"><Pointer aria-hidden="true" /></span>
+              <div>
+                <h2>Enterprise SOC 2 Security</h2>
+                <p>Zero-Trust Kubernetes, rigorous CI/CD, and 99.99% uptime targets keep your critical platform resilient.</p>
+              </div>
+            </article>
+            <article className="why-us-benefit why-us-benefit-4 why-us-tone-gray">
+              <span className="why-us-benefit-icon"><Heart aria-hidden="true" /></span>
+              <div>
+                <h2>Rapid High-Speed MVPs</h2>
+                <p>Get to market faster with a focused, production-ready release in 6–8 weeks, retaining full IP ownership.</p>
+              </div>
+            </article>
           </div>
         </div>
       </section>
@@ -183,8 +320,8 @@ export default function WhyUsPage() {
       <section style={{ background: "#ffffff", padding: "64px 24px" }}>
         <div style={{ maxWidth: "900px", margin: "0 auto", background: "linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%)", border: "1px solid #e2e8f0", borderRadius: "24px", padding: "48px 32px", textAlign: "center", boxShadow: "0 10px 30px rgba(15,23,42,0.04)" }}>
           <h2 style={{ fontSize: "28px", fontWeight: "900", marginBottom: "12px", color: "#0f172a" }}>Experience the OneNineLabs Difference</h2>
-          <p style={{ fontSize: "15px", color: "#475569", maxWidth: "600px", margin: "0 auto 20px" }}>
-            Get a custom architecture audit — email <a href="mailto:19@oneninelabs.com" style={{ color: "#16a34a", fontWeight: 800, textDecoration: "underline", textUnderlineOffset: "3px" }}>19@oneninelabs.com</a> or call <a href="tel:+918588807039" style={{ color: "#0f172a", fontWeight: 800, textDecoration: "underline", textUnderlineOffset: "3px" }}>+91 85888 07039</a>
+          <p style={{ fontSize: "15px", color: "#475569", maxWidth: "100%", margin: "0 auto 20px" }}>
+            Get a custom architecture audit — email <a href="mailto:19@oneninelabs.com" style={{ color: "#16a34a", fontWeight: 800, textDecoration: "underline", textUnderlineOffset: "3px", whiteSpace: "nowrap" }}>19@oneninelabs.com</a> or call <a href="tel:+918588807039" style={{ color: "#0f172a", fontWeight: 800, textDecoration: "underline", textUnderlineOffset: "3px", whiteSpace: "nowrap" }}>+91 85888 07039</a>
           </p>
           <div style={{ display: "flex", gap: "12px", justifyContent: "center", flexWrap: "wrap" }}>
             <Link href="/contact" style={{ background: "#16a34a", color: "#fff", padding: "14px 28px", borderRadius: "10px", fontWeight: "800", textDecoration: "none", fontSize: "15px", display: "inline-block", boxShadow: "0 4px 14px rgba(22,163,74,0.25)" }}>
