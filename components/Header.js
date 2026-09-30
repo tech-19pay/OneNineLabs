@@ -294,8 +294,8 @@ export default function Header({ variant }) {
           top: 100%;
           left: 50%;
           transform: translateX(-50%);
-          width: 590px;
-          max-width: min(94vw, 600px);
+          width: 240px; /* Slight bump for breathing room */
+          max-width: min(94vw, 260px);
           padding-top: 8px;
           z-index: 1000;
           animation: dropdownSlideIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -307,23 +307,21 @@ export default function Header({ variant }) {
         }
 
         .services-popup-card {
-          background: rgba(255, 255, 255, 0.98);
-          backdrop-filter: blur(20px);
-          -webkit-backdrop-filter: blur(20px);
-          border: 1px solid rgba(226, 232, 240, 0.95);
-          border-radius: 16px;
-          padding: 14px 16px;
-          box-shadow: 0 18px 45px -10px rgba(15, 23, 42, 0.12), 0 3px 12px -2px rgba(15, 23, 42, 0.04);
-          color: #0f172a;
+          background: #ffffff;
+          border: 1px solid #e5e7eb;
+          border-radius: 6px;
+          padding: 4px 0;
+          box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+          color: #1f2937;
           text-align: left;
         }
 
         .popup-header-row {
           display: flex;
-          justify-content: space-between;
+          justify-content: flex-end;
           align-items: center;
-          padding-bottom: 8px;
-          border-bottom: 1px solid #f1f5f9;
+          padding: 2px 12px 4px;
+          border-bottom: 1px solid #f3f4f6;
         }
 
         .popup-eyebrow-label {
@@ -338,31 +336,38 @@ export default function Header({ variant }) {
         }
 
         .popup-view-all-link {
-          font-size: 11px;
-          font-weight: 700;
-          color: #0284c7;
+          font-size: 12px;
+          font-weight: 500;
+          color: #0369a1;
           text-decoration: none;
           display: inline-flex;
           align-items: center;
-          gap: 3px;
-          padding: 3px 9px;
-          border-radius: 9999px;
-          background: #f0f9ff;
-          border: 1px solid #bae6fd;
-          transition: all 0.2s ease;
+          gap: 4px;
+          padding: 2px 0;
+          background: transparent;
+          transition: color 0.15s ease;
         }
 
-        .popup-view-all-link:hover { background: #0284c7; color: #ffffff; border-color: #0284c7; }
+        .popup-view-all-link:hover { color: #0284c7; }
 
         .services-popup-card div.popup-services-grid {
           display: grid;
-          grid-template-columns: repeat(2, 1fr) !important;
-          gap: 6px !important;
-          margin: 10px 0;
+          grid-template-columns: 1fr !important;
+          gap: 0 !important;
+          margin: 4px 0;
+        }
+
+        @keyframes dropdownSlideInRight {
+          0% { opacity: 0; transform: translateY(6px) scale(0.98); }
+          100% { opacity: 1; transform: translateY(0) scale(1); }
         }
 
         .product-popup-bridge {
-          width: 320px;
+          width: max-content;
+          min-width: 200px;
+          left: 50%;
+          transform: translateX(-50%);
+          animation: dropdownSlideIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
         }
 
         .product-popup-card .product-popup-grid {
@@ -373,35 +378,37 @@ export default function Header({ variant }) {
           display: flex;
           align-items: center;
           gap: 10px;
-          padding: 8px 10px;
-          border-radius: 10px;
-          background: #f8fafc;
-          border: 1px solid #f1f5f9;
+          padding: 6px 12px;
+          border-radius: 0;
+          background: transparent;
           text-decoration: none;
-          color: inherit;
-          transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+          color: #374151;
+          transition: background 0.1s ease;
           position: relative;
         }
 
         .popup-service-item:hover {
-          background: #ffffff;
-          border-color: #bae6fd;
-          transform: translateY(-1px);
-          box-shadow: 0 4px 14px -2px rgba(2, 132, 199, 0.1);
+          background: #f3f4f6;
+          color: #000000;
         }
 
         .popup-icon-box {
-          width: 32px;
-          height: 32px;
-          border-radius: 8px;
+          width: 16px;
+          height: 16px;
           display: flex;
           align-items: center;
           justify-content: center;
           flex-shrink: 0;
-          transition: transform 0.15s ease;
+          border: none !important;
+          background: transparent !important;
         }
-
-        .popup-service-item:hover .popup-icon-box { transform: scale(1.08); }
+        
+        .popup-icon-box svg {
+          width: 14px;
+          height: 14px;
+          stroke-width: 1.5px;
+        }
+        
         .popup-text-box { flex: 1; min-width: 0; }
 
         .popup-item-title-row {
@@ -413,9 +420,8 @@ export default function Header({ variant }) {
 
         .popup-item-title {
           font-size: 12.5px;
-          font-weight: 700;
-          color: #0f172a;
-          letter-spacing: -0.01em;
+          font-weight: 500;
+          color: #1e293b;
           white-space: nowrap;
           overflow: hidden;
           text-overflow: ellipsis;
@@ -424,7 +430,7 @@ export default function Header({ variant }) {
         .popup-service-item:hover .popup-item-title { color: #0284c7; }
 
         .popup-item-tag {
-          font-size: 9px;
+          font-size: 8.5px;
           font-weight: 750;
           padding: 1px 5px;
           border-radius: 9999px;
@@ -437,25 +443,18 @@ export default function Header({ variant }) {
         .popup-item-tag.price { background: #f0fdf4; color: #16a34a; border: 1px solid #dcfce7; }
 
         .popup-item-desc {
-          font-size: 11px;
-          line-height: 1.35;
-          color: #64748b;
-          font-weight: 500;
-          margin: 1px 0 0 0;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
+          display: none;
         }
 
         .popup-bottom-cta-strip {
-          background: #f0f9ff;
-          border: 1px solid #bae6fd;
-          border-radius: 10px;
-          padding: 8px 12px;
+          background: #ffffff;
+          border-top: 1px solid #f3f4f6;
+          padding: 6px 12px;
           display: flex;
           justify-content: space-between;
           align-items: center;
-          gap: 8px;
+          gap: 6px;
+          margin-top: 2px;
         }
 
         .popup-bottom-txt {
@@ -468,22 +467,24 @@ export default function Header({ variant }) {
         }
 
         .popup-bottom-btn {
-          font-size: 11px;
-          font-weight: 700;
+          font-size: 10px;
+          font-weight: 600;
           color: #ffffff;
           background: #0284c7;
           border: none;
-          padding: 4px 12px;
-          border-radius: 9999px;
+          padding: 4px 10px;
+          border-radius: 4px;
           text-decoration: none;
           display: inline-flex;
           align-items: center;
           gap: 3px;
-          transition: all 0.15s ease;
+          transition: background 0.15s ease;
           white-space: nowrap;
         }
 
-        .popup-bottom-btn:hover { background: #0369a1; }
+        .popup-bottom-btn:hover {
+          background: #0369a1;
+        }
 
         .header.light-variant {
           background: rgba(255, 255, 255, 0.92) !important;
@@ -714,18 +715,18 @@ export default function Header({ variant }) {
 
         .mob-drawer div.mob-services-grid {
           display: grid;
-          grid-template-columns: 1fr 1fr !important;
+          grid-template-columns: 1fr !important;
           gap: 1px !important;
           background: #f1f5f9;
         }
 
         .mob-svc-card {
           background: #ffffff;
-          padding: 13px 11px;
+          padding: 10px 12px;
           display: flex;
-          flex-direction: column;
-          align-items: flex-start;
-          gap: 7px;
+          flex-direction: row;
+          align-items: center;
+          gap: 12px;
           text-decoration: none;
           color: inherit;
           transition: background 0.15s ease;
@@ -748,6 +749,9 @@ export default function Header({ variant }) {
           font-weight: 700;
           color: #0f172a;
           line-height: 1.3;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
         }
 
         .mob-svc-tag {
@@ -999,8 +1003,8 @@ export default function Header({ variant }) {
                 <div className="services-dropdown-menu-bridge" onMouseEnter={handleEnter} onMouseLeave={handleLeave}>
                   <div className="services-popup-card product-popup-card">
                     <div className="popup-header-row">
-                      <div className="popup-eyebrow-label"><span>✦</span><span>OUR CORE CAPABILITIES</span></div>
-                      <Link href="/services" className="popup-view-all-link" onClick={() => { setIsServicesOpen(false); setIsMobileMenuOpen(false); }}>
+                      {/* Removed eyebrow label */}
+                      <Link href="/services" className="popup-view-all-link" style={{ marginLeft: 'auto' }} onClick={() => { setIsServicesOpen(false); setIsMobileMenuOpen(false); }}>
                         <span>All Services</span><span>&rarr;</span>
                       </Link>
                     </div>
@@ -1011,22 +1015,21 @@ export default function Header({ variant }) {
                           <div className="popup-icon-box" style={{ background: item.theme.bg, border: `1px solid ${item.theme.border}`, color: item.theme.color }}>
                             {item.iconSvg}
                           </div>
-                          <div className="popup-text-box">
-                            <div className="popup-item-title-row">
+                          <div className="popup-text-box" style={{ display: 'flex', alignItems: 'center' }}>
+                            <div className="popup-item-title-row" style={{ margin: 0, padding: 0 }}>
                               <span className="popup-item-title">{item.title}</span>
                               {item.tag && (
                                 <span className={`popup-item-tag ${item.tag === "Hot" ? "hot" : item.tag === "Popular" ? "popular" : "price"}`}>{item.tag}</span>
                               )}
                             </div>
-                            <p className="popup-item-desc">{item.desc}</p>
                           </div>
                         </Link>
                       ))}
                     </div>
 
                     <div className="popup-bottom-cta-strip">
-                      <div className="popup-bottom-txt"><span>⚡</span><span>Need a custom estimate or technical consultation?</span></div>
-                      <Link href="/contact" className="popup-bottom-btn" onClick={() => { setIsServicesOpen(false); setIsMobileMenuOpen(false); }}>
+                      {/* Removed bottom text label */}
+                      <Link href="/contact" className="popup-bottom-btn" style={{ marginLeft: 'auto' }} onClick={() => { setIsServicesOpen(false); setIsMobileMenuOpen(false); }}>
                         <span>Talk to Expert</span><span>&rarr;</span>
                       </Link>
                     </div>
@@ -1051,17 +1054,17 @@ export default function Header({ variant }) {
               {isProductOpen && (
                 <div className="services-dropdown-menu-bridge product-popup-bridge" onMouseEnter={() => setIsProductOpen(true)} onMouseLeave={() => setIsProductOpen(false)}>
                   <div className="services-popup-card product-popup-card">
-                    <div className="popup-header-row">
-                      <div className="popup-eyebrow-label"><span>✦</span><span>OUR PRODUCTS</span></div>
-                    </div>
+                      {/* Removed product header row to match clean style */}
                     <div className="popup-services-grid product-popup-grid">
                       {productDropdown.map((item) => (
                         <Link key={item.href} href={item.href} className="popup-service-item" onClick={() => setIsProductOpen(false)}>
                           <div className="popup-icon-box" style={{ background: item.theme.bg, border: `1px solid ${item.theme.border}`, color: item.theme.color }}>
                             {item.icon}
                           </div>
-                          <div className="popup-text-box">
-                            <span className="popup-item-title">{item.title}</span>
+                          <div className="popup-text-box" style={{ display: 'flex', alignItems: 'center' }}>
+                            <div className="popup-item-title-row" style={{ margin: 0, padding: 0 }}>
+                              <span className="popup-item-title">{item.title}</span>
+                            </div>
                           </div>
                         </Link>
                       ))}

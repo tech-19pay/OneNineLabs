@@ -108,9 +108,6 @@ export default function WhyUsPage() {
             </div>
 
           </div>
-          <div className="dark-hero-pointer">
-            <Hand size={48} strokeWidth={1.5} color="#ffffff" />
-          </div>
         </div>
       </section>
 
