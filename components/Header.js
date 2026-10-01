@@ -110,6 +110,13 @@ export default function Header({ variant }) {
       theme: { bg: "#eef2ff", border: "#c7d2fe", color: "#4f46e5" },
       icon: "⌨️",
     },
+    {
+      title: "CRM System",
+      desc: "Customer relationship management software",
+      href: "/crm",
+      theme: { bg: "#f0fdf4", border: "#bbf7d0", color: "#16a34a" },
+      icon: "💼",
+    },
   ];
 
   const servicesDropdown = [
