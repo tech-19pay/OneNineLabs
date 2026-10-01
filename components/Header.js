@@ -943,10 +943,13 @@ export default function Header({ variant }) {
             onClick={() => setMobileProductOpen((p) => !p)}
           >
             <div className="mob-stoggle-left">
-              <div className="mob-stoggle-icon-wrap">✦</div>
+              <div className="mob-stoggle-icon-wrap">
+                <img src="/icons/download.png" alt="Product" style={{ width: '27px', height: '27px', objectFit: 'contain' }} />
+              </div>
+
               <div>
                 <div className="mob-stoggle-title">Our Product</div>
-                <div className="mob-stoggle-sub">1 product</div>
+                <div className="mob-stoggle-sub">2 product</div>
               </div>
             </div>
             <svg className="mob-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
