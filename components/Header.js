@@ -111,7 +111,7 @@ export default function Header({ variant }) {
       icon: "⌨️",
     },
     {
-      title: "CRM System",
+      title: "CRM Management",
       desc: "Customer relationship management software",
       href: "/crm",
       theme: { bg: "#f0fdf4", border: "#bbf7d0", color: "#16a34a" },
@@ -370,8 +370,8 @@ export default function Header({ variant }) {
         }
 
         .product-popup-bridge {
-          width: max-content;
-          min-width: 200px;
+          width: 200px;
+          min-width: unset;
           left: 50%;
           transform: translateX(-50%);
           animation: dropdownSlideIn 0.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
@@ -429,9 +429,8 @@ export default function Header({ variant }) {
           font-size: 12.5px;
           font-weight: 500;
           color: #1e293b;
-          white-space: nowrap;
-          overflow: hidden;
-          text-overflow: ellipsis;
+          white-space: normal;
+          line-height: 1.3;
         }
 
         .popup-service-item:hover .popup-item-title { color: #0284c7; }
@@ -1061,7 +1060,7 @@ export default function Header({ variant }) {
               {isProductOpen && (
                 <div className="services-dropdown-menu-bridge product-popup-bridge" onMouseEnter={() => setIsProductOpen(true)} onMouseLeave={() => setIsProductOpen(false)}>
                   <div className="services-popup-card product-popup-card">
-                      {/* Removed product header row to match clean style */}
+                    {/* Removed product header row to match clean style */}
                     <div className="popup-services-grid product-popup-grid">
                       {productDropdown.map((item) => (
                         <Link key={item.href} href={item.href} className="popup-service-item" onClick={() => setIsProductOpen(false)}>
