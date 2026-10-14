@@ -4,9 +4,140 @@ import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import DigitalFeaturesInfographic from "@/components/DigitalFeaturesInfographic";
+
+const featuresData = [
+  {
+    id: "live-tracking",
+    num: "01",
+    tag: "Real-time Metrics",
+    title: "Live Speed & Mistake Tracking",
+    shortDesc: "Take a typing test and see your speed in Words Per Minute (WPM). The app will instantly show you exactly how many mistakes you made.",
+    badge: "Instant Telemetry",
+    color: "#6366f1",
+    accentLight: "rgba(99, 102, 241, 0.08)",
+    accentBorder: "rgba(99, 102, 241, 0.25)",
+    highlights: [
+      "Gross & Net WPM calculated per keystroke with zero latency",
+      "Instant error categorization: spelling, omitted words & spacing",
+      "Real-time visual indicator for live test pacing"
+    ],
+    stats: [
+      { label: "WPM Precision", value: "±0.1 WPM" },
+      { label: "Error Detection", value: "Instant" },
+      { label: "Engine Latency", value: "< 2ms" }
+    ]
+  },
+  {
+    id: "pdf-reports",
+    num: "02",
+    tag: "Examination Scorecards",
+    title: "Download Detailed PDF Reports",
+    shortDesc: "Download a full PDF report of your test. It shows every single detail: your total words, where you made mistakes, spacing errors, and missed full stops.",
+    badge: "Print & Export Ready",
+    color: "#0ea5e9",
+    accentLight: "rgba(14, 165, 233, 0.08)",
+    accentBorder: "rgba(14, 165, 233, 0.25)",
+    highlights: [
+      "Comprehensive word-by-word error mapping with color highlights",
+      "Accurate penalty calculation: half-mistakes & full-mistakes breakdown",
+      "Direct print-ready & downloadable certified examination scorecard"
+    ],
+    stats: [
+      { label: "Export Format", value: "Vector PDF" },
+      { label: "Audit Level", value: "Exact Letter" },
+      { label: "Report Time", value: "1-Click" }
+    ]
+  },
+  {
+    id: "hindi-english",
+    num: "03",
+    tag: "Bilingual Typing Engine",
+    title: "Hindi & English Support",
+    shortDesc: "Practice and test your typing in both Hindi and English. The app fully supports both languages for all your speed tests and reviews.",
+    badge: "Dual Script Engine",
+    color: "#10b981",
+    accentLight: "rgba(16, 185, 129, 0.08)",
+    accentBorder: "rgba(16, 185, 129, 0.25)",
+    highlights: [
+      "Complete support for Mangal Unicode (Inscript / Remington GAIL)",
+      "Legacy Kruti Dev 010 & DevLys support with automatic glyph mapping",
+      "Seamless single-click language switching between Hindi & English"
+    ],
+    stats: [
+      { label: "Hindi Fonts", value: "Mangal + Kruti" },
+      { label: "Keyboards", value: "GAIL & Inscript" },
+      { label: "Dual Review", value: "Native" }
+    ]
+  },
+  {
+    id: "upload-pdf",
+    num: "04",
+    tag: "Document Ingestion",
+    title: "Upload PDFs for Practice",
+    shortDesc: "You can upload your own PDF documents in Hindi or English. The app will read the text so you can type, practice, and review your performance directly.",
+    badge: "Smart Document OCR",
+    color: "#f59e0b",
+    accentLight: "rgba(245, 158, 11, 0.08)",
+    accentBorder: "rgba(245, 158, 11, 0.25)",
+    highlights: [
+      "Upload court judgments, editorial articles, or past exam question papers",
+      "Automated whitespace cleanup & punctuation normalization",
+      "Instantly turns uploaded PDFs into custom practice tests"
+    ],
+    stats: [
+      { label: "Input Files", value: "PDF & TXT" },
+      { label: "Text Extraction", value: "Instant Clean" },
+      { label: "Custom Tests", value: "Unlimited" }
+    ]
+  },
+  {
+    id: "custom-timer",
+    num: "05",
+    tag: "Pacing & Exam Modes",
+    title: "Custom Timer & Goals",
+    shortDesc: "Set personalized timers (1-minute, 5-minute, or custom) and word count goals to challenge yourself and track your daily progress.",
+    badge: "Precision Pacing",
+    color: "#8b5cf6",
+    accentLight: "rgba(139, 92, 246, 0.08)",
+    accentBorder: "rgba(139, 92, 246, 0.25)",
+    highlights: [
+      "Pre-configured 1-min, 5-min, 10-min, and 15-min examination durations",
+      "Target WPM benchmark with real-time on-screen pacekeeper",
+      "Strict Exam Mode: lock backspace & disable text copy-paste"
+    ],
+    stats: [
+      { label: "Preset Times", value: "1 to 30 Min" },
+      { label: "Target Goals", value: "30-120 WPM" },
+      { label: "Exam Rules", value: "Lockable" }
+    ]
+  },
+  {
+    id: "custom-requirements",
+    num: "06",
+    tag: "Institutional Tailoring",
+    title: "As Per Your Requirement",
+    shortDesc: "Need something specific? If you have any additional custom feature requests, we will build and provide them exactly according to your unique requirements.",
+    badge: "100% Customized",
+    color: "#ec4899",
+    accentLight: "rgba(236, 72, 153, 0.08)",
+    accentBorder: "rgba(236, 72, 153, 0.25)",
+    highlights: [
+      "Custom marking schemes for SSC, High Court, RRB, and State CPCT boards",
+      "Special keystroke penalty formulas and custom backspace penalty rules",
+      "Institutional white-labeling, batch student tracking, and custom portals"
+    ],
+    stats: [
+      { label: "Exam Boards", value: "All Major Govt" },
+      { label: "Rule Config", value: "Fully Bespoke" },
+      { label: "Support", value: "Direct Team" }
+    ]
+  }
+];
 
 export default function ProductPageContent() {
   const [mounted, setMounted] = useState(false);
+  const [activeFeature, setActiveFeature] = useState(0);
 
   useEffect(() => {
     setMounted(true);
@@ -45,66 +176,16 @@ export default function ProductPageContent() {
       <section id="features" className="product-details-section">
         <div className="details-container">
           <div className="section-header">
-            <h2>Complete Typing Features
-            </h2>
-            <p>Take tests, track every single mistake, download detailed PDF reports, and practice in both Hindi and English.</p>
+            <div className="feature-pill-badge">
+              <span className="pill-dot"></span>
+              ALL-IN-ONE PRACTICE &amp; EVALUATION ENGINE
+            </div>
+            <h2>Complete Typing Features</h2>
+            <p>Take tests, track every single mistake, download detailed PDF reports, and practice with precision.</p>
           </div>
 
-          <div className="features-grid">
-            {/* Feature 1 */}
-            <div className="feature-card">
-              <div className="feature-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#6366f1" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" /><path d="M12 6v6l4 2" /><path d="M16 3l2 2" /><path d="M8 3L6 5" /></svg>
-              </div>
-              <h3>Live Speed & Mistake Tracking</h3>
-              <p>Take a typing test and see your speed in Words Per Minute (WPM). The app will instantly show you exactly how many mistakes you made.</p>
-            </div>
-
-            {/* Feature 2 */}
-            <div className="feature-card">
-              <div className="feature-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#0ea5e9" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /><line x1="12" y1="18" x2="12" y2="12" /><polyline points="9 15 12 18 15 15" /></svg>
-              </div>
-              <h3>Download Detailed PDF Reports</h3>
-              <p>Download a full PDF report of your test. It shows every single detail: your total words, where you made mistakes, spacing errors, and missed full stops.</p>
-            </div>
-
-            {/* Feature 3 */}
-            <div className="feature-card">
-              <div className="feature-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#10b981" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M4 21V4a2 2 0 0 1 2-2h8l6 6v13" /><path d="M9 13h6" /><path d="M9 17h3" /><text x="7" y="11" fontSize="7" fill="#10b981" stroke="none" fontWeight="bold">अ</text><text x="15" y="11" fontSize="7" fill="#10b981" stroke="none" fontWeight="bold">A</text></svg>
-              </div>
-              <h3>Hindi & English Support</h3>
-              <p>Practice and test your typing in both Hindi and English. The app fully supports both languages for all your speed tests and reviews.</p>
-            </div>
-
-            {/* Feature 4 */}
-            <div className="feature-card">
-              <div className="feature-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#f59e0b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="17 8 12 3 7 8" /><line x1="12" y1="3" x2="12" y2="15" /></svg>
-              </div>
-              <h3>Upload PDFs for Practice</h3>
-              <p>You can upload your own PDF documents in Hindi or English. The app will read the text so you can type, practice, and review your performance directly.</p>
-            </div>
-
-            {/* Feature 5 */}
-            <div className="feature-card">
-              <div className="feature-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /><line x1="12" y1="2" x2="12" y2="6" /></svg>
-              </div>
-              <h3>Custom Timer & Goals</h3>
-              <p>Set personalized timers (1-minute, 5-minute, or custom) and word count goals to challenge yourself and track your daily progress.</p>
-            </div>
-
-            {/* Feature 6 */}
-            <div className="feature-card">
-              <div className="feature-icon">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#64748b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="3" /><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z" /></svg>
-              </div>
-              <h3>As Per Your Requirment</h3>
-              <p>Need something specific? If you have any additional custom feature requests, we will build and provide them exactly according to your unique requirements.</p>
-            </div>
-          </div>
+          {/* Digital Products Features Infographic Matching User Reference Image */}
+          <DigitalFeaturesInfographic />
         </div>
       </section>
 
@@ -132,7 +213,7 @@ export default function ProductPageContent() {
         /* Hero */
         .product-hero {
           position: relative;
-          padding: 160px 24px 100px;
+          padding: 130px 24px 35px;
           text-align: center;
           overflow: hidden;
           background: #ffffff;
@@ -269,87 +350,69 @@ export default function ProductPageContent() {
         /* Details */
         .product-details-section {
           position: relative;
-          padding: 100px 24px;
-          background: #edf6fd;
-          background-image: 
-            radial-gradient(circle at 15% 20%, rgba(224, 242, 254, 0.9) 0%, transparent 50%),
-            radial-gradient(circle at 85% 35%, rgba(186, 230, 253, 0.7) 0%, transparent 55%),
-            radial-gradient(circle at 50% 90%, rgba(240, 249, 255, 0.95) 0%, transparent 60%);
-          border-top: 1px solid #e2e8f0;
-          border-bottom: 1px solid #e2e8f0;
+          padding: 42px 20px 40px;
+          background: #ffffff;
+          border-top: 1px solid #f1f5f9;
+          border-bottom: 1px solid #f1f5f9;
         }
 
         .details-container {
-          max-width: 1200px;
+          max-width: 1240px;
           margin: 0 auto;
         }
 
         .section-header {
           text-align: center;
-          max-width: 700px;
-          margin: 0 auto 60px;
+          max-width: 680px;
+          margin: 0 auto 12px;
         }
 
         .section-header h2 {
-          font-size: clamp(32px, 4vw, 48px);
+          font-size: clamp(26px, 3.2vw, 36px);
           font-weight: 800;
           color: #0f172a;
-          margin-bottom: 20px;
+          margin-bottom: 4px;
         }
 
         .section-header p {
-          font-size: 17px;
+          font-size: 14.5px;
           color: #64748b;
-          line-height: 1.6;
+          line-height: 1.45;
         }
 
-        .features-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          gap: 24px;
-        }
-
-        .feature-card {
-          background: #ffffff;
-          padding: 32px;
-          border-radius: 20px;
-          border: 1px solid #e2e8f0;
-          transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .feature-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 20px 40px rgba(0,0,0,0.04);
-        }
-
-        .feature-icon {
-          font-size: 32px;
-          width: 64px;
-          height: 64px;
-          background: #f0f9ff;
-          display: flex;
+        .feature-pill-badge {
+          display: inline-flex;
           align-items: center;
-          justify-content: center;
-          border-radius: 16px;
-          margin-bottom: 24px;
-        }
-
-        .feature-card h3 {
-          font-size: 20px;
+          gap: 7px;
+          padding: 4px 12px;
+          background: rgba(99, 102, 241, 0.08);
+          border: 1px solid rgba(99, 102, 241, 0.2);
+          border-radius: 9999px;
+          font-size: 11px;
           font-weight: 700;
-          color: #0f172a;
-          margin-bottom: 12px;
+          letter-spacing: 0.08em;
+          color: #4f46e5;
+          margin-bottom: 6px;
+          text-transform: uppercase;
         }
 
-        .feature-card p {
-          font-size: 15px;
-          color: #475569;
-          line-height: 1.6;
+        .pill-dot {
+          width: 7px;
+          height: 7px;
+          background: #4f46e5;
+          border-radius: 50%;
+          box-shadow: 0 0 10px #4f46e5;
+          animation: pulseDot 2s infinite;
+        }
+
+        @keyframes pulseDot {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0.4; transform: scale(0.85); }
         }
 
         /* CTA */
         .product-cta {
-          padding: 80px 24px;
+          padding: 36px 24px;
           background: #ffffff;
         }
 
@@ -484,6 +547,10 @@ export default function ProductPageContent() {
           .product-details-section, .product-cta {
             padding: 80px 24px;
           }
+          .studio-container {
+            grid-template-columns: 1fr;
+          }
+
         }
 
         @media (max-width: 768px) {
@@ -516,10 +583,14 @@ export default function ProductPageContent() {
           .section-header p {
             font-size: 16px;
           }
-          .features-grid {
-            grid-template-columns: 1fr;
-            gap: 24px;
+          .studio-nav-column {
+            padding: 14px;
+            border-radius: 18px;
           }
+          .studio-nav-item {
+            padding: 12px;
+          }
+
           .cta-box {
             padding: 40px 24px;
           }

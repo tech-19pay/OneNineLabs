@@ -3,7 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   poweredByHeader: false,
   compress: true,
-  allowedDevOrigins: ["172.20.10.4", "192.168.1.6", "localhost"],
+  allowedDevOrigins: ["172.20.10.4", "192.168.1.2", "localhost"],
   images: {
     formats: ["image/avif", "image/webp"],
   },
